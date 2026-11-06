@@ -1,0 +1,806 @@
+{
+  "dataset": "mimic4_6h",
+  "n": 7514,
+  "folds": 5,
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "outcome_counts": {
+    "0": 1385,
+    "1": 2180,
+    "2": 503,
+    "3": 2072,
+    "4": 1374
+  },
+  "static_features": [
+    "age",
+    "age_gt89",
+    "sex_male",
+    "race_white",
+    "race_black",
+    "emergency_admission",
+    "care_unit_ccu",
+    "care_unit_cvicu",
+    "care_unit_micu",
+    "care_unit_sicu",
+    "care_unit_tsicu",
+    "care_unit_neuro",
+    "admission_source_er",
+    "admission_source_transfer",
+    "lab_troponin_missing",
+    "lab_troponin_first",
+    "lab_troponin_min",
+    "lab_troponin_max",
+    "lab_troponin_mean",
+    "lab_ck_mb_missing",
+    "lab_ck_mb_first",
+    "lab_ck_mb_min",
+    "lab_ck_mb_max",
+    "lab_ck_mb_mean",
+    "lab_creatinine_missing",
+    "lab_creatinine_first",
+    "lab_creatinine_min",
+    "lab_creatinine_max",
+    "lab_creatinine_mean",
+    "lab_blood_urea_nitrogen_missing",
+    "lab_blood_urea_nitrogen_first",
+    "lab_blood_urea_nitrogen_min",
+    "lab_blood_urea_nitrogen_max",
+    "lab_blood_urea_nitrogen_mean",
+    "lab_lactate_missing",
+    "lab_lactate_first",
+    "lab_lactate_min",
+    "lab_lactate_max",
+    "lab_lactate_mean",
+    "lab_white_blood_cell_count_missing",
+    "lab_white_blood_cell_count_first",
+    "lab_white_blood_cell_count_min",
+    "lab_white_blood_cell_count_max",
+    "lab_white_blood_cell_count_mean",
+    "lab_hemoglobin_missing",
+    "lab_hemoglobin_first",
+    "lab_hemoglobin_min",
+    "lab_hemoglobin_max",
+    "lab_hemoglobin_mean",
+    "lab_platelets_missing",
+    "lab_platelets_first",
+    "lab_platelets_min",
+    "lab_platelets_max",
+    "lab_platelets_mean",
+    "lab_sodium_missing",
+    "lab_sodium_first",
+    "lab_sodium_min",
+    "lab_sodium_max",
+    "lab_sodium_mean",
+    "lab_potassium_missing",
+    "lab_potassium_first",
+    "lab_potassium_min",
+    "lab_potassium_max",
+    "lab_potassium_mean",
+    "lab_glucose_missing",
+    "lab_glucose_first",
+    "lab_glucose_min",
+    "lab_glucose_max",
+    "lab_glucose_mean",
+    "lab_inr_missing",
+    "lab_inr_first",
+    "lab_inr_min",
+    "lab_inr_max",
+    "lab_inr_mean",
+    "lab_total_bilirubin_missing",
+    "lab_total_bilirubin_first",
+    "lab_total_bilirubin_min",
+    "lab_total_bilirubin_max",
+    "lab_total_bilirubin_mean",
+    "lab_alt_missing",
+    "lab_alt_first",
+    "lab_alt_min",
+    "lab_alt_max",
+    "lab_alt_mean",
+    "lab_ast_missing",
+    "lab_ast_first",
+    "lab_ast_min",
+    "lab_ast_max",
+    "lab_ast_mean",
+    "lab_albumin_missing",
+    "lab_albumin_first",
+    "lab_albumin_min",
+    "lab_albumin_max",
+    "lab_albumin_mean",
+    "lab_bicarbonate_missing",
+    "lab_bicarbonate_first",
+    "lab_bicarbonate_min",
+    "lab_bicarbonate_max",
+    "lab_bicarbonate_mean",
+    "lab_chloride_missing",
+    "lab_chloride_first",
+    "lab_chloride_min",
+    "lab_chloride_max",
+    "lab_chloride_mean",
+    "troponin_assay_t"
+  ],
+  "full_static_features": [
+    "age",
+    "age_gt89",
+    "sex_male",
+    "race_white",
+    "race_black",
+    "emergency_admission",
+    "care_unit_ccu",
+    "care_unit_cvicu",
+    "care_unit_micu",
+    "care_unit_sicu",
+    "care_unit_tsicu",
+    "care_unit_neuro",
+    "admission_source_er",
+    "admission_source_transfer",
+    "lab_troponin_missing",
+    "lab_troponin_first",
+    "lab_troponin_min",
+    "lab_troponin_max",
+    "lab_troponin_mean",
+    "lab_ck_mb_missing",
+    "lab_ck_mb_first",
+    "lab_ck_mb_min",
+    "lab_ck_mb_max",
+    "lab_ck_mb_mean",
+    "lab_creatinine_missing",
+    "lab_creatinine_first",
+    "lab_creatinine_min",
+    "lab_creatinine_max",
+    "lab_creatinine_mean",
+    "lab_blood_urea_nitrogen_missing",
+    "lab_blood_urea_nitrogen_first",
+    "lab_blood_urea_nitrogen_min",
+    "lab_blood_urea_nitrogen_max",
+    "lab_blood_urea_nitrogen_mean",
+    "lab_lactate_missing",
+    "lab_lactate_first",
+    "lab_lactate_min",
+    "lab_lactate_max",
+    "lab_lactate_mean",
+    "lab_white_blood_cell_count_missing",
+    "lab_white_blood_cell_count_first",
+    "lab_white_blood_cell_count_min",
+    "lab_white_blood_cell_count_max",
+    "lab_white_blood_cell_count_mean",
+    "lab_hemoglobin_missing",
+    "lab_hemoglobin_first",
+    "lab_hemoglobin_min",
+    "lab_hemoglobin_max",
+    "lab_hemoglobin_mean",
+    "lab_platelets_missing",
+    "lab_platelets_first",
+    "lab_platelets_min",
+    "lab_platelets_max",
+    "lab_platelets_mean",
+    "lab_sodium_missing",
+    "lab_sodium_first",
+    "lab_sodium_min",
+    "lab_sodium_max",
+    "lab_sodium_mean",
+    "lab_potassium_missing",
+    "lab_potassium_first",
+    "lab_potassium_min",
+    "lab_potassium_max",
+    "lab_potassium_mean",
+    "lab_glucose_missing",
+    "lab_glucose_first",
+    "lab_glucose_min",
+    "lab_glucose_max",
+    "lab_glucose_mean",
+    "lab_inr_missing",
+    "lab_inr_first",
+    "lab_inr_min",
+    "lab_inr_max",
+    "lab_inr_mean",
+    "lab_total_bilirubin_missing",
+    "lab_total_bilirubin_first",
+    "lab_total_bilirubin_min",
+    "lab_total_bilirubin_max",
+    "lab_total_bilirubin_mean",
+    "lab_alt_missing",
+    "lab_alt_first",
+    "lab_alt_min",
+    "lab_alt_max",
+    "lab_alt_mean",
+    "lab_ast_missing",
+    "lab_ast_first",
+    "lab_ast_min",
+    "lab_ast_max",
+    "lab_ast_mean",
+    "lab_albumin_missing",
+    "lab_albumin_first",
+    "lab_albumin_min",
+    "lab_albumin_max",
+    "lab_albumin_mean",
+    "lab_bicarbonate_missing",
+    "lab_bicarbonate_first",
+    "lab_bicarbonate_min",
+    "lab_bicarbonate_max",
+    "lab_bicarbonate_mean",
+    "lab_chloride_missing",
+    "lab_chloride_first",
+    "lab_chloride_min",
+    "lab_chloride_max",
+    "lab_chloride_mean",
+    "troponin_assay_t",
+    "hr_first",
+    "hr_last",
+    "hr_min",
+    "hr_max",
+    "hr_mean",
+    "hr_count",
+    "rr_first",
+    "rr_last",
+    "rr_min",
+    "rr_max",
+    "rr_mean",
+    "rr_count",
+    "spo2_first",
+    "spo2_last",
+    "spo2_min",
+    "spo2_max",
+    "spo2_mean",
+    "spo2_count",
+    "sbp_first",
+    "sbp_last",
+    "sbp_min",
+    "sbp_max",
+    "sbp_mean",
+    "sbp_count",
+    "dbp_first",
+    "dbp_last",
+    "dbp_min",
+    "dbp_max",
+    "dbp_mean",
+    "dbp_count",
+    "mbp_first",
+    "mbp_last",
+    "mbp_min",
+    "mbp_max",
+    "mbp_mean",
+    "mbp_count",
+    "temp_first",
+    "temp_last",
+    "temp_min",
+    "temp_max",
+    "temp_mean",
+    "temp_count",
+    "gcs_first",
+    "gcs_last",
+    "gcs_min",
+    "gcs_max",
+    "gcs_mean",
+    "gcs_count",
+    "gcs_change"
+  ],
+  "metrics": {
+    "xgb_static": {
+      "macro_auc": 0.7409647890733436,
+      "accuracy": 0.4713867447431461,
+      "quadratic_weighted_kappa": 0.49558464475595754,
+      "ordinal_mae": 0.9435719989353207,
+      "log_loss": 1.2435267452500163,
+      "multiclass_brier": 0.6413992058233395,
+      "per_class_auc": {
+        "0": 0.8490110046750579,
+        "1": 0.7152286010120295,
+        "2": 0.6393473419928298,
+        "3": 0.6807766332642298,
+        "4": 0.8204603644225709
+      },
+      "mean_predicted_class": 1.9815167167165246,
+      "macro_auc_ci": {
+        "estimate": 0.7409647890733436,
+        "ci_low": 0.7335357093107285,
+        "ci_high": 0.7485545216852305,
+        "bootstrap_replicates_valid": 2000
+      }
+    },
+    "xgb_static_ts": {
+      "macro_auc": 0.7606094124603022,
+      "accuracy": 0.48176736758051636,
+      "quadratic_weighted_kappa": 0.542990311887013,
+      "ordinal_mae": 0.8936651583710408,
+      "log_loss": 1.2038472897466594,
+      "multiclass_brier": 0.6250734298563775,
+      "per_class_auc": {
+        "0": 0.8684039245275906,
+        "1": 0.7270974155753467,
+        "2": 0.6689337658260961,
+        "3": 0.6922974320989757,
+        "4": 0.846314524273502
+      },
+      "mean_predicted_class": 1.9810615727423604,
+      "macro_auc_ci": {
+        "estimate": 0.7606094124603022,
+        "ci_low": 0.7534243627104208,
+        "ci_high": 0.7679256141838667,
+        "bootstrap_replicates_valid": 2000
+      }
+    },
+    "dggru": {
+      "macro_auc": 0.72514122594578,
+      "accuracy": 0.3941974980037264,
+      "quadratic_weighted_kappa": 0.5283559567694924,
+      "ordinal_mae": 1.015437849347884,
+      "log_loss": 1.4305019728049653,
+      "multiclass_brier": 0.7190202456489686,
+      "per_class_auc": {
+        "0": 0.827726739128002,
+        "1": 0.7164011035317833,
+        "2": 0.5910229678837544,
+        "3": 0.6651539612537407,
+        "4": 0.8254013579316198
+      },
+      "mean_predicted_class": 2.1353181555509164,
+      "macro_auc_ci": {
+        "estimate": 0.72514122594578,
+        "ci_low": 0.7175345770686877,
+        "ci_high": 0.733140764601356,
+        "bootstrap_replicates_valid": 2000
+      }
+    },
+    "dggru_tr": {
+      "macro_auc": 0.7252936960777631,
+      "accuracy": 0.39206813947298375,
+      "quadratic_weighted_kappa": 0.528030857283603,
+      "ordinal_mae": 1.0166356135214267,
+      "log_loss": 1.429723315270215,
+      "multiclass_brier": 0.7186128709041723,
+      "per_class_auc": {
+        "0": 0.8284552400171288,
+        "1": 0.7171764653271552,
+        "2": 0.5907564171383055,
+        "3": 0.6655413387083728,
+        "4": 0.8245390191978531
+      },
+      "mean_predicted_class": 2.1328525374979646,
+      "macro_auc_ci": {
+        "estimate": 0.7252936960777631,
+        "ci_low": 0.7178815695815933,
+        "ci_high": 0.733347453109362,
+        "bootstrap_replicates_valid": 2000
+      }
+    }
+  },
+  "primary_contrast": {
+    "delta": -0.035315716382539164,
+    "ci_low": -0.043051647230785806,
+    "ci_high": -0.027679585422400767,
+    "bootstrap_replicates_valid": 2000
+  },
+  "regularization_contrast": {
+    "delta": 0.00015247013198305126,
+    "ci_low": -0.0005988039566452302,
+    "ci_high": 0.0009601512217256465,
+    "bootstrap_replicates_valid": 2000
+  },
+  "time_series_increment": {
+    "nri_idi": [
+      {
+        "threshold": "y>=1",
+        "nri": -0.4966540675123827,
+        "idi": -0.034725308418273926
+      },
+      {
+        "threshold": "y>=2",
+        "nri": -0.3744126107165092,
+        "idi": -0.036275625228881836
+      },
+      {
+        "threshold": "y>=3",
+        "nri": -0.29071056120244865,
+        "idi": -0.026418626308441162
+      },
+      {
+        "threshold": "y>=4",
+        "nri": -0.31151065151321194,
+        "idi": -0.030182361602783203
+      }
+    ],
+    "delta_macro_auc": {
+      "delta": 0.019644623386958604,
+      "ci_low": 0.0149621447863609,
+      "ci_high": 0.024440640844852812,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "regularization_increment": {
+    "nri_idi": [
+      {
+        "threshold": "y>=1",
+        "nri": 0.02617302013920919,
+        "idi": -0.0008412003517150879
+      },
+      {
+        "threshold": "y>=2",
+        "nri": 0.05050125424548696,
+        "idi": -0.0001297593116760254
+      },
+      {
+        "threshold": "y>=3",
+        "nri": 0.08832123203280734,
+        "idi": 0.0005607903003692627
+      },
+      {
+        "threshold": "y>=4",
+        "nri": 0.14998838361568262,
+        "idi": 0.0021254122257232666
+      }
+    ],
+    "delta_macro_auc": {
+      "delta": 0.00015247013198305126,
+      "ci_low": -0.0005988039566452302,
+      "ci_high": 0.0009601512217256465,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "deep_vs_static_ts": {
+    "nri_idi": [
+      {
+        "threshold": "y>=1",
+        "nri": -0.39291125282950845,
+        "idi": -0.07278525829315186
+      },
+      {
+        "threshold": "y>=2",
+        "nri": -0.3646391917708141,
+        "idi": -0.03599226474761963
+      },
+      {
+        "threshold": "y>=3",
+        "nri": -0.37298513774253245,
+        "idi": -0.05189335346221924
+      },
+      {
+        "threshold": "y>=4",
+        "nri": -0.33430721306345396,
+        "idi": -0.10194402933120728
+      }
+    ],
+    "delta_macro_auc": {
+      "delta": -0.035315716382539164,
+      "ci_low": -0.043051647230785806,
+      "ci_high": -0.027679585422400767,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "per_class_delong": [
+    {
+      "class": 0,
+      "auc_a": 0.8284552989192058,
+      "auc_b": 0.8684039245275906,
+      "p_value": 1.5986271052029e-20,
+      "holm_p": 7.993135526014501e-20,
+      "bonferroni_p": 7.993135526014501e-20
+    },
+    {
+      "class": 1,
+      "auc_a": 0.7171764653271552,
+      "auc_b": 0.7270974585745589,
+      "p_value": 0.04725128994673852,
+      "holm_p": 0.04725128994673852,
+      "bonferroni_p": 0.23625644973369261
+    },
+    {
+      "class": 2,
+      "auc_a": 0.5907564171383055,
+      "auc_b": 0.6689337658260961,
+      "p_value": 1.4284320584488228e-07,
+      "holm_p": 4.2852961753464685e-07,
+      "bonferroni_p": 7.142160292244114e-07
+    },
+    {
+      "class": 3,
+      "auc_a": 0.6655413387083728,
+      "auc_b": 0.6922974320989757,
+      "p_value": 3.424563828024445e-05,
+      "holm_p": 6.84912765604889e-05,
+      "bonferroni_p": 0.00017122819140122223
+    },
+    {
+      "class": 4,
+      "auc_a": 0.8245390191978531,
+      "auc_b": 0.8463145242735018,
+      "p_value": 3.524191896922226e-08,
+      "holm_p": 1.4096767587688904e-07,
+      "bonferroni_p": 1.762095948461113e-07
+    }
+  ],
+  "calibration": {
+    "xgb_static": {
+      "p_y_ge_3": {
+        "slope": 1.163248578300364,
+        "intercept": 0.016285423890809572
+      },
+      "p_y_4": {
+        "slope": 1.1495073248348122,
+        "intercept": 0.17705281796264014
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 752,
+          "mean_predicted": 0.09708680379194544,
+          "observed": 0.05053191489361702
+        },
+        {
+          "bin": 2,
+          "n": 752,
+          "mean_predicted": 0.19081009324005943,
+          "observed": 0.17819148936170212
+        },
+        {
+          "bin": 3,
+          "n": 752,
+          "mean_predicted": 0.2784381969732807,
+          "observed": 0.2646276595744681
+        },
+        {
+          "bin": 4,
+          "n": 752,
+          "mean_predicted": 0.36094053715784497,
+          "observed": 0.3617021276595745
+        },
+        {
+          "bin": 5,
+          "n": 751,
+          "mean_predicted": 0.4336025696619849,
+          "observed": 0.40346205059920104
+        },
+        {
+          "bin": 6,
+          "n": 751,
+          "mean_predicted": 0.5038842473938049,
+          "observed": 0.48868175765645805
+        },
+        {
+          "bin": 7,
+          "n": 751,
+          "mean_predicted": 0.5681152148507089,
+          "observed": 0.5992010652463382
+        },
+        {
+          "bin": 8,
+          "n": 751,
+          "mean_predicted": 0.6275473021159318,
+          "observed": 0.6524633821571239
+        },
+        {
+          "bin": 9,
+          "n": 751,
+          "mean_predicted": 0.7004803288157548,
+          "observed": 0.7350199733688415
+        },
+        {
+          "bin": 10,
+          "n": 751,
+          "mean_predicted": 0.8271376955683793,
+          "observed": 0.8535286284953395
+        }
+      ]
+    },
+    "xgb_static_ts": {
+      "p_y_ge_3": {
+        "slope": 1.2134047279895184,
+        "intercept": 0.0193442178471546
+      },
+      "p_y_4": {
+        "slope": 1.2265033888259935,
+        "intercept": 0.26160697189128584
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 752,
+          "mean_predicted": 0.08741707000584203,
+          "observed": 0.043882978723404256
+        },
+        {
+          "bin": 2,
+          "n": 752,
+          "mean_predicted": 0.17591537091326206,
+          "observed": 0.13696808510638298
+        },
+        {
+          "bin": 3,
+          "n": 752,
+          "mean_predicted": 0.2654848670428421,
+          "observed": 0.24202127659574468
+        },
+        {
+          "bin": 4,
+          "n": 752,
+          "mean_predicted": 0.3544223610153224,
+          "observed": 0.3603723404255319
+        },
+        {
+          "bin": 5,
+          "n": 751,
+          "mean_predicted": 0.4307065228726988,
+          "observed": 0.4007989347536618
+        },
+        {
+          "bin": 6,
+          "n": 751,
+          "mean_predicted": 0.5020583305314441,
+          "observed": 0.49001331557922767
+        },
+        {
+          "bin": 7,
+          "n": 751,
+          "mean_predicted": 0.5691090827775541,
+          "observed": 0.6031957390146472
+        },
+        {
+          "bin": 8,
+          "n": 751,
+          "mean_predicted": 0.637930212500251,
+          "observed": 0.6617842876165113
+        },
+        {
+          "bin": 9,
+          "n": 751,
+          "mean_predicted": 0.7227832664662449,
+          "observed": 0.7616511318242344
+        },
+        {
+          "bin": 10,
+          "n": 751,
+          "mean_predicted": 0.843032267138104,
+          "observed": 0.8868175765645806
+        }
+      ]
+    },
+    "dggru": {
+      "p_y_ge_3": {
+        "slope": 0.6377607941231681,
+        "intercept": -0.021255709774763012
+      },
+      "p_y_4": {
+        "slope": 0.7169283912179674,
+        "intercept": -0.9202264887199184
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 752,
+          "mean_predicted": 0.015044314410628663,
+          "observed": 0.057180851063829786
+        },
+        {
+          "bin": 2,
+          "n": 752,
+          "mean_predicted": 0.10559466138898217,
+          "observed": 0.18617021276595744
+        },
+        {
+          "bin": 3,
+          "n": 752,
+          "mean_predicted": 0.19914780965352313,
+          "observed": 0.21143617021276595
+        },
+        {
+          "bin": 4,
+          "n": 752,
+          "mean_predicted": 0.2808543864360198,
+          "observed": 0.33643617021276595
+        },
+        {
+          "bin": 5,
+          "n": 751,
+          "mean_predicted": 0.373251599851207,
+          "observed": 0.43009320905459386
+        },
+        {
+          "bin": 6,
+          "n": 751,
+          "mean_predicted": 0.47182594368683195,
+          "observed": 0.5406125166444741
+        },
+        {
+          "bin": 7,
+          "n": 751,
+          "mean_predicted": 0.5853515787226223,
+          "observed": 0.6005326231691078
+        },
+        {
+          "bin": 8,
+          "n": 751,
+          "mean_predicted": 0.7107819089400625,
+          "observed": 0.6537949400798935
+        },
+        {
+          "bin": 9,
+          "n": 751,
+          "mean_predicted": 0.8404919978146864,
+          "observed": 0.7283621837549934
+        },
+        {
+          "bin": 10,
+          "n": 751,
+          "mean_predicted": 0.9555813539202775,
+          "observed": 0.8428761651131824
+        }
+      ]
+    },
+    "dggru_tr": {
+      "p_y_ge_3": {
+        "slope": 0.6395520456293989,
+        "intercept": -0.017678531373089994
+      },
+      "p_y_4": {
+        "slope": 0.7157903821541858,
+        "intercept": -0.9146339419035385
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 752,
+          "mean_predicted": 0.014966845455227426,
+          "observed": 0.057180851063829786
+        },
+        {
+          "bin": 2,
+          "n": 752,
+          "mean_predicted": 0.10602592166632097,
+          "observed": 0.18617021276595744
+        },
+        {
+          "bin": 3,
+          "n": 752,
+          "mean_predicted": 0.19940438939932179,
+          "observed": 0.20877659574468085
+        },
+        {
+          "bin": 4,
+          "n": 752,
+          "mean_predicted": 0.28086864653023635,
+          "observed": 0.3324468085106383
+        },
+        {
+          "bin": 5,
+          "n": 751,
+          "mean_predicted": 0.3734978540204019,
+          "observed": 0.4420772303595206
+        },
+        {
+          "bin": 6,
+          "n": 751,
+          "mean_predicted": 0.46983571606533187,
+          "observed": 0.5392809587217043
+        },
+        {
+          "bin": 7,
+          "n": 751,
+          "mean_predicted": 0.5835801831256852,
+          "observed": 0.5845539280958721
+        },
+        {
+          "bin": 8,
+          "n": 751,
+          "mean_predicted": 0.7081597232310655,
+          "observed": 0.6644474034620506
+        },
+        {
+          "bin": 9,
+          "n": 751,
+          "mean_predicted": 0.8392718456556572,
+          "observed": 0.7283621837549934
+        },
+        {
+          "bin": 10,
+          "n": 751,
+          "mean_predicted": 0.9545882571235637,
+          "observed": 0.844207723035952
+        }
+      ]
+    }
+  }
+}

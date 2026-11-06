@@ -1,0 +1,146 @@
+[
+  {
+    "model": "dggru",
+    "regularization": "cumulative_curvature",
+    "lambda_curvature": 0.0,
+    "seed": 42,
+    "folds": 5,
+    "epochs": 30,
+    "metrics": {
+      "macro_auc": 0.7032081352494719,
+      "accuracy": 0.3641128410667489,
+      "quadratic_weighted_kappa": 0.5251314669317733,
+      "ordinal_mae": 1.0100200400801602,
+      "log_loss": 1.6096282230969106,
+      "multiclass_brier": 0.7766034894304714,
+      "per_class_auc": {
+        "0": 0.8024749125579184,
+        "1": 0.6978054387283877,
+        "2": 0.5658112839370499,
+        "3": 0.6276366881315872,
+        "4": 0.822312352892417
+      },
+      "mean_predicted_class": 2.191300446170162
+    }
+  },
+  {
+    "model": "dggru_ctr",
+    "regularization": "cumulative_curvature",
+    "lambda_curvature": 0.001,
+    "seed": 42,
+    "folds": 5,
+    "epochs": 30,
+    "metrics": {
+      "macro_auc": 0.7065155788966493,
+      "accuracy": 0.36241714197626024,
+      "quadratic_weighted_kappa": 0.5365496274819898,
+      "ordinal_mae": 0.9966086018190227,
+      "log_loss": 1.604526899821109,
+      "multiclass_brier": 0.7751272832521404,
+      "per_class_auc": {
+        "0": 0.8140724130979966,
+        "1": 0.6988367373622363,
+        "2": 0.5688578694506672,
+        "3": 0.6326649232878884,
+        "4": 0.8181459512844584
+      },
+      "mean_predicted_class": 2.182631667493569
+    }
+  },
+  {
+    "model": "dggru_ctr",
+    "regularization": "cumulative_curvature",
+    "lambda_curvature": 0.005,
+    "seed": 42,
+    "folds": 5,
+    "epochs": 30,
+    "metrics": {
+      "macro_auc": 0.7063472137355751,
+      "accuracy": 0.3627254509018036,
+      "quadratic_weighted_kappa": 0.535768784418249,
+      "ordinal_mae": 0.9970710652073378,
+      "log_loss": 1.603661778488015,
+      "multiclass_brier": 0.7749794733857401,
+      "per_class_auc": {
+        "0": 0.814022650045988,
+        "1": 0.6986657527816065,
+        "2": 0.5684852135198726,
+        "3": 0.6325226851708293,
+        "4": 0.8180397671595794
+      },
+      "mean_predicted_class": 2.1823528104513668
+    }
+  },
+  {
+    "model": "dggru_ctr",
+    "regularization": "cumulative_curvature",
+    "lambda_curvature": 0.01,
+    "seed": 42,
+    "folds": 5,
+    "epochs": 30,
+    "metrics": {
+      "macro_auc": 0.7062020959239856,
+      "accuracy": 0.3648836133806074,
+      "quadratic_weighted_kappa": 0.5369736792520851,
+      "ordinal_mae": 0.9935255125635887,
+      "log_loss": 1.6029012604373454,
+      "multiclass_brier": 0.7748423601141742,
+      "per_class_auc": {
+        "0": 0.8139253817936951,
+        "1": 0.6985080474548324,
+        "2": 0.5681051608267467,
+        "3": 0.6324383874090841,
+        "4": 0.8180335021355699
+      },
+      "mean_predicted_class": 2.1821043259508506
+    }
+  },
+  {
+    "model": "dggru_ctr",
+    "regularization": "cumulative_curvature",
+    "lambda_curvature": 0.05,
+    "seed": 42,
+    "folds": 5,
+    "epochs": 30,
+    "metrics": {
+      "macro_auc": 0.7058935136156186,
+      "accuracy": 0.3648836133806074,
+      "quadratic_weighted_kappa": 0.5371706199402677,
+      "ordinal_mae": 0.9924464313241869,
+      "log_loss": 1.601259507499447,
+      "multiclass_brier": 0.7745440281508544,
+      "per_class_auc": {
+        "0": 0.8136604003153045,
+        "1": 0.6990950585739942,
+        "2": 0.5664990067204869,
+        "3": 0.6315762303281296,
+        "4": 0.8186368721401772
+      },
+      "mean_predicted_class": 2.1793460680405166
+    }
+  },
+  {
+    "model": "dggru_ctr",
+    "regularization": "cumulative_curvature",
+    "lambda_curvature": 0.1,
+    "seed": 42,
+    "folds": 5,
+    "epochs": 30,
+    "metrics": {
+      "macro_auc": 0.7058620018559028,
+      "accuracy": 0.3655002312316942,
+      "quadratic_weighted_kappa": 0.5368386612578786,
+      "ordinal_mae": 0.9913673500847849,
+      "log_loss": 1.5999939439369424,
+      "multiclass_brier": 0.7743181873419686,
+      "per_class_auc": {
+        "0": 0.8135923035072926,
+        "1": 0.6997123736314425,
+        "2": 0.5664618467954409,
+        "3": 0.6308669347197673,
+        "4": 0.8186765506255708
+      },
+      "mean_predicted_class": 2.175866775800664
+    }
+  }
+]

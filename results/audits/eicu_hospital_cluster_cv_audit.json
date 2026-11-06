@@ -1,0 +1,109 @@
+{
+  "analysis": "eICU internal CV with patient grouping versus patient-safe hospital-cluster grouping",
+  "n": 6696,
+  "n_patients": 6571,
+  "n_hospitals": 174,
+  "n_hospital_clusters": 147,
+  "clustering": {
+    "n_hospitals": 174,
+    "n_patients": 6571,
+    "n_cross_hospital_patients": 33,
+    "n_hospital_clusters": 147,
+    "n_clusters_with_multiple_hospitals": 16,
+    "n_cluster_sizes": 147,
+    "cluster_size_min": 1,
+    "cluster_size_median": 18.0,
+    "cluster_size_max": 458,
+    "split_rule": "connected components of the patient-hospital graph; every held-out hospital cluster is disjoint from training patients"
+  },
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "folds": 5,
+  "feature_count": 154,
+  "patient_grouped": {
+    "macro_auc": 0.8071326356430203,
+    "accuracy": 0.7084826762246117,
+    "quadratic_weighted_kappa": 0.45646636488635406,
+    "ordinal_mae": 0.5501792114695341,
+    "log_loss": 0.7165840114962304,
+    "multiclass_brier": 0.3863468871782103,
+    "per_class_auc": {
+      "0": 0.8475596227405386,
+      "1": 0.736695852698473,
+      "2": 0.7653169148835339,
+      "3": 0.8789581522495357
+    },
+    "mean_predicted_class": 0.734648497440304,
+    "macro_auc_ci": {
+      "estimate": 0.8071326356430203,
+      "ci_low": 0.7862920121610069,
+      "ci_high": 0.8246616345938355,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "hospital_cluster_grouped": {
+    "macro_auc": 0.7842773056226071,
+    "accuracy": 0.7054958183990442,
+    "quadratic_weighted_kappa": 0.45738846545942224,
+    "ordinal_mae": 0.5534647550776584,
+    "log_loss": 0.7376630722096962,
+    "multiclass_brier": 0.39425947070201933,
+    "per_class_auc": {
+      "0": 0.8377669007308208,
+      "1": 0.6767923622308641,
+      "2": 0.7448281341149687,
+      "3": 0.8777218254137751
+    },
+    "mean_predicted_class": 0.7391605770896261,
+    "macro_auc_ci": {
+      "estimate": 0.7842773056226071,
+      "ci_low": 0.7579650159028881,
+      "ci_high": 0.807768177906753,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "delta_definition": "hospital_cluster_grouped minus patient_grouped",
+  "seed_averaged_delta": {
+    "delta": -0.022855330020413178,
+    "ci_low": -0.03721677866186484,
+    "ci_high": -0.0054768628512967665,
+    "bootstrap_replicates_valid": 2000
+  },
+  "seed_specific": [
+    {
+      "seed": 1,
+      "patient_grouped_macro_auc": 0.8014543778997382,
+      "hospital_cluster_macro_auc": 0.7780799183626799,
+      "hospital_cluster_minus_patient_grouped": -0.0233744595370583
+    },
+    {
+      "seed": 7,
+      "patient_grouped_macro_auc": 0.8075410847945612,
+      "hospital_cluster_macro_auc": 0.7782595252443157,
+      "hospital_cluster_minus_patient_grouped": -0.029281559550245473
+    },
+    {
+      "seed": 42,
+      "patient_grouped_macro_auc": 0.8036912638162944,
+      "hospital_cluster_macro_auc": 0.776310586607225,
+      "hospital_cluster_minus_patient_grouped": -0.02738067720906945
+    },
+    {
+      "seed": 123,
+      "patient_grouped_macro_auc": 0.8010523474046347,
+      "hospital_cluster_macro_auc": 0.7864008983207661,
+      "hospital_cluster_minus_patient_grouped": -0.014651449083868617
+    },
+    {
+      "seed": 2024,
+      "patient_grouped_macro_auc": 0.8034545710271593,
+      "hospital_cluster_macro_auc": 0.7825194300875982,
+      "hospital_cluster_minus_patient_grouped": -0.02093514093956117
+    }
+  ]
+}

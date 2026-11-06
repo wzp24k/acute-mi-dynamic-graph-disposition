@@ -1,0 +1,24 @@
+{
+  "model": "dggru_ctr",
+  "regularization": "cumulative_curvature",
+  "lambda_curvature": 0.01,
+  "seed": 42,
+  "folds": 5,
+  "epochs": 30,
+  "metrics": {
+    "macro_auc": 0.7062020959239856,
+    "accuracy": 0.3648836133806074,
+    "quadratic_weighted_kappa": 0.5369736792520851,
+    "ordinal_mae": 0.9935255125635887,
+    "log_loss": 1.6029012604373454,
+    "multiclass_brier": 0.7748423601141742,
+    "per_class_auc": {
+      "0": 0.8139253817936951,
+      "1": 0.6985080474548324,
+      "2": 0.5681051608267467,
+      "3": 0.6324383874090841,
+      "4": 0.8180335021355699
+    },
+    "mean_predicted_class": 2.1821043259508506
+  }
+}

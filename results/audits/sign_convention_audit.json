@@ -1,0 +1,162 @@
+{
+  "definition": "All contrast values equal the named first model minus the named second model. Values are not sign-flipped or absolute-transformed.",
+  "n": 6487,
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "factorial_design": {
+    "shared_static_feature_contract_mlp_vs_xgb": "xgb_static and mlp_static share the static feature-column contract but use family-specific preprocessing and heads",
+    "shared_static_plus_summary_contract_xgb_vs_mlp": "xgb_static_ts and mlp_static_ts share the static-plus-summary feature-column contract but use family-specific preprocessing and heads",
+    "strict_same_input_gru_vs_dggru": "gru and dggru both receive input_kind=full and the raw sequence-plus-availability tensor; this is the strict same-input, different-architecture comparison",
+    "dggru_sequence_toggle": "dggru_static and dggru share input_kind=full; only dggru_static sets use_sequence=false, providing a sequence-plus-availability input toggle with fixed network structure"
+  },
+  "cached_files": {
+    "dggru": [
+      "mimic4_dggru_seed1.npz",
+      "mimic4_dggru_seed7.npz",
+      "mimic4_dggru_seed42.npz",
+      "mimic4_dggru_seed123.npz",
+      "mimic4_dggru_seed2024.npz"
+    ],
+    "dggru_ctr": [
+      "mimic4_dggru_ctr_seed1.npz",
+      "mimic4_dggru_ctr_seed7.npz",
+      "mimic4_dggru_ctr_seed42.npz",
+      "mimic4_dggru_ctr_seed123.npz",
+      "mimic4_dggru_ctr_seed2024.npz"
+    ],
+    "dggru_static": [
+      "mimic4_dggru_static_seed1.npz",
+      "mimic4_dggru_static_seed7.npz",
+      "mimic4_dggru_static_seed42.npz",
+      "mimic4_dggru_static_seed123.npz",
+      "mimic4_dggru_static_seed2024.npz"
+    ],
+    "dggru_tr": [
+      "mimic4_dggru_tr_seed1.npz",
+      "mimic4_dggru_tr_seed7.npz",
+      "mimic4_dggru_tr_seed42.npz",
+      "mimic4_dggru_tr_seed123.npz",
+      "mimic4_dggru_tr_seed2024.npz"
+    ],
+    "gru": [
+      "mimic4_gru_seed1.npz",
+      "mimic4_gru_seed7.npz",
+      "mimic4_gru_seed42.npz",
+      "mimic4_gru_seed123.npz",
+      "mimic4_gru_seed2024.npz"
+    ],
+    "mlp_static": [
+      "mimic4_mlp_static_seed1.npz",
+      "mimic4_mlp_static_seed7.npz",
+      "mimic4_mlp_static_seed42.npz",
+      "mimic4_mlp_static_seed123.npz",
+      "mimic4_mlp_static_seed2024.npz"
+    ],
+    "mlp_static_ts": [
+      "mimic4_mlp_static_ts_seed1.npz",
+      "mimic4_mlp_static_ts_seed7.npz",
+      "mimic4_mlp_static_ts_seed42.npz",
+      "mimic4_mlp_static_ts_seed123.npz",
+      "mimic4_mlp_static_ts_seed2024.npz"
+    ],
+    "xgb_static": [
+      "mimic4_xgb_static_seed1.npz",
+      "mimic4_xgb_static_seed7.npz",
+      "mimic4_xgb_static_seed42.npz",
+      "mimic4_xgb_static_seed123.npz",
+      "mimic4_xgb_static_seed2024.npz"
+    ],
+    "xgb_static_ts": [
+      "mimic4_xgb_static_ts_seed1.npz",
+      "mimic4_xgb_static_ts_seed7.npz",
+      "mimic4_xgb_static_ts_seed42.npz",
+      "mimic4_xgb_static_ts_seed123.npz",
+      "mimic4_xgb_static_ts_seed2024.npz"
+    ]
+  },
+  "seed_averaged_macro_auc": {
+    "dggru": 0.7279401524194162,
+    "dggru_ctr": 0.7276801300572638,
+    "dggru_static": 0.7302154144494418,
+    "dggru_tr": 0.7285525231086665,
+    "gru": 0.7293762273633115,
+    "mlp_static": 0.7164622790429301,
+    "mlp_static_ts": 0.7328055343191449,
+    "xgb_static": 0.7503851457101625,
+    "xgb_static_ts": 0.7779361688376568
+  },
+  "contrasts": {
+    "primary_contrast": {
+      "definition": "dggru_tr minus xgb_static_ts",
+      "pipeline_delta": -0.049383645728990344,
+      "recomputed_delta": -0.049383645728990344
+    },
+    "regularization_contrast": {
+      "definition": "dggru_tr minus dggru",
+      "pipeline_delta": 0.0006123706892502412,
+      "recomputed_delta": 0.0006123706892502412
+    },
+    "time_series_increment": {
+      "definition": "xgb_static_ts minus xgb_static",
+      "pipeline_delta": 0.027551023127494356,
+      "recomputed_delta": 0.027551023127494356
+    },
+    "time_series_increment_mlp": {
+      "definition": "mlp_static_ts minus mlp_static",
+      "pipeline_delta": 0.01634325527621472,
+      "recomputed_delta": 0.01634325527621472
+    },
+    "regularization_increment": {
+      "definition": "dggru_tr minus dggru",
+      "pipeline_delta": 0.0006123706892502412,
+      "recomputed_delta": 0.0006123706892502412
+    },
+    "deep_vs_static_ts": {
+      "definition": "dggru_tr minus xgb_static_ts",
+      "pipeline_delta": -0.049383645728990344,
+      "recomputed_delta": -0.049383645728990344
+    },
+    "static_input_dggru_increment": {
+      "definition": "dggru minus dggru_static",
+      "pipeline_delta": -0.0022752620300255932,
+      "recomputed_delta": -0.0022752620300255932
+    },
+    "cumulative_curvature_increment": {
+      "definition": "dggru_ctr minus dggru",
+      "pipeline_delta": -0.00026002236215239005,
+      "recomputed_delta": -0.00026002236215239005
+    },
+    "same_static_input_mlp_vs_xgb": {
+      "definition": "mlp_static minus xgb_static",
+      "pipeline_delta": -0.03392286666723232,
+      "recomputed_delta": -0.03392286666723232
+    },
+    "same_full_input_xgb_vs_mlp": {
+      "definition": "xgb_static_ts minus mlp_static_ts",
+      "pipeline_delta": 0.04513063451851196,
+      "recomputed_delta": 0.04513063451851196
+    },
+    "same_full_input_mlp_vs_dggru": {
+      "definition": "mlp_static_ts minus dggru",
+      "pipeline_delta": 0.004865381899728627,
+      "recomputed_delta": 0.004865381899728627
+    },
+    "same_full_input_gru_vs_dggru": {
+      "definition": "gru minus dggru",
+      "pipeline_delta": 0.0014360749438953047,
+      "recomputed_delta": 0.0014360749438953047
+    }
+  },
+  "negative_value_preservation": {
+    "calibration_gap_rows_below_zero": 17,
+    "external_net_benefit_rows_below_zero": 88,
+    "threshold_csv": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table10_threshold_calibration.csv",
+    "external_dca_csv": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\external_dca_curves.csv"
+  },
+  "status": "passed"
+}

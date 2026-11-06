@@ -1,0 +1,598 @@
+{
+  "dataset": "eicu",
+  "n": 6696,
+  "folds": 5,
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "outcome_counts": {
+    "0": 4420,
+    "1": 208,
+    "2": 1439,
+    "3": 629
+  },
+  "static_features": [
+    "age",
+    "age_gt89",
+    "sex_male",
+    "race_white",
+    "race_black",
+    "emergency_admission",
+    "care_unit_ccu",
+    "care_unit_cvicu",
+    "care_unit_micu",
+    "care_unit_sicu",
+    "care_unit_tsicu",
+    "care_unit_neuro",
+    "admission_source_er",
+    "admission_source_transfer",
+    "lab_troponin_missing",
+    "lab_troponin_first",
+    "lab_troponin_min",
+    "lab_troponin_max",
+    "lab_troponin_mean",
+    "lab_ck_mb_missing",
+    "lab_ck_mb_first",
+    "lab_ck_mb_min",
+    "lab_ck_mb_max",
+    "lab_ck_mb_mean",
+    "lab_creatinine_missing",
+    "lab_creatinine_first",
+    "lab_creatinine_min",
+    "lab_creatinine_max",
+    "lab_creatinine_mean",
+    "lab_blood_urea_nitrogen_missing",
+    "lab_blood_urea_nitrogen_first",
+    "lab_blood_urea_nitrogen_min",
+    "lab_blood_urea_nitrogen_max",
+    "lab_blood_urea_nitrogen_mean",
+    "lab_lactate_missing",
+    "lab_lactate_first",
+    "lab_lactate_min",
+    "lab_lactate_max",
+    "lab_lactate_mean",
+    "lab_white_blood_cell_count_missing",
+    "lab_white_blood_cell_count_first",
+    "lab_white_blood_cell_count_min",
+    "lab_white_blood_cell_count_max",
+    "lab_white_blood_cell_count_mean",
+    "lab_hemoglobin_missing",
+    "lab_hemoglobin_first",
+    "lab_hemoglobin_min",
+    "lab_hemoglobin_max",
+    "lab_hemoglobin_mean",
+    "lab_platelets_missing",
+    "lab_platelets_first",
+    "lab_platelets_min",
+    "lab_platelets_max",
+    "lab_platelets_mean",
+    "lab_sodium_missing",
+    "lab_sodium_first",
+    "lab_sodium_min",
+    "lab_sodium_max",
+    "lab_sodium_mean",
+    "lab_potassium_missing",
+    "lab_potassium_first",
+    "lab_potassium_min",
+    "lab_potassium_max",
+    "lab_potassium_mean",
+    "lab_glucose_missing",
+    "lab_glucose_first",
+    "lab_glucose_min",
+    "lab_glucose_max",
+    "lab_glucose_mean",
+    "lab_inr_missing",
+    "lab_inr_first",
+    "lab_inr_min",
+    "lab_inr_max",
+    "lab_inr_mean",
+    "lab_total_bilirubin_missing",
+    "lab_total_bilirubin_first",
+    "lab_total_bilirubin_min",
+    "lab_total_bilirubin_max",
+    "lab_total_bilirubin_mean",
+    "lab_alt_missing",
+    "lab_alt_first",
+    "lab_alt_min",
+    "lab_alt_max",
+    "lab_alt_mean",
+    "lab_ast_missing",
+    "lab_ast_first",
+    "lab_ast_min",
+    "lab_ast_max",
+    "lab_ast_mean",
+    "lab_albumin_missing",
+    "lab_albumin_first",
+    "lab_albumin_min",
+    "lab_albumin_max",
+    "lab_albumin_mean",
+    "lab_bicarbonate_missing",
+    "lab_bicarbonate_first",
+    "lab_bicarbonate_min",
+    "lab_bicarbonate_max",
+    "lab_bicarbonate_mean",
+    "lab_chloride_missing",
+    "lab_chloride_first",
+    "lab_chloride_min",
+    "lab_chloride_max",
+    "lab_chloride_mean",
+    "troponin_assay_t"
+  ],
+  "full_static_features": [
+    "age",
+    "age_gt89",
+    "sex_male",
+    "race_white",
+    "race_black",
+    "emergency_admission",
+    "care_unit_ccu",
+    "care_unit_cvicu",
+    "care_unit_micu",
+    "care_unit_sicu",
+    "care_unit_tsicu",
+    "care_unit_neuro",
+    "admission_source_er",
+    "admission_source_transfer",
+    "lab_troponin_missing",
+    "lab_troponin_first",
+    "lab_troponin_min",
+    "lab_troponin_max",
+    "lab_troponin_mean",
+    "lab_ck_mb_missing",
+    "lab_ck_mb_first",
+    "lab_ck_mb_min",
+    "lab_ck_mb_max",
+    "lab_ck_mb_mean",
+    "lab_creatinine_missing",
+    "lab_creatinine_first",
+    "lab_creatinine_min",
+    "lab_creatinine_max",
+    "lab_creatinine_mean",
+    "lab_blood_urea_nitrogen_missing",
+    "lab_blood_urea_nitrogen_first",
+    "lab_blood_urea_nitrogen_min",
+    "lab_blood_urea_nitrogen_max",
+    "lab_blood_urea_nitrogen_mean",
+    "lab_lactate_missing",
+    "lab_lactate_first",
+    "lab_lactate_min",
+    "lab_lactate_max",
+    "lab_lactate_mean",
+    "lab_white_blood_cell_count_missing",
+    "lab_white_blood_cell_count_first",
+    "lab_white_blood_cell_count_min",
+    "lab_white_blood_cell_count_max",
+    "lab_white_blood_cell_count_mean",
+    "lab_hemoglobin_missing",
+    "lab_hemoglobin_first",
+    "lab_hemoglobin_min",
+    "lab_hemoglobin_max",
+    "lab_hemoglobin_mean",
+    "lab_platelets_missing",
+    "lab_platelets_first",
+    "lab_platelets_min",
+    "lab_platelets_max",
+    "lab_platelets_mean",
+    "lab_sodium_missing",
+    "lab_sodium_first",
+    "lab_sodium_min",
+    "lab_sodium_max",
+    "lab_sodium_mean",
+    "lab_potassium_missing",
+    "lab_potassium_first",
+    "lab_potassium_min",
+    "lab_potassium_max",
+    "lab_potassium_mean",
+    "lab_glucose_missing",
+    "lab_glucose_first",
+    "lab_glucose_min",
+    "lab_glucose_max",
+    "lab_glucose_mean",
+    "lab_inr_missing",
+    "lab_inr_first",
+    "lab_inr_min",
+    "lab_inr_max",
+    "lab_inr_mean",
+    "lab_total_bilirubin_missing",
+    "lab_total_bilirubin_first",
+    "lab_total_bilirubin_min",
+    "lab_total_bilirubin_max",
+    "lab_total_bilirubin_mean",
+    "lab_alt_missing",
+    "lab_alt_first",
+    "lab_alt_min",
+    "lab_alt_max",
+    "lab_alt_mean",
+    "lab_ast_missing",
+    "lab_ast_first",
+    "lab_ast_min",
+    "lab_ast_max",
+    "lab_ast_mean",
+    "lab_albumin_missing",
+    "lab_albumin_first",
+    "lab_albumin_min",
+    "lab_albumin_max",
+    "lab_albumin_mean",
+    "lab_bicarbonate_missing",
+    "lab_bicarbonate_first",
+    "lab_bicarbonate_min",
+    "lab_bicarbonate_max",
+    "lab_bicarbonate_mean",
+    "lab_chloride_missing",
+    "lab_chloride_first",
+    "lab_chloride_min",
+    "lab_chloride_max",
+    "lab_chloride_mean",
+    "troponin_assay_t",
+    "hr_first",
+    "hr_last",
+    "hr_min",
+    "hr_max",
+    "hr_mean",
+    "hr_count",
+    "rr_first",
+    "rr_last",
+    "rr_min",
+    "rr_max",
+    "rr_mean",
+    "rr_count",
+    "spo2_first",
+    "spo2_last",
+    "spo2_min",
+    "spo2_max",
+    "spo2_mean",
+    "spo2_count",
+    "sbp_first",
+    "sbp_last",
+    "sbp_min",
+    "sbp_max",
+    "sbp_mean",
+    "sbp_count",
+    "dbp_first",
+    "dbp_last",
+    "dbp_min",
+    "dbp_max",
+    "dbp_mean",
+    "dbp_count",
+    "mbp_first",
+    "mbp_last",
+    "mbp_min",
+    "mbp_max",
+    "mbp_mean",
+    "mbp_count",
+    "temp_first",
+    "temp_last",
+    "temp_min",
+    "temp_max",
+    "temp_mean",
+    "temp_count",
+    "gcs_first",
+    "gcs_last",
+    "gcs_min",
+    "gcs_max",
+    "gcs_mean",
+    "gcs_count",
+    "gcs_change"
+  ],
+  "metrics": {
+    "xgb_static": {
+      "macro_auc": 0.7763864162361775,
+      "accuracy": 0.6966845878136201,
+      "quadratic_weighted_kappa": 0.40102249951330493,
+      "ordinal_mae": 0.5854241338112306,
+      "log_loss": 0.7586880177518974,
+      "multiclass_brier": 0.40841461710883414,
+      "per_class_auc": {
+        "0": 0.8195279882941415,
+        "1": 0.7025025490847008,
+        "2": 0.7388248211491532,
+        "3": 0.8446903064167144
+      },
+      "mean_predicted_class": 0.7369791216540238,
+      "macro_auc_ci": {
+        "estimate": 0.7763864162361775,
+        "ci_low": 0.7652658841843216,
+        "ci_high": 0.7873899695864144,
+        "bootstrap_replicates_valid": 2000
+      }
+    },
+    "xgb_static_ts": {
+      "macro_auc": 0.8071326356430203,
+      "accuracy": 0.7084826762246117,
+      "quadratic_weighted_kappa": 0.45646636488635406,
+      "ordinal_mae": 0.5501792114695341,
+      "log_loss": 0.7165840115925327,
+      "multiclass_brier": 0.3863468873089404,
+      "per_class_auc": {
+        "0": 0.8475596227405386,
+        "1": 0.736695852698473,
+        "2": 0.7653169148835339,
+        "3": 0.8789581522495357
+      },
+      "mean_predicted_class": 0.7346484971640338,
+      "macro_auc_ci": {
+        "estimate": 0.8071326356430203,
+        "ci_low": 0.7972272268879527,
+        "ci_high": 0.817286286069034,
+        "bootstrap_replicates_valid": 2000
+      }
+    },
+    "dggru_tr": {
+      "macro_auc": 0.7686438915201431,
+      "accuracy": 0.6497909199522103,
+      "quadratic_weighted_kappa": 0.4999148622015209,
+      "ordinal_mae": 0.6600955794504182,
+      "log_loss": 0.9536675992958348,
+      "multiclass_brier": 0.4846323873486246,
+      "per_class_auc": {
+        "0": 0.8327339581229276,
+        "1": 0.6663092513990325,
+        "2": 0.7266286336111235,
+        "3": 0.8489037229474891
+      },
+      "mean_predicted_class": 1.0074738153116058,
+      "macro_auc_ci": {
+        "estimate": 0.7686438915201431,
+        "ci_low": 0.7572271311534559,
+        "ci_high": 0.7799562667806014,
+        "bootstrap_replicates_valid": 2000
+      }
+    }
+  },
+  "per_class_delong": [
+    {
+      "class": 0,
+      "auc_a": 0.832734007825112,
+      "auc_b": 0.8475596724427232,
+      "p_value": 4.0305405171652855e-07,
+      "holm_p": 8.061081034330571e-07,
+      "bonferroni_p": 1.6122162068661142e-06
+    },
+    {
+      "class": 1,
+      "auc_a": 0.6663092513990325,
+      "auc_b": 0.7366958526984729,
+      "p_value": 0.0011393639166035379,
+      "holm_p": 0.0011393639166035379,
+      "bonferroni_p": 0.0045574556664141515
+    },
+    {
+      "class": 2,
+      "auc_a": 0.7266286336111235,
+      "auc_b": 0.7653169148835339,
+      "p_value": 9.404680622799054e-11,
+      "holm_p": 3.7618722491196215e-10,
+      "bonferroni_p": 3.7618722491196215e-10
+    },
+    {
+      "class": 3,
+      "auc_a": 0.8489037229474892,
+      "auc_b": 0.8789581522495358,
+      "p_value": 1.5959921280083701e-09,
+      "holm_p": 4.78797638402511e-09,
+      "bonferroni_p": 6.3839685120334804e-09
+    }
+  ],
+  "calibration": {
+    "xgb_static": {
+      "p_y_ge_3": {
+        "slope": 1.0453033082873182,
+        "intercept": 0.0933968183285597
+      },
+      "p_y_4": {
+        "slope": 1.0453033082873182,
+        "intercept": 0.0933968183285597
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 670,
+          "mean_predicted": 0.006674676414217744,
+          "observed": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 670,
+          "mean_predicted": 0.011128401956451473,
+          "observed": 0.004477611940298508
+        },
+        {
+          "bin": 3,
+          "n": 670,
+          "mean_predicted": 0.017080937730454243,
+          "observed": 0.010447761194029851
+        },
+        {
+          "bin": 4,
+          "n": 670,
+          "mean_predicted": 0.024576989269412274,
+          "observed": 0.023880597014925373
+        },
+        {
+          "bin": 5,
+          "n": 670,
+          "mean_predicted": 0.03572735621857999,
+          "observed": 0.03283582089552239
+        },
+        {
+          "bin": 6,
+          "n": 670,
+          "mean_predicted": 0.05313972191912914,
+          "observed": 0.06716417910447761
+        },
+        {
+          "bin": 7,
+          "n": 669,
+          "mean_predicted": 0.07961182686067304,
+          "observed": 0.07174887892376682
+        },
+        {
+          "bin": 8,
+          "n": 669,
+          "mean_predicted": 0.11657913937964247,
+          "observed": 0.12855007473841554
+        },
+        {
+          "bin": 9,
+          "n": 669,
+          "mean_predicted": 0.18546864258957907,
+          "observed": 0.20926756352765322
+        },
+        {
+          "bin": 10,
+          "n": 669,
+          "mean_predicted": 0.3994217791186676,
+          "observed": 0.39162929745889385
+        }
+      ]
+    },
+    "xgb_static_ts": {
+      "p_y_ge_3": {
+        "slope": 1.0975637846734068,
+        "intercept": 0.1816910194423666
+      },
+      "p_y_4": {
+        "slope": 1.0975637846734068,
+        "intercept": 0.1816910194423666
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 670,
+          "mean_predicted": 0.004782299471866172,
+          "observed": 0.0014925373134328358
+        },
+        {
+          "bin": 2,
+          "n": 670,
+          "mean_predicted": 0.007921984453282472,
+          "observed": 0.0014925373134328358
+        },
+        {
+          "bin": 3,
+          "n": 670,
+          "mean_predicted": 0.011999906620372142,
+          "observed": 0.0014925373134328358
+        },
+        {
+          "bin": 4,
+          "n": 670,
+          "mean_predicted": 0.018014345566895025,
+          "observed": 0.010447761194029851
+        },
+        {
+          "bin": 5,
+          "n": 670,
+          "mean_predicted": 0.027594648040275074,
+          "observed": 0.023880597014925373
+        },
+        {
+          "bin": 6,
+          "n": 670,
+          "mean_predicted": 0.04323630928993225,
+          "observed": 0.04477611940298507
+        },
+        {
+          "bin": 7,
+          "n": 669,
+          "mean_predicted": 0.06983084927113958,
+          "observed": 0.0687593423019432
+        },
+        {
+          "bin": 8,
+          "n": 669,
+          "mean_predicted": 0.11532682182632041,
+          "observed": 0.11360239162929746
+        },
+        {
+          "bin": 9,
+          "n": 669,
+          "mean_predicted": 0.193495708040236,
+          "observed": 0.2242152466367713
+        },
+        {
+          "bin": 10,
+          "n": 669,
+          "mean_predicted": 0.43167726581941274,
+          "observed": 0.4499252615844544
+        }
+      ]
+    },
+    "dggru_tr": {
+      "p_y_ge_3": {
+        "slope": 0.6371595647371108,
+        "intercept": -1.4507861164419271
+      },
+      "p_y_4": {
+        "slope": 0.6371595647371108,
+        "intercept": -1.4507861164419271
+      },
+      "reliability_y_ge_3": [
+        {
+          "bin": 1,
+          "n": 670,
+          "mean_predicted": 0.0004186179889631549,
+          "observed": 0.004477611940298508
+        },
+        {
+          "bin": 2,
+          "n": 670,
+          "mean_predicted": 0.0029883675383223195,
+          "observed": 0.0029850746268656717
+        },
+        {
+          "bin": 3,
+          "n": 670,
+          "mean_predicted": 0.01196388059587621,
+          "observed": 0.010447761194029851
+        },
+        {
+          "bin": 4,
+          "n": 670,
+          "mean_predicted": 0.035071771669743665,
+          "observed": 0.014925373134328358
+        },
+        {
+          "bin": 5,
+          "n": 670,
+          "mean_predicted": 0.07331217664724855,
+          "observed": 0.03283582089552239
+        },
+        {
+          "bin": 6,
+          "n": 670,
+          "mean_predicted": 0.12299624126571328,
+          "observed": 0.050746268656716415
+        },
+        {
+          "bin": 7,
+          "n": 669,
+          "mean_predicted": 0.18428460487424883,
+          "observed": 0.08370702541106129
+        },
+        {
+          "bin": 8,
+          "n": 669,
+          "mean_predicted": 0.28189452057105724,
+          "observed": 0.13602391629297458
+        },
+        {
+          "bin": 9,
+          "n": 669,
+          "mean_predicted": 0.4575870460726221,
+          "observed": 0.18385650224215247
+        },
+        {
+          "bin": 10,
+          "n": 669,
+          "mean_predicted": 0.7932456479657035,
+          "observed": 0.4200298953662182
+        }
+      ]
+    }
+  }
+}

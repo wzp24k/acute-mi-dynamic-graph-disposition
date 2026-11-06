@@ -1,0 +1,70 @@
+{
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "estimand": "macro-AUC of seed-averaged out-of-fold probabilities",
+  "delta_definition": "configuration macro_auc minus No TR macro_auc; positive values mean higher macro-AUC for the configuration. Confidence intervals use paired patient bootstrap resampling of the seed-averaged probabilities.",
+  "bootstrap": "2000 patient bootstrap replicates",
+  "anchors": [
+    {
+      "configuration": "No TR",
+      "lambda_smooth": 0.0,
+      "seeds": 5,
+      "macro_auc": 0.7279401524194162,
+      "macro_auc_ci_low": 0.7201527177829122,
+      "macro_auc_ci_high": 0.7360820978791056,
+      "seed_macro_auc_mean": 0.7035738865338164,
+      "seed_macro_auc_sd": 0.002632247124374635,
+      "delta_macro_auc_vs_no_tr": 0.0,
+      "delta_ci_low": 0.0,
+      "delta_ci_high": 0.0,
+      "delta_bootstrap_replicates_valid": 2000
+    },
+    {
+      "configuration": "Scalar TR, lambda_s=0.01",
+      "lambda_smooth": 0.01,
+      "seeds": 5,
+      "macro_auc": 0.7279894643062017,
+      "macro_auc_ci_low": 0.7201941730542306,
+      "macro_auc_ci_high": 0.7361322478623787,
+      "seed_macro_auc_mean": 0.7036225016761343,
+      "seed_macro_auc_sd": 0.0026422450639485974,
+      "delta_macro_auc_vs_no_tr": 4.931188678547471e-05,
+      "delta_ci_low": -3.21028197650175e-05,
+      "delta_ci_high": 0.00013759170883860248,
+      "delta_bootstrap_replicates_valid": 2000
+    },
+    {
+      "configuration": "Scalar TR, prespecified lambda_s=0.2",
+      "lambda_smooth": 0.2,
+      "seeds": 5,
+      "macro_auc": 0.7285525231086665,
+      "macro_auc_ci_low": 0.7207494551573846,
+      "macro_auc_ci_high": 0.7365400257141768,
+      "seed_macro_auc_mean": 0.7041399778919405,
+      "seed_macro_auc_sd": 0.002765987347008283,
+      "delta_macro_auc_vs_no_tr": 0.0006123706892502412,
+      "delta_ci_low": -4.57582779332194e-05,
+      "delta_ci_high": 0.0012937287258521137,
+      "delta_bootstrap_replicates_valid": 2000
+    },
+    {
+      "configuration": "Scalar TR, lambda_s=1.5",
+      "lambda_smooth": 1.5,
+      "seeds": 5,
+      "macro_auc": 0.7289478903843878,
+      "macro_auc_ci_low": 0.7211573268857443,
+      "macro_auc_ci_high": 0.736973858604277,
+      "seed_macro_auc_mean": 0.704483197834525,
+      "seed_macro_auc_sd": 0.002852004744946398,
+      "delta_macro_auc_vs_no_tr": 0.0010077379649715557,
+      "delta_ci_low": -0.00031665118235169043,
+      "delta_ci_high": 0.0023186546204650707,
+      "delta_bootstrap_replicates_valid": 2000
+    }
+  ]
+}

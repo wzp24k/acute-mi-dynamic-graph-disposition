@@ -1,0 +1,5 @@
+{
+  "negative_control_randomized_label_macro_auc": 0.4955801183482461,
+  "positive_control_disposition_macro_auc": 0.999805030532546,
+  "interpretation": "Randomized labels should be near 0.5; direct disposition leakage should approach 1.0."
+}

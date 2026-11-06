@@ -1,0 +1,932 @@
+{
+  "status": "passed",
+  "n_cache_pairs": 115,
+  "cache_pairs": [
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7487614487044243
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7452717470823925
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7487131495209278
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7459511626974009
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7470917047730368
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static_ts",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7776142477191421
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static_ts",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7736145705600821
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static_ts",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7724401989518427
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static_ts",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7738773676529387
+    },
+    {
+      "dataset": "mimic4",
+      "model": "xgb_static_ts",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7756819152819245
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.6981570064910085
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.6990617868400186
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.6942103320450179
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.6938312086925882
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.6954535137859328
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static_ts",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7080135307498555
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static_ts",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7068421658785495
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static_ts",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7072850474347017
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static_ts",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7075906638128847
+    },
+    {
+      "dataset": "mimic4",
+      "model": "mlp_static_ts",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7096150571371886
+    },
+    {
+      "dataset": "mimic4",
+      "model": "gru",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7053495742347178
+    },
+    {
+      "dataset": "mimic4",
+      "model": "gru",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7058048698377479
+    },
+    {
+      "dataset": "mimic4",
+      "model": "gru",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.703529096424617
+    },
+    {
+      "dataset": "mimic4",
+      "model": "gru",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7085125580941642
+    },
+    {
+      "dataset": "mimic4",
+      "model": "gru",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7016472707658714
+    },
+    {
+      "dataset": "mimic4",
+      "model": "grud",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7088372761328049
+    },
+    {
+      "dataset": "mimic4",
+      "model": "grud",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7040150476041591
+    },
+    {
+      "dataset": "mimic4",
+      "model": "grud",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7052669694950211
+    },
+    {
+      "dataset": "mimic4",
+      "model": "grud",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.699254769445343
+    },
+    {
+      "dataset": "mimic4",
+      "model": "grud",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.701133986936538
+    },
+    {
+      "dataset": "mimic4",
+      "model": "transformer",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7031575430406077
+    },
+    {
+      "dataset": "mimic4",
+      "model": "transformer",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7041106456584085
+    },
+    {
+      "dataset": "mimic4",
+      "model": "transformer",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7078892191250757
+    },
+    {
+      "dataset": "mimic4",
+      "model": "transformer",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7072499381706521
+    },
+    {
+      "dataset": "mimic4",
+      "model": "transformer",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7059802632537466
+    },
+    {
+      "dataset": "mimic4",
+      "model": "stgcn_lite",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7039536403876333
+    },
+    {
+      "dataset": "mimic4",
+      "model": "stgcn_lite",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7076116533935064
+    },
+    {
+      "dataset": "mimic4",
+      "model": "stgcn_lite",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7046679765623207
+    },
+    {
+      "dataset": "mimic4",
+      "model": "stgcn_lite",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7054874466990535
+    },
+    {
+      "dataset": "mimic4",
+      "model": "stgcn_lite",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7083867940093208
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_static",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7036843317914958
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_static",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7068863121576935
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_static",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.70325163654733
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_static",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7072099661118196
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_static",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7055542289169219
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7001850564600736
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7048251608079655
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7032081352494719
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7072127974914212
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7024382826601496
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_tr",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7002574431303294
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_tr",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7051437775362278
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_tr",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7044483742341855
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_tr",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7077833908102674
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_tr",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.703066903748692
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_ctr",
+      "seed": 1,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7015158122412792
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_ctr",
+      "seed": 7,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7019627165496638
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_ctr",
+      "seed": 42,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7062020959239856
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_ctr",
+      "seed": 123,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7032906228820474
+    },
+    {
+      "dataset": "mimic4",
+      "model": "dggru_ctr",
+      "seed": 2024,
+      "n": 6487,
+      "n_classes": 5,
+      "macro_auc": 0.7023693459220448
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static",
+      "seed": 1,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7736113614874385
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static",
+      "seed": 7,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7759172478730765
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static",
+      "seed": 42,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7737060486013343
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static",
+      "seed": 123,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7706560641892567
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static",
+      "seed": 2024,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7741088520712907
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static_ts",
+      "seed": 1,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.8014543778997382
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static_ts",
+      "seed": 7,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.8075410847945612
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static_ts",
+      "seed": 42,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.8036912638162944
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static_ts",
+      "seed": 123,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.8010523474046347
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static_ts",
+      "seed": 2024,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.8034545710271593
+    },
+    {
+      "dataset": "eicu",
+      "model": "dggru_tr",
+      "seed": 1,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7416002578275372
+    },
+    {
+      "dataset": "eicu",
+      "model": "dggru_tr",
+      "seed": 7,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.749108578893049
+    },
+    {
+      "dataset": "eicu",
+      "model": "dggru_tr",
+      "seed": 42,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7383774173469785
+    },
+    {
+      "dataset": "eicu",
+      "model": "dggru_tr",
+      "seed": 123,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7384391644521038
+    },
+    {
+      "dataset": "eicu",
+      "model": "dggru_tr",
+      "seed": 2024,
+      "n": 6696,
+      "n_classes": 4,
+      "macro_auc": 0.7397236373082005
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static",
+      "seed": 1,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7384548110123573
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static",
+      "seed": 7,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.738908441795203
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static",
+      "seed": 42,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7370662001188573
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static",
+      "seed": 123,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7370608357032745
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static",
+      "seed": 2024,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7396412685117975
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static_ts",
+      "seed": 1,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7582307764288031
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static_ts",
+      "seed": 7,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7583488625465131
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static_ts",
+      "seed": 42,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7581928460896084
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static_ts",
+      "seed": 123,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7563791413068605
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "xgb_static_ts",
+      "seed": 2024,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.757198123209143
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru",
+      "seed": 1,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.6952688893551189
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru",
+      "seed": 7,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7022274748002324
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru",
+      "seed": 42,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.6981756628740846
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru",
+      "seed": 123,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7041709557669209
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru",
+      "seed": 2024,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.6961545701751343
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru_tr",
+      "seed": 1,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.6953346220358327
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru_tr",
+      "seed": 7,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.7022994006938361
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru_tr",
+      "seed": 42,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.6982912529608989
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru_tr",
+      "seed": 123,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.703307029365974
+    },
+    {
+      "dataset": "mimic4_6h",
+      "model": "dggru_tr",
+      "seed": 2024,
+      "n": 7514,
+      "n_classes": 5,
+      "macro_auc": 0.6955640388664315
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static",
+      "seed": 1,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.708688757368978
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static",
+      "seed": 7,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.709615690557395
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static",
+      "seed": 42,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7149862101051038
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static",
+      "seed": 123,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7112091918438761
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static",
+      "seed": 2024,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7137490372686855
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static_ts",
+      "seed": 1,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7434295869572043
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static_ts",
+      "seed": 7,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7446744818764149
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static_ts",
+      "seed": 42,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7485731554006272
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static_ts",
+      "seed": 123,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7429910413023771
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "xgb_static_ts",
+      "seed": 2024,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.7444893440278635
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru",
+      "seed": 1,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.676971218522679
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru",
+      "seed": 7,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.673775979630427
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru",
+      "seed": 42,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6859420167369212
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru",
+      "seed": 123,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6798947336460367
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru",
+      "seed": 2024,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6735650590405811
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru_tr",
+      "seed": 1,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.677557085476366
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru_tr",
+      "seed": 7,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6735742451318323
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru_tr",
+      "seed": 42,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6856751848322592
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru_tr",
+      "seed": 123,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6803286799508077
+    },
+    {
+      "dataset": "mimic4_72h",
+      "model": "dggru_tr",
+      "seed": 2024,
+      "n": 2962,
+      "n_classes": 5,
+      "macro_auc": 0.6735899621408346
+    }
+  ],
+  "temporal_controls": {
+    "expected_scalar_configurations": 24,
+    "missing_scalar": [],
+    "expected_cumulative_curvature_configurations": 6,
+    "missing_cumulative_curvature": []
+  }
+}

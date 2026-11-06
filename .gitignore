@@ -1,0 +1,51 @@
+# Credentialed or patient-level data
+data/
+*.parquet
+*.duckdb
+*.npz
+*.npy
+*.pkl
+*.joblib
+
+# Prediction caches and row-level outputs
+results/predictions/
+results/calibration/*predictions*.csv
+results/sensitivity/temporal_controls/
+results/audits/*_predictions/
+results/additional_sensitivities/predictions/
+
+# Site-identifiable eICU outputs
+results/tables/eicu_site_metrics.csv
+results/tables/tableS12_eicu_site_heterogeneity.*
+results/audits/eicu_site_analysis.json
+results/audits/eicu_site_heterogeneity_report.json
+results/figures/source_data/figure5_eicu_site_macro_auc.csv
+
+# Manuscript and submission artifacts
+*.docx
+*.pdf
+*Manuscript*
+*Supplementary*
+1.docx
+outline_ami.docx
+outputs/
+
+# Large or local-only figure formats
+*.tif
+*.tiff
+
+# Python and editor state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Archives and local status files
+*.zip
+work/archive/
+work/qa/
+work/pdf_audit/

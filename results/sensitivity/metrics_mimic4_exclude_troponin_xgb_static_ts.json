@@ -1,0 +1,53 @@
+{
+  "analysis": "exclude_troponin",
+  "model": "xgb_static_ts",
+  "dataset": "mimic4",
+  "n": 6487,
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "folds": 5,
+  "outcome_counts": {
+    "0": 1011,
+    "1": 1936,
+    "2": 472,
+    "3": 1897,
+    "4": 1171
+  },
+  "metrics": {
+    "macro_auc": 0.7776303462989713,
+    "accuracy": 0.507630645907199,
+    "quadratic_weighted_kappa": 0.5579260345718975,
+    "ordinal_mae": 0.8359796516109141,
+    "log_loss": 1.1720636426408557,
+    "multiclass_brier": 0.6129866093247247,
+    "per_class_auc": {
+      "0": 0.8742286275368318,
+      "1": 0.7499539198541417,
+      "2": 0.6982941657156543,
+      "3": 0.701920013597895,
+      "4": 0.8637550047903336
+    },
+    "mean_predicted_class": 2.042550349142241,
+    "macro_auc_ci": {
+      "estimate": 0.7776303462989713,
+      "ci_low": 0.7699585211201293,
+      "ci_high": 0.7850540861231851,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "calibration": {
+    "p_y_ge_3": {
+      "slope": 1.184249235057464,
+      "intercept": 0.0030114742853694487
+    },
+    "highest_class": {
+      "slope": 1.2331937632371899,
+      "intercept": 0.2520754767216247
+    }
+  }
+}

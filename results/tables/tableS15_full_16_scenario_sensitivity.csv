@@ -1,0 +1,17 @@
+scenario_id,scenario,database,outcome_scale,model,n,macro_auc,macro_auc_ci_low,macro_auc_ci_high,reference_macro_auc,delta_from_reference,note
+1,6 h landmark,MIMIC-IV,Five-level,XGB-static+TS,7514,0.7606094124603022,0.7534243627104208,0.7679256141838667,0.7779361688376568,-0.01732675637735459,Separate landmark cohort
+2,72 h landmark,MIMIC-IV,Five-level,XGB-static+TS,2962,0.7509909168003008,0.7389516698007907,0.7626601513542351,0.7779361688376568,-0.026945252037355982,Separate landmark cohort
+3,Six-level outcome,MIMIC-IV,Six-level,XGB-static+TS,6487,0.7758288260047331,0.7676746697209846,0.7841608170264118,,,Prespecified outcome-scale sensitivity
+4,Primary-position AMI,MIMIC-IV,Five-level,XGB-static+TS,3206,0.7919587411504637,0.7812276412399801,0.8031523283445049,0.7779361688376568,0.014022572312806902,Prespecified cohort or feature sensitivity
+5,Exclude type 2 MI,MIMIC-IV,Five-level,XGB-static+TS,5283,0.7845550218692283,0.77629269595739,0.7933488063407014,0.7779361688376568,0.006618853031571503,Prespecified cohort or feature sensitivity
+6,Exclude discharge against advice,MIMIC-IV,Five-level,XGB-static+TS,6462,0.7779046079904794,0.7704164272761858,0.7855591149438856,0.7779361688376568,-3.1560847177369844e-05,Prespecified cohort or feature sensitivity
+7,Exclude troponin,MIMIC-IV,Five-level,XGB-static+TS,6487,0.7776303462989713,0.7699585211201293,0.7850540861231851,0.7779361688376568,-0.00030582253868549625,Prespecified cohort or feature sensitivity
+8,Multiple imputation,MIMIC-IV,Five-level,XGB-static+TS,6487,0.7770411585313561,0.7692384803166115,0.784553533390951,0.7779361688376568,-0.0008950103063006809,Prespecified cohort or feature sensitivity
+9,Pre-24 h revascularization,MIMIC-IV,Five-level,XGB-static+TS,6487,0.777515406241247,0.7698627271035806,0.7848489872537447,0.7779361688376568,-0.00042076259640977387,Prespecified cohort or feature sensitivity
+10,Pre-24 h vasopressor or MCS,MIMIC-IV,Five-level,XGB-static+TS,6487,0.7781230195158438,0.7704964708956121,0.7854947253046278,0.7779361688376568,0.00018685067818702272,Prespecified cohort or feature sensitivity
+11,Reversed-direction monotone trajectory,MIMIC-IV,Five-level,DG-GRU+TR,6487,0.704607438073084,,,0.7032081352494719,0.0013993028236121141,Seed-42 matched temporal-control analysis
+12,Time-permuted trajectory,MIMIC-IV,Five-level,DG-GRU+TR,6487,0.709130731079484,,,0.7032081352494719,0.0059225958300120896,Seed-42 matched temporal-control analysis
+13,Matched generic smoothness,MIMIC-IV,Five-level,DG-GRU+TR,6487,0.704185265660235,,,0.7032081352494719,0.000977130410763083,Seed-42 matched temporal-control analysis
+14,eICU patient-safe hospital-cluster bootstrap,eICU-CRD,Four-class,DG-GRU+TR,6696,0.7293315900843463,0.713508901,0.7435560512,0.7293315900843463,0.0,Patient-safe hospital-cluster bootstrap; no model refitting
+15,Merge hospice/death and rehabilitation/facility,MIMIC-IV,Four-class merged labels,XGB-static+TS,6487,0.8003976662009991,0.7930655252188229,0.8075445415294197,,,Prespecified merged-label sensitivity
+16,eICU Other disposition excluded,eICU-CRD,Four-class,DG-GRU+TR,6479,0.7348648560011789,,,0.7293315900843463,0.005533265916832564,Evaluation-only restriction of frozen transport predictions

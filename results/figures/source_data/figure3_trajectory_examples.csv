@@ -1,0 +1,97 @@
+example,config,hour,trajectory_score
+Home/against advice,no_tr,0,0.12340991199016571
+Home/against advice,no_tr,1,0.16777372360229492
+Home/against advice,no_tr,2,0.08881622552871704
+Home/against advice,no_tr,3,0.0877985954284668
+Home/against advice,no_tr,4,0.007977530360221863
+Home/against advice,no_tr,5,0.014823511242866516
+Home/against advice,no_tr,6,0.02393704652786255
+Home/against advice,no_tr,7,0.03138464689254761
+Home/against advice,no_tr,8,0.04122123122215271
+Home/against advice,no_tr,9,0.029888197779655457
+Home/against advice,no_tr,10,0.068373903632164
+Home/against advice,no_tr,11,0.039738789200782776
+Home/against advice,no_tr,12,0.0017149746417999268
+Home/against advice,no_tr,13,-0.0532885417342186
+Home/against advice,no_tr,14,0.013352036476135254
+Home/against advice,no_tr,15,0.04041863977909088
+Home/against advice,no_tr,16,0.06613516807556152
+Home/against advice,no_tr,17,0.07154315710067749
+Home/against advice,no_tr,18,0.028604716062545776
+Home/against advice,no_tr,19,0.015975818037986755
+Home/against advice,no_tr,20,0.03895571827888489
+Home/against advice,no_tr,21,0.001452714204788208
+Home/against advice,no_tr,22,-0.026004403829574585
+Home/against advice,no_tr,23,-0.06521368771791458
+Home/against advice,intact,0,-0.12614241242408752
+Home/against advice,intact,1,-0.1206006333231926
+Home/against advice,intact,2,-0.12828324735164642
+Home/against advice,intact,3,-0.1275520622730255
+Home/against advice,intact,4,-0.12790052592754364
+Home/against advice,intact,5,-0.12321677803993225
+Home/against advice,intact,6,-0.12689563632011414
+Home/against advice,intact,7,-0.1289217472076416
+Home/against advice,intact,8,-0.13169533014297485
+Home/against advice,intact,9,-0.13117974996566772
+Home/against advice,intact,10,-0.13408975303173065
+Home/against advice,intact,11,-0.1347716897726059
+Home/against advice,intact,12,-0.13264510035514832
+Home/against advice,intact,13,-0.13206712901592255
+Home/against advice,intact,14,-0.13235417008399963
+Home/against advice,intact,15,-0.13303975760936737
+Home/against advice,intact,16,-0.13545307517051697
+Home/against advice,intact,17,-0.13614477217197418
+Home/against advice,intact,18,-0.1327611804008484
+Home/against advice,intact,19,-0.13152238726615906
+Home/against advice,intact,20,-0.13218773901462555
+Home/against advice,intact,21,-0.13089579343795776
+Home/against advice,intact,22,-0.13411690294742584
+Home/against advice,intact,23,-0.12913714349269867
+Hospice/death,no_tr,0,-0.042890772223472595
+Hospice/death,no_tr,1,-0.10611271858215332
+Hospice/death,no_tr,2,-0.009288549423217773
+Hospice/death,no_tr,3,-0.08679939806461334
+Hospice/death,no_tr,4,-0.017037101089954376
+Hospice/death,no_tr,5,-0.12387438118457794
+Hospice/death,no_tr,6,-0.028063751757144928
+Hospice/death,no_tr,7,0.031380545347929
+Hospice/death,no_tr,8,0.013094298541545868
+Hospice/death,no_tr,9,0.012503445148468018
+Hospice/death,no_tr,10,-0.1443842202425003
+Hospice/death,no_tr,11,-0.02700631320476532
+Hospice/death,no_tr,12,0.04588262736797333
+Hospice/death,no_tr,13,-0.04594643414020538
+Hospice/death,no_tr,14,0.050283126533031464
+Hospice/death,no_tr,15,-0.007672935724258423
+Hospice/death,no_tr,16,0.09667700529098511
+Hospice/death,no_tr,17,0.12266060709953308
+Hospice/death,no_tr,18,0.14505571126937866
+Hospice/death,no_tr,19,0.09010180085897446
+Hospice/death,no_tr,20,-0.049317002296447754
+Hospice/death,no_tr,21,-0.08587045967578888
+Hospice/death,no_tr,22,-0.004275232553482056
+Hospice/death,no_tr,23,0.1204761266708374
+Hospice/death,intact,0,0.08099982887506485
+Hospice/death,intact,1,0.08072041720151901
+Hospice/death,intact,2,0.08084334433078766
+Hospice/death,intact,3,0.08098036795854568
+Hospice/death,intact,4,0.08094189316034317
+Hospice/death,intact,5,0.08095084130764008
+Hospice/death,intact,6,0.08110830187797546
+Hospice/death,intact,7,0.08102899044752121
+Hospice/death,intact,8,0.08102858066558838
+Hospice/death,intact,9,0.0810198038816452
+Hospice/death,intact,10,0.08104490488767624
+Hospice/death,intact,11,0.08111125975847244
+Hospice/death,intact,12,0.08111292868852615
+Hospice/death,intact,13,0.08109263330698013
+Hospice/death,intact,14,0.08115410804748535
+Hospice/death,intact,15,0.08117959648370743
+Hospice/death,intact,16,0.08118341863155365
+Hospice/death,intact,17,0.08109287172555923
+Hospice/death,intact,18,0.08114537596702576
+Hospice/death,intact,19,0.08112657815217972
+Hospice/death,intact,20,0.08111920952796936
+Hospice/death,intact,21,0.08121408522129059
+Hospice/death,intact,22,0.08113813400268555
+Hospice/death,intact,23,0.08112436532974243

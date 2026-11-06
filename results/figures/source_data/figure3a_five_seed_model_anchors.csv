@@ -1,0 +1,3 @@
+model,label,macro_auc,ci_low,ci_high
+dggru,"Full input, no TR",0.7260784606153224,0.7183185888145315,0.7342264257021206
+dggru_tr,"Full input, scalar TR ($\lambda_s$=0.2)",0.7260878589565939,0.718300044105729,0.7343050937444519

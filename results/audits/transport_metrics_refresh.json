@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "source": "metrics_transport.json",
+  "bootstrap_replicates": 2000,
+  "highest_class_target": "probabilities.shape[1] - 1",
+  "training_label_contract": "five-class development outcome collapsed to four classes",
+  "aliases_removed": [
+    "mortality_auc_ci",
+    "calibration.mortality"
+  ],
+  "models": [
+    {
+      "dataset": "mimic3",
+      "model": "xgb_static",
+      "prediction": "mimic3_xgb_static_transport.npz",
+      "n": 4750
+    },
+    {
+      "dataset": "mimic3",
+      "model": "xgb_static_ts",
+      "prediction": "mimic3_xgb_static_ts_transport.npz",
+      "n": 4750
+    },
+    {
+      "dataset": "mimic3",
+      "model": "dggru_tr",
+      "prediction": "mimic3_dggru_tr_transport.npz",
+      "n": 4750
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static",
+      "prediction": "eicu_xgb_static_transport.npz",
+      "n": 6696
+    },
+    {
+      "dataset": "eicu",
+      "model": "xgb_static_ts",
+      "prediction": "eicu_xgb_static_ts_transport.npz",
+      "n": 6696
+    },
+    {
+      "dataset": "eicu",
+      "model": "dggru_tr",
+      "prediction": "eicu_dggru_tr_transport.npz",
+      "n": 6696
+    }
+  ]
+}

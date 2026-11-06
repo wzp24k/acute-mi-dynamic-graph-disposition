@@ -1,0 +1,71 @@
+section,characteristic,level,summary,overall_statistic,included_statistic,excluded_statistic,overall_n,overall_denominator,included_n,included_denominator,excluded_n,excluded_denominator,standardized_difference,absolute_standardized_difference
+Demographics,"Age, years",Available (years),n (%),"8,267 (100.0%)","6,487 (100.0%)","1,330 (100.0%)",8267,8267,6487,6487,1330,1330,0.0,0.0
+Demographics,"Age, years","Median (IQR), years",median (IQR),72 (62-81),72 (62-80),72 (62-82),8267,8267,6487,6487,1330,1330,-0.053199166099203075,0.053199166099203075
+Demographics,Sex,Female,n (%),"3,016 (36.5%)","2,336 (36.0%)",515 (38.7%),3016,8267,2336,6487,515,1330,-0.05606708389950288,0.05606708389950288
+Demographics,Sex,Male,n (%),"5,251 (63.5%)","4,151 (64.0%)",815 (61.3%),5251,8267,4151,6487,815,1330,0.05606708389950276,0.05606708389950276
+Demographics,Race,White,n (%),"5,266 (63.7%)","4,113 (63.4%)",844 (63.5%),5266,8267,4113,6487,844,1330,-0.001140230728940064,0.001140230728940064
+Demographics,Race,Black,n (%),734 (8.9%),538 (8.3%),137 (10.3%),734,8267,538,6487,137,1330,-0.06916306466610027,0.06916306466610027
+Demographics,Race,Hispanic or Latino,n (%),246 (3.0%),192 (3.0%),36 (2.7%),246,8267,192,6487,36,1330,0.015248549308336322,0.015248549308336322
+Demographics,Race,Asian,n (%),205 (2.5%),143 (2.2%),40 (3.0%),205,8267,143,6487,40,1330,-0.05042694419163337,0.05042694419163337
+Demographics,Race,Other or unknown,n (%),"1,816 (22.0%)","1,501 (23.1%)",273 (20.5%),1816,8267,1501,6487,273,1330,0.06326603225914315,0.06326603225914315
+Admission and AMI characteristics,Admission type,Urgent,n (%),"2,868 (34.7%)","2,412 (37.2%)",386 (29.0%),2868,8267,2412,6487,386,1330,0.174047236890744,0.174047236890744
+Admission and AMI characteristics,Admission type,Elective or surgical same-day,n (%),191 (2.3%),166 (2.6%),11 (0.8%),191,8267,166,6487,11,1330,0.13454878121452452,0.13454878121452452
+Admission and AMI characteristics,Admission type,Observation,n (%),"1,329 (16.1%)",996 (15.4%),237 (17.8%),1329,8267,996,6487,237,1330,-0.06632739971163933,0.06632739971163933
+Admission and AMI characteristics,Admission type,Other or unknown,n (%),"3,879 (46.9%)","2,913 (44.9%)",696 (52.3%),3879,8267,2913,6487,696,1330,-0.1489810258803558,0.1489810258803558
+Admission and AMI characteristics,AMI subtype,STEMI,n (%),"1,777 (21.5%)","1,326 (20.4%)",383 (28.8%),1777,8267,1326,6487,383,1330,-0.19489047650884622,0.19489047650884622
+Admission and AMI characteristics,AMI subtype,NSTEMI,n (%),"4,637 (56.1%)","3,774 (58.2%)",614 (46.2%),4637,8267,3774,6487,614,1330,0.24223393493164386,0.24223393493164386
+Admission and AMI characteristics,AMI subtype,Type 2 MI,n (%),"1,599 (19.3%)","1,194 (18.4%)",285 (21.4%),1599,8267,1194,6487,285,1330,-0.07573505163943228,0.07573505163943228
+Admission and AMI characteristics,AMI subtype,Unspecified,n (%),210 (2.5%),156 (2.4%),41 (3.1%),210,8267,156,6487,41,1330,-0.041507412049907,0.041507412049907
+Admission and AMI characteristics,AMI subtype,Other,n (%),44 (0.5%),37 (0.6%),7 (0.5%),44,8267,37,6487,7,1330,0.005965843313611078,0.005965843313611078
+Admission and AMI characteristics,AMI primary position,Primary-position AMI,n (%),"3,968 (48.0%)","3,206 (49.4%)",662 (49.8%),3968,8267,3206,6487,662,1330,-0.007050578003421169,0.007050578003421169
+Admission and AMI characteristics,AMI primary position,Not primary,n (%),"4,299 (52.0%)","3,281 (50.6%)",668 (50.2%),4299,8267,3281,6487,668,1330,0.007050578003421169,0.007050578003421169
+Pre-landmark vital signs,"Heart rate, first",Available (beats/min),n (%),"8,254 (99.8%)","6,480 (99.9%)","1,324 (99.5%)",8254,8267,6480,6487,1324,1330,0.06504361903221738,0.06504361903221738
+Pre-landmark vital signs,"Heart rate, first","Median (IQR), beats/min",median (IQR),84.0 (74.0-97.0),84.0 (74.0-98.0),84.0 (73.0-98.0),8254,8267,6480,6487,1324,1330,0.014408609447513297,0.014408609447513297
+Pre-landmark vital signs,"Respiratory rate, first",Available (breaths/min),n (%),"8,247 (99.8%)","6,477 (99.8%)","1,320 (99.2%)",8247,8267,6477,6487,1320,1330,0.08909652482106843,0.08909652482106843
+Pre-landmark vital signs,"Respiratory rate, first","Median (IQR), breaths/min",median (IQR),18.0 (15.0-23.0),18.0 (15.0-23.0),19.0 (16.0-23.0),8247,8267,6477,6487,1320,1330,-0.08641774970053501,0.08641774970053501
+Pre-landmark vital signs,"Peripheral oxygen saturation, first",Available (%),n (%),"8,233 (99.6%)","6,480 (99.9%)","1,304 (98.0%)",8233,8267,6480,6487,1304,1330,0.1835785981645811,0.1835785981645811
+Pre-landmark vital signs,"Peripheral oxygen saturation, first","Median (IQR), %",median (IQR),98.0 (95.0-100.0),98.0 (95.0-100.0),97.0 (95.0-99.0),8233,8267,6480,6487,1304,1330,0.1371346984583371,0.1371346984583371
+Pre-landmark vital signs,"Systolic blood pressure, first",Available (mmHg),n (%),"8,218 (99.4%)","6,456 (99.5%)","1,312 (98.6%)",8218,8267,6456,6487,1312,1330,0.09201417385598046,0.09201417385598046
+Pre-landmark vital signs,"Systolic blood pressure, first","Median (IQR), mmHg",median (IQR),119.0 (105.0-136.0),119.0 (104.0-135.0),121.0 (106.0-138.0),8218,8267,6456,6487,1312,1330,-0.08564321591586262,0.08564321591586262
+Pre-landmark vital signs,"Diastolic blood pressure, first",Available (mmHg),n (%),"8,218 (99.4%)","6,456 (99.5%)","1,312 (98.6%)",8218,8267,6456,6487,1312,1330,0.09201417385598046,0.09201417385598046
+Pre-landmark vital signs,"Diastolic blood pressure, first","Median (IQR), mmHg",median (IQR),66.0 (55.0-78.0),65.0 (55.0-77.0),69.0 (59.0-81.0),8218,8267,6456,6487,1312,1330,-0.1767328976002093,0.1767328976002093
+Pre-landmark vital signs,"Mean arterial pressure, first",Available (mmHg),n (%),"8,219 (99.4%)","6,457 (99.5%)","1,312 (98.6%)",8219,8267,6457,6487,1312,1330,0.09403166786104675,0.09403166786104675
+Pre-landmark vital signs,"Mean arterial pressure, first","Median (IQR), mmHg",median (IQR),82.0 (71.0-93.0),81.0 (71.0-93.0),84.0 (73.0-96.0),8219,8267,6457,6487,1312,1330,-0.10819795052730574,0.10819795052730574
+Pre-landmark vital signs,"Temperature, first",Available (C),n (%),"7,928 (95.9%)","6,220 (95.9%)","1,270 (95.5%)",7928,8267,6220,6487,1270,1330,0.019460842585994707,0.019460842585994707
+Pre-landmark vital signs,"Temperature, first","Median (IQR), C",median (IQR),36.7 (36.4-36.9),36.6 (36.4-36.9),36.7 (36.4-36.9),7928,8267,6220,6487,1270,1330,0.03082284648757881,0.03082284648757881
+Pre-landmark laboratory values,"Troponin I or T, first",Available (assay-specific units),n (%),"5,387 (65.2%)","4,190 (64.6%)",880 (66.2%),5387,8267,4190,6487,880,1330,-0.03310273334505848,0.03310273334505848
+Pre-landmark laboratory values,"Troponin I or T, first","Median (IQR), assay-specific units",median (IQR),0.520 (0.160-1.740),0.520 (0.160-1.708),0.535 (0.147-2.103),5387,8267,4190,6487,880,1330,0.001447437744078605,0.001447437744078605
+Pre-landmark laboratory values,"CK-MB, first",Available (ng/mL),n (%),"5,103 (61.7%)","3,983 (61.4%)",825 (62.0%),5103,8267,3983,6487,825,1330,-0.012968292975040112,0.012968292975040112
+Pre-landmark laboratory values,"CK-MB, first","Median (IQR), ng/mL",median (IQR),15.00 (6.00-53.00),16.00 (6.00-57.00),15.00 (5.00-59.00),5103,8267,3983,6487,825,1330,0.03360426394401581,0.03360426394401581
+Pre-landmark laboratory values,"Creatinine, first",Available (mg/dL),n (%),"8,100 (98.0%)","6,458 (99.6%)","1,196 (89.9%)",8100,8267,6458,6487,1196,1330,0.44164982439694156,0.44164982439694156
+Pre-landmark laboratory values,"Creatinine, first","Median (IQR), mg/dL",median (IQR),1.20 (0.80-1.90),1.10 (0.80-1.90),1.20 (0.80-1.90),8100,8267,6458,6487,1196,1330,-0.02435824416562593,0.02435824416562593
+Pre-landmark laboratory values,"Blood urea nitrogen, first",Available (mg/dL),n (%),"8,098 (98.0%)","6,456 (99.5%)","1,196 (89.9%)",8098,8267,6456,6487,1196,1330,0.4395299185930989,0.4395299185930989
+Pre-landmark laboratory values,"Blood urea nitrogen, first","Median (IQR), mg/dL",median (IQR),24.0 (16.0-41.0),23.0 (16.0-40.0),23.0 (16.0-40.0),8098,8267,6456,6487,1196,1330,-0.010745597954255878,0.010745597954255878
+Pre-landmark laboratory values,"Lactate, first",Available (mmol/L),n (%),"5,469 (66.2%)","4,601 (70.9%)",569 (42.8%),5469,8267,4601,6487,569,1330,0.5926814059653598,0.5926814059653598
+Pre-landmark laboratory values,"Lactate, first","Median (IQR), mmol/L",median (IQR),1.90 (1.30-2.90),1.90 (1.30-2.80),2.20 (1.50-4.30),5469,8267,4601,6487,569,1330,-0.48174594477208565,0.48174594477208565
+Pre-landmark laboratory values,"White blood cell count, first",Available (x10^9/L),n (%),"8,053 (97.4%)","6,431 (99.1%)","1,179 (88.6%)",8053,8267,6431,6487,1179,1330,0.44893145329102213,0.44893145329102213
+Pre-landmark laboratory values,"White blood cell count, first","Median (IQR), x10^9/L",median (IQR),11.5 (8.5-15.6),11.8 (8.7-15.8),10.2 (7.7-13.9),8053,8267,6431,6487,1179,1330,0.1792251788092178,0.1792251788092178
+Pre-landmark laboratory values,"Hemoglobin, first",Available (g/dL),n (%),"8,054 (97.4%)","6,432 (99.2%)","1,179 (88.6%)",8054,8267,6432,6487,1179,1330,0.4499033938822413,0.4499033938822413
+Pre-landmark laboratory values,"Hemoglobin, first","Median (IQR), g/dL",median (IQR),10.4 (8.7-12.2),10.4 (8.7-12.2),11.1 (9.2-12.8),8054,8267,6432,6487,1179,1330,-0.18684749726697392,0.18684749726697392
+Pre-landmark laboratory values,"Platelets, first",Available (x10^9/L),n (%),"8,073 (97.7%)","6,439 (99.3%)","1,191 (89.5%)",8073,8267,6439,6487,1191,1330,0.4322848136838185,0.4322848136838185
+Pre-landmark laboratory values,"Platelets, first","Median (IQR), x10^9/L",median (IQR),194.0 (143.0-253.0),192.0 (140.0-251.0),203.0 (156.0-254.0),8073,8267,6439,6487,1191,1330,-0.0918476790239464,0.0918476790239464
+Pre-landmark laboratory values,"Sodium, first",Available (mmol/L),n (%),"8,100 (98.0%)","6,458 (99.6%)","1,196 (89.9%)",8100,8267,6458,6487,1196,1330,0.44164982439694156,0.44164982439694156
+Pre-landmark laboratory values,"Sodium, first","Median (IQR), mmol/L",median (IQR),138 (135-141),138 (135-141),138 (136-141),8100,8267,6458,6487,1196,1330,-0.028640026509043237,0.028640026509043237
+Pre-landmark laboratory values,"Potassium, first",Available (mmol/L),n (%),"8,101 (98.0%)","6,455 (99.5%)","1,200 (90.2%)",8101,8267,6455,6487,1200,1330,0.4301737204587339,0.4301737204587339
+Pre-landmark laboratory values,"Potassium, first","Median (IQR), mmol/L",median (IQR),4.30 (3.90-4.70),4.30 (3.90-4.70),4.20 (3.80-4.60),8101,8267,6455,6487,1200,1330,0.051819479300579785,0.051819479300579785
+Pre-landmark laboratory values,"Glucose, first",Available (mg/dL),n (%),"8,046 (97.3%)","6,411 (98.8%)","1,189 (89.4%)",8046,8267,6411,6487,1189,1330,0.4089270800298072,0.4089270800298072
+Pre-landmark laboratory values,"Glucose, first","Median (IQR), mg/dL",median (IQR),134 (110-182),134 (110-181),131 (108-180),8046,8267,6411,6487,1189,1330,-0.014671813725755246,0.014671813725755246
+Pre-landmark laboratory values,"INR, first",Available (ratio),n (%),"7,401 (89.5%)","5,985 (92.3%)","1,020 (76.7%)",7401,8267,5985,6487,1020,1330,0.44024411914328376,0.44024411914328376
+Pre-landmark laboratory values,"INR, first","Median (IQR), ratio",median (IQR),1.30 (1.10-1.60),1.30 (1.10-1.50),1.20 (1.10-1.50),7401,8267,5985,6487,1020,1330,-0.055461294460942036,0.055461294460942036
+Pre-landmark laboratory values,"Total bilirubin, first",Available (mg/dL),n (%),"4,319 (52.2%)","3,446 (53.1%)",624 (46.9%),4319,8267,3446,6487,624,1330,0.12432622215822504,0.12432622215822504
+Pre-landmark laboratory values,"Total bilirubin, first","Median (IQR), mg/dL",median (IQR),0.60 (0.40-1.00),0.60 (0.40-1.00),0.60 (0.40-1.00),4319,8267,3446,6487,624,1330,-0.050504129393275914,0.050504129393275914
+Pre-landmark laboratory values,"ALT, first",Available (U/L),n (%),"4,350 (52.6%)","3,467 (53.4%)",632 (47.5%),4350,8267,3467,6487,632,1330,0.11874535842456413,0.11874535842456413
+Pre-landmark laboratory values,"ALT, first","Median (IQR), U/L",median (IQR),33 (19-78),33 (19-79),36 (20-80),4350,8267,3467,6487,632,1330,-0.0420566605819696,0.0420566605819696
+Pre-landmark laboratory values,"AST, first",Available (U/L),n (%),"4,384 (53.0%)","3,492 (53.8%)",636 (47.8%),4384,8267,3492,6487,636,1330,0.12045805538914917,0.12045805538914917
+Pre-landmark laboratory values,"AST, first","Median (IQR), U/L",median (IQR),60 (31-157),62 (32-157),60 (29-194),4384,8267,3492,6487,636,1330,-0.0525580029835371,0.0525580029835371
+Pre-landmark laboratory values,"Albumin, first",Available (g/dL),n (%),"2,555 (30.9%)","2,067 (31.9%)",360 (27.1%),2555,8267,2067,6487,360,1330,0.10534830505759878,0.10534830505759878
+Pre-landmark laboratory values,"Albumin, first","Median (IQR), g/dL",median (IQR),3.2 (2.8-3.6),3.2 (2.8-3.6),3.3 (2.7-3.8),2555,8267,2067,6487,360,1330,-0.04450649660874161,0.04450649660874161
+Pre-landmark laboratory values,"Bicarbonate, first",Available (mmol/L),n (%),"8,090 (97.9%)","6,454 (99.5%)","1,190 (89.5%)",8090,8267,6454,6487,1190,1330,0.4497039687656276,0.4497039687656276
+Pre-landmark laboratory values,"Bicarbonate, first","Median (IQR), mmol/L",median (IQR),22 (20-25),22 (20-25),23 (20-25),8090,8267,6454,6487,1190,1330,0.014246996061888516,0.014246996061888516
+Pre-landmark laboratory values,"Chloride, first",Available (mmol/L),n (%),"8,103 (98.0%)","6,460 (99.6%)","1,197 (90.0%)",8103,8267,6460,6487,1197,1330,0.4417267405367914,0.4417267405367914
+Pre-landmark laboratory values,"Chloride, first","Median (IQR), mmol/L",median (IQR),104 (100-107),104 (100-108),103 (99-106),8103,8267,6460,6487,1197,1330,0.18447805942789722,0.18447805942789722

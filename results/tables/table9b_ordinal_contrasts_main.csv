@@ -1,0 +1,5 @@
+Contrast,Delta ordinal C-index,Delta QWK,Delta ordinal MAE
+XGB-static+TS minus DG-GRU+TR,+0.011 (+0.006 to +0.016),+0.015 (-0.000 to +0.031),-0.168 (-0.192 to -0.144)
+XGB-static+TS minus XGB-static,+0.029 (+0.024 to +0.034),+0.058 (+0.041 to +0.075),-0.068 (-0.090 to -0.047)
+DG-GRU+TR minus DG-GRU,+0.000 (-0.000 to +0.001),-0.003 (-0.006 to +0.000),+0.003 (-0.002 to +0.008)
+DG-GRU+CTR minus DG-GRU,-0.000 (-0.002 to +0.002),-0.004 (-0.013 to +0.004),+0.011 (-0.002 to +0.024)

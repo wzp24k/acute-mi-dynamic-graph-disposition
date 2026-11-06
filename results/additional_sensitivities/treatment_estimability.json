@@ -1,0 +1,137 @@
+{
+  "landmark_hours": 24,
+  "time_window": "starttime >= max(admittime, ICU intime) and starttime < ICU intime + 24 hours",
+  "treatment_after_landmark_used": false,
+  "features": {
+    "pre24h_revascularization_proxy": {
+      "definition": "Any exact-time procedureevent for cardiac catheterisation, angiography, or Cath Lab (Received) before hour 24.",
+      "itemids": {
+        "225427": "Angiography",
+        "225430": "Cardiac Cath",
+        "229577": "Cath Lab (Received)"
+      },
+      "n_stays_with_event": 204,
+      "observed_itemids": [
+        225427,
+        225430,
+        229577
+      ],
+      "observed_labels": [
+        "Angiography",
+        "Cardiac Cath",
+        "Cath Lab (Received)"
+      ],
+      "event_rows_pre24h": 210
+    },
+    "pre24h_vasoactive": {
+      "definition": "Any exact-time inputevents vasoactive infusion start before hour 24; unique-agent count also retained.",
+      "itemids": {
+        "221289": "Epinephrine",
+        "221653": "Dobutamine",
+        "221662": "Dopamine",
+        "221749": "Phenylephrine",
+        "221906": "Norepinephrine",
+        "221986": "Milrinone",
+        "222315": "Vasopressin",
+        "229617": "Epinephrine",
+        "229630": "Phenylephrine",
+        "229631": "Phenylephrine",
+        "229632": "Phenylephrine",
+        "229709": "Angiotensin II",
+        "229764": "Angiotensin II"
+      },
+      "n_stays_with_event": 2760,
+      "observed_itemids": [
+        221289,
+        221653,
+        221662,
+        221749,
+        221906,
+        221986,
+        222315,
+        229617,
+        229630,
+        229632,
+        229764
+      ],
+      "observed_labels": [
+        "Epinephrine",
+        "Dobutamine",
+        "Dopamine",
+        "Phenylephrine",
+        "Norepinephrine",
+        "Milrinone",
+        "Vasopressin",
+        "Epinephrine",
+        "Phenylephrine",
+        "Phenylephrine",
+        "Angiotensin II"
+      ],
+      "event_rows_pre24h": 33560
+    },
+    "pre24h_mcs": {
+      "definition": "Any exact-time procedureevent for IABP, Impella, Tandem Heart, CentriMag, or ECMO before hour 24.",
+      "itemids": {
+        "224272": "IABP",
+        "228169": "Impella",
+        "228201": "Tandem Heart",
+        "228202": "Tandem Heart",
+        "229527": "CentriMag",
+        "229528": "CentriMag",
+        "229529": "ECMO",
+        "229530": "ECMO"
+      },
+      "n_stays_with_event": 539,
+      "observed_itemids": [
+        224272,
+        228169,
+        228201,
+        228202,
+        229527,
+        229528,
+        229529,
+        229530
+      ],
+      "observed_labels": [
+        "IABP",
+        "Impella",
+        "Tandem Heart",
+        "Tandem Heart",
+        "CentriMag",
+        "CentriMag",
+        "ECMO",
+        "ECMO"
+      ],
+      "event_rows_pre24h": 581
+    }
+  },
+  "positive_counts": {
+    "pre24h_revascularization_proxy": 204,
+    "pre24h_vasoactive_any": 2760,
+    "pre24h_mcs_any": 539
+  },
+  "estimability": {
+    "mimic4": {
+      "status": "proxy_estimable",
+      "exact_time_events": true,
+      "full_pci_or_cabg_status": "not_estimable_at_hourly_resolution",
+      "full_pci_or_cabg_reason": "MIMIC-IV procedures_icd supplies chartdate but no procedure time; it cannot prove that a PCI or CABG occurred before the 24-hour landmark. Exact-time catheterisation events are used as a prespecified proxy and are labelled as such."
+    },
+    "mimic3": {
+      "status": "not_estimated",
+      "reason": "MIMIC-III is retained for transport validation. This module targets development-cohort sensitivity analyses and does not fit new MIMIC-III treatment models."
+    },
+    "eicu": {
+      "status": "not_estimable",
+      "reason": "The local eICU source snapshot lacks infusionDrug.csv.gz and treatment.csv.gz. Available vital and nurse-charting tables cannot reliably identify vasoactive infusions or MCS.",
+      "required_missing_files": [
+        "D:\\TT paper\\0811Temporal Pathway\\eicu\\infusionDrug.csv.gz",
+        "D:\\TT paper\\0811Temporal Pathway\\eicu\\treatment.csv.gz"
+      ],
+      "required_files_present": {
+        "infusionDrug.csv.gz": false,
+        "treatment.csv.gz": false
+      }
+    }
+  }
+}

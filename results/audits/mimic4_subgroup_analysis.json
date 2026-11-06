@@ -1,0 +1,306 @@
+{
+  "n": 6487,
+  "note": "Subgroup estimates reuse the prespecified outer-fold predictions; they are descriptive and are not models refitted within subgroups.",
+  "subgroups": [
+    {
+      "subgroup": "overall",
+      "n": 6487,
+      "class_counts": {
+        "0": 1011,
+        "1": 1936,
+        "2": 472,
+        "3": 1897,
+        "4": 1171
+      },
+      "xgb_static_ts_macro_auc": 0.7779361688376568,
+      "dggru_tr_macro_auc": 0.7285524526633109,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.04938371617434589,
+        "ci_low": -0.057428896938572845,
+        "ci_high": -0.04193011629258091,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "female",
+      "n": 2336,
+      "class_counts": {
+        "0": 283,
+        "1": 584,
+        "2": 184,
+        "3": 806,
+        "4": 479
+      },
+      "xgb_static_ts_macro_auc": 0.7492066374754844,
+      "dggru_tr_macro_auc": 0.6939978109289643,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.05520882654652015,
+        "ci_low": -0.06917483135305237,
+        "ci_high": -0.04013844141862792,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "male",
+      "n": 4151,
+      "class_counts": {
+        "0": 728,
+        "1": 1352,
+        "2": 288,
+        "3": 1091,
+        "4": 692
+      },
+      "xgb_static_ts_macro_auc": 0.7904310649196926,
+      "dggru_tr_macro_auc": 0.7430847154354548,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.04734634948423777,
+        "ci_low": -0.057586412417943315,
+        "ci_high": -0.037924602376271765,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "age_18_64",
+      "n": 1933,
+      "class_counts": {
+        "0": 563,
+        "1": 714,
+        "2": 111,
+        "3": 318,
+        "4": 227
+      },
+      "xgb_static_ts_macro_auc": 0.8069444720968469,
+      "dggru_tr_macro_auc": 0.7684405907829587,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.038503881313888266,
+        "ci_low": -0.05205410261518764,
+        "ci_high": -0.0250331158374686,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "age_65_79",
+      "n": 2803,
+      "class_counts": {
+        "0": 353,
+        "1": 859,
+        "2": 248,
+        "3": 871,
+        "4": 472
+      },
+      "xgb_static_ts_macro_auc": 0.7514187847781088,
+      "dggru_tr_macro_auc": 0.6976544067046729,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.053764378073435815,
+        "ci_low": -0.06670665052539722,
+        "ci_high": -0.04098760634672135,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "age_80_plus",
+      "n": 1751,
+      "class_counts": {
+        "0": 95,
+        "1": 363,
+        "2": 113,
+        "3": 708,
+        "4": 472
+      },
+      "xgb_static_ts_macro_auc": 0.7293881891705631,
+      "dggru_tr_macro_auc": 0.6640275019116803,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.06536068725888289,
+        "ci_low": -0.08440990054966334,
+        "ci_high": -0.045768546912524175,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "STEMI",
+      "n": 1326,
+      "class_counts": {
+        "0": 450,
+        "1": 350,
+        "2": 81,
+        "3": 236,
+        "4": 209
+      },
+      "xgb_static_ts_macro_auc": 0.8121332130344225,
+      "dggru_tr_macro_auc": 0.7733577069366119,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.038775506097810664,
+        "ci_low": -0.05364435254956055,
+        "ci_high": -0.023954261926074537,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "NSTEMI",
+      "n": 3774,
+      "class_counts": {
+        "0": 380,
+        "1": 1304,
+        "2": 279,
+        "3": 1243,
+        "4": 568
+      },
+      "xgb_static_ts_macro_auc": 0.761454988651602,
+      "dggru_tr_macro_auc": 0.7068823189059715,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.054572669745630464,
+        "ci_low": -0.06591643550393501,
+        "ci_high": -0.04379333916171382,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "type_2_MI",
+      "n": 1194,
+      "class_counts": {
+        "0": 142,
+        "1": 240,
+        "2": 92,
+        "3": 372,
+        "4": 348
+      },
+      "xgb_static_ts_macro_auc": 0.7328803099595916,
+      "dggru_tr_macro_auc": 0.6739906102477763,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.058889699711815346,
+        "ci_low": -0.0808067575272142,
+        "ci_high": -0.03886898554430525,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "other_or_unspecified_MI",
+      "n": 193,
+      "class_counts": {
+        "0": 39,
+        "1": 42,
+        "2": 20,
+        "3": 46,
+        "4": 46
+      },
+      "xgb_static_ts_macro_auc": 0.8074273231893763,
+      "dggru_tr_macro_auc": 0.7843775268039505,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.023049796385425814,
+        "ci_low": -0.06531013730426628,
+        "ci_high": 0.026454194861775297,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "primary_position_AMI",
+      "n": 3206,
+      "class_counts": {
+        "0": 637,
+        "1": 1255,
+        "2": 220,
+        "3": 792,
+        "4": 302
+      },
+      "xgb_static_ts_macro_auc": 0.7973869478960578,
+      "dggru_tr_macro_auc": 0.7521672589525404,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.045219688943517355,
+        "ci_low": -0.05677174383362137,
+        "ci_high": -0.03435892378766359,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "non_primary_position_AMI",
+      "n": 3281,
+      "class_counts": {
+        "0": 374,
+        "1": 681,
+        "2": 252,
+        "3": 1105,
+        "4": 869
+      },
+      "xgb_static_ts_macro_auc": 0.7385099286948296,
+      "dggru_tr_macro_auc": 0.6862247749617307,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.05228515373309883,
+        "ci_low": -0.06515245064869546,
+        "ci_high": -0.03923321895130673,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "emergency_admission",
+      "n": 6485,
+      "class_counts": {
+        "0": 1010,
+        "1": 1936,
+        "2": 472,
+        "3": 1896,
+        "4": 1171
+      },
+      "xgb_static_ts_macro_auc": 0.7779586727669523,
+      "dggru_tr_macro_auc": 0.7287274605030651,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.04923121226388716,
+        "ci_low": -0.0570593394863013,
+        "ci_high": -0.041078575958194995,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "non_emergency_admission",
+      "n": 2,
+      "class_counts": {
+        "0": 1,
+        "3": 1
+      },
+      "xgb_static_ts_macro_auc": NaN,
+      "dggru_tr_macro_auc": NaN,
+      "dggru_tr_minus_xgb": {
+        "delta": NaN,
+        "ci_low": NaN,
+        "ci_high": NaN
+      }
+    },
+    {
+      "subgroup": "CCU_or_CVICU",
+      "n": 1958,
+      "class_counts": {
+        "0": 144,
+        "1": 961,
+        "2": 161,
+        "3": 592,
+        "4": 100
+      },
+      "xgb_static_ts_macro_auc": 0.7730214737604046,
+      "dggru_tr_macro_auc": 0.7209350367574857,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.05208643700291893,
+        "ci_low": -0.06882489060761159,
+        "ci_high": -0.03428020129120446,
+        "bootstrap_replicates_valid": 1000
+      }
+    },
+    {
+      "subgroup": "other_ICU",
+      "n": 4529,
+      "class_counts": {
+        "0": 867,
+        "1": 975,
+        "2": 311,
+        "3": 1305,
+        "4": 1071
+      },
+      "xgb_static_ts_macro_auc": 0.7574611855278801,
+      "dggru_tr_macro_auc": 0.7115697352292604,
+      "dggru_tr_minus_xgb": {
+        "delta": -0.04589145029861974,
+        "ci_low": -0.05549820359459219,
+        "ci_high": -0.03608485377509279,
+        "bootstrap_replicates_valid": 1000
+      }
+    }
+  ]
+}

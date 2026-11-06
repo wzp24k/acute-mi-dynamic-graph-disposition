@@ -1,0 +1,466 @@
+{
+  "project": {
+    "short_name": "AMI discharge disposition",
+    "title": "Temporal Regularization of a Dynamic Graph Network for Ordinal Prediction of Discharge Disposition After Acute Myocardial Infarction in Intensive Care",
+    "version": "2.0",
+    "date": "2026-11-04",
+    "source_method_manuscript": "D:/TT paper/0811Temporal Pathway/1014Manuscript.docx",
+    "positioning": "prediction-model transport and calibration study; not a new architecture or mechanism-level biological claim",
+    "status": "completed primary analysis; final reporting artifacts generated"
+  },
+  "design": {
+    "type": "retrospective prediction-model study",
+    "reporting": [
+      "TRIPOD",
+      "TRIPOD+AI"
+    ],
+    "development_database": "MIMIC-IV v3.1",
+    "same_institution_validation_database": "MIMIC-III v1.4",
+    "external_database": "eICU-CRD v2.0",
+    "local_clinical_cohort": false,
+    "pathway_prior": false,
+    "outcome_construct": "care placement at hospital discharge, not functional recovery"
+  },
+  "cohort": {
+    "age_min": 18,
+    "unit": "first ICU stay per hospital admission; first ICU unit per patienthealthsystemstayid in eICU",
+    "one_hospitalization_per_patient_development": true,
+    "external_deduplication": "retain all eligible first-unit stays; sensitivity retains one per patient",
+    "mimic4_ami": {
+      "icd10_prefix": "I21",
+      "icd9_prefix": "410",
+      "diagnosis_position": "any"
+    },
+    "mimic3_ami": {
+      "icd9_prefix": "410",
+      "diagnosis_position": "any"
+    },
+    "eicu_ami": {
+      "icd9_prefix": "410",
+      "diagnosis_string_contains": "acute myocardial infarction",
+      "exclude_string_contains": [
+        "ruled out",
+        "history of"
+      ],
+      "diagnosis_position": "any"
+    },
+    "landmark_rule": {
+      "alive_at_landmark": true,
+      "still_in_icu_at_landmark": true,
+      "first_icu_stay_only": true
+    }
+  },
+  "landmarks_hours": {
+    "primary": 24,
+    "secondary": [
+      6,
+      72
+    ]
+  },
+  "outcome": {
+    "primary_name": "five-level ordinal discharge disposition",
+    "mimic_hospital_death_override": "hospital_expire_flag=1 overrides discharge_location and maps to the highest five-level class (in-hospital death) and the highest six-level class",
+    "mimic3_age_anonymization_rule": "calculated age >89 years is truncated to 90 years before analysis",
+    "primary_levels": [
+      "Home or against advice",
+      "Home health care",
+      "Inpatient rehabilitation or assisted living",
+      "Skilled nursing or other facility",
+      "Hospice or in-hospital death"
+    ],
+    "six_level_sensitivity": [
+      "Home or against advice",
+      "Home health care",
+      "Inpatient rehabilitation or assisted living",
+      "Skilled nursing or other facility",
+      "Hospice",
+      "In-hospital death"
+    ],
+    "mimic4_mapping": {
+      "HOME": 0,
+      "AGAINST ADVICE": 0,
+      "HOME HEALTH CARE": 1,
+      "REHAB": 2,
+      "ASSISTED LIVING": 2,
+      "SKILLED NURSING FACILITY": 3,
+      "CHRONIC/LONG TERM ACUTE CARE": 3,
+      "ACUTE HOSPITAL": 3,
+      "PSYCH FACILITY": 3,
+      "OTHER FACILITY": 3,
+      "HEALTHCARE FACILITY": 3,
+      "HOSPICE": 4,
+      "DIED": 4
+    },
+    "mimic3_mapping": {
+      "HOME": 0,
+      "LEFT AGAINST MEDICAL ADVI": 0,
+      "HOME HEALTH CARE": 1,
+      "HOME WITH HOME IV PROVIDR": 1,
+      "REHAB/DISTINCT PART HOSP": 2,
+      "SNF": 3,
+      "LONG TERM CARE HOSPITAL": 3,
+      "DISC-TRAN CANCER/CHLDRN H": 3,
+      "SHORT TERM HOSPITAL": 3,
+      "DISCH-TRAN TO PSYCH HOSP": 3,
+      "OTHER FACILITY": 3,
+      "HOSPICE-HOME": 4,
+      "HOSPICE-MEDICAL FACILITY": 4,
+      "DEAD/EXPIRED": 4
+    },
+    "external_four_class": {
+      "0": "Home",
+      "1": "Home health or rehabilitation composite; eICU contains rehabilitation only",
+      "2": "Skilled nursing or other facility",
+      "3": "Death or hospice; eICU contains death only"
+    },
+    "eicu_mapping": {
+      "HOME": 0,
+      "REHABILITATION": 1,
+      "SKILLED NURSING FACILITY": 2,
+      "NURSING HOME": 2,
+      "OTHER": 2,
+      "OTHER HOSPITAL": 2,
+      "OTHER EXTERNAL": 2,
+      "DEATH": 3,
+      "EXPIRED": 3
+    }
+  },
+  "channels": [
+    "hr",
+    "rr",
+    "spo2",
+    "sbp",
+    "dbp",
+    "mbp",
+    "temp",
+    "gcs"
+  ],
+  "channel_labels": {
+    "hr": "Heart rate",
+    "rr": "Respiratory rate",
+    "spo2": "Peripheral oxygen saturation",
+    "sbp": "Systolic blood pressure",
+    "dbp": "Diastolic blood pressure",
+    "mbp": "Mean arterial pressure",
+    "temp": "Body temperature in Celsius",
+    "gcs": "Total Glasgow Coma Scale"
+  },
+  "channel_extraction": {
+    "hourly_rule": "last valid value in each clock hour",
+    "carry_forward_max_hours": 2,
+    "backward_carry": false,
+    "mask_for_carried_values": 0,
+    "mimic_pressure_precedence": [
+      "arterial",
+      "non-invasive"
+    ],
+    "eicu_sources": {
+      "hr": "vitalPeriodic.heartrate",
+      "rr": "vitalPeriodic.respiration",
+      "spo2": "vitalPeriodic.sao2",
+      "sbp": "vitalPeriodic.systemicsystolic, then nurseCharting non-invasive/invasive BP systolic",
+      "dbp": "vitalPeriodic.systemicdiastolic, then nurseCharting non-invasive/invasive BP diastolic",
+      "mbp": "vitalPeriodic.systemicmean, then nurseCharting non-invasive/invasive BP mean",
+      "temp": "vitalPeriodic.temperature, then nurseCharting temperature C/F",
+      "gcs": "nurseCharting GCS Total, numeric values only"
+    },
+    "mimic_gcs": "sum of eye, verbal and motor components; recorded total accepted when components are absent"
+  },
+  "static_features": {
+    "demographics": [
+      "age",
+      "sex",
+      "race",
+      "first_care_unit",
+      "admission_type",
+      "admission_source"
+    ],
+    "laboratory_panel": [
+      "troponin",
+      "ck_mb",
+      "creatinine",
+      "blood_urea_nitrogen",
+      "lactate",
+      "white_blood_cell_count",
+      "hemoglobin",
+      "platelets",
+      "sodium",
+      "potassium",
+      "glucose",
+      "inr",
+      "total_bilirubin",
+      "alt",
+      "ast",
+      "albumin",
+      "bicarbonate",
+      "chloride"
+    ],
+    "laboratory_summaries": [
+      "first",
+      "minimum",
+      "maximum",
+      "mean"
+    ],
+    "missing_indicator": "one per laboratory feature",
+    "time_series_summaries": [
+      "first",
+      "last",
+      "minimum",
+      "maximum",
+      "mean",
+      "count"
+    ],
+    "excluded_predictors": [
+      "discharge_location",
+      "hospital_expire_flag",
+      "length_of_stay",
+      "post_landmark_values",
+      "treatment_after_landmark"
+    ]
+  },
+  "admission_severity_benchmark": {
+    "name": "admission-severity benchmark",
+    "variables": [
+      "age",
+      "heart_rate",
+      "systolic_blood_pressure",
+      "total_gcs",
+      "creatinine",
+      "lactate",
+      "troponin"
+    ],
+    "not_a_validated_score": true,
+    "model": "proportional-odds ordinal logistic regression fitted with the same folds",
+    "fallback": "multinomial logistic regression if proportional odds is rejected",
+    "forbidden_names": [
+      "GRACE",
+      "TIMI"
+    ]
+  },
+  "models": [
+    "xgb_static",
+    "xgb_static_ts",
+    "mlp_static",
+    "mlp_static_ts",
+    "gru",
+    "grud",
+    "transformer",
+    "stgcn_lite",
+    "dggru_static",
+    "dggru",
+    "dggru_tr",
+    "dggru_ctr"
+  ],
+  "factorial_design": {
+    "same_static_input_different_structure": [
+      "xgb_static vs mlp_static",
+      "xgb_static_ts vs mlp_static_ts",
+      "gru vs dggru"
+    ],
+    "same_structure_different_input": [
+      "xgb_static_ts vs xgb_static",
+      "mlp_static_ts vs mlp_static",
+      "dggru vs dggru_static"
+    ],
+    "dggru_static_definition": "same DG-GRU architecture and static matrix as dggru, with all 24 hourly sequence values and masks set to zero"
+  },
+  "model_architecture": {
+    "gru_hidden_units": 64,
+    "dggru_edge_embedding_dim": 16,
+    "ordinal_head": "cumulative link with K-1 ordered thresholds",
+    "trajectory_score": "separate linear layer; not the ordinal latent term",
+    "tabular_mlp_hidden_units": 128,
+    "dropout": 0.2,
+    "epochs": 30
+  },
+  "temporal_regularization": {
+    "primary": "direction-agnostic smoothness plus net-drift penalty",
+    "formula": "L_ord + lambda_s * mean_t (s_t - s_{t-1})^2 + lambda_d * (s_last_valid - s_first_valid)^2",
+    "lambda_s_grid": [
+      0.0,
+      0.0005,
+      0.001,
+      0.002,
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.075,
+      0.1,
+      0.15,
+      0.2,
+      0.3,
+      0.5,
+      0.75,
+      1.0,
+      1.5
+    ],
+    "lambda_d_ratio_to_lambda_s": 0.25,
+    "grid_type": "18-point one-dimensional path over lambda_s",
+    "default_lambda_s": 0.2,
+    "default_lambda_d": 0.05,
+    "cumulative_curvature": {
+      "primary": "second difference of time-varying cumulative ordinal probabilities",
+      "formula": "L_ord + lambda_c * mean_triplets mean_k (p_ge_k[t+1] - 2 p_ge_k[t] + p_ge_k[t-1])^2",
+      "default_lambda_c": 0.01,
+      "rationale": "permits persistent improvement or deterioration while suppressing hour-to-hour jitter"
+    },
+    "selection": "fixed a priori at 0.2; the 18-point path is reported as a sensitivity analysis, not used to replace the primary weight",
+    "monotone_variant": "sensitivity only",
+    "negative_controls": [
+      "reversed_direction_monotone",
+      "time_permuted_trajectory",
+      "matched_generic_smoothness"
+    ]
+  },
+  "cross_validation": {
+    "outer_folds": 5,
+    "hyperparameter_tuning": "none; fixed a priori",
+    "seeds": [
+      1,
+      7,
+      42,
+      123,
+      2024
+    ],
+    "grouping": "patient",
+    "stratification": "ordinal outcome",
+    "bootstrap_replicates": 2000,
+    "primary_estimate": "mean across seeds",
+    "confidence_interval": "patient-level bootstrap of seed-averaged out-of-fold predictions"
+  },
+  "metrics": {
+    "primary": "five-class one-vs-rest macro-AUC with 95% CI",
+    "confirmatory": [
+      "primary contrast: DG-GRU+TR minus XGB-static+TS in five-class macro-AUC",
+      "eICU four-class macro-AUC",
+      "eICU highest-class AUROC"
+    ],
+    "key_secondary_contrast": "DG-GRU+TR minus DG-GRU in five-class macro-AUC",
+    "exploratory": "all secondary metrics and subgroup comparisons",
+    "secondary": [
+      "accuracy",
+      "quadratic weighted kappa",
+      "ordinal C-index",
+      "ordinal mean absolute error",
+      "per-class AUC",
+      "calibration slope",
+      "calibration intercept",
+      "Brier score",
+      "cumulative-threshold discrimination and calibration",
+      "reliability curve",
+      "NRI",
+      "IDI",
+      "decision-curve net benefit"
+    ],
+    "calibration_targets": [
+      "P(y >= 2)",
+      "P(y >= 3)",
+      "P(y = 4)"
+    ],
+    "per_class_test": "DeLong with Holm and Bonferroni correction"
+  },
+  "external_validation": {
+    "eicu": {
+      "transport": "direct, no refitting",
+      "internal_cv": true,
+      "feature_availability_rule": "report coverage; exclude variables with less than 70% coverage or retain them with an explicit missingness indicator and sensitivity analysis",
+      "co_primary_metrics": [
+        "four-class macro-AUC",
+        "highest-class AUROC with strict in-hospital death AUROC where available"
+      ],
+      "class_specific_auc": "descriptive",
+      "calibration": "raw slope and intercept followed by patient-safe leave-one-hospital-cluster-out affine recalibration",
+      "site_analysis": "patient-safe leave-one-cluster-out and cluster bootstrap; hospital-level descriptive summaries for sites with at least 30 admissions"
+    },
+    "mimic3": {
+      "transport": "direct, no refitting",
+      "status": "secondary same-institution validation, not independent temporal or external validation",
+      "metrics": [
+        "four-class macro-AUC",
+        "hospice-or-death AUROC",
+        "strict in-hospital death AUROC",
+        "raw calibration slope and intercept",
+        "patient-grouped five-fold out-of-fold recalibration"
+      ]
+    }
+  },
+  "common_three_class_outcome": {
+    "levels": [
+      "low care",
+      "home health, rehabilitation, assisted living or facility care",
+      "hospice or in-hospital death"
+    ],
+    "databases": [
+      "MIMIC-IV",
+      "MIMIC-III",
+      "eICU"
+    ]
+  },
+  "sensitivity_analyses": [
+    "landmark_6h",
+    "landmark_72h",
+    "six_level_outcome",
+    "primary_position_ami",
+    "exclude_type2_mi",
+    "exclude_against_advice",
+    "exclude_troponin",
+    "multiple_imputation",
+    "include_pre24h_revascularization",
+    "include_pre24h_vasopressor_or_mcs",
+    "reversed_direction_monotone",
+    "time_permuted_trajectory",
+    "matched_generic_smoothness",
+    "eicu_hospital_clustered_bootstrap",
+    "label_merge_hospice_death_and_rehab_facility",
+    "eicu_other_excluded"
+  ],
+  "go_no_go": {
+    "mimic4_min_mapped_admissions": 4000,
+    "five_level_min_class_size": 200,
+    "min_fraction_at_least_4_of_8_channels": 0.7,
+    "eicu_min_mapped_stays": 3000,
+    "min_troponin_coverage": 0.5,
+    "audit_status": "all five thresholds pass on read-only counts as of 2026-11-05"
+  },
+  "feasibility_audit": {
+    "count_unit": "admission-level before one-hospitalization-per-patient deduplication",
+    "mimic4": {
+      "ami_admissions": 16509,
+      "first_icu_stays": 8267,
+      "alive_in_icu_at_24h": 6944,
+      "mapped_five_level": 6937,
+      "five_level_counts": [
+        1059,
+        2064,
+        502,
+        2040,
+        1272
+      ],
+      "at_least_4_of_8_channels": 6937,
+      "troponin_pre_24h": 4623,
+      "troponin_fraction": 0.666
+    },
+    "mimic3": {
+      "ami_admissions": 5430,
+      "first_icu_stays": 5413,
+      "alive_in_icu_at_24h": 4750,
+      "mapped_five_level": 4750,
+      "at_least_4_of_8_channels": 4679
+    },
+    "eicu": {
+      "ami_unit_stays": 10166,
+      "first_unit_stays": 9210,
+      "alive_in_unit_at_24h": 6746,
+      "mapped_four_class": 6696,
+      "four_class_counts": [
+        4420,
+        208,
+        1439,
+        629
+      ],
+      "at_least_4_of_8_channels": 6539
+    }
+  }
+}

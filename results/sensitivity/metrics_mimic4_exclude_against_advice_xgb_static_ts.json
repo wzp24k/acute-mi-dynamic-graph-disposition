@@ -1,0 +1,53 @@
+{
+  "analysis": "exclude_against_advice",
+  "model": "xgb_static_ts",
+  "dataset": "mimic4",
+  "n": 6462,
+  "seeds": [
+    1,
+    7,
+    42,
+    123,
+    2024
+  ],
+  "folds": 5,
+  "outcome_counts": {
+    "0": 986,
+    "1": 1936,
+    "2": 472,
+    "3": 1897,
+    "4": 1171
+  },
+  "metrics": {
+    "macro_auc": 0.7779046079904794,
+    "accuracy": 0.5026307644692046,
+    "quadratic_weighted_kappa": 0.5522988542376346,
+    "ordinal_mae": 0.8438563912101517,
+    "log_loss": 1.170906939809574,
+    "multiclass_brier": 0.6130055091921777,
+    "per_class_auc": {
+      "0": 0.875475428830508,
+      "1": 0.7500626545250034,
+      "2": 0.7007990011601256,
+      "3": 0.6998127555990001,
+      "4": 0.8633731998377601
+    },
+    "mean_predicted_class": 2.0515569097209374,
+    "macro_auc_ci": {
+      "estimate": 0.7779046079904794,
+      "ci_low": 0.7704164272761858,
+      "ci_high": 0.7855591149438856,
+      "bootstrap_replicates_valid": 2000
+    }
+  },
+  "calibration": {
+    "p_y_ge_3": {
+      "slope": 1.1871363895881009,
+      "intercept": -0.00041047378915408785
+    },
+    "highest_class": {
+      "slope": 1.228805920396284,
+      "intercept": 0.24605643893643497
+    }
+  }
+}

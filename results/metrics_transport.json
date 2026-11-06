@@ -1,0 +1,308 @@
+{
+  "mimic3": {
+    "n": 4750,
+    "status": "secondary same-institution validation",
+    "outcome_counts": {
+      "0": 1048,
+      "1": 1928,
+      "2": 1115,
+      "3": 659
+    },
+    "models": {
+      "xgb_static": {
+        "n_seed_models": 5,
+        "training_label_contract": "five-class development outcome collapsed to four classes",
+        "metrics": {
+          "macro_auc": 0.7763332408697963,
+          "accuracy": 0.5185263157894737,
+          "quadratic_weighted_kappa": 0.5476229785976834,
+          "ordinal_mae": 0.5848421052631579,
+          "log_loss": 1.0668157036859243,
+          "multiclass_brier": 0.5956232995980003,
+          "per_class_auc": {
+            "0": 0.867154153315105,
+            "1": 0.6774399281284278,
+            "2": 0.7386083234127596,
+            "3": 0.8221305586228922
+          },
+          "mean_predicted_class": 1.3722010984139343
+        },
+        "macro_auc_ci": {
+          "estimate": 0.7763332408697963,
+          "ci_low": 0.767234395574813,
+          "ci_high": 0.7853756504385376,
+          "bootstrap_replicates_valid": 2000
+        },
+        "highest_class_auc_ci": {
+          "estimate": 0.8221305586228922,
+          "ci_low": 0.8066349576754634,
+          "ci_high": 0.837562174548303,
+          "bootstrap_replicates_valid": 2000
+        },
+        "strict_mortality_auc_ci": {
+          "estimate": 0.8203809096984892,
+          "ci_low": 0.8041849031764449,
+          "ci_high": 0.8361765121288072,
+          "bootstrap_replicates_valid": 2000
+        },
+        "calibration": {
+          "highest_class_y_3": {
+            "slope": 1.3234646057499087,
+            "intercept": 0.21120122734814065
+          },
+          "high_need_y_ge_2": {
+            "slope": 1.2954838420326733,
+            "intercept": -0.381936120813944
+          }
+        }
+      },
+      "xgb_static_ts": {
+        "n_seed_models": 5,
+        "training_label_contract": "five-class development outcome collapsed to four classes",
+        "metrics": {
+          "macro_auc": 0.7901953904626005,
+          "accuracy": 0.5362105263157895,
+          "quadratic_weighted_kappa": 0.5745172811310921,
+          "ordinal_mae": 0.5606315789473684,
+          "log_loss": 1.0386559840374967,
+          "multiclass_brier": 0.5800003600854091,
+          "per_class_auc": {
+            "0": 0.8645457015188818,
+            "1": 0.6913678021826137,
+            "2": 0.7484097680127806,
+            "3": 0.8564582901361255
+          },
+          "mean_predicted_class": 1.4282369697401105
+        },
+        "macro_auc_ci": {
+          "estimate": 0.7901953904626005,
+          "ci_low": 0.7809602103046187,
+          "ci_high": 0.7993812708155048,
+          "bootstrap_replicates_valid": 2000
+        },
+        "highest_class_auc_ci": {
+          "estimate": 0.8564582901361255,
+          "ci_low": 0.8419447419324729,
+          "ci_high": 0.8709379739496103,
+          "bootstrap_replicates_valid": 2000
+        },
+        "strict_mortality_auc_ci": {
+          "estimate": 0.8572599545811666,
+          "ci_low": 0.8427838557118729,
+          "ci_high": 0.87165171279826,
+          "bootstrap_replicates_valid": 2000
+        },
+        "calibration": {
+          "highest_class_y_3": {
+            "slope": 1.3116509572194115,
+            "intercept": 0.04354005319646943
+          },
+          "high_need_y_ge_2": {
+            "slope": 1.2538508144477984,
+            "intercept": -0.5265691539627377
+          }
+        }
+      },
+      "dggru_tr": {
+        "n_seed_models": 5,
+        "training_label_contract": "five-class development outcome collapsed to four classes",
+        "metrics": {
+          "macro_auc": 0.7895214410218749,
+          "accuracy": 0.5143157894736842,
+          "quadratic_weighted_kappa": 0.5658107403572359,
+          "ordinal_mae": 0.6254736842105263,
+          "log_loss": 1.093067332426558,
+          "multiclass_brier": 0.601943924055928,
+          "per_class_auc": {
+            "0": 0.8611436308411795,
+            "1": 0.693243072362675,
+            "2": 0.7399624971471925,
+            "3": 0.8637365637364524
+          },
+          "mean_predicted_class": 1.3901133885650305
+        },
+        "macro_auc_ci": {
+          "estimate": 0.7895214410218749,
+          "ci_low": 0.7804278163053774,
+          "ci_high": 0.7986624310694873,
+          "bootstrap_replicates_valid": 2000
+        },
+        "highest_class_auc_ci": {
+          "estimate": 0.8637365637364524,
+          "ci_low": 0.8487334529849105,
+          "ci_high": 0.8786528344605955,
+          "bootstrap_replicates_valid": 2000
+        },
+        "strict_mortality_auc_ci": {
+          "estimate": 0.8647145249930682,
+          "ci_low": 0.8489307487136022,
+          "ci_high": 0.8803789303030644,
+          "bootstrap_replicates_valid": 2000
+        },
+        "calibration": {
+          "highest_class_y_3": {
+            "slope": 0.8572971828172614,
+            "intercept": -1.0766238094622622
+          },
+          "high_need_y_ge_2": {
+            "slope": 0.6848384829131771,
+            "intercept": -0.29024140199090476
+          }
+        }
+      }
+    }
+  },
+  "eicu": {
+    "n": 6696,
+    "status": "external transport",
+    "outcome_counts": {
+      "0": 4420,
+      "1": 208,
+      "2": 1439,
+      "3": 629
+    },
+    "models": {
+      "xgb_static": {
+        "n_seed_models": 5,
+        "training_label_contract": "five-class development outcome collapsed to four classes",
+        "metrics": {
+          "macro_auc": 0.7204174366143231,
+          "accuracy": 0.46430704898446834,
+          "quadratic_weighted_kappa": 0.4567137544088491,
+          "ordinal_mae": 0.7395459976105138,
+          "log_loss": 1.2414819828434964,
+          "multiclass_brier": 0.6521264386328853,
+          "per_class_auc": {
+            "0": 0.7941300726049512,
+            "1": 0.5543525621265294,
+            "2": 0.7029487008486518,
+            "3": 0.8302384108771604
+          },
+          "mean_predicted_class": 1.233058056879431
+        },
+        "macro_auc_ci": {
+          "estimate": 0.7204174366143231,
+          "ci_low": 0.7078429347675934,
+          "ci_high": 0.7332157757612662,
+          "bootstrap_replicates_valid": 2000
+        },
+        "highest_class_auc_ci": {
+          "estimate": 0.8302384108771604,
+          "ci_low": 0.8150217908389568,
+          "ci_high": 0.8459030057109284,
+          "bootstrap_replicates_valid": 2000
+        },
+        "strict_mortality_auc_ci": {
+          "estimate": 0.8302385418995043,
+          "ci_low": 0.8150220427501228,
+          "ci_high": 0.8459030057109281,
+          "bootstrap_replicates_valid": 2000
+        },
+        "calibration": {
+          "highest_class_y_3": {
+            "slope": 1.2584485469404738,
+            "intercept": -0.2917285976900417
+          },
+          "high_need_y_ge_2": {
+            "slope": 1.2265925474289845,
+            "intercept": -0.3612396019206382
+          }
+        }
+      },
+      "xgb_static_ts": {
+        "n_seed_models": 5,
+        "training_label_contract": "five-class development outcome collapsed to four classes",
+        "metrics": {
+          "macro_auc": 0.709505564486207,
+          "accuracy": 0.3730585424133811,
+          "quadratic_weighted_kappa": 0.427282597075721,
+          "ordinal_mae": 0.8672341696535245,
+          "log_loss": 1.4371486019939541,
+          "multiclass_brier": 0.7221159588108095,
+          "per_class_auc": {
+            "0": 0.7884725723464998,
+            "1": 0.5202244676562648,
+            "2": 0.7018580606578633,
+            "3": 0.8274671572842003
+          },
+          "mean_predicted_class": 1.378755038356461
+        },
+        "macro_auc_ci": {
+          "estimate": 0.709505564486207,
+          "ci_low": 0.6976378013090255,
+          "ci_high": 0.7216693914972011,
+          "bootstrap_replicates_valid": 2000
+        },
+        "highest_class_auc_ci": {
+          "estimate": 0.8274671572842003,
+          "ci_low": 0.812039425768816,
+          "ci_high": 0.8424057484389254,
+          "bootstrap_replicates_valid": 2000
+        },
+        "strict_mortality_auc_ci": {
+          "estimate": 0.8274671572842003,
+          "ci_low": 0.812039425768816,
+          "ci_high": 0.8424057484389254,
+          "bootstrap_replicates_valid": 2000
+        },
+        "calibration": {
+          "highest_class_y_3": {
+            "slope": 1.2811745794269787,
+            "intercept": -0.8947751837584434
+          },
+          "high_need_y_ge_2": {
+            "slope": 1.134042060512784,
+            "intercept": -0.6482462346622186
+          }
+        }
+      },
+      "dggru_tr": {
+        "n_seed_models": 5,
+        "training_label_contract": "five-class development outcome collapsed to four classes",
+        "metrics": {
+          "macro_auc": 0.7293315900843463,
+          "accuracy": 0.505973715651135,
+          "quadratic_weighted_kappa": 0.4507704513526105,
+          "ordinal_mae": 0.7210274790919953,
+          "log_loss": 1.2277822149265567,
+          "multiclass_brier": 0.5963007873891722,
+          "per_class_auc": {
+            "0": 0.7827538389967315,
+            "1": 0.6332371004457935,
+            "2": 0.6876111972481048,
+            "3": 0.8137242236467555
+          },
+          "mean_predicted_class": 0.9512276485908482
+        },
+        "macro_auc_ci": {
+          "estimate": 0.7293315900843463,
+          "ci_low": 0.717290025765033,
+          "ci_high": 0.7415580601075358,
+          "bootstrap_replicates_valid": 2000
+        },
+        "highest_class_auc_ci": {
+          "estimate": 0.8137242236467555,
+          "ci_low": 0.7980793049060625,
+          "ci_high": 0.829971329411306,
+          "bootstrap_replicates_valid": 2000
+        },
+        "strict_mortality_auc_ci": {
+          "estimate": 0.8137242236467555,
+          "ci_low": 0.7980793049060625,
+          "ci_high": 0.829971329411306,
+          "bootstrap_replicates_valid": 2000
+        },
+        "calibration": {
+          "highest_class_y_3": {
+            "slope": 0.5527299758000034,
+            "intercept": -1.1692713342904035
+          },
+          "high_need_y_ge_2": {
+            "slope": 0.49944090606638547,
+            "intercept": -0.08840177258117937
+          }
+        }
+      }
+    }
+  }
+}

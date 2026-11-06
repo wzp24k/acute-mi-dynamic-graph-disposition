@@ -1,0 +1,15 @@
+dataset,scale,level,label,n,fraction
+mimic4,five-level,0,Home or against advice,1011,0.15585016186218592
+mimic4,five-level,1,Home health care,1936,0.29844303992600585
+mimic4,five-level,2,Inpatient rehabilitation or assisted living,472,0.0727609064282411
+mimic4,five-level,3,Skilled nursing or other facility,1897,0.29243101587790965
+mimic4,five-level,4,Hospice or in-hospital death,1171,0.18051487590565746
+mimic3,five-level,0,Home or against advice,1048,0.22063157894736843
+mimic3,five-level,1,Home health care,1264,0.26610526315789473
+mimic3,five-level,2,Inpatient rehabilitation or assisted living,664,0.13978947368421052
+mimic3,five-level,3,Skilled nursing or other facility,1115,0.23473684210526316
+mimic3,five-level,4,Hospice or in-hospital death,659,0.13873684210526316
+eicu,four-class harmonized,0,Home,4420,0.6600955794504182
+eicu,four-class harmonized,1,Rehabilitation (eICU only),208,0.03106332138590203
+eicu,four-class harmonized,2,Skilled nursing or other facility,1439,0.21490442054958184
+eicu,four-class harmonized,3,Death,629,0.09393667861409796

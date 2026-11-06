@@ -1,0 +1,2780 @@
+{
+  "status": "passed",
+  "analysis": "ordinal metrics, cumulative-threshold calibration, and external DCA",
+  "runtime_seconds": 31.60132074356079,
+  "protocol": {
+    "primary_dataset": "mimic4",
+    "primary_n": 6487,
+    "primary_n_patients": 6487,
+    "primary_n_stays": 6487,
+    "seeds": [
+      1,
+      7,
+      42,
+      123,
+      2024
+    ],
+    "seed_aggregation": "mean predicted probability at each patient",
+    "n_classes": 5,
+    "models": {
+      "xgb_static": "XGB-static",
+      "xgb_static_ts": "XGB-static+TS",
+      "mlp_static": "MLP-static",
+      "mlp_static_ts": "MLP-static+TS",
+      "gru": "SeqOrdinal GRU",
+      "grud": "GRU-D",
+      "transformer": "Transformer",
+      "stgcn_lite": "STGCN-lite",
+      "dggru_static": "DG-GRU-static",
+      "dggru": "DG-GRU",
+      "dggru_tr": "DG-GRU+TR",
+      "dggru_ctr": "DG-GRU+CTR"
+    },
+    "outcome_labels": {
+      "0": "Home or against advice",
+      "1": "Home health care",
+      "2": "Inpatient rehabilitation or assisted living",
+      "3": "Skilled nursing or other facility",
+      "4": "Hospice or in-hospital death"
+    },
+    "ordinal_c_index": "Comparable pairs have different true ordered labels; predicted expected class is the score; score ties count 0.5.",
+    "quadratic_weighted_kappa": "Maximum-probability class versus observed class; squared-distance weights.",
+    "ordinal_mae": "Mean absolute difference between maximum-probability class and observed class.",
+    "multiclass_brier": "Mean patient-level sum over classes of squared probability error against the one-hot observed class.",
+    "confidence_intervals": {
+      "method": "percentile bootstrap",
+      "replicates_requested": 2000,
+      "primary_resampling_unit": "patient (subject_key)",
+      "eicu_dca_resampling_unit": "patient-safe hospital cluster",
+      "mimic3_dca_resampling_unit": "patient (subject_key)",
+      "seed": 20261104
+    },
+    "external_dca_methods": {
+      "probability_source": "raw transported probabilities",
+      "eicu_bootstrap_rule": "connected components of the patient-hospital graph; hospitals sharing any patient are resampled together as one patient-safe hospital cluster",
+      "mimic3_bootstrap_rule": "patient (subject_key)"
+    },
+    "threshold_calibration": "logit(y)=intercept+slope*logit(p); near-unpenalized one-predictor logistic regression.",
+    "risk_strata": {
+      "low": [
+        0.0,
+        0.2
+      ],
+      "intermediate": [
+        0.2,
+        0.5
+      ],
+      "high": [
+        0.5,
+        1.0
+      ]
+    },
+    "external_dca_thresholds": {
+      "minimum": 0.05,
+      "maximum": 0.6,
+      "increment": 0.01,
+      "n_thresholds": 56
+    },
+    "external_targets": {
+      "high_need_y_ge_2": "4-class y>=2",
+      "death_y_3": "4-class y=3"
+    }
+  },
+  "outcome_counts": {
+    "0": 1011,
+    "1": 1936,
+    "2": 472,
+    "3": 1897,
+    "4": 1171
+  },
+  "inputs": {
+    "primary_predictions": [
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_seed1.npz",
+        "sha256": "f0584522d3f12e56dc6d5d6cda46e7238d76442e44a36dc2b8516888b570e2a2",
+        "model": "xgb_static",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_seed7.npz",
+        "sha256": "3d347566befa6e8e8c2ef190283261607f05c63ba09bf93424b3fdd852b10c61",
+        "model": "xgb_static",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_seed42.npz",
+        "sha256": "dc24c292f2158cb9497ea3bb694eb8df09ef5543de663d11529b94e1cbd60cf4",
+        "model": "xgb_static",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_seed123.npz",
+        "sha256": "91519b02b8e202e93d32e65b24822e8657a502bc0b9536bc33b66fecc4356ae9",
+        "model": "xgb_static",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_seed2024.npz",
+        "sha256": "0302a7299785cdb8d7203c9e54ea2b30cf3441f5e0ca5c2cc4d0f929b4f58184",
+        "model": "xgb_static",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_ts_seed1.npz",
+        "sha256": "3d03913cb43a9e1b6ceac66950838e6916745104cc3d74df09293d5dd426c788",
+        "model": "xgb_static_ts",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_ts_seed7.npz",
+        "sha256": "7c103993c6c03a7be078e17946dd25a4fa4890bdce9ada6d8919ad8584be90bd",
+        "model": "xgb_static_ts",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_ts_seed42.npz",
+        "sha256": "4e79b32eddd2f0346ccc22f47a94b1a9b2f1193322a1e92aa53cd17c761536c6",
+        "model": "xgb_static_ts",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_ts_seed123.npz",
+        "sha256": "41fd3864894029030dda835ce22ac062d68de7e4d66c6ec661fba62793f167b3",
+        "model": "xgb_static_ts",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_xgb_static_ts_seed2024.npz",
+        "sha256": "fded53bc5a7153f3a70fbaf0b685fedb57ac0c53a496ac6b6cbde72500c0bb2f",
+        "model": "xgb_static_ts",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_seed1.npz",
+        "sha256": "9adf7d2e99dd8e9fadeffb648424d23511f6daf32943a7b61a94aca636e54fad",
+        "model": "mlp_static",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_seed7.npz",
+        "sha256": "aa34c07e7f623017e3771d52826bc42baf7d613442e2de5ab9a013ef2371bc0e",
+        "model": "mlp_static",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_seed42.npz",
+        "sha256": "9ad3677eea2575e87c9ba17033da873dc574fc22256a2245f50aa4e237ece934",
+        "model": "mlp_static",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_seed123.npz",
+        "sha256": "daff47dee2a024ffd9614fea5a8b5c33943d892558f1a05c313ffc8e3ff983cf",
+        "model": "mlp_static",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_seed2024.npz",
+        "sha256": "4b62f9a33f57b42fef42bac7349a1f220980aab307fdda2fb63309d8bd7e2b97",
+        "model": "mlp_static",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_ts_seed1.npz",
+        "sha256": "f25b1c9fcb0a5093a455b9f70fb3a5cdd13907796ade164e138c9598ef40e6c4",
+        "model": "mlp_static_ts",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_ts_seed7.npz",
+        "sha256": "d133ea75a2676c85f9dcbd125c76f5982b9f3e1bad6853cfa2a43f2969ca0435",
+        "model": "mlp_static_ts",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_ts_seed42.npz",
+        "sha256": "b308221fbf6cefb71afb9fb6663bc220120d0565fff744a18cc7f578b694b88a",
+        "model": "mlp_static_ts",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_ts_seed123.npz",
+        "sha256": "d7c5c5591056c523483f4b8cb1384ee273557b98fa874997ff2da00def8e9dae",
+        "model": "mlp_static_ts",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_mlp_static_ts_seed2024.npz",
+        "sha256": "4e29272bd688cc486438999d7316f9e1d3a75678992342ccdaa9451989dfbb0c",
+        "model": "mlp_static_ts",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_gru_seed1.npz",
+        "sha256": "ffeca45ba7ce9bd74349dced1805e6a67f1d764400dea826a915e46ff968e5cc",
+        "model": "gru",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_gru_seed7.npz",
+        "sha256": "9fbb65e04e5844034ad5b4f5a06c33d5cbe020f3ad6d2970431426e93ad6512d",
+        "model": "gru",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_gru_seed42.npz",
+        "sha256": "3f7f6182b3d5586d1f936c58ded7dcf65215c65ebdb6529d59f37117ac8fe1d8",
+        "model": "gru",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_gru_seed123.npz",
+        "sha256": "127b5cd300e122236590ac6b8879b32528645fc2bbaa90f847ebb9db2b80756a",
+        "model": "gru",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_gru_seed2024.npz",
+        "sha256": "2a1683581f65f1e5b39551c2ebcd9d5c465379e524eb58dcad24327f09871113",
+        "model": "gru",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_grud_seed1.npz",
+        "sha256": "f7bab9dc3c5b522fb505b4f293f3b8ab19706dab498d5b23143ee7bc6923cd7c",
+        "model": "grud",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_grud_seed7.npz",
+        "sha256": "d40a572b27fbba3ff9fe1a89562a71228ba55920772c2050a6ad35ed01583157",
+        "model": "grud",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_grud_seed42.npz",
+        "sha256": "069ea973acbaffe382cec5ce22e5356c48ad4ae9758751a30d2df8a62712c2bc",
+        "model": "grud",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_grud_seed123.npz",
+        "sha256": "94692ad0e7cec97a4cde63ed6c85fe6f5a7c4589a563634a69f6894f156c229b",
+        "model": "grud",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_grud_seed2024.npz",
+        "sha256": "fa4d8c3c356fc16938a868f5c580c44378437cbe6e55a49403ecb71124b9efc3",
+        "model": "grud",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_transformer_seed1.npz",
+        "sha256": "34a598e99db4df579773da234c21caf9b05bb2988a8e94bcf9b54c656d0d54af",
+        "model": "transformer",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_transformer_seed7.npz",
+        "sha256": "665b9c218078e8af0bece2088372d965f1a2add7bd4fbf60fe6c621911888199",
+        "model": "transformer",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_transformer_seed42.npz",
+        "sha256": "f016c76e998b8c0eef71f0c564ec155aab03200a14bd90539306f3f2c1254008",
+        "model": "transformer",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_transformer_seed123.npz",
+        "sha256": "e39b1e1c2116ca0a17e60e7a096bb881d5ea27244e0a8e8e3673c1120666567d",
+        "model": "transformer",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_transformer_seed2024.npz",
+        "sha256": "f4fa2caec365e3e600b22e78345321dfb3fbe9b2c30f8916c50d8efd03f0e21a",
+        "model": "transformer",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_stgcn_lite_seed1.npz",
+        "sha256": "b6da214c3ff6bae3674352aa99ae82a578265fc21234f8a1646860050651befe",
+        "model": "stgcn_lite",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_stgcn_lite_seed7.npz",
+        "sha256": "87b29347287f15e78680d770bdf5d170789fe4bee57ae7ffe0c96c2b1512a792",
+        "model": "stgcn_lite",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_stgcn_lite_seed42.npz",
+        "sha256": "b7b5f39e85135b9238e87138c4ea50d88647f23642e4aeafd1aef81f8f18c814",
+        "model": "stgcn_lite",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_stgcn_lite_seed123.npz",
+        "sha256": "f445037e8bd6c841d84fc100d13a3a43dc8ea39d759d122f5f6af5f81dac1ffd",
+        "model": "stgcn_lite",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_stgcn_lite_seed2024.npz",
+        "sha256": "e4730344517bf1e08acccc75a97a21ea611024293313e2bcc4689a3d391ea9a0",
+        "model": "stgcn_lite",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_static_seed1.npz",
+        "sha256": "ca6fc97cdfd9eacbc6103c42218c6a0ef053adaffe67e115b8b49ac21f030088",
+        "model": "dggru_static",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_static_seed7.npz",
+        "sha256": "664f5ab6384fb8358295d2e7639df44a41479b397f0ad05e6835f6b8e50abe51",
+        "model": "dggru_static",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_static_seed42.npz",
+        "sha256": "749cf38f569a72f7c0db5e96ed195710969f746220c7c206c44194fff7c8beb1",
+        "model": "dggru_static",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_static_seed123.npz",
+        "sha256": "de53e361051740cd37c09efe7059a107f29fc4b7e2d8c8032b54e01cd1fd78c9",
+        "model": "dggru_static",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_static_seed2024.npz",
+        "sha256": "4883942a2e036dfbb8e99310ade4bdc4471436ec7d4a72674352ff8e634e0f14",
+        "model": "dggru_static",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_seed1.npz",
+        "sha256": "8aae52282cc6c50538f6226f7de90c2a7fd7c049f79c9bfcf839addaff9be7ca",
+        "model": "dggru",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_seed7.npz",
+        "sha256": "ca2d22a40b96fb2950405c864ff58f9abfcd45a81800de1f61382a4461ba6c61",
+        "model": "dggru",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_seed42.npz",
+        "sha256": "8084603ded36633b432a2fa4e703fa0bf269858b6f3604cc425cf4909de204bf",
+        "model": "dggru",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_seed123.npz",
+        "sha256": "e97b38797fbe2dad08a5809dba76f9403eb4d1e08a7c139ea1d2dac83c1b5da4",
+        "model": "dggru",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_seed2024.npz",
+        "sha256": "d73109eafab2b269c416dd6f54ae044233f0326576ade8896c7eddeec5b8b093",
+        "model": "dggru",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_tr_seed1.npz",
+        "sha256": "b39b4992842fb4535b7d2e9d7e58d57fa952719255eb5ce885adcddc968f5276",
+        "model": "dggru_tr",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_tr_seed7.npz",
+        "sha256": "a822e6a7c84564ea414c5c8e12ff9f9090436904ac67904565e1dda3c37b0b1c",
+        "model": "dggru_tr",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_tr_seed42.npz",
+        "sha256": "59363c09eac44bcd31ac4193a7d09644df38a5d79cce1387335671bf60fd691d",
+        "model": "dggru_tr",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_tr_seed123.npz",
+        "sha256": "9a1fefea48f0f3e2476e413d606a59bbd8fe94d1ab604c8f1aa2fad552307e6f",
+        "model": "dggru_tr",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_tr_seed2024.npz",
+        "sha256": "43a39aeb5a5cb99491e4bee3ab172434618e9cea04aecca70acc61c42c099ef9",
+        "model": "dggru_tr",
+        "seed": 2024
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_ctr_seed1.npz",
+        "sha256": "5a7e5e7a96334c75341aae5f6b53d2c25669b09db1381f777cf0f27d6540bd2c",
+        "model": "dggru_ctr",
+        "seed": 1
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_ctr_seed7.npz",
+        "sha256": "63902091bb1d661e6c8ed4ce588c0398fb4c730389e66da292b45256fa3af0e0",
+        "model": "dggru_ctr",
+        "seed": 7
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_ctr_seed42.npz",
+        "sha256": "1bcb2de542a52d43f49b666a53cd525320087b98b4dd7f919f3bbdfc69a236b7",
+        "model": "dggru_ctr",
+        "seed": 42
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_ctr_seed123.npz",
+        "sha256": "4de309e8f27b002eceaf7ce92851ebc4601d2013eb723be776e6c3906cccf150",
+        "model": "dggru_ctr",
+        "seed": 123
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic4_dggru_ctr_seed2024.npz",
+        "sha256": "ff8c46f13488f6485a2dd6b3548321ea649e0d9f088aa2bb6adbaea357fe993e",
+        "model": "dggru_ctr",
+        "seed": 2024
+      }
+    ],
+    "external_predictions": [
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\eicu_xgb_static_transport.npz",
+        "sha256": "c95c8661cf02b15316e82cc89056d86c7862e32588bd02d7dea84fc17d785226",
+        "dataset": "eicu",
+        "model": "xgb_static"
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\eicu_xgb_static_ts_transport.npz",
+        "sha256": "2a89c983955a979f04890afeb373dc156e278bec42a69f8dfda58e4be50e53d5",
+        "dataset": "eicu",
+        "model": "xgb_static_ts"
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\eicu_dggru_tr_transport.npz",
+        "sha256": "1bf59a9ef2b57dd4546fa6e9bf16ff2922e18010b10b7ffeb5c2499317051b7a",
+        "dataset": "eicu",
+        "model": "dggru_tr"
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic3_xgb_static_transport.npz",
+        "sha256": "af61b37926cce234cf6bb1b820e7ca9ea1c36db5670c422eaad8d8a05e727bf5",
+        "dataset": "mimic3",
+        "model": "xgb_static"
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic3_xgb_static_ts_transport.npz",
+        "sha256": "13f0850227ede9fb41204caa57a0ab4e85ca729e4da8468aefcd8eaa9b40cc29",
+        "dataset": "mimic3",
+        "model": "xgb_static_ts"
+      },
+      {
+        "path": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\predictions\\mimic3_dggru_tr_transport.npz",
+        "sha256": "ca54574d7e8ef365879c8e13a643a89baf1533da5c4c02e51da4cfe8db2cfd48",
+        "dataset": "mimic3",
+        "model": "dggru_tr"
+      }
+    ]
+  },
+  "table9_ordinal_metrics": {
+    "xgb_static": {
+      "model_label": "XGB-static",
+      "point": {
+        "ordinal_c_index": 0.7551721730882669,
+        "quadratic_weighted_kappa": 0.4990211760272242,
+        "ordinal_mae": 0.9067365500231231,
+        "multiclass_brier": 0.6343284156857278,
+        "mean_expected_class": 2.0422702239952373
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7551721730882669,
+          "ci_low": 0.7466095291310588,
+          "ci_high": 0.764145371414722,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.4990211760272242,
+          "ci_low": 0.47766483696488427,
+          "ci_high": 0.5198663711651849,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 0.9067365500231231,
+          "ci_low": 0.8812972098042238,
+          "ci_high": 0.9326422074919068,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.6343284156857278,
+          "ci_low": 0.6261584212496251,
+          "ci_high": 0.6421364390996699,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "xgb_static_ts": {
+      "model_label": "XGB-static+TS",
+      "point": {
+        "ordinal_c_index": 0.7844290600771808,
+        "quadratic_weighted_kappa": 0.556782451599489,
+        "ordinal_mae": 0.8389085864035764,
+        "multiclass_brier": 0.6126572700256487,
+        "mean_expected_class": 2.0426307512725757
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7844290600771808,
+          "ci_low": 0.7767439256354354,
+          "ci_high": 0.7923676760654772,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.556782451599489,
+          "ci_low": 0.5377448556942687,
+          "ci_high": 0.5763559627809556,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 0.8389085864035764,
+          "ci_low": 0.8136272545090181,
+          "ci_high": 0.8637274549098196,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.6126572700256487,
+          "ci_low": 0.6038993114748398,
+          "ci_high": 0.6206549952511679,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "mlp_static": {
+      "model_label": "MLP-static",
+      "point": {
+        "ordinal_c_index": 0.7530297819456174,
+        "quadratic_weighted_kappa": 0.5082169352368695,
+        "ordinal_mae": 1.0312933559426545,
+        "multiclass_brier": 0.7338998554302205,
+        "mean_expected_class": 2.149569007195602
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7530297819456174,
+          "ci_low": 0.7438717938536851,
+          "ci_high": 0.7624360730466718,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5082169352368695,
+          "ci_low": 0.4886101060578702,
+          "ci_high": 0.5285320306763143,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0312933559426545,
+          "ci_low": 1.0047749344843535,
+          "ci_high": 1.0564243872360104,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7338998554302205,
+          "ci_low": 0.7242224298713943,
+          "ci_high": 0.7436894508816321,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "mlp_static_ts": {
+      "model_label": "MLP-static+TS",
+      "point": {
+        "ordinal_c_index": 0.7738833023572405,
+        "quadratic_weighted_kappa": 0.5472796378692484,
+        "ordinal_mae": 0.9808848466163096,
+        "multiclass_brier": 0.7297334738724766,
+        "mean_expected_class": 2.1572687820046514
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7738833023572405,
+          "ci_low": 0.7657635951391436,
+          "ci_high": 0.7825315492921247,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5472796378692484,
+          "ci_low": 0.5290425239496924,
+          "ci_high": 0.5672765593630399,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 0.9808848466163096,
+          "ci_low": 0.9543702790195776,
+          "ci_high": 1.0057114228456914,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7297334738724766,
+          "ci_low": 0.7191356489191862,
+          "ci_high": 0.7405822831876715,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "gru": {
+      "model_label": "SeqOrdinal GRU",
+      "point": {
+        "ordinal_c_index": 0.7729243480309274,
+        "quadratic_weighted_kappa": 0.5381573941416657,
+        "ordinal_mae": 1.0112532757823338,
+        "multiclass_brier": 0.7306843236786152,
+        "mean_expected_class": 2.180066296025825
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7729243480309274,
+          "ci_low": 0.7648202844039339,
+          "ci_high": 0.7817033043751812,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5381573941416657,
+          "ci_low": 0.5203790221733634,
+          "ci_high": 0.5573679919447021,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0112532757823338,
+          "ci_low": 0.9854979189147526,
+          "ci_high": 1.0359256975489441,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7306843236786152,
+          "ci_low": 0.7199766729093412,
+          "ci_high": 0.7411774712484164,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "grud": {
+      "model_label": "GRU-D",
+      "point": {
+        "ordinal_c_index": 0.7734538900822888,
+        "quadratic_weighted_kappa": 0.5427945241249809,
+        "ordinal_mae": 1.0023123169415755,
+        "multiclass_brier": 0.728764922167124,
+        "mean_expected_class": 2.1725041704948334
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7734538900822888,
+          "ci_low": 0.7653979372689429,
+          "ci_high": 0.7819472909982343,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5427945241249809,
+          "ci_low": 0.5241564812579297,
+          "ci_high": 0.5613873032718081,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0023123169415755,
+          "ci_low": 0.976410513334361,
+          "ci_high": 1.0266687220595037,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.728764922167124,
+          "ci_low": 0.7182740365172195,
+          "ci_high": 0.7391570849891075,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "transformer": {
+      "model_label": "Transformer",
+      "point": {
+        "ordinal_c_index": 0.7762915231115154,
+        "quadratic_weighted_kappa": 0.5454914067986736,
+        "ordinal_mae": 1.0032372437182056,
+        "multiclass_brier": 0.7239106319295318,
+        "mean_expected_class": 2.133674672648664
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7762915231115154,
+          "ci_low": 0.7679291204293552,
+          "ci_high": 0.7847897365422344,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5454914067986736,
+          "ci_low": 0.526647047306427,
+          "ci_high": 0.5640262418825961,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0032372437182056,
+          "ci_low": 0.9779559118236473,
+          "ci_high": 1.0288268845383073,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7239106319295318,
+          "ci_low": 0.7134393218116896,
+          "ci_high": 0.7339990691251885,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "stgcn_lite": {
+      "model_label": "STGCN-lite",
+      "point": {
+        "ordinal_c_index": 0.7743913613409021,
+        "quadratic_weighted_kappa": 0.5357694863195159,
+        "ordinal_mae": 1.0197317712347773,
+        "multiclass_brier": 0.7294860688674849,
+        "mean_expected_class": 2.180817814702561
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7743913613409021,
+          "ci_low": 0.7664532976605672,
+          "ci_high": 0.7832202816350459,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5357694863195159,
+          "ci_low": 0.5177877512867384,
+          "ci_high": 0.554950666273232,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0197317712347773,
+          "ci_low": 0.9936796670263605,
+          "ci_high": 1.044558347464159,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7294860688674849,
+          "ci_low": 0.7188571948325168,
+          "ci_high": 0.739941346769394,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "dggru_static": {
+      "model_label": "DG-GRU-static",
+      "point": {
+        "ordinal_c_index": 0.7736837900415582,
+        "quadratic_weighted_kappa": 0.5430477935266594,
+        "ordinal_mae": 1.0038538615692925,
+        "multiclass_brier": 0.7274268332865738,
+        "mean_expected_class": 2.16303335826186
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7736837900415582,
+          "ci_low": 0.7654617859196958,
+          "ci_high": 0.7823353645361831,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5430477935266594,
+          "ci_low": 0.5253451518250941,
+          "ci_high": 0.562625616185644,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0038538615692925,
+          "ci_low": 0.9784183752119624,
+          "ci_high": 1.0280599660860181,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7274268332865738,
+          "ci_low": 0.7171352720533213,
+          "ci_high": 0.73750722983268,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "dggru": {
+      "model_label": "DG-GRU",
+      "point": {
+        "ordinal_c_index": 0.77317286664887,
+        "quadratic_weighted_kappa": 0.5442688710786141,
+        "ordinal_mae": 1.0038538615692925,
+        "multiclass_brier": 0.7313817800227322,
+        "mean_expected_class": 2.1750504358057454
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.77317286664887,
+          "ci_low": 0.7650058961036011,
+          "ci_high": 0.7819880460611809,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5442688710786141,
+          "ci_low": 0.525826171900574,
+          "ci_high": 0.5642001396757333,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.0038538615692925,
+          "ci_low": 0.9773315862494218,
+          "ci_high": 1.0283644211499923,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7313817800227322,
+          "ci_low": 0.7207234960439153,
+          "ci_high": 0.7417521188357031,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "dggru_tr": {
+      "model_label": "DG-GRU+TR",
+      "point": {
+        "ordinal_c_index": 0.7734389453395412,
+        "quadratic_weighted_kappa": 0.5416288282958036,
+        "ordinal_mae": 1.007091105287498,
+        "multiclass_brier": 0.73095674827384,
+        "mean_expected_class": 2.1738683754103527
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7734389453395412,
+          "ci_low": 0.7653226253220227,
+          "ci_high": 0.7822694557356318,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5416288282958036,
+          "ci_low": 0.5232877757920688,
+          "ci_high": 0.5610959174192457,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.007091105287498,
+          "ci_low": 0.9807306921535378,
+          "ci_high": 1.031759673192539,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.73095674827384,
+          "ci_low": 0.7203189812175494,
+          "ci_high": 0.7413159730592518,
+          "valid_replicates": 2000
+        }
+      }
+    },
+    "dggru_ctr": {
+      "model_label": "DG-GRU+CTR",
+      "point": {
+        "ordinal_c_index": 0.7731044944507991,
+        "quadratic_weighted_kappa": 0.5402831158638177,
+        "ordinal_mae": 1.015261291814398,
+        "multiclass_brier": 0.7331484576806427,
+        "mean_expected_class": 2.176714108097137
+      },
+      "bootstrap": {
+        "ordinal_c_index": {
+          "estimate": 0.7731044944507991,
+          "ci_low": 0.765348632954508,
+          "ci_high": 0.7816188476562973,
+          "valid_replicates": 2000
+        },
+        "quadratic_weighted_kappa": {
+          "estimate": 0.5402831158638177,
+          "ci_low": 0.5219739581195493,
+          "ci_high": 0.5594103916391695,
+          "valid_replicates": 2000
+        },
+        "ordinal_mae": {
+          "estimate": 1.015261291814398,
+          "ci_low": 0.9885887158933251,
+          "ci_high": 1.0403923231077539,
+          "valid_replicates": 2000
+        },
+        "multiclass_brier": {
+          "estimate": 0.7331484576806427,
+          "ci_low": 0.7223796384268455,
+          "ci_high": 0.7433515791762582,
+          "valid_replicates": 2000
+        }
+      }
+    }
+  },
+  "table9b_ordinal_contrasts": {
+    "XGB-static+TS minus DG-GRU+TR": {
+      "contrast": "XGB-static+TS minus DG-GRU+TR",
+      "ordinal_c_index": {
+        "estimate": 0.010990114737639667,
+        "ci_low": 0.0056185741320587046,
+        "ci_high": 0.01604354067911188,
+        "valid_replicates": 2000
+      },
+      "quadratic_weighted_kappa": {
+        "estimate": 0.015153623303685415,
+        "ci_low": -0.0004827615871321299,
+        "ci_high": 0.031416957550692244,
+        "valid_replicates": 2000
+      },
+      "ordinal_mae": {
+        "estimate": -0.16818251888392166,
+        "ci_low": -0.19161785108678894,
+        "ci_high": -0.1441305688299676,
+        "valid_replicates": 2000
+      }
+    },
+    "XGB-static+TS minus XGB-static": {
+      "contrast": "XGB-static+TS minus XGB-static",
+      "ordinal_c_index": {
+        "estimate": 0.029256886988913933,
+        "ci_low": 0.024061366103311766,
+        "ci_high": 0.03439495149035237,
+        "valid_replicates": 2000
+      },
+      "quadratic_weighted_kappa": {
+        "estimate": 0.05776127557226485,
+        "ci_low": 0.041247006972101846,
+        "ci_high": 0.07475529482925598,
+        "valid_replicates": 2000
+      },
+      "ordinal_mae": {
+        "estimate": -0.0678279636195468,
+        "ci_low": -0.08956374287035607,
+        "ci_high": -0.047171265608139334,
+        "valid_replicates": 2000
+      }
+    },
+    "DG-GRU+TR minus DG-GRU": {
+      "contrast": "DG-GRU+TR minus DG-GRU",
+      "ordinal_c_index": {
+        "estimate": 0.00026607869067118983,
+        "ci_low": -0.0001841983591623131,
+        "ci_high": 0.0007067490570824923,
+        "valid_replicates": 2000
+      },
+      "quadratic_weighted_kappa": {
+        "estimate": -0.002640042782810492,
+        "ci_low": -0.005741712278106978,
+        "ci_high": 0.0004823500963026244,
+        "valid_replicates": 2000
+      },
+      "ordinal_mae": {
+        "estimate": 0.0032372437182055513,
+        "ci_low": -0.0016956990904886116,
+        "ci_high": 0.008174040388469207,
+        "valid_replicates": 2000
+      }
+    },
+    "DG-GRU+CTR minus DG-GRU": {
+      "contrast": "DG-GRU+CTR minus DG-GRU",
+      "ordinal_c_index": {
+        "estimate": -6.837219807087624e-05,
+        "ci_low": -0.0024605399502158317,
+        "ci_high": 0.002252519956414029,
+        "valid_replicates": 2000
+      },
+      "quadratic_weighted_kappa": {
+        "estimate": -0.003985755214796383,
+        "ci_low": -0.012576787348384483,
+        "ci_high": 0.004302723820260951,
+        "valid_replicates": 2000
+      },
+      "ordinal_mae": {
+        "estimate": 0.011407430245105488,
+        "ci_low": -0.0015415446277169398,
+        "ci_high": 0.024202250655156358,
+        "valid_replicates": 2000
+      }
+    }
+  },
+  "table10_threshold_calibration": {
+    "xgb_static_ts": {
+      "P(y>=2)": {
+        "level": 2,
+        "target_definition": "Inpatient rehabilitation, facility, hospice, or death",
+        "n": 6487,
+        "events": 3540,
+        "non_events": 2947,
+        "event_fraction": 0.5457067982118082,
+        "point": {
+          "auroc": 0.8287675487280945,
+          "brier": 0.168142365029157,
+          "calibration_intercept": -0.029858422017776016,
+          "calibration_slope": 1.2163776149163532,
+          "slope": 1.216362858818148,
+          "intercept": -0.029860454989518677
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.8287675487280945,
+            "ci_low": 0.8187447252817442,
+            "ci_high": 0.8386161000476617,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.168142365029157,
+            "ci_low": 0.16371273763052313,
+            "ci_high": 0.17254028081353437,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": -0.029860454989518677,
+            "ci_low": -0.09174717823485487,
+            "ci_high": 0.0298665777316594,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 1.216362858818148,
+            "ci_low": 1.1567917161823562,
+            "ci_high": 1.2776204121636277,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 843,
+            "events": 57,
+            "mean_predicted": 0.12222328254067001,
+            "observed_rate": 0.06761565836298933
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 1846,
+            "events": 637,
+            "mean_predicted": 0.35984343942012614,
+            "observed_rate": 0.34507042253521125
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 3798,
+            "events": 2846,
+            "mean_predicted": 0.7284853021386204,
+            "observed_rate": 0.7493417588204319
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.104262987462422,
+            "observed_rate": 0.04930662557781202,
+            "calibration_gap": -0.054956361884609985
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.224909620424833,
+            "observed_rate": 0.1864406779661017,
+            "calibration_gap": -0.03846894245873131
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.3420212477330801,
+            "observed_rate": 0.3235747303543914,
+            "calibration_gap": -0.018446517378688743
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.44047307415143555,
+            "observed_rate": 0.4268104776579353,
+            "calibration_gap": -0.013662596493500268
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.5277948721388042,
+            "observed_rate": 0.5408320493066255,
+            "calibration_gap": 0.013037177167821379
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.6067760369741861,
+            "observed_rate": 0.6317411402157165,
+            "calibration_gap": 0.02496510324153034
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.6866363290651416,
+            "observed_rate": 0.6856702619414484,
+            "calibration_gap": -0.0009660671236931817
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.7635029163110978,
+            "observed_rate": 0.7870370370370371,
+            "calibration_gap": 0.0235341207259393
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.8375649572306967,
+            "observed_rate": 0.8842592592592593,
+            "calibration_gap": 0.04669430202856262
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.9153782049679761,
+            "observed_rate": 0.9429012345679012,
+            "calibration_gap": 0.027523029599925142
+          }
+        ]
+      },
+      "P(y>=3)": {
+        "level": 3,
+        "target_definition": "Skilled nursing or other facility, hospice, or death",
+        "n": 6487,
+        "events": 3068,
+        "non_events": 3419,
+        "event_fraction": 0.4729458917835671,
+        "point": {
+          "auroc": 0.806898179625858,
+          "brier": 0.17953259595448912,
+          "calibration_intercept": 0.002828633231178738,
+          "calibration_slope": 1.1877106851616102,
+          "slope": 1.187222623558947,
+          "intercept": 0.002933475071984562
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.806898179625858,
+            "ci_low": 0.7962301566257918,
+            "ci_high": 0.8172539624100701,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.17953259595448912,
+            "ci_low": 0.17535300874165052,
+            "ci_high": 0.18379211588959896,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": 0.002933475071984562,
+            "ci_low": -0.05633463324050407,
+            "ci_high": 0.05881750200678717,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 1.187222623558947,
+            "ci_low": 1.1275446341157576,
+            "ci_high": 1.2500576429852408,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 1114,
+            "events": 83,
+            "mean_predicted": 0.11375745054137101,
+            "observed_rate": 0.07450628366247755
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 2277,
+            "events": 792,
+            "mean_predicted": 0.36007220747352603,
+            "observed_rate": 0.34782608695652173
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 3096,
+            "events": 2193,
+            "mean_predicted": 0.6863685714977357,
+            "observed_rate": 0.7083333333333334
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.07852767282388015,
+            "observed_rate": 0.040061633281972264,
+            "calibration_gap": -0.03846603954190789
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.1782647262239837,
+            "observed_rate": 0.1448382126348228,
+            "calibration_gap": -0.033426513589160906
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.2797645504958066,
+            "observed_rate": 0.2573189522342065,
+            "calibration_gap": -0.02244559826160014
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.3658636699802313,
+            "observed_rate": 0.3559322033898305,
+            "calibration_gap": -0.009931466590400784
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.4455407686692265,
+            "observed_rate": 0.4437596302003082,
+            "calibration_gap": -0.0017811384689183085
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.5206212464748711,
+            "observed_rate": 0.5469953775038521,
+            "calibration_gap": 0.026374131028981007
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.5946078845441846,
+            "observed_rate": 0.5654853620955316,
+            "calibration_gap": -0.029122522448652988
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.6682267711733548,
+            "observed_rate": 0.6759259259259259,
+            "calibration_gap": 0.007699154752571102
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.751202454576039,
+            "observed_rate": 0.7993827160493827,
+            "calibration_gap": 0.048180261473343755
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.8537137784305271,
+            "observed_rate": 0.9012345679012346,
+            "calibration_gap": 0.04752078947070748
+          }
+        ]
+      },
+      "P(y>=4)": {
+        "level": 4,
+        "target_definition": "Hospice or in-hospital death",
+        "n": 6487,
+        "events": 1171,
+        "non_events": 5316,
+        "event_fraction": 0.18051487590565746,
+        "point": {
+          "auroc": 0.864073717806612,
+          "brier": 0.10561405321368457,
+          "calibration_intercept": 0.2508339634429252,
+          "calibration_slope": 1.2335006434531148,
+          "slope": 1.233604429026306,
+          "intercept": 0.25107848493003904
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.864073717806612,
+            "ci_low": 0.8536772485490668,
+            "ci_high": 0.8741367011673569,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.10561405321368457,
+            "ci_low": 0.10104555509100081,
+            "ci_high": 0.1101611374327412,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": 0.25107848493003904,
+            "ci_low": 0.14461660561895762,
+            "ci_high": 0.36416572139860154,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 1.233604429026306,
+            "ci_low": 1.164949248363649,
+            "ci_high": 1.3117781923519278,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 4279,
+            "events": 237,
+            "mean_predicted": 0.06994381403094747,
+            "observed_rate": 0.055386772610423
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 1695,
+            "events": 587,
+            "mean_predicted": 0.32006767381433193,
+            "observed_rate": 0.3463126843657817
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 513,
+            "events": 347,
+            "mean_predicted": 0.631681195174509,
+            "observed_rate": 0.6764132553606238
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.01171563375448501,
+            "observed_rate": 0.007704160246533128,
+            "calibration_gap": -0.004011473507951883
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.020759655918369216,
+            "observed_rate": 0.0061633281972265025,
+            "calibration_gap": -0.014596327721142714
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.0355565462215518,
+            "observed_rate": 0.007704160246533128,
+            "calibration_gap": -0.02785238597501867
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.05859364698797418,
+            "observed_rate": 0.029275808936825885,
+            "calibration_gap": -0.029317838051148296
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.09181360235130659,
+            "observed_rate": 0.07858243451463791,
+            "calibration_gap": -0.01323116783666868
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.1360906110453679,
+            "observed_rate": 0.11864406779661017,
+            "calibration_gap": -0.01744654324875773
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.19336783715361622,
+            "observed_rate": 0.2033898305084746,
+            "calibration_gap": 0.010021993354858372
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.27133915555881866,
+            "observed_rate": 0.2777777777777778,
+            "calibration_gap": 0.0064386222189591336
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.37939759548523544,
+            "observed_rate": 0.42746913580246915,
+            "calibration_gap": 0.04807154031723371
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.5996818311788419,
+            "observed_rate": 0.6496913580246914,
+            "calibration_gap": 0.05000952684584947
+          }
+        ]
+      }
+    },
+    "dggru_tr": {
+      "P(y>=2)": {
+        "level": 2,
+        "target_definition": "Inpatient rehabilitation, facility, hospice, or death",
+        "n": 6487,
+        "events": 3540,
+        "non_events": 2947,
+        "event_fraction": 0.5457067982118082,
+        "point": {
+          "auroc": 0.8074528535195229,
+          "brier": 0.18726565675765533,
+          "calibration_intercept": -0.3718743715130024,
+          "calibration_slope": 0.7244836392053072,
+          "slope": 0.72448226911059,
+          "intercept": -0.3718865685564115
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.8074528535195229,
+            "ci_low": 0.7973399368966309,
+            "ci_high": 0.8185746448836668,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.18726565675765533,
+            "ci_low": 0.18129054440488973,
+            "ci_high": 0.1931111387841113,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": -0.3718865685564115,
+            "ci_low": -0.43760958784641046,
+            "ci_high": -0.30888872957927815,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 0.72448226911059,
+            "ci_low": 0.6818011987824945,
+            "ci_high": 0.7726147928548919,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 742,
+            "events": 65,
+            "mean_predicted": 0.06660238538225101,
+            "observed_rate": 0.0876010781671159
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 1180,
+            "events": 316,
+            "mean_predicted": 0.3813672213096467,
+            "observed_rate": 0.2677966101694915
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 4565,
+            "events": 3159,
+            "mean_predicted": 0.7910743706820667,
+            "observed_rate": 0.6920043811610077
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.05075806754906872,
+            "observed_rate": 0.06933744221879815,
+            "calibration_gap": 0.018579374669729427
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.2901307223949539,
+            "observed_rate": 0.2542372881355932,
+            "calibration_gap": -0.0358934342593607
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.4480195585835464,
+            "observed_rate": 0.2835130970724191,
+            "calibration_gap": -0.1645064615111273
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.5529113612203465,
+            "observed_rate": 0.4206471494607088,
+            "calibration_gap": -0.13226421175963765
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.6448460731573563,
+            "observed_rate": 0.5546995377503852,
+            "calibration_gap": -0.09014653540697115
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.7246758978081314,
+            "observed_rate": 0.6440677966101694,
+            "calibration_gap": -0.08060810119796191
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.8062984046467417,
+            "observed_rate": 0.6933744221879815,
+            "calibration_gap": -0.11292398245876023
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.8856856734399902,
+            "observed_rate": 0.7993827160493827,
+            "calibration_gap": -0.08630295739060745
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.9470386843990396,
+            "observed_rate": 0.816358024691358,
+            "calibration_gap": -0.1306806597076816
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.9878595586176271,
+            "observed_rate": 0.9228395061728395,
+            "calibration_gap": -0.06502005244478759
+          }
+        ]
+      },
+      "P(y>=3)": {
+        "level": 3,
+        "target_definition": "Skilled nursing or other facility, hospice, or death",
+        "n": 6487,
+        "events": 3068,
+        "non_events": 3419,
+        "event_fraction": 0.4729458917835671,
+        "point": {
+          "auroc": 0.7867910095169527,
+          "brier": 0.19232553373967312,
+          "calibration_intercept": 0.005819027250961032,
+          "calibration_slope": 0.6379544018422852,
+          "slope": 0.6378096373321613,
+          "intercept": 0.005549737856578754
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.7867910095169527,
+            "ci_low": 0.7760160755597918,
+            "ci_high": 0.7979506725298837,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.19232553373967312,
+            "ci_low": 0.18657650440923015,
+            "ci_high": 0.19786555383216356,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": 0.005549737856578754,
+            "ci_low": -0.05154831651816236,
+            "ci_high": 0.06154021239456225,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 0.6378096373321613,
+            "ci_low": 0.5990716583835731,
+            "ci_high": 0.6818100690319314,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 1530,
+            "events": 205,
+            "mean_predicted": 0.08811337537656241,
+            "observed_rate": 0.13398692810457516
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 2197,
+            "events": 895,
+            "mean_predicted": 0.34156704970126583,
+            "observed_rate": 0.40737369139736
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 2760,
+            "events": 1968,
+            "mean_predicted": 0.7694191979650288,
+            "observed_rate": 0.7130434782608696
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.017745487048726454,
+            "observed_rate": 0.06471494607087827,
+            "calibration_gap": 0.04696945902215181
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.1235064778228904,
+            "observed_rate": 0.1864406779661017,
+            "calibration_gap": 0.0629342001432113
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.21170653416229637,
+            "observed_rate": 0.2218798151001541,
+            "calibration_gap": 0.010173280937857715
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.29103168890182696,
+            "observed_rate": 0.3667180277349769,
+            "calibration_gap": 0.07568633883314996
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.3784317661790075,
+            "observed_rate": 0.4591679506933744,
+            "calibration_gap": 0.08073618451436693
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.4740939772576269,
+            "observed_rate": 0.5454545454545454,
+            "calibration_gap": 0.0713605681969185
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.5943238853130387,
+            "observed_rate": 0.5793528505392912,
+            "calibration_gap": -0.014971034773747505
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.7301973330075451,
+            "observed_rate": 0.7098765432098766,
+            "calibration_gap": -0.020320789797668493
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.8567855708680494,
+            "observed_rate": 0.7391975308641975,
+            "calibration_gap": -0.11758804000385192
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.9622118767948799,
+            "observed_rate": 0.8580246913580247,
+            "calibration_gap": -0.10418718543685512
+          }
+        ]
+      },
+      "P(y>=4)": {
+        "level": 4,
+        "target_definition": "Hospice or in-hospital death",
+        "n": 6487,
+        "events": 1171,
+        "non_events": 5316,
+        "event_fraction": 0.18051487590565746,
+        "point": {
+          "auroc": 0.84384556169635,
+          "brier": 0.13099683325063186,
+          "calibration_intercept": -1.0343935873193257,
+          "calibration_slope": 0.7598331150429221,
+          "slope": 0.7598252733905634,
+          "intercept": -1.0343935128582624
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.84384556169635,
+            "ci_low": 0.8321248345842917,
+            "ci_high": 0.8558195362784481,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.13099683325063186,
+            "ci_low": 0.12576714149588103,
+            "ci_high": 0.13591195673827103,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": -1.0343935128582624,
+            "ci_low": -1.1124925784069435,
+            "ci_high": -0.9585772942573413,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 0.7598252733905634,
+            "ci_low": 0.7120561961385178,
+            "ci_high": 0.8130696569950614,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 3456,
+            "events": 128,
+            "mean_predicted": 0.08013606547528204,
+            "observed_rate": 0.037037037037037035
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 1488,
+            "events": 289,
+            "mean_predicted": 0.3300165935762189,
+            "observed_rate": 0.19422043010752688
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 1543,
+            "events": 754,
+            "mean_predicted": 0.7381468950077283,
+            "observed_rate": 0.48865845755022685
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.0049190197114087585,
+            "observed_rate": 0.012326656394453005,
+            "calibration_gap": 0.007407636683044247
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.03761376567194264,
+            "observed_rate": 0.020030816640986132,
+            "calibration_gap": -0.01758294903095651
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.06890829327387421,
+            "observed_rate": 0.030816640986132512,
+            "calibration_gap": -0.038091652287741695
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.10396950997038026,
+            "observed_rate": 0.04160246533127889,
+            "calibration_gap": -0.06236704463910137
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.14987427373854847,
+            "observed_rate": 0.05701078582434515,
+            "calibration_gap": -0.09286348791420332
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.2170316104023597,
+            "observed_rate": 0.11710323574730354,
+            "calibration_gap": -0.09992837465505615
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.32541404995701334,
+            "observed_rate": 0.18952234206471494,
+            "calibration_gap": -0.1358917078922984
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.479393839424499,
+            "observed_rate": 0.3132716049382716,
+            "calibration_gap": -0.16612223448622737
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.6685734882686333,
+            "observed_rate": 0.41358024691358025,
+            "calibration_gap": -0.254993241355053
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.8857648995785434,
+            "observed_rate": 0.6111111111111112,
+            "calibration_gap": -0.27465378846743227
+          }
+        ]
+      }
+    },
+    "dggru_ctr": {
+      "P(y>=2)": {
+        "level": 2,
+        "target_definition": "Inpatient rehabilitation, facility, hospice, or death",
+        "n": 6487,
+        "events": 3540,
+        "non_events": 2947,
+        "event_fraction": 0.5457067982118082,
+        "point": {
+          "auroc": 0.8067390183256362,
+          "brier": 0.18789334528514032,
+          "calibration_intercept": -0.37167100542831627,
+          "calibration_slope": 0.7197076026940518,
+          "slope": 0.7197060131056386,
+          "intercept": -0.37168456490893903
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.8067390183256362,
+            "ci_low": 0.7965787542407907,
+            "ci_high": 0.817309696858159,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.18789334528514032,
+            "ci_low": 0.181932804775702,
+            "ci_high": 0.19366030658572145,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": -0.37168456490893903,
+            "ci_low": -0.4389687880439157,
+            "ci_high": -0.30956188077004415,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 0.7197060131056386,
+            "ci_low": 0.6788060097330414,
+            "ci_high": 0.7666402080788169,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 741,
+            "events": 70,
+            "mean_predicted": 0.06687601286629237,
+            "observed_rate": 0.09446693657219973
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 1167,
+            "events": 304,
+            "mean_predicted": 0.3806239625391324,
+            "observed_rate": 0.26049700085689803
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 4579,
+            "events": 3166,
+            "mean_predicted": 0.7906300473603342,
+            "observed_rate": 0.6914173400305743
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.05101276684905213,
+            "observed_rate": 0.08166409861325115,
+            "calibration_gap": 0.03065133176419902
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.2887344088556176,
+            "observed_rate": 0.24499229583975346,
+            "calibration_gap": -0.043742113015864115
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.45125544579629995,
+            "observed_rate": 0.2711864406779661,
+            "calibration_gap": -0.18006900511833385
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.5558240039165573,
+            "observed_rate": 0.43297380585516176,
+            "calibration_gap": -0.12285019806139552
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.645784622579361,
+            "observed_rate": 0.5577812018489985,
+            "calibration_gap": -0.08800342073036249
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.72269828071967,
+            "observed_rate": 0.6240369799691834,
+            "calibration_gap": -0.09866130075048662
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.8055616490874375,
+            "observed_rate": 0.7195685670261941,
+            "calibration_gap": -0.08599308206124345
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.885853349496783,
+            "observed_rate": 0.7870370370370371,
+            "calibration_gap": -0.09881631245974587
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.9483927259106695,
+            "observed_rate": 0.8225308641975309,
+            "calibration_gap": -0.12586186171313862
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.9882738046624042,
+            "observed_rate": 0.9166666666666666,
+            "calibration_gap": -0.07160713799573759
+          }
+        ]
+      },
+      "P(y>=3)": {
+        "level": 3,
+        "target_definition": "Skilled nursing or other facility, hospice, or death",
+        "n": 6487,
+        "events": 3068,
+        "non_events": 3419,
+        "event_fraction": 0.4729458917835671,
+        "point": {
+          "auroc": 0.7866599259525628,
+          "brier": 0.19240111799220294,
+          "calibration_intercept": 0.001321839014467225,
+          "calibration_slope": 0.6378707290994586,
+          "slope": 0.6377386526869969,
+          "intercept": 0.0010392714663538748
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.7866599259525628,
+            "ci_low": 0.7759281041173653,
+            "ci_high": 0.7976616039178338,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.19240111799220294,
+            "ci_low": 0.18667979008433588,
+            "ci_high": 0.1979057512076577,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": 0.0010392714663538748,
+            "ci_low": -0.05763371685718923,
+            "ci_high": 0.05798066286836538,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 0.6377386526869969,
+            "ci_low": 0.5989465676716204,
+            "ci_high": 0.6803786043068082,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 1495,
+            "events": 201,
+            "mean_predicted": 0.08555032444576022,
+            "observed_rate": 0.13444816053511705
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 2238,
+            "events": 894,
+            "mean_predicted": 0.34103145704289417,
+            "observed_rate": 0.39946380697050937
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 2754,
+            "events": 1973,
+            "mean_predicted": 0.7711697728095133,
+            "observed_rate": 0.7164124909222949
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.017824179102485134,
+            "observed_rate": 0.06779661016949153,
+            "calibration_gap": 0.04997243106700639
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.12289845745607214,
+            "observed_rate": 0.17873651771956856,
+            "calibration_gap": 0.055838060263496414
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.2141321588196372,
+            "observed_rate": 0.23266563944530047,
+            "calibration_gap": 0.018533480625663262
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.2940350224756668,
+            "observed_rate": 0.3559322033898305,
+            "calibration_gap": 0.061897180914163685
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.37935249821105743,
+            "observed_rate": 0.46841294298921415,
+            "calibration_gap": 0.08906044477815672
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.4728556350208439,
+            "observed_rate": 0.5192604006163328,
+            "calibration_gap": 0.04640476559548895
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.5949353862236697,
+            "observed_rate": 0.6101694915254238,
+            "calibration_gap": 0.015234105301754064
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.7303801745048402,
+            "observed_rate": 0.7021604938271605,
+            "calibration_gap": -0.02821968067767966
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.8595817231630652,
+            "observed_rate": 0.7376543209876543,
+            "calibration_gap": -0.12192740217541098
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.9634363342950373,
+            "observed_rate": 0.8580246913580247,
+            "calibration_gap": -0.10541164293701255
+          }
+        ]
+      },
+      "P(y>=4)": {
+        "level": 4,
+        "target_definition": "Hospice or in-hospital death",
+        "n": 6487,
+        "events": 1171,
+        "non_events": 5316,
+        "event_fraction": 0.18051487590565746,
+        "point": {
+          "auroc": 0.8427755277238558,
+          "brier": 0.13194395930570918,
+          "calibration_intercept": -1.0441709561737285,
+          "calibration_slope": 0.755699182595029,
+          "slope": 0.7553294505900433,
+          "intercept": -1.0441918023745371
+        },
+        "bootstrap": {
+          "auroc": {
+            "estimate": 0.8427755277238558,
+            "ci_low": 0.8312284335471266,
+            "ci_high": 0.8549168174323218,
+            "valid_replicates": 2000
+          },
+          "brier": {
+            "estimate": 0.13194395930570918,
+            "ci_low": 0.12671781293259274,
+            "ci_high": 0.13693699575858875,
+            "valid_replicates": 2000
+          },
+          "calibration_intercept": {
+            "estimate": -1.0441918023745371,
+            "ci_low": -1.1205393257659761,
+            "ci_high": -0.9677958727426406,
+            "valid_replicates": 2000
+          },
+          "calibration_slope": {
+            "estimate": 0.7553294505900433,
+            "ci_low": 0.7094916285526489,
+            "ci_high": 0.8076169419459045,
+            "valid_replicates": 2000
+          }
+        },
+        "risk_strata": [
+          {
+            "risk_stratum": "Low",
+            "lower_bound": 0.0,
+            "upper_bound": 0.2,
+            "n": 3455,
+            "events": 135,
+            "mean_predicted": 0.0805352650587036,
+            "observed_rate": 0.03907380607814761
+          },
+          {
+            "risk_stratum": "Intermediate",
+            "lower_bound": 0.2,
+            "upper_bound": 0.5,
+            "n": 1490,
+            "events": 299,
+            "mean_predicted": 0.33232847155882017,
+            "observed_rate": 0.20067114093959731
+          },
+          {
+            "risk_stratum": "High",
+            "lower_bound": 0.5,
+            "upper_bound": 1.0,
+            "n": 1542,
+            "events": 737,
+            "mean_predicted": 0.7407849117540953,
+            "observed_rate": 0.4779507133592737
+          }
+        ],
+        "reliability_deciles": [
+          {
+            "decile": 1,
+            "n": 649,
+            "mean_predicted": 0.0049271815230649526,
+            "observed_rate": 0.012326656394453005,
+            "calibration_gap": 0.0073994748713880525
+          },
+          {
+            "decile": 2,
+            "n": 649,
+            "mean_predicted": 0.037347843362587,
+            "observed_rate": 0.02465331278890601,
+            "calibration_gap": -0.01269453057368099
+          },
+          {
+            "decile": 3,
+            "n": 649,
+            "mean_predicted": 0.07011676595517335,
+            "observed_rate": 0.020030816640986132,
+            "calibration_gap": -0.05008594931418722
+          },
+          {
+            "decile": 4,
+            "n": 649,
+            "mean_predicted": 0.10525434504071439,
+            "observed_rate": 0.04314329738058552,
+            "calibration_gap": -0.06211104766012887
+          },
+          {
+            "decile": 5,
+            "n": 649,
+            "mean_predicted": 0.1503134476219827,
+            "observed_rate": 0.0662557781201849,
+            "calibration_gap": -0.0840576695017978
+          },
+          {
+            "decile": 6,
+            "n": 649,
+            "mean_predicted": 0.21694744300517732,
+            "observed_rate": 0.11248073959938366,
+            "calibration_gap": -0.10446670340579366
+          },
+          {
+            "decile": 7,
+            "n": 649,
+            "mean_predicted": 0.32807846240236854,
+            "observed_rate": 0.2110939907550077,
+            "calibration_gap": -0.11698447164736084
+          },
+          {
+            "decile": 8,
+            "n": 648,
+            "mean_predicted": 0.4819902754049565,
+            "observed_rate": 0.29012345679012347,
+            "calibration_gap": -0.191866818614833
+          },
+          {
+            "decile": 9,
+            "n": 648,
+            "mean_predicted": 0.6714360774080786,
+            "observed_rate": 0.41358024691358025,
+            "calibration_gap": -0.2578558304944984
+          },
+          {
+            "decile": 10,
+            "n": 648,
+            "mean_predicted": 0.8885204296283149,
+            "observed_rate": 0.6126543209876543,
+            "calibration_gap": -0.27586610864066063
+          }
+        ]
+      }
+    }
+  },
+  "external_dca": {
+    "eicu": {
+      "n": 6696,
+      "bootstrap_unit": "patient-safe hospital cluster",
+      "n_bootstrap_groups": 147,
+      "probability_source": "raw transported probabilities",
+      "patient_safe_hospital_clustering": {
+        "n_hospitals": 174,
+        "n_patients": 6571,
+        "n_cross_hospital_patients": 33,
+        "n_hospital_clusters": 147,
+        "n_clusters_with_multiple_hospitals": 16,
+        "n_cluster_sizes": 147,
+        "cluster_size_min": 1,
+        "cluster_size_median": 18.0,
+        "cluster_size_max": 458,
+        "split_rule": "connected components of the patient-hospital graph; every held-out hospital cluster is disjoint from training patients"
+      },
+      "outcome_counts": {
+        "0": 4420,
+        "1": 208,
+        "2": 1439,
+        "3": 629
+      },
+      "models": {
+        "xgb_static": {
+          "high_need_y_ge_2": {
+            "target_label": "high-need disposition (4-class y>=2)",
+            "n": 6696,
+            "events": 2068,
+            "prevalence": 0.3088410991636798,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient-safe hospital cluster",
+            "n_bootstrap_groups": 147,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.23549714589141113,
+                "treat_all_net_benefit": 0.23204566573742202
+              },
+              "0.20": {
+                "net_benefit": 0.1793608124253286,
+                "treat_all_net_benefit": 0.13605137395459976
+              },
+              "0.30": {
+                "net_benefit": 0.13035500938726743,
+                "treat_all_net_benefit": 0.01263014166239973
+              },
+              "0.40": {
+                "net_benefit": 0.0880127439267224,
+                "treat_all_net_benefit": -0.15193150139386702
+              },
+              "0.50": {
+                "net_benefit": 0.05958781362007168,
+                "treat_all_net_benefit": -0.38231780167264034
+              }
+            }
+          },
+          "death_y_3": {
+            "target_label": "in-hospital death (4-class y=3)",
+            "n": 6696,
+            "events": 629,
+            "prevalence": 0.09393667861409796,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient-safe hospital cluster",
+            "n_bootstrap_groups": 147,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.03713659896455595,
+                "treat_all_net_benefit": -0.006737023762113381
+              },
+              "0.20": {
+                "net_benefit": 0.019451911589008365,
+                "treat_all_net_benefit": -0.13257915173237755
+              },
+              "0.30": {
+                "net_benefit": 0.008555214200375492,
+                "treat_all_net_benefit": -0.2943761734084315
+              },
+              "0.40": {
+                "net_benefit": 0.00522700119474313,
+                "treat_all_net_benefit": -0.5101055356431702
+              },
+              "0.50": {
+                "net_benefit": 0.0020908004778972533,
+                "treat_all_net_benefit": -0.8121266427718041
+              }
+            }
+          }
+        },
+        "xgb_static_ts": {
+          "high_need_y_ge_2": {
+            "target_label": "high-need disposition (4-class y>=2)",
+            "n": 6696,
+            "events": 2068,
+            "prevalence": 0.3088410991636798,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient-safe hospital cluster",
+            "n_bootstrap_groups": 147,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.23825169255276782,
+                "treat_all_net_benefit": 0.23204566573742202
+              },
+              "0.20": {
+                "net_benefit": 0.17320041816009557,
+                "treat_all_net_benefit": 0.13605137395459976
+              },
+              "0.30": {
+                "net_benefit": 0.11292456050520566,
+                "treat_all_net_benefit": 0.01263014166239973
+              },
+              "0.40": {
+                "net_benefit": 0.06650736758263637,
+                "treat_all_net_benefit": -0.15193150139386702
+              },
+              "0.50": {
+                "net_benefit": 0.04106929510155319,
+                "treat_all_net_benefit": -0.38231780167264034
+              }
+            }
+          },
+          "death_y_3": {
+            "target_label": "in-hospital death (4-class y=3)",
+            "n": 6696,
+            "events": 629,
+            "prevalence": 0.09393667861409796,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient-safe hospital cluster",
+            "n_bootstrap_groups": 147,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.03245718837116685,
+                "treat_all_net_benefit": -0.006737023762113381
+              },
+              "0.20": {
+                "net_benefit": -0.01515830346475508,
+                "treat_all_net_benefit": -0.13257915173237755
+              },
+              "0.30": {
+                "net_benefit": -0.022977470558115734,
+                "treat_all_net_benefit": -0.2943761734084315
+              },
+              "0.40": {
+                "net_benefit": -0.015183193946634817,
+                "treat_all_net_benefit": -0.5101055356431702
+              },
+              "0.50": {
+                "net_benefit": -0.005675029868578256,
+                "treat_all_net_benefit": -0.8121266427718041
+              }
+            }
+          }
+        },
+        "dggru_tr": {
+          "high_need_y_ge_2": {
+            "target_label": "high-need disposition (4-class y>=2)",
+            "n": 6696,
+            "events": 2068,
+            "prevalence": 0.3088410991636798,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient-safe hospital cluster",
+            "n_bootstrap_groups": 147,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.2231182795698925,
+                "treat_all_net_benefit": 0.23204566573742202
+              },
+              "0.20": {
+                "net_benefit": 0.17077359617682197,
+                "treat_all_net_benefit": 0.13605137395459976
+              },
+              "0.30": {
+                "net_benefit": 0.12999231950844853,
+                "treat_all_net_benefit": 0.01263014166239973
+              },
+              "0.40": {
+                "net_benefit": 0.09607726005575466,
+                "treat_all_net_benefit": -0.15193150139386702
+              },
+              "0.50": {
+                "net_benefit": 0.06347072879330945,
+                "treat_all_net_benefit": -0.38231780167264034
+              }
+            }
+          },
+          "death_y_3": {
+            "target_label": "in-hospital death (4-class y=3)",
+            "n": 6696,
+            "events": 629,
+            "prevalence": 0.09393667861409796,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient-safe hospital cluster",
+            "n_bootstrap_groups": 147,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.04178282224877206,
+                "treat_all_net_benefit": -0.006737023762113381
+              },
+              "0.20": {
+                "net_benefit": 0.015681003584229393,
+                "treat_all_net_benefit": -0.13257915173237755
+              },
+              "0.30": {
+                "net_benefit": -0.0028375149342891384,
+                "treat_all_net_benefit": -0.2943761734084315
+              },
+              "0.40": {
+                "net_benefit": -0.017771804062126646,
+                "treat_all_net_benefit": -0.5101055356431702
+              },
+              "0.50": {
+                "net_benefit": -0.028076463560334525,
+                "treat_all_net_benefit": -0.8121266427718041
+              }
+            }
+          }
+        }
+      }
+    },
+    "mimic3": {
+      "n": 4750,
+      "bootstrap_unit": "patient",
+      "n_bootstrap_groups": 4435,
+      "probability_source": "raw transported probabilities",
+      "patient_safe_hospital_clustering": null,
+      "outcome_counts": {
+        "0": 1048,
+        "1": 1928,
+        "2": 1115,
+        "3": 659
+      },
+      "models": {
+        "xgb_static": {
+          "high_need_y_ge_2": {
+            "target_label": "high-need disposition (4-class y>=2)",
+            "n": 4750,
+            "events": 1774,
+            "prevalence": 0.3734736842105263,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient",
+            "n_bootstrap_groups": 4435,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.31190643274853797,
+                "treat_all_net_benefit": 0.303859649122807
+              },
+              "0.20": {
+                "net_benefit": 0.2504736842105263,
+                "treat_all_net_benefit": 0.21684210526315786
+              },
+              "0.30": {
+                "net_benefit": 0.1921203007518797,
+                "treat_all_net_benefit": 0.10496240601503753
+              },
+              "0.40": {
+                "net_benefit": 0.1385263157894737,
+                "treat_all_net_benefit": -0.04421052631578959
+              },
+              "0.50": {
+                "net_benefit": 0.09094736842105264,
+                "treat_all_net_benefit": -0.2530526315789474
+              }
+            }
+          },
+          "death_y_3": {
+            "target_label": "in-hospital death (4-class y=3)",
+            "n": 4750,
+            "events": 659,
+            "prevalence": 0.13873684210526316,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient",
+            "n_bootstrap_groups": 4435,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.08102923976608187,
+                "treat_all_net_benefit": 0.043040935672514616
+              },
+              "0.20": {
+                "net_benefit": 0.04494736842105263,
+                "treat_all_net_benefit": -0.07657894736842105
+              },
+              "0.30": {
+                "net_benefit": 0.030917293233082704,
+                "treat_all_net_benefit": -0.23037593984962407
+              },
+              "0.40": {
+                "net_benefit": 0.01775438596491228,
+                "treat_all_net_benefit": -0.4354385964912282
+              },
+              "0.50": {
+                "net_benefit": 0.010736842105263157,
+                "treat_all_net_benefit": -0.7225263157894737
+              }
+            }
+          }
+        },
+        "xgb_static_ts": {
+          "high_need_y_ge_2": {
+            "target_label": "high-need disposition (4-class y>=2)",
+            "n": 4750,
+            "events": 1774,
+            "prevalence": 0.3734736842105263,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient",
+            "n_bootstrap_groups": 4435,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.3128187134502924,
+                "treat_all_net_benefit": 0.303859649122807
+              },
+              "0.20": {
+                "net_benefit": 0.25463157894736843,
+                "treat_all_net_benefit": 0.21684210526315786
+              },
+              "0.30": {
+                "net_benefit": 0.19966917293233077,
+                "treat_all_net_benefit": 0.10496240601503753
+              },
+              "0.40": {
+                "net_benefit": 0.1455438596491228,
+                "treat_all_net_benefit": -0.04421052631578959
+              },
+              "0.50": {
+                "net_benefit": 0.09810526315789472,
+                "treat_all_net_benefit": -0.2530526315789474
+              }
+            }
+          },
+          "death_y_3": {
+            "target_label": "in-hospital death (4-class y=3)",
+            "n": 4750,
+            "events": 659,
+            "prevalence": 0.13873684210526316,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient",
+            "n_bootstrap_groups": 4435,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.08530994152046784,
+                "treat_all_net_benefit": 0.043040935672514616
+              },
+              "0.20": {
+                "net_benefit": 0.05915789473684211,
+                "treat_all_net_benefit": -0.07657894736842105
+              },
+              "0.30": {
+                "net_benefit": 0.03786466165413534,
+                "treat_all_net_benefit": -0.23037593984962407
+              },
+              "0.40": {
+                "net_benefit": 0.02989473684210526,
+                "treat_all_net_benefit": -0.4354385964912282
+              },
+              "0.50": {
+                "net_benefit": 0.02126315789473684,
+                "treat_all_net_benefit": -0.7225263157894737
+              }
+            }
+          }
+        },
+        "dggru_tr": {
+          "high_need_y_ge_2": {
+            "target_label": "high-need disposition (4-class y>=2)",
+            "n": 4750,
+            "events": 1774,
+            "prevalence": 0.3734736842105263,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient",
+            "n_bootstrap_groups": 4435,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.3159766081871345,
+                "treat_all_net_benefit": 0.303859649122807
+              },
+              "0.20": {
+                "net_benefit": 0.2655263157894737,
+                "treat_all_net_benefit": 0.21684210526315786
+              },
+              "0.30": {
+                "net_benefit": 0.21897744360902255,
+                "treat_all_net_benefit": 0.10496240601503753
+              },
+              "0.40": {
+                "net_benefit": 0.16694736842105262,
+                "treat_all_net_benefit": -0.04421052631578959
+              },
+              "0.50": {
+                "net_benefit": 0.11663157894736845,
+                "treat_all_net_benefit": -0.2530526315789474
+              }
+            }
+          },
+          "death_y_3": {
+            "target_label": "in-hospital death (4-class y=3)",
+            "n": 4750,
+            "events": 659,
+            "prevalence": 0.13873684210526316,
+            "n_thresholds": 56,
+            "bootstrap_unit": "patient",
+            "n_bootstrap_groups": 4435,
+            "probability_source": "raw transported probabilities",
+            "bootstrap_replicates": 2000,
+            "points_at_standard_thresholds": {
+              "0.10": {
+                "net_benefit": 0.0816140350877193,
+                "treat_all_net_benefit": 0.043040935672514616
+              },
+              "0.20": {
+                "net_benefit": 0.04989473684210527,
+                "treat_all_net_benefit": -0.07657894736842105
+              },
+              "0.30": {
+                "net_benefit": 0.026887218045112765,
+                "treat_all_net_benefit": -0.23037593984962407
+              },
+              "0.40": {
+                "net_benefit": 0.011999999999999983,
+                "treat_all_net_benefit": -0.4354385964912282
+              },
+              "0.50": {
+                "net_benefit": 0.0014736842105263215,
+                "treat_all_net_benefit": -0.7225263157894737
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "outputs": {
+    "table9_ordinal_metrics_csv": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table9_ordinal_metrics.csv",
+    "table9_ordinal_metrics_md": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table9_ordinal_metrics.md",
+    "table9b_ordinal_contrasts_csv": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table9b_ordinal_contrasts.csv",
+    "table9b_ordinal_contrasts_md": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table9b_ordinal_contrasts.md",
+    "table10_threshold_calibration_csv": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table10_threshold_calibration.csv",
+    "table10_threshold_calibration_md": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\table10_threshold_calibration.md",
+    "external_dca_curves_csv": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\external_dca_curves.csv",
+    "ordinal_evaluation_report_json": "D:\\TT paper\\1101TP acute myocardial infarction\\results\\ordinal_evaluation\\ordinal_evaluation_report.json"
+  },
+  "self_checks": {
+    "status": "passed",
+    "ordinal_c_index_identity": 1.0,
+    "ordinal_c_index_all_ties": 0.5,
+    "table9_rows": 12,
+    "table9b_rows": 4,
+    "table10_rows": 36,
+    "table10_threshold_rows": 9,
+    "external_dca_rows": 672,
+    "negative_values_retained": true,
+    "absolute_value_or_sign_flip_applied": false
+  }
+}
