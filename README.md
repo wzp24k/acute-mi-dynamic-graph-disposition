@@ -1,12 +1,18 @@
-# Acute MI Ordinal Discharge-Disposition Prediction
+# Compact Temporal Summaries for Ordinal Discharge-Disposition Prediction
 
 This repository contains the analysis code and non-sensitive aggregate results
-for a retrospective study of ordinal discharge disposition after acute
-myocardial infarction in intensive care. The primary landmark is ICU hour 24.
+for the study:
 
-The repository is private during peer review. It excludes the manuscript,
-supplementary manuscript files, credentialed patient-level records, prediction
-caches, and site-identifiable eICU outputs.
+> Compact Temporal Summaries as a Strong Benchmark for Ordinal Prediction of
+> Discharge Disposition After Acute Myocardial Infarction: A Three-Database Study
+
+The repository is publicly available for research transparency and
+reproducibility. It excludes the manuscript, supplementary manuscript files,
+credentialed patient-level records, prediction caches, and site-identifiable
+eICU outputs.
+
+Authors: Zhipeng Wang, Luning Wang, Changsong Wang, Xiyu Xu, Pengli Zhai,
+Zejun Liu, Hui Feng, Qian Hou, and Ming Guo.
 
 ## Study Scope
 
@@ -58,6 +64,11 @@ credentialed access. No credentialed records are redistributed here.
 Users must obtain independent data-use approval before reproducing the
 analysis. Processed cohorts are generated locally and remain outside version
 control.
+
+## Citation
+
+If you use this code or the aggregate results, please cite the associated
+manuscript. Machine-readable citation metadata is provided in `CITATION.cff`.
 
 ## Quick Start
 
