@@ -64,6 +64,17 @@ interval_values = all(
         "temporal ensemble without interval-specific retraining produced MIMIC-IV overlap AUROC 0.77",
     )
 )
+figure6_scope = all(
+    value in text
+    for value in (
+        "Net benefit with bootstrap intervals in expanded eICU",
+        "Ten-percent threshold metrics in expanded eICU",
+    )
+)
+metric_scope = (
+    "Brier scores and 10% sensitivity, specificity, PPV, and NPV were bootstrapped"
+    in text
+)
 threshold_logic = all(
     value in text
     for value in (
@@ -73,6 +84,7 @@ threshold_logic = all(
     )
 )
 subgroup_completeness = "aged 75 years or older, AUROC was 0.75" in text
+holdout_case_mix_disclosed = "43.65%, versus 34.08% in development" in text
 overlap_explanation = "Component event counts may overlap" in text
 table_na_explanation = "NA indicates" in text and any(
     cell.text.strip() == "NA"
@@ -119,8 +131,11 @@ checks = {
     "site_counts_correct": site_consistency,
     "interval_analysis_defined_clearly": interval_logic,
     "interval_values_consistent": interval_values,
+    "figure6_scope_explicit": figure6_scope,
+    "bootstrap_metric_scope_consistent": metric_scope,
     "material_threshold_logic_consistent": threshold_logic,
     "age_75_subgroup_reported": subgroup_completeness,
+    "holdout_case_mix_disclosed": holdout_case_mix_disclosed,
     "component_overlap_explained": overlap_explanation,
     "table_na_values_explained": table_na_explanation,
     "interpretation_remains_cautious": cautious_interpretation,

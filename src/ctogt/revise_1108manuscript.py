@@ -79,8 +79,8 @@ ABSTRACT = [
         "multi-hospital transport. Adults alive at ICU hour 24 with at least six "
         "observed organ channels were included. We compared static models, XGBoost "
         "with temporal summaries, Transformers, organ graphs, and an exploratory "
-        "temporal ensemble. Features and fusion weights were selected on 2017-2019 "
-        "data and frozen for 2020-2022 testing."
+        "temporal ensemble. For the second-stage model, features and fusion weights "
+        "were selected on 2017-2019 data and frozen for 2020-2022 testing."
     ),
     (
         "Results: The development cohort included 13,131 patients and 4,475 "
@@ -144,14 +144,10 @@ def add_contextual_citations(sections: dict[str, list[str]]) -> None:
     methods = sections["methods"]
     append_to_label(
         methods,
-        "Population and landmark",
-        "Diagnostic definitions followed contemporary coronary and stroke guidance "
-        "{{thygesen2019mi,sacco2013stroke,powers2019stroke}}.",
-    )
-    append_to_label(
-        methods,
         "Endpoint",
-        "Revascularization terminology followed contemporary coronary guidance "
+        "Acute myocardial infarction and stroke definitions followed contemporary "
+        "guidance {{thygesen2019mi,sacco2013stroke,powers2019stroke}}. "
+        "Revascularization terminology followed coronary guidance "
         "{{lawton2021revasc}}.",
     )
     append_to_label(
@@ -511,8 +507,8 @@ DISCUSSION = [
         "4.4 Comparison with previous studies",
         [
             (
-                "Prior ICU studies have reported gains from recurrent, transformer, and "
-                "dynamic graph models {{rajkomar2018scalable,ma2023patientgraph,feng2024multiorgan}}. "
+                "Prior studies have reported gains from deep EHR and dynamic graph "
+                "models {{shickel2018deepehr,rajkomar2018scalable,ma2023patientgraph,feng2024multiorgan}}. "
                 "Many comparisons used static baselines or single-database evaluations. "
                 "The present benchmark included temporal XGBoost and three-database transport."
             ),
@@ -581,6 +577,7 @@ LIMITATIONS = [
     ),
     (
         "Fourth, the 2020-2022 era had been inspected in an earlier analysis snapshot. "
+        "Its diagnosis-coded event prevalence was 43.65%, versus 34.08% in development. "
         "The second-stage evaluation was not a never-seen prospective holdout. Feature "
         "and weight selection were nevertheless restricted to earlier years."
     ),
@@ -698,7 +695,7 @@ def build() -> Path:
         document,
         "figure1_overall_roadmap.png",
         "Figure 1. Overall study roadmap. (A) Integrated cohort construction, "
-        "continuous-time organ-graph model, and pre-specified validation and "
+        "continuous-time organ-graph model, and validation and "
         "clinical-utility workflow.",
         "The integrated roadmap links cohort eligibility at the 24-hour landmark "
         "to model development, late-era testing, external transport, calibration, "
@@ -780,11 +777,11 @@ def build() -> Path:
             add_r_figure(
                 document,
                 "figure6_transport_utility.png",
-                "Figure 6. Transport, calibration, decision curves, and threshold metrics. "
-                "(A-B) Reliability before and after recalibration. (C) Net benefit with "
-                "bootstrap intervals. (D) Metrics at the 10% threshold.",
-                "Local recalibration improved reliability and net benefit. Discrimination "
-                "itself changed only modestly.",
+                "Figure 6. Transport and calibration. (A-B) Reliability before and "
+                "after recalibration. (C) Net benefit with bootstrap intervals in "
+                "expanded eICU. (D) Ten-percent threshold metrics in expanded eICU.",
+                "In expanded eICU, local recalibration improved reliability and net "
+                "benefit. Across cohorts, discrimination changed only modestly.",
             ),
             add_r_figure(
                 document,

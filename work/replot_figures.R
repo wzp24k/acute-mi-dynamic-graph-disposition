@@ -213,7 +213,7 @@ figure1 <- local({
     ) +
     annotate(
       "text", x = 0.1, y = 3.75,
-      label = "3  Pre-specified validation and clinical utility",
+      label = "3  Validation and clinical utility",
       family = "serif", fontface = "bold", colour = ink,
       size = 3.2, hjust = 0
     ) +
