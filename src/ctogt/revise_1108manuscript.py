@@ -597,17 +597,18 @@ def build() -> Path:
     add_main_heading(document, "3. Results")
     add_body(
         document,
-        "Figure 1 summarizes the overall data flow, model architecture, "
-        "selection strategy, and evaluation sequence.",
+        "Figure 1 integrates cohort assembly, continuous-time modeling, "
+        "validation, and clinical-utility analysis with recorded outcome components.",
     )
     add_r_figure(
         document,
         "figure1_overall_roadmap.png",
-        "Figure 1. Overall study roadmap. (A) Cohort construction and landmark. "
-        "(B) Recorded outcome components. (C) Model architecture. "
-        "(D) Temporal selection and validation sequence.",
-        "The roadmap integrates cohort construction, model structure, "
-        "internal selection, late-era testing, transport, and utility analysis.",
+        "Figure 1. Overall study roadmap. (A) Integrated cohort construction, "
+        "continuous-time organ-graph model, and pre-specified validation and "
+        "clinical-utility workflow. (B) Recorded outcome components.",
+        "The integrated roadmap links cohort eligibility at the 24-hour landmark "
+        "to model development, late-era testing, external transport, calibration, "
+        "clinical utility, and endpoint sensitivity analysis.",
     )
     result_insertions = {
         "Cohort": lambda: (

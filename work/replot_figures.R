@@ -108,88 +108,143 @@ flow_panel <- function(nodes, edges, xlim, ylim, panel = NULL) {
 }
 
 figure1 <- local({
-  a_nodes <- data.frame(
-    x = c(2.0, 5.5, 9.0, 5.5, 5.5),
-    y = c(5.5, 5.5, 5.5, 3.6, 1.8),
-    width = c(2.0, 2.0, 2.0, 4.0, 3.8),
-    height = c(1.0, 1.0, 1.0, 1.0, 1.0),
+  flow_nodes <- data.frame(
+    x = c(2.2, 5.6, 9.0, 5.6, 1.75, 4.45, 7.2, 10.0, 12.8,
+          2.5, 7.5, 12.2),
+    y = c(8.85, 8.85, 8.85, 7.25, 5.3, 5.3, 5.3, 5.3, 5.3,
+          2.45, 2.45, 2.45),
+    width = c(2.7, 2.5, 2.7, 6.0, 2.35, 2.4, 2.3, 2.4, 2.2,
+              4.5, 3.7, 3.2),
+    height = c(0.8, 0.8, 0.8, 1.15, 0.9, 0.9, 0.9, 0.9, 0.9,
+               1.15, 1.15, 1.15),
     label = c(
       "MIMIC-IV\n13,131 / 4,475",
       "MIMIC-III\n3,470 / 409",
       "eICU expanded\n5,913 / 642",
-      "24-hour landmark\nAlive and >=6 observed channels",
-      "Analytic cohorts\n13,131 | 3,470 | 5,913"
+      "24-hour landmark\nAlive and >=6 observed channels\nAnalytic cohorts: 13,131 | 3,470 | 5,913",
+      "20 channels\n7 organs",
+      "Observation masks\nand time intervals",
+      "Dynamic organ\ngraph",
+      "Transformer\nencoder",
+      "MACCE\nrisk",
+      "Temporal development\nFit 2008-2016 | select 2017-2019\nLocked test 2020-2022",
+      "External transport\nMIMIC-III + eICU expanded",
+      "Calibration, DCA,\nendpoint sensitivity"
     ),
-    fill_colour = c(blue_dark, blue_light, pink, light, "#F4F7FA"),
-    text_colour = c("white", ink, ink, ink, ink)
+    fill_colour = c(
+      blue_dark, blue_light, pink, "#F4F7FA",
+      light, light, light, light, light,
+      "#F4F7FA", "#F4F7FA", "#F4F7FA"
+    ),
+    text_colour = c("white", ink, ink, ink, ink, ink, ink, ink, ink,
+                    ink, ink, ink)
   )
-  a_edges <- data.frame(
-    x = c(2.0, 5.5, 9.0, 5.5),
-    y = c(5.0, 5.0, 5.0, 3.1),
-    xend = c(4.5, 5.5, 6.5, 5.5),
-    yend = c(4.1, 4.1, 4.1, 2.3)
+
+  flow_edges <- data.frame(
+    x = c(2.2, 5.6, 9.0,
+          5.6, 5.6, 1.75,
+          2.925, 5.65, 8.35, 11.2,
+          4.75, 9.35),
+    y = c(8.45, 8.45, 8.45,
+          6.675, 6.05, 6.05,
+          5.3, 5.3, 5.3, 5.3,
+          2.45, 2.45),
+    xend = c(4.1, 5.6, 7.1,
+             5.6, 1.75, 1.75,
+             3.25, 6.05, 8.8, 11.7,
+             5.65, 10.6),
+    yend = c(7.825, 7.825, 7.825,
+             6.05, 6.05, 5.75,
+             5.3, 5.3, 5.3, 5.3,
+             2.45, 2.45),
+    arrow_head = c(TRUE, TRUE, TRUE,
+                   FALSE, FALSE, TRUE,
+                   TRUE, TRUE, TRUE, TRUE,
+                   TRUE, TRUE)
   )
-  p1 <- flow_panel(a_nodes, a_edges, c(0, 11), c(1.1, 6.2), "A")
+
+  p1 <- ggplot() +
+    geom_segment(
+      data = filter(flow_edges, !arrow_head),
+      aes(x = x, y = y, xend = xend, yend = yend),
+      linewidth = 0.5,
+      colour = mid
+    ) +
+    geom_segment(
+      data = filter(flow_edges, arrow_head),
+      aes(x = x, y = y, xend = xend, yend = yend),
+      arrow = arrow(length = unit(0.13, "inches")),
+      linewidth = 0.5,
+      colour = mid
+    ) +
+    geom_rect(
+      data = flow_nodes,
+      aes(xmin = x - width / 2, xmax = x + width / 2,
+          ymin = y - height / 2, ymax = y + height / 2),
+      fill = flow_nodes$fill_colour,
+      colour = ink,
+      linewidth = 0.55
+    ) +
+    geom_text(
+      data = flow_nodes,
+      aes(x = x, y = y, label = label),
+      family = "serif",
+      colour = flow_nodes$text_colour,
+      size = 2.7,
+      lineheight = 0.92
+    ) +
+    annotate(
+      "text", x = 0.1, y = 10.25,
+      label = "A  Study design and analytic workflow",
+      family = "serif", fontface = "bold", colour = ink,
+      size = 5.0, hjust = 0
+    ) +
+    annotate(
+      "text", x = 0.1, y = 9.75,
+      label = "1  Cohort construction",
+      family = "serif", fontface = "bold", colour = ink,
+      size = 3.2, hjust = 0
+    ) +
+    annotate(
+      "text", x = 0.1, y = 6.4,
+      label = "2  Continuous-time organ-graph model",
+      family = "serif", fontface = "bold", colour = ink,
+      size = 3.2, hjust = 0
+    ) +
+    annotate(
+      "text", x = 0.1, y = 3.75,
+      label = "3  Pre-specified validation and clinical utility",
+      family = "serif", fontface = "bold", colour = ink,
+      size = 3.2, hjust = 0
+    ) +
+    coord_cartesian(xlim = c(0, 14.5), ylim = c(1.4, 10.55), clip = "off") +
+    theme_void(base_family = "serif") +
+    theme(plot.background = element_rect(fill = "white", colour = NA))
 
   components <- data.frame(
     cohort = rep(c("MIMIC-IV", "MIMIC-III", "eICU expanded"), each = 3),
     component = rep(c("Acute MI", "Stroke", "Death"), times = 3),
     events = c(3214, 1079, 524, 219, 199, 13, 459, 119, 90)
-  )
-  p2 <- ggplot(components, aes(x = cohort, y = events, fill = component)) +
-    geom_col(position = "dodge", colour = dark, linewidth = 0.3, width = 0.72) +
+  ) %>%
+    mutate(cohort = factor(
+      cohort,
+      levels = c("eICU expanded", "MIMIC-III", "MIMIC-IV")
+    ))
+  p2 <- ggplot(components, aes(x = events, y = cohort, fill = component)) +
+    geom_col(position = position_dodge(width = 0.72),
+             colour = dark, linewidth = 0.3, width = 0.62) +
     scale_fill_manual(values = c(
       "Acute MI" = blue_dark,
       "Stroke" = blue_light,
       "Death" = pink
     )) +
-    labs(x = NULL, y = "Recorded events", fill = NULL,
+    scale_x_continuous(labels = comma) +
+    labs(x = "Recorded events", y = NULL, fill = NULL,
          title = "B  Outcome components") +
     theme_pub + theme(legend.position = "top")
 
-  c_nodes <- data.frame(
-    x = c(1.1, 3.2, 5.5, 7.8, 9.9),
-    y = 3.0,
-    width = c(1.45, 1.55, 1.75, 1.65, 1.55),
-    height = 1.0,
-    label = c(
-      "20 channels\n7 organs",
-      "Observation\nmasks and time",
-      "Dynamic\ngraph",
-      "Transformer\nencoder",
-      "MACCE\nrisk"
-    )
-  )
-  c_edges <- data.frame(
-    x = c(1.83, 3.98, 6.38, 8.63),
-    y = 3.0,
-    xend = c(2.47, 4.62, 6.98, 9.12),
-    yend = 3.0
-  )
-  p3 <- flow_panel(c_nodes, c_edges, c(0, 10.8), c(2.2, 3.8), "C")
-
-  d_nodes <- data.frame(
-    x = c(1.1, 3.3, 5.6, 7.8, 9.9),
-    y = c(3.0, 3.0, 3.0, 3.0, 3.0),
-    width = c(1.45, 1.55, 1.8, 1.65, 1.65),
-    height = 1.0,
-    label = c(
-      "2008-2016\nfit",
-      "2017-2019\nselect",
-      "2020-2022\nlocked test",
-      "MIMIC-III and\neICU transport",
-      "Calibration,\nDCA, endpoints"
-    )
-  )
-  d_edges <- data.frame(
-    x = c(1.83, 4.08, 6.5, 8.63),
-    y = 3.0,
-    xend = c(2.57, 4.82, 7.0, 9.07),
-    yend = 3.0
-  )
-  p4 <- flow_panel(d_nodes, d_edges, c(0, 10.8), c(2.2, 3.8), "D")
-
-  (p1 | p2) / (p3 | p4) +
+  (p1 / p2) +
+    plot_layout(heights = c(4.8, 1.0)) +
     plot_annotation(
       title = "Overall study roadmap",
       theme = theme(
@@ -200,7 +255,7 @@ figure1 <- local({
       )
     )
 })
-save_plot(figure1, "figure1_overall_roadmap", 10.5, 8.0, svg = TRUE)
+save_plot(figure1, "figure1_overall_roadmap", 10.5, 9.0, svg = TRUE)
 
 figure2 <- local({
   risk <- read_csv(file.path(data_dir, "cohort_risk_profiles.csv"),

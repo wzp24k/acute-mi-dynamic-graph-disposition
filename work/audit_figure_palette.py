@@ -30,8 +30,8 @@ for path in sorted(FIGURE_DIR.glob("figure*.png")):
     }
     crops[path.name] = {
         "figure1a": array[
-            int(0.08 * height):int(0.48 * height),
-            :int(0.50 * width),
+            int(0.05 * height):int(0.55 * height),
+            :,
         ],
         "figure5d": array[
             int(0.50 * height):,
@@ -66,6 +66,12 @@ checks = {
         and "<rect" in figure1_svg
         and "<image" not in figure1_svg
         and "viewBox=" in figure1_svg
+    ),
+    "figure1_merged_layout": (
+        "(A) Integrated cohort construction" in text
+        and "(B) Recorded outcome components" in text
+        and "(C) Model architecture" not in text
+        and "(D) Temporal selection" not in text
     ),
     "cohort_palette_used": all(
         any(record["palette_pixels"][name] > 0 for record in images.values())
