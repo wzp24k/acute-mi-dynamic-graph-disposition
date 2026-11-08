@@ -734,7 +734,7 @@ def paragraph_texts(metrics: dict, references: list[dict]) -> dict[str, list[str
             "reversed environment classification loss was inspired by invariant "
             "representation learning and distributionally robust optimization "
             "[11,12]. "
-            "ICU care unit and admission era were crossed to define development "
+            "ICU care unit type and admission era were crossed to define development "
             "environments; hospital identifiers defined external environments "
             "but were never used as direct predictors."
         ),
@@ -836,7 +836,11 @@ def paragraph_texts(metrics: dict, references: list[dict]) -> dict[str, list[str
             "documentation lag was evaluated at 0, 3, 6, and 12 hours. Frozen "
             "model predictions were applied to each endpoint without model "
             "retuning, so changes reflect endpoint rules rather than new labels "
-            "used to fit the model."
+            "used to fit the model. Separately, an interval-specific XGB+TS "
+            "model was trained on the interval endpoint in MIMIC-IV and applied "
+            "unchanged to MIMIC-III and eICU. The frozen comparison isolates "
+            "rule changes, whereas the refitted comparison evaluates whether the "
+            "interval endpoint is learnable."
         ),
         (
             "Structured endpoint adjudication. The 120-record review pack was "
@@ -1161,6 +1165,8 @@ def paragraph_texts(metrics: dict, references: list[dict]) -> dict[str, list[str
             f"{int(interval_model.get('external', {}).get('eicu_anycad', {}).get('macce_interval_overlap', {}).get('events', 0)):,} "
             f"overlap events and yielded AUROC "
             f"{fmt(interval_model.get('external', {}).get('eicu_anycad', {}).get('macce_interval_overlap', {}).get('auroc'))}. "
+            f"This interval-specific XGB+TS model was trained in MIMIC-IV and "
+            f"applied unchanged to external databases. "
             f"The original principal-diagnosis eICU cohort and all fully "
             f"confirmed timing strata had too few events for model inference. Applying the "
             f"original temporal ensemble without interval-specific retraining "

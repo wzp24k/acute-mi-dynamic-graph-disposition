@@ -334,7 +334,9 @@ def table4(document: Document) -> None:
         document,
         "Fully confirmed events require the complete candidate interval to lie "
         "within ICU hours 24-168. Anchor overlap is a sensitivity phenotype and "
-        "is not an adjudicated clinical onset time.",
+        "is not an adjudicated clinical onset time. Retrained XGB+TS denotes "
+        "interval-specific training in MIMIC-IV with unchanged external "
+        "application; the temporal ensemble was applied without retraining.",
     )
 
 

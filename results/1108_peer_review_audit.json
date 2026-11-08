@@ -16,6 +16,7 @@
     "checks": {
       "cohort_counts_consistent": true,
       "site_counts_consistent": true,
+      "domain_logic_audit_pass": true,
       "main_auroc_values_consistent": true,
       "two_decimal_metrics": true,
       "all_charts_cited": true,

@@ -29,6 +29,11 @@ reviewer1_consistency = json.loads(
         encoding="utf-8"
     )
 )
+reviewer2_logic = json.loads(
+    (ROOT / "results" / "reviewer2_logic_audit.json").read_text(
+        encoding="utf-8"
+    )
+)
 
 reviewer1_checks = {
     "reference_count_40_to_50": 40 <= len(registry) <= 50,
@@ -71,6 +76,7 @@ reviewer2_checks = {
         "166 sites" not in text
         and text.count("160 sites") >= 1
     ),
+    "domain_logic_audit_pass": reviewer2_logic["status"] == "PASS",
     "main_auroc_values_consistent": all(
         value in text for value in ("AUROC 0.76", "AUROC 0.75", "0.73")
     ),
