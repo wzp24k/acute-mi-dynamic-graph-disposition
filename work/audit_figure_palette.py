@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import numpy as np
@@ -51,6 +52,10 @@ script = (ROOT / "work" / "replot_figures.R").read_text(encoding="utf-8")
 figure1_svg = (FIGURE_DIR / "figure1_overall_roadmap.svg").read_text(
     encoding="utf-8"
 )
+drawio_root = ET.fromstring(
+    (FIGURE_DIR / "figure1_overall_roadmap.drawio").read_text(encoding="utf-8")
+)
+drawio_cells = drawio_root.findall(".//mxCell")
 document = Document(ROOT / "1108manuscript.docx")
 text = "\n".join(paragraph.text for paragraph in document.paragraphs)
 checks = {
@@ -72,6 +77,20 @@ checks = {
         and "(B) Recorded outcome components" in text
         and "(C) Model architecture" not in text
         and "(D) Temporal selection" not in text
+    ),
+    "figure1_editable_drawio": (
+        drawio_root.tag == "mxfile"
+        and len(drawio_cells) >= 50
+        and any(cell.attrib.get("vertex") == "1" for cell in drawio_cells)
+        and any(cell.attrib.get("edge") == "1" for cell in drawio_cells)
+        and all(
+            source is None or source in {cell.attrib.get("id") for cell in drawio_cells}
+            for cell in drawio_cells
+            for source in (
+                cell.attrib.get("source"),
+                cell.attrib.get("target"),
+            )
+        )
     ),
     "cohort_palette_used": all(
         any(record["palette_pixels"][name] > 0 for record in images.values())

@@ -4,6 +4,7 @@
     "pure_black_borders": true,
     "figure1_editable_svg": true,
     "figure1_merged_layout": true,
+    "figure1_editable_drawio": true,
     "cohort_palette_used": true,
     "figure5d_incremental_value": true,
     "figure8c_invariance": true,
