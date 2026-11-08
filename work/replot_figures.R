@@ -17,7 +17,9 @@ ink <- "#000000"
 mid <- "#666666"
 light <- "#E8E8E8"
 dark <- "#303030"
-accent <- "#B05A4A"
+accent <- "#2C6E9B"
+accent_light <- "#7FAFC8"
+accent_pale <- "#D6E6F0"
 
 theme_pub <- theme_classic(base_family = "serif", base_size = 10) +
   theme(
@@ -77,25 +79,25 @@ flow_panel <- function(nodes, edges, xlim, ylim, panel = NULL) {
 
 figure1 <- local({
   a_nodes <- data.frame(
-    x = c(1.2, 4.0, 6.8, 9.6, 5.4),
-    y = c(4.4, 4.4, 4.4, 4.4, 2.3),
-    width = c(1.8, 1.8, 1.8, 1.8, 2.2),
+    x = c(2.0, 5.5, 9.0, 5.5, 5.5),
+    y = c(5.5, 5.5, 5.5, 3.6, 1.8),
+    width = c(2.0, 2.0, 2.0, 4.0, 3.8),
     height = c(1.0, 1.0, 1.0, 1.0, 1.0),
     label = c(
       "MIMIC-IV\n13,131 / 4,475",
       "MIMIC-III\n3,470 / 409",
       "eICU expanded\n5,913 / 642",
-      "24-hour\nlandmark",
-      "First CAD stay\n>=6 organ channels"
+      "24-hour landmark\nAlive and >=6 observed channels",
+      "Analytic cohorts\n13,131 | 3,470 | 5,913"
     )
   )
   a_edges <- data.frame(
-    x = c(2.1, 4.9, 7.7, 5.4),
-    y = c(4.4, 4.4, 4.4, 3.9),
-    xend = c(3.1, 5.9, 8.7, 5.4),
-    yend = c(4.4, 4.4, 4.4, 2.8)
+    x = c(2.0, 5.5, 9.0, 5.5),
+    y = c(5.0, 5.0, 5.0, 3.1),
+    xend = c(4.5, 5.5, 6.5, 5.5),
+    yend = c(4.1, 4.1, 4.1, 2.3)
   )
-  p1 <- flow_panel(a_nodes, a_edges, c(0, 10.5), c(1.5, 5.2), "A")
+  p1 <- flow_panel(a_nodes, a_edges, c(0, 11), c(1.1, 6.2), "A")
 
   components <- data.frame(
     cohort = rep(c("MIMIC-IV", "MIMIC-III", "eICU expanded"), each = 3),
@@ -396,7 +398,7 @@ figure7 <- local({
     facet_wrap(~cohort) +
     scale_fill_manual(values = c(
       "True positive" = accent,
-      "False positive" = "#E3B6AD",
+      "False positive" = accent_light,
       "True negative" = light,
       "False negative" = "#777777"
     )) +
@@ -459,25 +461,52 @@ figure8 <- local({
   eicu <- interval %>%
     filter(grepl("eICU documentation", Assumption),
            Cohort == "eicu_anycad") %>%
-    mutate(value = as.numeric(Value))
-  p3 <- ggplot(eicu, aes(x = value, y = `Anchor-overlap`)) +
-    geom_area(fill = light, colour = NA, alpha = 0.9) +
-    geom_line(colour = dark, linewidth = 0.8) +
-    geom_point(colour = accent, size = 2.4) +
-    scale_x_continuous(breaks = sort(unique(eicu$value))) +
-    labs(x = "eICU documentation lag, hours", y = "Anchor-overlap events",
-         title = "C  Documentation-lag sensitivity") +
-    theme_pub
+    mutate(
+      lag = as.numeric(Value),
+      events = as.numeric(`Anchor-overlap`),
+      auroc = as.numeric(`Temporal ensemble AUROC`)
+    )
+  lag_long <- bind_rows(
+    eicu %>%
+      transmute(lag, metric = "Anchor-overlap events",
+                value = events, label = sprintf("%.0f", events)),
+    eicu %>%
+      transmute(lag, metric = "Ensemble AUROC",
+                value = auroc, label = sprintf("%.2f", auroc))
+  ) %>%
+    group_by(metric) %>%
+    mutate(scaled = value / max(value, na.rm = TRUE)) %>%
+    ungroup()
+  p3 <- ggplot(lag_long, aes(x = factor(lag), y = metric, fill = scaled)) +
+    geom_tile(colour = "white", linewidth = 0.6) +
+    geom_text(aes(label = label), family = "serif",
+              colour = ink, size = 3.0) +
+    scale_fill_gradient(low = accent_pale, high = accent) +
+    labs(x = "eICU documentation lag, hours", y = NULL, fill = NULL,
+         title = "C  Documentation-lag invariance") +
+    theme_pub + theme(legend.position = "none")
 
-  support <- data.frame(
-    anchor = c("Troponin", "Radiology/note", "Procedure day", "Death", "eICU offset"),
-    records = c(1114, 386, 409, 617, 119)
-  )
-  p4 <- ggplot(support, aes(x = reorder(anchor, records), y = records)) +
-    geom_col(fill = c(rep("#BDBDBD", 3), light, accent),
-             colour = dark, linewidth = 0.4, width = 0.65) +
-    coord_flip() +
-    labs(x = NULL, y = "Records", title = "D  Timing support sources") +
+  rule_ranges <- interval %>%
+    mutate(auroc = as.numeric(`Temporal ensemble AUROC`)) %>%
+    filter(Cohort %in% c("mimic4", "mimic3", "eicu_anycad")) %>%
+    mutate(cohort = recode(Cohort,
+                           mimic4 = "MIMIC-IV",
+                           mimic3 = "MIMIC-III",
+                           eicu_anycad = "eICU expanded")) %>%
+    group_by(cohort) %>%
+    summarise(low = min(auroc, na.rm = TRUE),
+              high = max(auroc, na.rm = TRUE),
+              middle = mean(range(auroc, na.rm = TRUE)),
+              .groups = "drop")
+  p4 <- ggplot(rule_ranges, aes(y = cohort, x = middle)) +
+    geom_segment(aes(x = low, xend = high, yend = cohort),
+                 colour = accent, linewidth = 1.0) +
+    geom_point(colour = dark, size = 2.3) +
+    geom_text(aes(label = sprintf("%.2f-%.2f", low, high)),
+              hjust = -0.12, family = "serif", colour = ink, size = 2.9) +
+    coord_cartesian(xlim = c(0.62, 0.82)) +
+    labs(x = "Temporal-ensemble AUROC range", y = NULL,
+         title = "D  Rule-variant AUROC range") +
     theme_pub
   (p1 | p2) / (p3 | p4)
 })

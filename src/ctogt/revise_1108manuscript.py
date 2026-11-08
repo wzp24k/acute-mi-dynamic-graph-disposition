@@ -724,9 +724,11 @@ def build() -> Path:
                 "figure8_endpoint_ascertainment.png",
                 "Figure 8. Endpoint ascertainment and interval-rule sensitivity. "
                 "(A) Coded and anchor-overlap events. (B) Troponin threshold sensitivity. "
-                "(C) eICU documentation-lag sensitivity. (D) Timing support sources.",
+                "(C) eICU documentation-lag invariance. "
+                "(D) AUROC range across rule variants.",
                 "Anchor-overlap ascertainment was relatively stable. Fully confirmed "
-                "timing strata remained sparse.",
+                "timing strata remained sparse, and documentation lag did not change "
+                "overlap classification.",
             ),
         ),
         "Explainability": lambda: add_r_figure(
