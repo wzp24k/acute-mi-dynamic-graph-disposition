@@ -1,0 +1,28 @@
+cohort,risk_factor,percent
+MIMIC-IV,Prior MI,24.0
+MIMIC-III,Prior MI,15.8
+eICU expanded,Prior MI,
+MIMIC-IV,Prior stroke,12.9
+MIMIC-III,Prior stroke,3.0
+eICU expanded,Prior stroke,
+MIMIC-IV,Heart failure,39.0
+MIMIC-III,Heart failure,17.2
+eICU expanded,Heart failure,22.6
+MIMIC-IV,Atrial fibrillation,41.1
+MIMIC-III,Atrial fibrillation,32.7
+eICU expanded,Atrial fibrillation,17.4
+MIMIC-IV,Diabetes,42.8
+MIMIC-III,Diabetes,39.0
+eICU expanded,Diabetes,34.0
+MIMIC-IV,Hypertension,83.4
+MIMIC-III,Hypertension,77.3
+eICU expanded,Hypertension,39.3
+MIMIC-IV,CKD,28.6
+MIMIC-III,CKD,7.7
+eICU expanded,CKD,29.9
+MIMIC-IV,COPD,15.2
+MIMIC-III,COPD,7.4
+eICU expanded,COPD,16.4
+MIMIC-IV,PAD,4.1
+MIMIC-III,PAD,6.0
+eICU expanded,PAD,0.7

@@ -98,7 +98,9 @@ for table in document.tables:
     table_borders.append(tbl_borders is not None)
 
 caption_texts = [
-    value for value in texts if value.startswith(("Table ", "Figure "))
+    value
+    for value in texts
+    if re.match(r"^(Table \d+[A-Z]?\.|Figure \d+\.)", value)
 ]
 table_captions = [
     value.split(".")[0]
@@ -113,7 +115,8 @@ figure_captions = [
 body_text_without_captions = "\n".join(
     value
     for value in texts
-    if not value.startswith(("Table ", "Figure ", "Interpretation:"))
+    if not re.match(r"^(Table \d+[A-Z]?\.|Figure \d+\.)", value)
+    and not value.startswith("Interpretation:")
 )
 chart_callouts = [
     "Table 1",
@@ -125,7 +128,7 @@ chart_callouts = [
     "Table 6",
     "Table 7",
     "Table 8",
-    *[f"Figure {index}" for index in range(1, 8)],
+    *[f"Figure {index}" for index in range(1, 10)],
 ]
 
 required_author = (
@@ -184,7 +187,7 @@ checks = {
     "no_collapse_triangles": not any(
         symbol in text for symbol in ("▶", "▼", "▷", "►", "◆")
     ),
-    "seven_r_figures": len(figure_parts) == 7
+    "nine_r_figures": len(figure_parts) == 9
     and all(name != "unknown" for name in embedded_names),
     "nine_three_line_tables": len(document.tables) == 9
     and all(table_borders),
@@ -192,13 +195,13 @@ checks = {
     == ["Table 1", "Table 2", "Table 3", "Table 4", "Table 5A",
         "Table 5B", "Table 6", "Table 7", "Table 8"],
     "figure_numbering_sequential": figure_captions
-    == [f"Figure {index}" for index in range(1, 8)],
+    == [f"Figure {index}" for index in range(1, 10)],
     "all_charts_cited_in_text": all(
         label in body_text_without_captions for label in chart_callouts
     ),
     "interpretations_present": sum(
         value.startswith("Interpretation:") for value in texts
-    ) >= 15,
+    ) >= 17,
     "forty_five_verified_references": len(registry) == 45
     and all(record["verified"] for record in registry),
     "all_references_cited": set(citation_numbers) == set(range(1, 46)),

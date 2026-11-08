@@ -1,0 +1,5 @@
+analysis,model,auroc
+Nested selection,XGB+TS,0.753734639453113
+Nested selection,Nested XGB,0.7526481582833363
+Nested selection,Nested XGB + Transformer,0.7635269751856174
+Nested selection,Joint nested ensemble,0.7610712626111381

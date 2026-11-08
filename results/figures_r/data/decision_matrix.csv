@@ -1,0 +1,17 @@
+cohort,source,outcome,count,proportion
+MIMIC-III,Raw,True positive,380,0.10951008645533142
+MIMIC-III,Raw,False positive,2551,0.7351585014409222
+MIMIC-III,Raw,True negative,510,0.14697406340057637
+MIMIC-III,Raw,False negative,29,0.008357348703170028
+MIMIC-III,Recalibrated,True positive,280,0.08069164265129683
+MIMIC-III,Recalibrated,False positive,1365,0.39337175792507206
+MIMIC-III,Recalibrated,True negative,1696,0.48876080691642654
+MIMIC-III,Recalibrated,False negative,129,0.03717579250720461
+eICU expanded,Raw,True positive,642,0.10857432775240994
+eICU expanded,Raw,False positive,5271,0.8914256722475901
+eICU expanded,Raw,True negative,0,0.0
+eICU expanded,Raw,False negative,0,0.0
+eICU expanded,Recalibrated,True positive,386,0.06527989176391003
+eICU expanded,Recalibrated,False positive,2036,0.34432606122103837
+eICU expanded,Recalibrated,True negative,3235,0.5470996110265517
+eICU expanded,Recalibrated,False negative,256,0.04329443598849991

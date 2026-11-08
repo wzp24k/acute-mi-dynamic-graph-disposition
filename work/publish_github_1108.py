@@ -142,7 +142,7 @@ def main() -> None:
     ref = request_json(f"{API}/git/ref/heads/main", auth_token)
     parent_sha = ref["object"]["sha"]
     tree_entries = []
-    for path in files:
+    for index, path in enumerate(files, start=1):
         relative = path.relative_to(ROOT).as_posix()
         content = base64.b64encode(path.read_bytes()).decode("ascii")
         blob = request_json(

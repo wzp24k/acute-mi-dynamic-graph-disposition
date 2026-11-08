@@ -118,7 +118,7 @@ py -m ctogt.train_evaluate --mode cv --models logit_static,xgb_static,xgb_static
 - Interval-rule sensitivity: `results/interval_threshold_sensitivity.json`
 - Calibration and threshold utility: `results/clinical_utility_analysis.json`
 - Main tables and figures: `results/tables`, `results/figures`
-- Main manuscript tables: 1-8; figures: 1-7
+- Main manuscript tables: 1-8; figures: 1-9
 - Manuscript: `outputs/CTOGT_MACCE_manuscript.docx`
 - Supplement: `outputs/CTOGT_MACCE_supplement.docx`
 

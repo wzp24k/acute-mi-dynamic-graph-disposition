@@ -254,11 +254,11 @@ def polish(text: str) -> str:
     )
     text = text.replace(
         "These controls are reported in Figure 3.",
-        "These controls are reported in Figure 4.",
+        "These controls are reported in Figure 5.",
     )
     text = text.replace(
         "Calibration and utility uncertainty are shown in Figures 4 and 6.",
-        "Calibration and utility uncertainty are shown in Figure 5.",
+        "Calibration and utility uncertainty are shown in Figures 6 and 7.",
     )
     replacements = (
         ("provided a consistent gain", "was relatively consistently associated with a gain"),
@@ -585,16 +585,6 @@ def build() -> Path:
         add_body(document, paragraph)
 
     add_main_heading(document, "2. Materials and Methods")
-    add_body(document, "The analysis workflow is summarized in Figure 1.")
-    add_r_figure(
-        document,
-        "figure1_technical_route.png",
-        "Figure 1. Technical workflow. (A) Data sources and landmark. "
-        "(B) Temporal and organ representation. (C) Model candidates and internal "
-        "selection. (D) Locked temporal validation, transport, and utility analysis.",
-        "The workflow separates development, internal selection, late-era testing, "
-        "transport, and utility assessment.",
-    )
     methods = sections["methods"]
     for index, paragraph in enumerate(methods, start=1):
         label_text, body_text = split_label(paragraph)
@@ -603,42 +593,46 @@ def build() -> Path:
             f"2.{index} {label_text}" if label_text else f"2.{index} Method element",
         )
         add_body(document, body_text)
-        method_callouts = {
-            "Study design and data sources": (
-                "The three-database design is shown in Figure 2."
-            ),
-            "CT-OGT architecture": (
-                "The model architecture is shown in Figure 3."
-            ),
-        }
-        if label_text in method_callouts:
-            add_body(document, method_callouts[label_text])
-        if label_text == "Study design and data sources":
-            add_r_figure(
-                document,
-                "figure2_study_design.png",
-                "Figure 2. Three-database study design and cohort composition. "
-                "(A) Cohort sizes and recorded events. (B) Recorded outcome components.",
-                "Cohort size and event composition differed across databases. "
-                "MIMIC-IV had the highest event prevalence.",
-            )
-        if label_text == "CT-OGT architecture":
-            add_r_figure(
-                document,
-                "figure3_model_architecture.png",
-                "Figure 3. Continuous-time organ modeling architecture. "
-                "(A) Channels, observation masks, dynamic graph, temporal encoder, and outcome head.",
-                "Organ channels were transformed into tokens and modeled through dynamic "
-                "graphs and temporal encoders.",
-            )
 
     add_main_heading(document, "3. Results")
+    add_body(
+        document,
+        "Figure 1 summarizes the overall data flow, model architecture, "
+        "selection strategy, and evaluation sequence.",
+    )
+    add_r_figure(
+        document,
+        "figure1_overall_roadmap.png",
+        "Figure 1. Overall study roadmap. (A) Cohort construction and landmark. "
+        "(B) Recorded outcome components. (C) Model architecture. "
+        "(D) Temporal selection and validation sequence.",
+        "The roadmap integrates cohort construction, model structure, "
+        "internal selection, late-era testing, transport, and utility analysis.",
+    )
     result_insertions = {
-        "Cohort": lambda: table_with_interpretation(
-            document,
-            table1,
-            "Across cohorts, risk factors and event prevalence differed materially. "
-            "Separate recalibration was therefore required.",
+        "Cohort": lambda: (
+            table_with_interpretation(
+                document,
+                table1,
+                "Across cohorts, risk factors and event prevalence differed materially. "
+                "Separate recalibration was therefore required.",
+            ),
+            add_r_figure(
+                document,
+                "figure2_cohort_profiles.png",
+                "Figure 2. Cohort risk-factor profiles. "
+                "(A) Prevalence heatmap. (B) Percentage-point differences from MIMIC-IV.",
+                "Comorbidity prevalence differed materially across cohorts. "
+                "MIMIC-IV and eICU were comparatively distinct.",
+            ),
+            add_r_figure(
+                document,
+                "figure3_observation_coverage.png",
+                "Figure 3. Observation coverage across organ channels. "
+                "(A) Channel-level coverage. (B) Mean coverage by organ system.",
+                "Coverage varied by cohort and organ system. Urine output was "
+                "unavailable in the eICU extract.",
+            ),
         ),
         "Temporal information and benchmark performance": lambda: (
             table_with_interpretation(
@@ -650,17 +644,29 @@ def build() -> Path:
             add_r_figure(
                 document,
                 "figure4_performance.png",
-                "Figure 4. Development and late-era discrimination. "
-                "(A) Development AUROCs. (B) Locked 2020-2022 results.",
+                "Figure 4. Development, temporal validation, transport, and probability error. "
+                "(A) Development AUROCs. (B) Temporal validation. "
+                "(C) Transport discrimination. (D) Brier score.",
                 "Temporal models improved development discrimination. The locked fusion "
                 "showed the strongest late-era signal.",
             ),
         ),
-        "Nested selection and clinical utility": lambda: table_with_interpretation(
-            document,
-            table5,
-            "The internal-era locked fusion met the material threshold. Joint nesting "
-            "remained positive but below threshold.",
+        "Nested selection and clinical utility": lambda: (
+            table_with_interpretation(
+                document,
+                table5,
+                "The internal-era locked fusion met the material threshold. Joint nesting "
+                "remained positive but below threshold.",
+            ),
+            add_r_figure(
+                document,
+                "figure5_model_selection.png",
+                "Figure 5. Nested model selection and organ-graph controls. "
+                "(A) Nested model performance. (B) Organ graph and negative controls. "
+                "(C) Paired AUROC contrasts. (D) Benchmark hierarchy.",
+                "Joint nesting remained positive but below the material threshold. "
+                "Organ graph variants did not exceed the temporal benchmark.",
+            ),
         ),
         "Transport": lambda: table_with_interpretation(
             document,
@@ -677,12 +683,21 @@ def build() -> Path:
             ),
             add_r_figure(
                 document,
-                "figure5_calibration_utility.png",
-                "Figure 5. Calibration, decision curves, and threshold metrics. "
+                "figure6_transport_utility.png",
+                "Figure 6. Transport, calibration, decision curves, and threshold metrics. "
                 "(A-B) Reliability before and after recalibration. (C) Net benefit with "
                 "bootstrap intervals. (D) Metrics at the 10% threshold.",
                 "Local recalibration improved reliability and net benefit. Discrimination "
                 "itself changed only modestly.",
+            ),
+            add_r_figure(
+                document,
+                "figure7_risk_and_decisions.png",
+                "Figure 7. Risk distributions and threshold decisions. "
+                "(A-B) Risk distributions before and after recalibration. "
+                "(C) 10% threshold decision composition. (D) Operating characteristics.",
+                "Recalibration changed the distribution of predicted risk and the "
+                "composition of threshold-based decisions.",
             ),
         ),
         "Endpoint sensitivity": lambda: table_with_interpretation(
@@ -706,18 +721,19 @@ def build() -> Path:
             ),
             add_r_figure(
                 document,
-                "figure6_interval_sensitivity.png",
-                "Figure 6. Interval-rule sensitivity. (A) eICU documentation lag. "
-                "(B) Troponin threshold multiplier.",
-                "Interval thresholds produced limited changes. eICU documentation lag "
-                "did not alter overlap classification.",
+                "figure8_endpoint_ascertainment.png",
+                "Figure 8. Endpoint ascertainment and interval-rule sensitivity. "
+                "(A) Coded and anchor-overlap events. (B) Troponin threshold sensitivity. "
+                "(C) eICU documentation-lag sensitivity. (D) Timing support sources.",
+                "Anchor-overlap ascertainment was relatively stable. Fully confirmed "
+                "timing strata remained sparse.",
             ),
         ),
         "Explainability": lambda: add_r_figure(
             document,
-            "figure7_attention.png",
-            "Figure 7. Organ and temporal attention. (A) Organ-channel attention. "
-            "(B) Hour-specific attention.",
+            "figure9_attention.png",
+            "Figure 9. Organ and temporal attention. (A) Organ-channel attention. "
+            "(B) Hour-specific attention. (C) Top attention contrasts.",
             "Attention concentrated in circulatory, neurologic, renal, and coagulation "
             "channels. Hour-specific patterns were comparatively broad.",
         ),
@@ -730,16 +746,19 @@ def build() -> Path:
         )
         add_body(document, body_text)
         result_callouts = {
+            "Cohort": (
+                "Cohort profiles are shown in Table 1, Figure 2, and Figure 3."
+            ),
             "Temporal information and benchmark performance": (
                 "Development performance is shown in Table 2 and Figure 4."
             ),
             "Nested selection and clinical utility": (
-                "Validation comparisons are summarized in Table 3."
+                "Validation comparisons are summarized in Table 3 and Figure 5."
             ),
-            "Transport": "Transport results are shown in Table 4.",
+            "Transport": "Transport results are shown in Table 4 and Figure 6.",
             "Calibration and clinical utility": (
                 "Calibration and threshold metrics are shown in Table 5A, "
-                "Table 5B, and Figure 5."
+                "Table 5B, Figure 6, and Figure 7."
             ),
             "Endpoint sensitivity": (
                 "Interval-endpoint results are shown in Table 6."
@@ -748,9 +767,10 @@ def build() -> Path:
                 "Pilot labels are summarized in Table 7."
             ),
             "Interval-rule sensitivity": (
-                "Threshold sensitivity is shown in Table 8 and Figure 6."
+                "Endpoint ascertainment and threshold sensitivity are shown in "
+                "Table 8 and Figure 8."
             ),
-            "Explainability": "Attention patterns are shown in Figure 7.",
+            "Explainability": "Attention patterns are shown in Figure 9.",
         }
         if label_text in result_callouts:
             add_body(document, result_callouts[label_text])

@@ -1,0 +1,9 @@
+model,auroc
+Fixed graph,0.7512584418467767
+Dynamic graph,0.7561821683412674
+Seven-organ token graph,0.7503693888825783
+Full CT-OGT,0.7561857051394583
+Random graph,0.750450606160741
+Reversed time,0.7496040076828552
+Permuted time,0.749305858176974
+No continuous time,0.746984440669565

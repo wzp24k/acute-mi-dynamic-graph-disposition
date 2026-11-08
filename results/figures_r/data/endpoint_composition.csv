@@ -1,0 +1,5 @@
+database,n,coded_macce_n,event_interval_present_n,specific_anchor_n,confirmed_24h_to_day7_n,possible_overlap_n,overlap_total_n,overlap_all_intervals_n,confirmed_rate,possible_rate,support_counts
+mimic4,13131,4475,4475,1435,45,1220,1265,4286,0.0034270048,0.0929099079,"{'coded_only_broad_admission_to_discharge': 3040, 'troponin_elevation': 1016, 'radiology_acute_infarct_or_hemorrhage': 358, 'radiology_acute_infarct_or_hemorrhage|troponin_elevation': 56, 'discharge_note_hospital_day|troponin_elevation': 4, 'discharge_note_hospital_day': 1}"
+mimic3,3470,409,409,98,12,64,76,386,0.0034582133,0.018443804,"{'coded_only_broad_admission_to_discharge': 311, 'troponin_elevation': 38, 'timed_note_stroke': 28, 'timed_note_mi': 25, 'timed_note_mi|troponin_elevation': 4, 'timed_note_mi|timed_note_stroke': 3}"
+eicu,903,57,106,106,0,9,9,9,0.0,0.0099667774,{'eicu_diagnosis_offset': 106}
+eicu_anycad,5913,642,1085,1085,0,119,119,119,0.0,0.020125148,{'eicu_diagnosis_offset': 1085}
