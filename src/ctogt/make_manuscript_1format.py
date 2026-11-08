@@ -434,8 +434,8 @@ def table7(document: Document) -> None:
     add_footnote(
         document,
         "Brier intervals and threshold metrics are bootstrap estimates. "
-        "PPV and NPV depend on cohort prevalence. Calibration-minus-raw net "
-        "benefit is reported in the main result files. NA indicates a "
+        "PPV and NPV depend on cohort prevalence. Calibration-minus-raw net-benefit "
+        "differences are reported in the Results and Figure 6. NA indicates a "
         "non-estimable or non-generated value.",
     )
 
