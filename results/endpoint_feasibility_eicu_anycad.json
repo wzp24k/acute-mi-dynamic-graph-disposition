@@ -1,0 +1,72 @@
+{
+  "config": {
+    "study_name": "Invariant Continuous-Time Organ Graph Learning for 7-Day MACCE",
+    "primary_development": "mimic4",
+    "external_transport": [
+      "mimic3",
+      "eicu"
+    ],
+    "landmark_hours": 24,
+    "outcome_horizon_days": 7,
+    "outcome_horizon_hours": 168,
+    "primary_endpoint": "diagnosis-coded MACCE phenotype",
+    "time_resolved_endpoint": "7-day all-cause death",
+    "primary_model": "temporal_ensemble",
+    "fallback_endpoint": "in-hospital MACCE",
+    "sequence_hours": 24,
+    "minimum_channels": 6,
+    "cv_folds": 5,
+    "cv_repeats": 2,
+    "model_seeds": [
+      7,
+      42,
+      2026
+    ],
+    "bootstrap_replicates": 1000,
+    "material_auc_threshold": 0.01,
+    "eicu_minimum_site_n": 30,
+    "hidden_size": 48,
+    "graph_edge_dim": 16,
+    "dropout": 0.2,
+    "epochs": 14,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 6,
+    "lambda_smooth": 0.02,
+    "lambda_drift": 0.05,
+    "lambda_environment": 0.05,
+    "lambda_graph_sparsity": 0.01,
+    "xgboost": {
+      "n_estimators": 360,
+      "max_depth": 3,
+      "learning_rate": 0.03,
+      "min_child_weight": 4,
+      "subsample": 0.85,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 2.5
+    }
+  },
+  "audits": [
+    {
+      "database": "eicu_anycad",
+      "cad_scope": "any",
+      "principal_cad_unit_stays": 9891,
+      "first_stay_patients": 8444,
+      "eligible_24h_n": 6226,
+      "death_24h_to_7d_n": 93,
+      "timed_ami_n": 479,
+      "timed_stroke_n": 128,
+      "timed_revascularization_n": 0,
+      "timed_macce_n": 674,
+      "timed_macce_rate": 0.10825570189527786,
+      "sites_n": 166,
+      "sites_ge_30_n": 45,
+      "sites_ge_30_with_event_n": 44
+    }
+  ],
+  "go_no_go": {
+    "mimic4_event_threshold_150": null,
+    "eicu_event_threshold_75": null
+  }
+}

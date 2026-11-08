@@ -1,0 +1,57 @@
+{
+  "dataset": "mimic4",
+  "model": "temporal_ensemble",
+  "model_label": "Temporal ensemble: 50% XGB+TS + 50% Transformer",
+  "n": 13131,
+  "events": 4475,
+  "prevalence": 0.34079658822633463,
+  "seeds": [
+    7,
+    42,
+    2026
+  ],
+  "folds": 5,
+  "metrics": {
+    "auroc": 0.7639513264284018,
+    "auprc": 0.6543518234616982,
+    "brier": 0.1777322114650234,
+    "log_loss": 0.5341721123689186,
+    "calibration_slope": 1.1316029606759594,
+    "calibration_intercept": 0.08621249264191799,
+    "ece": 0.017015823694394965,
+    "sensitivity_top10": 0.23865921787709496,
+    "specificity_top10": 0.9715804066543438,
+    "threshold_top10": 0.6545993387699127,
+    "prevalence": 0.34079658822633463
+  },
+  "bootstrap": {
+    "auroc_ci": [
+      0.75504559129276,
+      0.7727805133404981
+    ],
+    "auprc_ci": [
+      0.6385990031297113,
+      0.6693754711625486
+    ]
+  },
+  "paired_contrasts": {
+    "vs_xgb_static_ts": {
+      "difference": 0.010216686975288769,
+      "ci": [
+        0.007498981158081977,
+        0.012711064584166187
+      ]
+    },
+    "vs_transformer": {
+      "difference": 0.004654581315379214,
+      "ci": [
+        0.0024062229414351767,
+        0.006909976483943606
+      ]
+    }
+  },
+  "weights": {
+    "xgb_static_ts": 0.5,
+    "transformer": 0.5
+  }
+}

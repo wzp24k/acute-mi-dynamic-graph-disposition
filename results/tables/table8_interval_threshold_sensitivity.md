@@ -1,0 +1,16 @@
+| Assumption                    |   Value | Cohort      |   Coded events |   Fully confirmed |   Anchor-overlap | XGB+TS AUROC   | Temporal ensemble AUROC   |
+|:------------------------------|--------:|:------------|---------------:|------------------:|-----------------:|:---------------|:--------------------------|
+| Troponin threshold multiplier |     0.5 | mimic4      |           4475 |                45 |             1266 | 0.771          | 0.769                     |
+| Troponin threshold multiplier |     0.5 | mimic3      |            409 |                12 |               76 | 0.727          | 0.729                     |
+| Troponin threshold multiplier |     1   | mimic4      |           4475 |                45 |             1265 | 0.771          | 0.769                     |
+| Troponin threshold multiplier |     1   | mimic3      |            409 |                12 |               76 | 0.727          | 0.729                     |
+| Troponin threshold multiplier |     2   | mimic4      |           4475 |                45 |             1254 | 0.771          | 0.769                     |
+| Troponin threshold multiplier |     2   | mimic3      |            409 |                12 |               76 | 0.727          | 0.729                     |
+| eICU documentation lag, hours |     0   | eicu        |             57 |                 0 |                9 | NA             | NA                        |
+| eICU documentation lag, hours |     0   | eicu_anycad |            642 |                 0 |              119 | 0.635          | 0.653                     |
+| eICU documentation lag, hours |     3   | eicu        |             57 |                 0 |                9 | NA             | NA                        |
+| eICU documentation lag, hours |     3   | eicu_anycad |            642 |                 0 |              119 | 0.635          | 0.653                     |
+| eICU documentation lag, hours |     6   | eicu        |             57 |                 0 |                9 | NA             | NA                        |
+| eICU documentation lag, hours |     6   | eicu_anycad |            642 |                 0 |              119 | 0.635          | 0.653                     |
+| eICU documentation lag, hours |    12   | eicu        |             57 |                 0 |                9 | NA             | NA                        |
+| eICU documentation lag, hours |    12   | eicu_anycad |            642 |                 0 |              119 | 0.635          | 0.653                     |

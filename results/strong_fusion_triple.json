@@ -1,0 +1,82 @@
+{
+  "validation_n": 3625,
+  "validation_events": 1361,
+  "selected_weights": {
+    "strong_xgb": 0.6000000000000001,
+    "transformer": 0.19999999999999996,
+    "extra_trees": 0.19999999999999996
+  },
+  "selected_validation_metrics": {
+    "strong_xgb_weight": 0.6000000000000001,
+    "transformer_weight": 0.19999999999999996,
+    "extra_trees_weight": 0.19999999999999996,
+    "auroc": 0.7401428096675953,
+    "auprc": 0.6502811972428133,
+    "brier": 0.19382638734392726,
+    "log_loss": 0.5736950231039604,
+    "calibration_slope": 1.0229454692233748,
+    "calibration_intercept": 0.1864120913375026,
+    "ece": 0.03286293395791215,
+    "sensitivity_top10": 0.21528288023512124,
+    "specificity_top10": 0.9690812720848057,
+    "threshold_top10": 0.6513333031130011,
+    "prevalence": 0.37544827586206897
+  },
+  "final_holdout": {
+    "n": 2456,
+    "events": 1072,
+    "baseline_xgb": {
+      "auroc": 0.7337474926667242,
+      "auprc": 0.7192411899390856,
+      "brier": 0.20452510674692706,
+      "log_loss": 0.5988698870900756,
+      "calibration_slope": 1.0319472017129725,
+      "calibration_intercept": 0.3360189897104456,
+      "ece": 0.06451738795041066,
+      "sensitivity_top10": 0.2080223880597015,
+      "specificity_top10": 0.9833815028901735,
+      "threshold_top10": 0.7003790438175201,
+      "prevalence": 0.4364820846905538
+    },
+    "previous_pair_fusion": {
+      "auroc": 0.7461992332413079,
+      "auprc": 0.7352070973570572,
+      "brier": 0.1995921092935767,
+      "log_loss": 0.586614272644872,
+      "calibration_slope": 1.0336242715914994,
+      "calibration_intercept": 0.3065564021523716,
+      "ece": 0.05612679307291387,
+      "sensitivity_top10": 0.2126865671641791,
+      "specificity_top10": 0.9869942196531792,
+      "threshold_top10": 0.7277339696884155,
+      "prevalence": 0.4364820846905538
+    },
+    "locked_triple_fusion": {
+      "auroc": 0.7459356936416185,
+      "auprc": 0.7358507537957146,
+      "brier": 0.1987086297672215,
+      "log_loss": 0.5841604051783538,
+      "calibration_slope": 1.0810338714500185,
+      "calibration_intercept": 0.27028075745479063,
+      "ece": 0.04578078833047656,
+      "sensitivity_top10": 0.21361940298507462,
+      "specificity_top10": 0.9877167630057804,
+      "threshold_top10": 0.7245709419250488,
+      "prevalence": 0.4364820846905538
+    },
+    "locked_triple_minus_baseline_xgb": {
+      "difference": 0.012188200974894259,
+      "ci": [
+        0.00740398648863147,
+        0.01669511541642305
+      ]
+    },
+    "locked_triple_minus_previous_pair": {
+      "difference": -0.00026353959968938856,
+      "ci": [
+        -0.0019631977114537903,
+        0.0014105101174266184
+      ]
+    }
+  }
+}

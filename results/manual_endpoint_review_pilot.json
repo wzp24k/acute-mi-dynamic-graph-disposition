@@ -1,0 +1,16 @@
+{
+  "reviewed_n": 38,
+  "label_counts": {
+    "uncertain_or_insufficient": 15,
+    "pre_landmark": 7,
+    "probable_target": 6,
+    "historical_or_not_event": 5,
+    "confirmed_target": 4,
+    "after_horizon": 1
+  },
+  "target_support_n": 10,
+  "target_support_fraction": 0.2631578947368421,
+  "clear_non_target_n": 13,
+  "uncertain_or_insufficient_n": 15,
+  "note": "This is a structured AI-assisted chart-review pilot on deidentified notes. Independent clinician adjudication is still required before reporting PPV as a human gold-standard result."
+}

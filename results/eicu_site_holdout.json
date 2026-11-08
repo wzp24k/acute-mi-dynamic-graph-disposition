@@ -1,0 +1,62 @@
+{
+  "design": "hospital-held-out 5-fold validation within expanded eICU",
+  "n": 5913,
+  "events": 642,
+  "sites": 160,
+  "folds": [
+    {
+      "fold": 1,
+      "train_n": 4729,
+      "test_n": 1184,
+      "train_sites": 130,
+      "test_sites": 30,
+      "test_events": 129
+    },
+    {
+      "fold": 2,
+      "train_n": 4730,
+      "test_n": 1183,
+      "train_sites": 126,
+      "test_sites": 34,
+      "test_events": 128
+    },
+    {
+      "fold": 3,
+      "train_n": 4729,
+      "test_n": 1184,
+      "train_sites": 132,
+      "test_sites": 28,
+      "test_events": 130
+    },
+    {
+      "fold": 4,
+      "train_n": 4732,
+      "test_n": 1181,
+      "train_sites": 128,
+      "test_sites": 32,
+      "test_events": 127
+    },
+    {
+      "fold": 5,
+      "train_n": 4732,
+      "test_n": 1181,
+      "train_sites": 124,
+      "test_sites": 36,
+      "test_events": 128
+    }
+  ],
+  "metrics": {
+    "auroc": 0.6834853140471787,
+    "auprc": 0.23322896170443558,
+    "brier": 0.09166212003016797,
+    "log_loss": 0.32276683119229216,
+    "calibration_slope": 0.7870962854153857,
+    "calibration_intercept": -0.34657742983375256,
+    "ece": 0.01009482476887376,
+    "sensitivity_top10": 0.26947040498442365,
+    "specificity_top10": 0.920508442420793,
+    "threshold_top10": 0.2050866395235062,
+    "prevalence": 0.10857432775240994
+  },
+  "note": "This is a local cross-hospital model, not transport of the MIMIC-IV-trained model."
+}

@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "review_rows": 120,
+  "reviewable_rows": 100,
+  "source_text_unavailable_rows": 20,
+  "completed_rows": 0,
+  "pending_rows": 100,
+  "note": "No human two-reader labels are available yet. PPV, timing error, and inter-reader agreement are not estimable and are not imputed."
+}

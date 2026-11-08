@@ -1,6 +1,0 @@
-reason_code,n,dataset,label
-source_ami_admissions_or_units,16509,mimic4,AMI admissions
-first_icu_or_unit,8267,mimic4,First ICU stay
-alive_and_in_icu_at_24h,6944,mimic4,In ICU at 24 h
-mapped_disposition,6937,mimic4,Mapped outcome
-deduplicated_analysis_unit,6487,mimic4,Analytic cohort

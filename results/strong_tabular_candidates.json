@@ -1,0 +1,80 @@
+{
+  "validation_n": 3625,
+  "validation_events": 1361,
+  "candidates": [
+    {
+      "name": "hist_gradient_boosting",
+      "auroc": 0.7290342011044675,
+      "auprc": 0.6431473946831101,
+      "brier": 0.20069660791237753,
+      "log_loss": 0.5987016524830635,
+      "calibration_slope": 0.7245814411657644,
+      "calibration_intercept": 0.14739447757716492,
+      "ece": 0.0658424524839426,
+      "sensitivity_top10": 0.21087435709037472,
+      "specificity_top10": 0.9664310954063604,
+      "threshold_top10": 0.6990270606377582,
+      "prevalence": 0.37544827586206897
+    },
+    {
+      "name": "extra_trees",
+      "auroc": 0.7307045977936614,
+      "auprc": 0.64358331436735,
+      "brier": 0.19657878604254342,
+      "log_loss": 0.5794669665678727,
+      "calibration_slope": 1.0426540141449325,
+      "calibration_intercept": -0.08167451288112336,
+      "ece": 0.028509656580451365,
+      "sensitivity_top10": 0.20940484937545922,
+      "specificity_top10": 0.965547703180212,
+      "threshold_top10": 0.6853761722861862,
+      "prevalence": 0.37544827586206897
+    },
+    {
+      "name": "random_forest",
+      "auroc": 0.7260111303526039,
+      "auprc": 0.6331303769562295,
+      "brier": 0.19781371912192797,
+      "log_loss": 0.5824137853133003,
+      "calibration_slope": 1.0229635960969334,
+      "calibration_intercept": 0.004069290829966454,
+      "ece": 0.0192966697761664,
+      "sensitivity_top10": 0.20867009551800147,
+      "specificity_top10": 0.9651060070671378,
+      "threshold_top10": 0.6768834023715491,
+      "prevalence": 0.37544827586206897
+    }
+  ],
+  "locked_selected_model": "extra_trees",
+  "final_holdout": {
+    "n": 2456,
+    "events": 1072,
+    "selected_model": {
+      "auroc": 0.7335904473298249,
+      "auprc": 0.7203593935393762,
+      "brier": 0.20218174557608481,
+      "log_loss": 0.5915266459624479,
+      "calibration_slope": 1.1104523155764376,
+      "calibration_intercept": 0.05082591241851445,
+      "ece": 0.048413919405494645,
+      "sensitivity_top10": 0.2042910447761194,
+      "specificity_top10": 0.9804913294797688,
+      "threshold_top10": 0.733387957184932,
+      "prevalence": 0.4364820846905538
+    },
+    "selected_minus_baseline_xgb": {
+      "difference": -0.00015704533689930855,
+      "ci": [
+        -0.008756849273644923,
+        0.008150670036631391
+      ]
+    },
+    "selected_minus_transformer": {
+      "difference": -0.009225234017772421,
+      "ci": [
+        -0.02062490523561505,
+        0.0015581039829356312
+      ]
+    }
+  }
+}

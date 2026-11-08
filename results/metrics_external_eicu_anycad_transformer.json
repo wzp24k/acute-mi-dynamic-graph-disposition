@@ -1,0 +1,67 @@
+{
+  "external": "eicu_anycad",
+  "n": 5913,
+  "events": 642,
+  "prevalence": 0.10857432775240994,
+  "model": "transformer",
+  "metrics": {
+    "unrecalibrated": {
+      "auroc": 0.6453890712184639,
+      "auprc": 0.1992333506544631,
+      "brier": 0.18486171478866367,
+      "log_loss": 0.5555568387415791,
+      "calibration_slope": 0.7318782432599089,
+      "calibration_intercept": -1.869703830783266,
+      "ece": 0.284811250926571,
+      "sensitivity_top10": 0.21962616822429906,
+      "specificity_top10": 0.9144374881426675,
+      "threshold_top10": 0.6142654776573182,
+      "prevalence": 0.10857432775240994
+    },
+    "recalibrated": {
+      "auroc": 0.6442407199565482,
+      "auprc": 0.1982884351238192,
+      "brier": 0.09350655267563643,
+      "log_loss": 0.32933005359398365,
+      "calibration_slope": 0.9916852164865491,
+      "calibration_intercept": -0.01692017774588553,
+      "ece": 0.0043076951880150986,
+      "sensitivity_top10": 0.21651090342679127,
+      "specificity_top10": 0.9140580535002846,
+      "threshold_top10": 0.17755062282085424,
+      "prevalence": 0.10857432775240994
+    },
+    "net_benefit": [
+      {
+        "threshold": 0.05,
+        "net_benefit": 0.06165718710779993,
+        "treat_all": 0.06165718710779993
+      },
+      {
+        "threshold": 0.1,
+        "net_benefit": 0.009996805532066819,
+        "treat_all": 0.009527030836011044
+      },
+      {
+        "threshold": 0.15,
+        "net_benefit": -0.046577332099760255,
+        "treat_all": -0.04873608499716475
+      },
+      {
+        "threshold": 0.2,
+        "net_benefit": -0.10244376796888213,
+        "treat_all": -0.11428209030948758
+      },
+      {
+        "threshold": 0.25,
+        "net_benefit": -0.1424544788319522,
+        "treat_all": -0.18856756299678673
+      },
+      {
+        "threshold": 0.3,
+        "net_benefit": -0.16479427894953014,
+        "treat_all": -0.2734652460679858
+      }
+    ]
+  }
+}

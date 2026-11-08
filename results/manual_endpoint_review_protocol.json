@@ -1,0 +1,31 @@
+{
+  "reviewable_records": 100,
+  "source_text_unavailable": 20,
+  "reader_labels": [
+    "confirmed_target",
+    "probable_target",
+    "pre_landmark",
+    "after_horizon",
+    "historical_or_not_event",
+    "uncertain_or_insufficient"
+  ],
+  "required_ami_evidence": [
+    "serial troponin rise or fall",
+    "ECG ischemic change",
+    "coronary angiography or PCI",
+    "clinical record support"
+  ],
+  "required_stroke_evidence": [
+    "acute imaging finding",
+    "focal neurologic deficit",
+    "clinical record support"
+  ],
+  "onset_windows": [
+    "before_24h",
+    "24h_to_day7",
+    "after_day7",
+    "uncertain"
+  ],
+  "agreement": "Cohen kappa will be computed after both readers finish.",
+  "ppv": "PPV will use the two-reader consensus target-window label as the reference and the structured candidate endpoint as the index test."
+}

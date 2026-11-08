@@ -1,0 +1,390 @@
+{
+  "troponin_threshold_multiplier": {
+    "0.5": {
+      "mimic4": {
+        "n": 13131,
+        "coded_events": 4475,
+        "confirmed_events": 45,
+        "anchor_overlap_events": 1266,
+        "models": {
+          "xgb_static_ts": {
+            "events": 1266,
+            "prevalence": 0.09641306831162896,
+            "auroc": 0.7706438747121547,
+            "auprc": 0.24550927808303474,
+            "brier": 0.14974362947665254
+          },
+          "transformer": {
+            "events": 1266,
+            "prevalence": 0.09641306831162896,
+            "auroc": 0.7532146801596955,
+            "auprc": 0.24135322832570522,
+            "brier": 0.15676893189065755
+          },
+          "temporal_ensemble": {
+            "events": 1266,
+            "prevalence": 0.09641306831162896,
+            "auroc": 0.7686676199929565,
+            "auprc": 0.24874442222348359,
+            "brier": 0.15075293358765318
+          }
+        }
+      },
+      "mimic3": {
+        "n": 3470,
+        "coded_events": 409,
+        "confirmed_events": 12,
+        "anchor_overlap_events": 76,
+        "models": {
+          "xgb_static_ts": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7269329777005862,
+            "auprc": 0.12012669840051556,
+            "brier": 0.07094617152457139
+          },
+          "transformer": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7227460223924572,
+            "auprc": 0.0705716476742864,
+            "brier": 0.07083310123625555
+          },
+          "temporal_ensemble": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7294296436435815,
+            "auprc": 0.08782912390600371,
+            "brier": 0.06911624373300171
+          }
+        }
+      }
+    },
+    "1.0": {
+      "mimic4": {
+        "n": 13131,
+        "coded_events": 4475,
+        "confirmed_events": 45,
+        "anchor_overlap_events": 1265,
+        "models": {
+          "xgb_static_ts": {
+            "events": 1265,
+            "prevalence": 0.09633691264945549,
+            "auroc": 0.7708598453481532,
+            "auprc": 0.24556320063043666,
+            "brier": 0.14970900107543667
+          },
+          "transformer": {
+            "events": 1265,
+            "prevalence": 0.09633691264945549,
+            "auroc": 0.7533017576374923,
+            "auprc": 0.24136670350248238,
+            "brier": 0.15674537882771428
+          },
+          "temporal_ensemble": {
+            "events": 1265,
+            "prevalence": 0.09633691264945549,
+            "auroc": 0.7688171072363393,
+            "auprc": 0.2487812840422306,
+            "brier": 0.150723842853304
+          }
+        }
+      },
+      "mimic3": {
+        "n": 3470,
+        "coded_events": 409,
+        "confirmed_events": 12,
+        "anchor_overlap_events": 76,
+        "models": {
+          "xgb_static_ts": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7269329777005862,
+            "auprc": 0.12012669840051556,
+            "brier": 0.07094617152457139
+          },
+          "transformer": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7227460223924572,
+            "auprc": 0.0705716476742864,
+            "brier": 0.07083310123625555
+          },
+          "temporal_ensemble": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7294296436435815,
+            "auprc": 0.08782912390600371,
+            "brier": 0.06911624373300171
+          }
+        }
+      }
+    },
+    "2.0": {
+      "mimic4": {
+        "n": 13131,
+        "coded_events": 4475,
+        "confirmed_events": 45,
+        "anchor_overlap_events": 1254,
+        "models": {
+          "xgb_static_ts": {
+            "events": 1254,
+            "prevalence": 0.09549920036554718,
+            "auroc": 0.7709159098731161,
+            "auprc": 0.24382048218917307,
+            "brier": 0.14966809030108486
+          },
+          "transformer": {
+            "events": 1254,
+            "prevalence": 0.09549920036554718,
+            "auroc": 0.7542475512224651,
+            "auprc": 0.24070676491499804,
+            "brier": 0.15660394559388768
+          },
+          "temporal_ensemble": {
+            "events": 1254,
+            "prevalence": 0.09549920036554718,
+            "auroc": 0.7693728137653372,
+            "auprc": 0.24772970293545118,
+            "brier": 0.1506326708514844
+          }
+        }
+      },
+      "mimic3": {
+        "n": 3470,
+        "coded_events": 409,
+        "confirmed_events": 12,
+        "anchor_overlap_events": 76,
+        "models": {
+          "xgb_static_ts": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7269329777005862,
+            "auprc": 0.12012669840051556,
+            "brier": 0.07094617152457139
+          },
+          "transformer": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7227460223924572,
+            "auprc": 0.0705716476742864,
+            "brier": 0.07083310123625555
+          },
+          "temporal_ensemble": {
+            "events": 76,
+            "prevalence": 0.02190201729106628,
+            "auroc": 0.7294296436435815,
+            "auprc": 0.08782912390600371,
+            "brier": 0.06911624373300171
+          }
+        }
+      }
+    }
+  },
+  "eicu_documentation_lag_hours": {
+    "0.0": {
+      "eicu": {
+        "n": 903,
+        "coded_events": 57,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 9,
+        "models": {
+          "xgb_static_ts": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "transformer": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "temporal_ensemble": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        }
+      },
+      "eicu_anycad": {
+        "n": 5913,
+        "coded_events": 642,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 119,
+        "models": {
+          "xgb_static_ts": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6345886645994262,
+            "auprc": 0.037823873946951116,
+            "brier": 0.1701839800034206
+          },
+          "transformer": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6489196299852353,
+            "auprc": 0.03912642537547823,
+            "brier": 0.1794372473120474
+          },
+          "temporal_ensemble": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.653028487888079,
+            "auprc": 0.04127839038714229,
+            "brier": 0.17029315702720937
+          }
+        }
+      }
+    },
+    "3.0": {
+      "eicu": {
+        "n": 903,
+        "coded_events": 57,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 9,
+        "models": {
+          "xgb_static_ts": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "transformer": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "temporal_ensemble": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        }
+      },
+      "eicu_anycad": {
+        "n": 5913,
+        "coded_events": 642,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 119,
+        "models": {
+          "xgb_static_ts": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6345886645994262,
+            "auprc": 0.037823873946951116,
+            "brier": 0.1701839800034206
+          },
+          "transformer": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6489196299852353,
+            "auprc": 0.03912642537547823,
+            "brier": 0.1794372473120474
+          },
+          "temporal_ensemble": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.653028487888079,
+            "auprc": 0.04127839038714229,
+            "brier": 0.17029315702720937
+          }
+        }
+      }
+    },
+    "6.0": {
+      "eicu": {
+        "n": 903,
+        "coded_events": 57,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 9,
+        "models": {
+          "xgb_static_ts": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "transformer": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "temporal_ensemble": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        }
+      },
+      "eicu_anycad": {
+        "n": 5913,
+        "coded_events": 642,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 119,
+        "models": {
+          "xgb_static_ts": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6345886645994262,
+            "auprc": 0.037823873946951116,
+            "brier": 0.1701839800034206
+          },
+          "transformer": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6489196299852353,
+            "auprc": 0.03912642537547823,
+            "brier": 0.1794372473120474
+          },
+          "temporal_ensemble": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.653028487888079,
+            "auprc": 0.04127839038714229,
+            "brier": 0.17029315702720937
+          }
+        }
+      }
+    },
+    "12.0": {
+      "eicu": {
+        "n": 903,
+        "coded_events": 57,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 9,
+        "models": {
+          "xgb_static_ts": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "transformer": {
+            "status": "insufficient_events",
+            "events": 9
+          },
+          "temporal_ensemble": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        }
+      },
+      "eicu_anycad": {
+        "n": 5913,
+        "coded_events": 642,
+        "confirmed_events": 0,
+        "anchor_overlap_events": 119,
+        "models": {
+          "xgb_static_ts": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6345886645994262,
+            "auprc": 0.037823873946951116,
+            "brier": 0.1701839800034206
+          },
+          "transformer": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.6489196299852353,
+            "auprc": 0.03912642537547823,
+            "brier": 0.1794372473120474
+          },
+          "temporal_ensemble": {
+            "events": 119,
+            "prevalence": 0.020125147979029256,
+            "auroc": 0.653028487888079,
+            "auprc": 0.04127839038714229,
+            "brier": 0.17029315702720937
+          }
+        }
+      }
+    }
+  }
+}

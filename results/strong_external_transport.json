@@ -1,0 +1,187 @@
+{
+  "models": {
+    "mimic3": {
+      "n": 3470,
+      "events": 409,
+      "strong_xgb": {
+        "unrecalibrated": {
+          "auroc": 0.6701087664114114,
+          "auprc": 0.22712711226992469,
+          "brier": 0.11141004852373208,
+          "log_loss": 0.37537057299856086,
+          "calibration_slope": 0.7448975835604955,
+          "calibration_intercept": -1.026934624457703,
+          "ece": 0.0885834132968005,
+          "sensitivity_top10": 0.23227383863080683,
+          "specificity_top10": 0.9176739627572689,
+          "threshold_top10": 0.38844211399555206,
+          "prevalence": 0.11786743515850144
+        },
+        "recalibrated": {
+          "auroc": 0.6690240576892509,
+          "auprc": 0.2267155106665428,
+          "brier": 0.09929267667328516,
+          "log_loss": 0.3427124448379627,
+          "calibration_slope": 0.9918635962262734,
+          "calibration_intercept": -0.014816250632882114,
+          "ece": 0.006318212736408721,
+          "sensitivity_top10": 0.23227383863080683,
+          "specificity_top10": 0.9176739627572689,
+          "threshold_top10": 0.20345884412527085,
+          "prevalence": 0.11786743515850144
+        }
+      },
+      "locked_75_25_fusion": {
+        "auroc": 0.6705121374752486,
+        "auprc": 0.22236001000174632,
+        "brier": 0.11149449304875426,
+        "log_loss": 0.3752049236665411,
+        "calibration_slope": 0.7264711114044601,
+        "calibration_intercept": -1.039731331659192,
+        "ece": 0.08680273003202543,
+        "sensitivity_top10": 0.2371638141809291,
+        "specificity_top10": 0.9183273440052271,
+        "threshold_top10": 0.39131449162960047,
+        "prevalence": 0.11786743515850144
+      },
+      "contrasts": {
+        "strong_xgb_minus_baseline_xgb": {
+          "difference": 0.02093615634502699,
+          "ci": [
+            0.012540000932181276,
+            0.02871050369726253
+          ]
+        },
+        "locked_fusion_minus_original_fusion": {
+          "difference": 0.011958154844965652,
+          "ci": [
+            0.005793919961206118,
+            0.017888520051535604
+          ]
+        }
+      }
+    },
+    "eicu": {
+      "n": 903,
+      "events": 57,
+      "strong_xgb": {
+        "unrecalibrated": {
+          "auroc": 0.6826137447638007,
+          "auprc": 0.19046295150210008,
+          "brier": 0.1401244720914201,
+          "log_loss": 0.4581123962008418,
+          "calibration_slope": 0.9792646213458502,
+          "calibration_intercept": -2.1977083074054526,
+          "ece": 0.27492009408582224,
+          "sensitivity_top10": 0.2982456140350877,
+          "specificity_top10": 0.9125295508274232,
+          "threshold_top10": 0.5397197127342225,
+          "prevalence": 0.06312292358803986
+        },
+        "recalibrated": {
+          "auroc": 0.6791091203185269,
+          "auprc": 0.1855314868422875,
+          "brier": 0.05629456650117899,
+          "log_loss": 0.21916402908060342,
+          "calibration_slope": 0.9747225451694401,
+          "calibration_intercept": -0.06833488384849375,
+          "ece": 0.0037588150099183925,
+          "sensitivity_top10": 0.3157894736842105,
+          "specificity_top10": 0.9137115839243499,
+          "threshold_top10": 0.11615972071886063,
+          "prevalence": 0.06312292358803986
+        }
+      },
+      "locked_75_25_fusion": {
+        "auroc": 0.715793621168761,
+        "auprc": 0.21374366360433886,
+        "brier": 0.13971250775617003,
+        "log_loss": 0.4574823582948223,
+        "calibration_slope": 1.1552185364835683,
+        "calibration_intercept": -2.145868331577708,
+        "ece": 0.2790048885636716,
+        "sensitivity_top10": 0.3157894736842105,
+        "specificity_top10": 0.9137115839243499,
+        "threshold_top10": 0.5247039407491685,
+        "prevalence": 0.06312292358803986
+      },
+      "contrasts": {
+        "strong_xgb_minus_baseline_xgb": {
+          "difference": -0.002737339803409289,
+          "ci": [
+            -0.025761392759730245,
+            0.019350291000146094
+          ]
+        },
+        "locked_fusion_minus_original_fusion": {
+          "difference": -0.020322674298038357,
+          "ci": [
+            -0.04412018800146604,
+            0.002614842658566599
+          ]
+        }
+      }
+    },
+    "eicu_anycad": {
+      "n": 5913,
+      "events": 642,
+      "strong_xgb": {
+        "unrecalibrated": {
+          "auroc": 0.6556639485671023,
+          "auprc": 0.21353917814212448,
+          "brier": 0.17113417515207194,
+          "log_loss": 0.5266176228759238,
+          "calibration_slope": 0.7546358797895838,
+          "calibration_intercept": -1.8020833218013672,
+          "ece": 0.262823927131337,
+          "sensitivity_top10": 0.24454828660436137,
+          "specificity_top10": 0.9174729652817302,
+          "threshold_top10": 0.6116734266281129,
+          "prevalence": 0.10857432775240994
+        },
+        "recalibrated": {
+          "auroc": 0.6501160467165606,
+          "auprc": 0.20865332666169625,
+          "brier": 0.09285719498390002,
+          "log_loss": 0.3270976425758633,
+          "calibration_slope": 0.9626912569017575,
+          "calibration_intercept": -0.07256978451356923,
+          "ece": 0.004246349998212855,
+          "sensitivity_top10": 0.24454828660436137,
+          "specificity_top10": 0.9174729652817302,
+          "threshold_top10": 0.1897274971008301,
+          "prevalence": 0.10857432775240994
+        }
+      },
+      "locked_75_25_fusion": {
+        "auroc": 0.6634284697731844,
+        "auprc": 0.22093828556917688,
+        "brier": 0.1711854026601556,
+        "log_loss": 0.5270368030975301,
+        "calibration_slope": 0.8587542800760672,
+        "calibration_intercept": -1.7783992437223644,
+        "ece": 0.2683207581280268,
+        "sensitivity_top10": 0.24922118380062305,
+        "specificity_top10": 0.9180421172453045,
+        "threshold_top10": 0.5869754701852798,
+        "prevalence": 0.10857432775240994
+      },
+      "contrasts": {
+        "strong_xgb_minus_baseline_xgb": {
+          "difference": 0.0025845291139255933,
+          "ci": [
+            -0.0035339662636455103,
+            0.008293882215441755
+          ]
+        },
+        "locked_fusion_minus_original_fusion": {
+          "difference": -0.0003191506337799632,
+          "ci": [
+            -0.006307560599563655,
+            0.005896218887650159
+          ]
+        }
+      }
+    }
+  }
+}

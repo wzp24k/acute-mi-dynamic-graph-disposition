@@ -1,0 +1,158 @@
+{
+  "top_weight_sensitivity": [
+    {
+      "name": "weighted_xgb_0.45",
+      "auroc": 0.7640408306570701,
+      "auprc": 0.6545426060752075,
+      "brier": 0.17765364958211854
+    },
+    {
+      "name": "weighted_xgb_0.40",
+      "auroc": 0.7640212750028399,
+      "auprc": 0.6545593788090445,
+      "brier": 0.17762515464118017
+    },
+    {
+      "name": "mean_xgb_transformer",
+      "auroc": 0.7639513264284018,
+      "auprc": 0.6543518234616982,
+      "brier": 0.1777322114650234
+    },
+    {
+      "name": "weighted_xgb_0.50",
+      "auroc": 0.7639513264284018,
+      "auprc": 0.6543518234616982,
+      "brier": 0.1777322114650234
+    },
+    {
+      "name": "weighted_xgb_0.35",
+      "auroc": 0.763868327843121,
+      "auprc": 0.6544056666103886,
+      "brier": 0.17764672664220826
+    },
+    {
+      "name": "weighted_xgb_0.55",
+      "auroc": 0.7636843110730182,
+      "auprc": 0.653769912760507,
+      "brier": 0.1778608402898947
+    },
+    {
+      "name": "weighted_xgb_0.30",
+      "auroc": 0.7635571928665104,
+      "auprc": 0.6539337250908323,
+      "brier": 0.17771836558520288
+    },
+    {
+      "name": "rank_xgb_transformer",
+      "auroc": 0.7635017529094683,
+      "auprc": 0.6535379728685967,
+      "brier": 0.21323408476751257
+    },
+    {
+      "name": "mean_xgb_transformer_graph",
+      "auroc": 0.7632919717262673,
+      "auprc": 0.6523587948700068,
+      "brier": 0.17801333825658888
+    },
+    {
+      "name": "weighted_xgb_0.60",
+      "auroc": 0.7632366092173608,
+      "auprc": 0.6529583564437011,
+      "brier": 0.17803953605673253
+    },
+    {
+      "name": "weighted_xgb_0.25",
+      "auroc": 0.7631160482863308,
+      "auprc": 0.6532308644360834,
+      "brier": 0.17784007147016387
+    },
+    {
+      "name": "mean_xgb_transformer_gru",
+      "auroc": 0.7627695324197896,
+      "auprc": 0.6516850746400097,
+      "brier": 0.17808602201918855
+    },
+    {
+      "name": "weighted_xgb_0.65",
+      "auroc": 0.7626383998182551,
+      "auprc": 0.6518469291333325,
+      "brier": 0.1782682987655368
+    },
+    {
+      "name": "weighted_xgb_0.20",
+      "auroc": 0.7625860965107034,
+      "auprc": 0.6523449076912053,
+      "brier": 0.17801184429709138
+    },
+    {
+      "name": "weighted_xgb_0.15",
+      "auroc": 0.7619274775658567,
+      "auprc": 0.6512922349627989,
+      "brier": 0.17823368406598536
+    }
+  ],
+  "ensemble_vs_xgb": {
+    "difference": 0.010216686975288769,
+    "ci": [
+      0.007730751196245567,
+      0.012687620065477374
+    ],
+    "p_two_sided_bootstrap": 0.0
+  },
+  "ensemble_vs_transformer": {
+    "difference": 0.004654581315379214,
+    "ci": [
+      0.0024058829160598263,
+      0.006868055896350847
+    ],
+    "p_two_sided_bootstrap": 0.0
+  },
+  "external": {
+    "mimic3": {
+      "xgb": 0.6491726100663844,
+      "transformer": 0.6552950639363105,
+      "gru": 0.668945779740229,
+      "mean_xgb_transformer": 0.6585539826302829,
+      "mean_xgb_transformer_vs_xgb": {
+        "difference": 0.009381372563898482,
+        "ci": [
+          -3.0387882276563784e-05,
+          0.01858921849373329
+        ],
+        "p_two_sided_bootstrap": 0.051
+      },
+      "mean_xgb_transformer_gru": 0.6659688214136519
+    },
+    "eicu": {
+      "xgb": 0.68535108456721,
+      "transformer": 0.745365186014682,
+      "gru": 0.7406785284724815,
+      "mean_xgb_transformer": 0.7361162954667994,
+      "mean_xgb_transformer_vs_xgb": {
+        "difference": 0.05076521089958941,
+        "ci": [
+          0.015196324372733955,
+          0.08751717892362756
+        ],
+        "p_two_sided_bootstrap": 0.0075
+      },
+      "mean_xgb_transformer_gru": 0.7559620090415162
+    },
+    "eicu_anycad": {
+      "xgb": 0.6530794194531767,
+      "transformer": 0.6453890712184639,
+      "gru": null,
+      "mean_xgb_transformer": 0.6637476204069643,
+      "mean_xgb_transformer_vs_xgb": {
+        "difference": 0.010668200953787621,
+        "ci": [
+          0.00012028461634185946,
+          0.021344007583831846
+        ],
+        "p_two_sided_bootstrap": 0.0485
+      },
+      "mean_xgb_transformer_gru": null,
+      "note": "GRU prediction unavailable; triple average skipped."
+    }
+  }
+}

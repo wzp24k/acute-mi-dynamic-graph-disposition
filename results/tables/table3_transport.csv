@@ -1,0 +1,28 @@
+Cohort,Model,AUROC raw,AUROC recalibrated,AUPRC raw,Brier raw,Brier recalibrated,Calibration intercept,Calibration slope,ECE raw,ECE recalibrated
+MIMIC-III,"Logistic regression, static",0.602,0.601,0.167,0.146,0.103,-1.423,0.808,0.201,0.004
+MIMIC-III,"XGBoost, static",0.600,0.597,0.160,0.145,0.103,-1.480,0.703,0.196,0.007
+MIMIC-III,"XGBoost, static + temporal summaries",0.649,0.648,0.215,0.115,0.100,-1.114,0.721,0.102,0.003
+MIMIC-III,GRU,0.669,0.669,0.214,0.109,0.100,-1.077,0.541,0.049,0.011
+MIMIC-III,Transformer,0.655,0.655,0.202,0.117,0.101,-1.256,0.531,0.081,0.014
+MIMIC-III,TFT-lite,0.658,0.657,0.201,0.118,0.101,-1.285,0.464,0.071,0.013
+MIMIC-III,Continuous-time fixed organ graph,0.658,0.657,0.213,0.113,0.100,-1.192,0.494,0.062,0.006
+MIMIC-III,Continuous-time dynamic organ graph,0.658,0.657,0.213,0.113,0.100,-1.197,0.503,0.065,0.008
+MIMIC-III,Temporal ensemble (XGB+TS + Transformer),0.659,0.658,0.210,0.114,0.100,-1.125,0.673,0.092,0.011
+MIMIC-III,CT-OGT full model,0.651,0.650,0.201,0.118,0.101,-1.238,0.609,0.101,0.012
+eICU principal-CAD sensitivity,"Logistic regression, static",0.633,0.627,0.130,0.165,0.058,-2.031,1.702,0.327,0.005
+eICU principal-CAD sensitivity,"XGBoost, static",0.573,0.561,0.118,0.182,0.059,-2.379,0.992,0.346,0.002
+eICU principal-CAD sensitivity,"XGBoost, static + temporal summaries",0.685,0.683,0.190,0.142,0.056,-2.167,1.072,0.281,0.005
+eICU principal-CAD sensitivity,GRU,0.741,0.739,0.204,0.145,0.056,-2.300,0.887,0.270,0.005
+eICU principal-CAD sensitivity,Transformer,0.745,0.741,0.205,0.148,0.055,-2.241,1.187,0.291,0.008
+eICU principal-CAD sensitivity,TFT-lite,0.739,0.731,0.202,0.131,0.056,-2.192,0.808,0.234,0.015
+eICU principal-CAD sensitivity,Continuous-time fixed organ graph,0.705,0.698,0.183,0.158,0.056,-2.372,0.898,0.297,0.007
+eICU principal-CAD sensitivity,Continuous-time dynamic organ graph,0.705,0.699,0.182,0.159,0.056,-2.384,0.886,0.298,0.005
+eICU principal-CAD sensitivity,Temporal ensemble (XGB+TS + Transformer),0.736,0.734,0.225,0.142,0.055,-2.121,1.309,0.286,0.008
+eICU principal-CAD sensitivity,CT-OGT full model,0.671,0.665,0.184,0.153,0.057,-2.242,1.067,0.298,0.013
+eICU expanded CAD,"XGBoost, static + temporal summaries",0.653,0.647,0.215,0.176,0.093,-1.816,0.802,0.273,0.004
+eICU expanded CAD,Transformer,0.645,0.644,0.199,0.185,0.094,-1.870,0.732,0.285,0.004
+eICU expanded CAD,Temporal ensemble (XGB+TS + Transformer),0.664,0.661,0.222,0.176,0.092,-1.786,0.938,0.279,0.005
+MIMIC-III,Enhanced organ-dynamics XGBoost,0.670,0.669,0.227,0.111,0.099,-1.027,0.745,0.089,0.006
+MIMIC-III,Locked 75/25 enhanced fusion,0.671,NA,0.222,0.111,NA,-1.040,0.726,0.087,NA
+eICU expanded CAD,Enhanced organ-dynamics XGBoost,0.656,0.650,0.214,0.171,0.093,-1.802,0.755,0.263,0.004
+eICU expanded CAD,Locked 75/25 enhanced fusion,0.663,NA,0.221,0.171,NA,-1.778,0.859,0.268,NA

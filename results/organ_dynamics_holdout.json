@@ -1,0 +1,21 @@
+{
+  "architecture": "seven-organ token graph with organ rates and elapsed time",
+  "validation_n": 3625,
+  "validation_events": 1361,
+  "validation": {
+    "auroc": 0.7241791137778032,
+    "auprc": 0.620874443660777,
+    "brier": 0.20068737049944088,
+    "log_loss": 0.5907967509558012,
+    "calibration_slope": 0.7880646602324307,
+    "calibration_intercept": -0.010785670153016168,
+    "ece": 0.038958080037914455,
+    "sensitivity_top10": 0.2020573108008817,
+    "specificity_top10": 0.9611307420494699,
+    "threshold_top10": 0.7003196120262145,
+    "prevalence": 0.37544827586206897
+  },
+  "gate_auroc": 0.7380239015689462,
+  "gate_passed": false,
+  "final_holdout": null
+}

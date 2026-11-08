@@ -1,0 +1,195 @@
+{
+  "checks": {
+    "all_development_models_present": {
+      "passed": true,
+      "detail": []
+    },
+    "all_development_probabilities_valid": {
+      "passed": true,
+      "detail": []
+    },
+    "temporal_ensemble_present": {
+      "passed": true,
+      "detail": "D:\\TT paper\\1107Invariant Continuous-Time\\results\\predictions\\mimic4_cv_temporal_ensemble.npz"
+    },
+    "mimic3_external_predictions_present": {
+      "passed": true,
+      "detail": 11
+    },
+    "eicu_external_predictions_present": {
+      "passed": true,
+      "detail": 11
+    },
+    "eicu_anycad_external_predictions_present": {
+      "passed": true,
+      "detail": 4
+    },
+    "final_outputs_present": {
+      "passed": true,
+      "detail": []
+    },
+    "docx_files_readable": {
+      "passed": true,
+      "detail": {
+        "CTOGT_MACCE_manuscript.docx": {
+          "paragraphs": 103,
+          "tables": 8
+        },
+        "CTOGT_MACCE_supplement.docx": {
+          "paragraphs": 6,
+          "tables": 5
+        },
+        "CTOGT_MACCE_执行摘要_中文.docx": {
+          "paragraphs": 46,
+          "tables": 1
+        }
+      }
+    },
+    "all_figures_present": {
+      "passed": true,
+      "detail": 7
+    },
+    "all_figures_nonblank": {
+      "passed": true,
+      "detail": {
+        "figure1_study_design.png": {
+          "size": [
+            3817,
+            2057
+          ],
+          "mean": [
+            250.76,
+            251.05,
+            250.94
+          ],
+          "nonwhite_fraction": 0.03167901855030504
+        },
+        "figure2_model_architecture.png": {
+          "size": [
+            3817,
+            2153
+          ],
+          "mean": [
+            250.37,
+            250.72,
+            250.78
+          ],
+          "nonwhite_fraction": 0.03407945557563208
+        },
+        "figure3_performance_ablation.png": {
+          "size": [
+            2915,
+            1956
+          ],
+          "mean": [
+            249.77,
+            249.7,
+            249.73
+          ],
+          "nonwhite_fraction": 0.037643947286267
+        },
+        "figure4_calibration_dca.png": {
+          "size": [
+            3330,
+            2596
+          ],
+          "mean": [
+            248.05,
+            248.15,
+            248.21
+          ],
+          "nonwhite_fraction": 0.05169445254191017
+        },
+        "figure5_attention.png": {
+          "size": [
+            3648,
+            1508
+          ],
+          "mean": [
+            247.38,
+            232.91,
+            229.45
+          ],
+          "nonwhite_fraction": 0.1572246992647401
+        },
+        "figure6_net_benefit_ci.png": {
+          "size": [
+            3553,
+            1476
+          ],
+          "mean": [
+            247.37,
+            247.24,
+            247.55
+          ],
+          "nonwhite_fraction": 0.0935554289401605
+        },
+        "figure7_interval_threshold_sensitivity.png": {
+          "size": [
+            3327,
+            2340
+          ],
+          "mean": [
+            238.83,
+            240.83,
+            242.24
+          ],
+          "nonwhite_fraction": 0.46212251996742526
+        }
+      }
+    },
+    "interval_endpoint_outputs_present": {
+      "passed": true,
+      "detail": []
+    },
+    "strengthening_evidence_present": {
+      "passed": true,
+      "detail": []
+    },
+    "manuscript_word_count_reasonable": {
+      "passed": true,
+      "detail": 7883
+    },
+    "no_stale_primary_claims": {
+      "passed": true,
+      "detail": []
+    }
+  },
+  "failures": [],
+  "word_count": 7883,
+  "external_models": {
+    "mimic3": [
+      "mimic3_external_ct_fixed",
+      "mimic3_external_ct_graph",
+      "mimic3_external_ctogt",
+      "mimic3_external_gru",
+      "mimic3_external_logit_static",
+      "mimic3_external_strong_xgb",
+      "mimic3_external_temporal_ensemble",
+      "mimic3_external_tft",
+      "mimic3_external_transformer",
+      "mimic3_external_xgb_static",
+      "mimic3_external_xgb_static_ts"
+    ],
+    "eicu": [
+      "eicu_external_ct_fixed",
+      "eicu_external_ct_graph",
+      "eicu_external_ctogt",
+      "eicu_external_gru",
+      "eicu_external_logit_static",
+      "eicu_external_strong_xgb",
+      "eicu_external_temporal_ensemble",
+      "eicu_external_tft",
+      "eicu_external_transformer",
+      "eicu_external_xgb_static",
+      "eicu_external_xgb_static_ts"
+    ],
+    "eicu_anycad": [
+      "eicu_anycad_external_strong_xgb",
+      "eicu_anycad_external_temporal_ensemble",
+      "eicu_anycad_external_transformer",
+      "eicu_anycad_external_xgb_static_ts"
+    ]
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,74 @@
+{
+  "mimic4": {
+    "macce_interval_confirmed": {
+      "status": "insufficient_events",
+      "events": 45
+    },
+    "macce_interval_overlap": {
+      "auroc": 0.7945941804697915,
+      "auprc": 0.28125238574258704,
+      "brier": 0.07738139642951034,
+      "log_loss": 0.26560552350958005,
+      "calibration_slope": 1.0037190542784749,
+      "calibration_intercept": 0.028808934053169546,
+      "ece": 0.0035920430559362206,
+      "sensitivity_top10": 0.341501976284585,
+      "specificity_top10": 0.9256699814596325,
+      "threshold_top10": 0.22686947882175446,
+      "prevalence": 0.09633691264945549,
+      "events": 1265
+    }
+  },
+  "external": {
+    "mimic3": {
+      "macce_interval_confirmed": {
+        "status": "insufficient_events",
+        "events": 12
+      },
+      "macce_interval_overlap": {
+        "auroc": 0.7545087305771795,
+        "auprc": 0.14964489533770126,
+        "brier": 0.02057415015789514,
+        "log_loss": 0.09627455263487139,
+        "calibration_slope": 0.9654866357519463,
+        "calibration_intercept": -0.6015776448587634,
+        "ece": 0.013905042851805388,
+        "sensitivity_top10": 0.4342105263157895,
+        "specificity_top10": 0.9074837949322333,
+        "threshold_top10": 0.07976977899670598,
+        "prevalence": 0.02190201729106628,
+        "events": 76
+      }
+    },
+    "eicu": {
+      "macce_interval_confirmed": {
+        "status": "insufficient_events",
+        "events": 0
+      },
+      "macce_interval_overlap": {
+        "status": "insufficient_events",
+        "events": 9
+      }
+    },
+    "eicu_anycad": {
+      "macce_interval_confirmed": {
+        "status": "insufficient_events",
+        "events": 0
+      },
+      "macce_interval_overlap": {
+        "auroc": 0.6678467728133711,
+        "auprc": 0.05096536663135624,
+        "brier": 0.025563251123441953,
+        "log_loss": 0.1359890836395138,
+        "calibration_slope": 0.9233573349640174,
+        "calibration_intercept": -1.7312538646207973,
+        "ece": 0.0670470492092147,
+        "sensitivity_top10": 0.2689075630252101,
+        "specificity_top10": 0.9033482913358647,
+        "threshold_top10": 0.15102138817310334,
+        "prevalence": 0.020125147979029256,
+        "events": 119
+      }
+    }
+  }
+}

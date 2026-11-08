@@ -1,0 +1,46 @@
+﻿key,doi,verified,verification_basis,doi_resolves,title_similarity,found_title
+johnson2023mimiciv,10.1038/s41597-022-01899-x,True,Crossref metadata record,True,1.0,"MIMIC-IV, a freely accessible electronic health record dataset"
+johnson2016mimiciii,10.1038/sdata.2016.35,True,Crossref metadata record,True,1.0,"MIMIC-III, a freely accessible critical care database"
+pollard2018eicu,10.1038/sdata.2018.178,True,Crossref metadata record,True,1.0,"The eICU Collaborative Research Database, a freely available multi-center database for critical care research"
+collins2024tripodai,10.1136/bmj-2023-078378,True,Crossref metadata record,True,1.0,TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods
+vincent1996sofa,10.1007/bf01709751,True,Crossref metadata record,True,0.722,The SOFA (Sepsis-related Organ Failure Assessment) score to describe organ dysfunction/failure
+shickel2018deepehr,10.1109/jbhi.2017.2767063,True,Crossref metadata record,True,0.981,Deep EHR: A Survey of Recent Advances in Deep Learning Techniques for Electronic Health Record (EHR) Analysis
+rajkomar2018scalable,10.1038/s41746-018-0029-1,True,Crossref DOI record (direct recheck),False,1.0,Scalable and accurate deep learning with electronic health records
+che2018grud,10.1038/s41598-018-24271-9,True,Crossref metadata record,True,1.0,Recurrent Neural Networks for Multivariate Time Series with Missing Values
+vaswani2017attention,10.48550/arXiv.1706.03762,True,DOI resolution,True,1.0,Attention is all you need
+lim2021tft,10.1016/j.ijforecast.2021.03.012,True,Crossref metadata record,True,1.0,Temporal Fusion Transformers for interpretable multi-horizon time series forecasting
+arjovsky2019irm,10.48550/arXiv.1907.02893,True,arXiv DOI record,True,1.0,Invariant Risk Minimization
+sagawa2020groupdro,10.48550/arXiv.1911.08731,True,arXiv DOI record,True,1.0,Distributionally robust neural networks for group shifts
+kidger2020ncde,10.48550/arXiv.2005.08926,True,arXiv DOI record,True,1.0,Neural controlled differential equations for irregular time series
+gu2023mamba,10.48550/arXiv.2312.00752,True,arXiv DOI record,True,1.0,Mamba: linear-time sequence modeling with selective state spaces
+vancalster2019calibration,10.1186/s12916-019-1466-7,True,Crossref metadata record,True,1.0,Calibration: the Achilles heel of predictive analytics
+vickers2006dca,10.1177/0272989x06295361,True,Crossref metadata record,True,1.0,Decision Curve Analysis: A Novel Method for Evaluating Prediction Models
+thygesen2019mi,10.1093/eurheartj/ehy462,True,Crossref metadata record,True,1.0,Fourth universal definition of myocardial infarction (2018)
+sacco2013stroke,10.1161/str.0b013e318296aeca,True,Crossref metadata record,True,1.0,An Updated Definition of Stroke for the 21st Century
+mccullagh1980ordinal,10.1111/j.2517-6161.1980.tb01109.x,True,Crossref metadata record,True,1.0,Regression Models for Ordinal Data
+edlinger2022ordinal,10.1002/sim.9281,True,Crossref metadata record,True,1.0,Risk prediction models for discrete ordinal outcomes: Calibration and the impact of the proportional odds assumption
+vanhoorde2014multinomial,10.1002/sim.6114,True,Crossref metadata record,True,1.0,Assessing calibration of multinomial risk prediction models
+skarding2021dynamicgraphs,10.1109/access.2021.3082932,True,Crossref metadata record,True,1.0,Foundations and Modeling of Dynamic Networks Using Dynamic Graph Neural Networks: A Survey
+ma2023patientgraph,10.3934/mbe.2023685,True,Crossref DOI record (direct recheck),True,1.0,Predicting the risk of mortality in ICU patients based on dynamic graph attention network of patient similarity
+feng2024multiorgan,10.1016/j.artmed.2023.102746,True,Crossref metadata record,False,1.0,Multi-organ spatiotemporal information aware model for sepsis mortality prediction
+xu2024icuinterventions,10.1109/jbhi.2024.3379998,True,Crossref metadata record,True,1.0,Predicting ICU Interventions: A Transparent Decision Support Model Based on Multivariate Time Series Graph Convolutional Neural Network
+daniels2010monotone,10.1109/tnn.2010.2044803,True,Crossref metadata record,True,1.0,Monotone and Partially Monotone Neural Networks
+collins2024evaluation1,10.1136/bmj-2023-074819,True,Crossref metadata record,True,1.0,Evaluation of clinical prediction models (part 1): from development to external validation
+riley2024evaluation2,10.1136/bmj-2023-074820,True,Crossref metadata record,True,1.0,Evaluation of clinical prediction models (part 2): how to undertake an external validation study
+lee2019attentiongraphs,10.1145/3363574,True,Crossref metadata record,True,0.852,Attention Models in Graphs
+cho2014rnn,10.3115/v1/d14-1179,True,Crossref metadata record,True,1.0,Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation
+chen2016xgboost,10.1145/2939672.2939785,True,Crossref DOI record (direct recheck),True,0.304,XGBoost
+lin2022transformers,10.1016/j.aiopen.2022.10.001,True,Crossref DOI record (direct recheck),False,1.0,A survey of transformers
+varma2006cvbias,10.1186/1471-2105-7-91,True,Crossref metadata record,True,1.0,Bias in error estimation when using cross-validation for model selection
+abdar2021uncertainty,10.1016/j.inffus.2021.05.008,True,Crossref metadata record,True,1.0,"A review of uncertainty quantification in deep learning: Techniques, applications and challenges"
+steyerberg2010performance,10.1097/ede.0b013e3181c30fb2,True,Crossref metadata record,False,0.662,Assessing the Performance of Prediction Models
+efron1979bootstrap,10.1214/aos/1176344552,True,Crossref metadata record,True,1.0,Bootstrap Methods: Another Look at the Jackknife
+vancalster2023validated,10.1186/s12916-023-02779-w,True,Crossref metadata record,True,1.0,There is no such thing as a validated prediction model
+byrne2023escacs,10.1093/eurheartj/ehad191,True,Crossref metadata record,True,1.0,2023 ESC Guidelines for the management of acute coronary syndromes
+virani2023chroniccad,10.1161/cir.0000000000001168,True,Crossref metadata record,True,0.626,2023 AHA/ACC/ACCP/ASPC/NLA/PCNA Guideline for the Management of Patients With Chronic Coronary Disease: A Report of the American Heart Association/American College of Cardiology Joint Committee on Clinical Practice Guidelines
+lawton2021revasc,10.1161/CIR.0000000000001038,True,Crossref DOI record (direct recheck),True,1.0,2021 ACC/AHA/SCAI Guideline for Coronary Artery Revascularization
+powers2019stroke,10.1161/str.0000000000000211,True,Crossref metadata record,True,0.491,Guidelines for the Early Management of Patients With Acute Ischemic Stroke: 2019 Update to the 2018 Guidelines for the Early Management of Acute Ischemic Stroke: A Guideline for Healthcare Professionals From the American Heart Association/American Stroke Association
+antman2000timi,10.1001/jama.284.7.835,True,Crossref metadata record,True,1.0,The TIMI Risk Score for Unstable Angina/Non–ST Elevation MI
+fox2006grace,10.1136/bmj.38985.646481.55,True,Crossref metadata record,True,0.821,Prediction of risk of death and myocardial infarction in the six months after presentation with acute coronary syndrome: prospective multinational observational study (GRACE)
+lipp2010chads,10.1378/chest.09-1584,True,Crossref metadata record,True,1.0,Refining Clinical Risk Stratification for Predicting Stroke and Thromboembolism in Atrial Fibrillation Using a Novel Risk Factor-Based Approach
+wolff2019probast,10.7326/m18-1376,True,Crossref metadata record,True,1.0,PROBAST: A Tool to Assess the Risk of Bias and Applicability of Prediction Model Studies

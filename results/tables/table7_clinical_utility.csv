@@ -1,0 +1,16 @@
+Cohort,Model,Probability,AUROC,Brier (95% CI),Calibration slope,Calibration intercept,ECE,Sensitivity @10%,Specificity @10%,PPV @10%,NPV @10%
+MIMIC-III,Original temporal ensemble,Raw,0.659,0.114 (0.108-0.121),0.673,-1.125,0.092,0.929,0.167,0.130,0.946
+MIMIC-III,Original temporal ensemble,Locally recalibrated,0.658,0.100 (0.092-0.108),0.991,-0.017,0.011,0.685,0.554,0.170,0.929
+MIMIC-III,Enhanced organ-dynamics XGBoost,Raw,0.670,0.111 (0.105-0.118),0.745,-1.027,0.089,0.941,0.166,0.131,0.955
+MIMIC-III,Enhanced organ-dynamics XGBoost,Locally recalibrated,0.669,0.099 (0.092-0.107),0.992,-0.015,0.006,0.663,0.573,0.172,0.927
+MIMIC-III,Locked 75/25 enhanced fusion,Raw,0.671,0.111 (0.105-0.117),0.726,-1.040,0.087,0.919,0.186,0.131,0.945
+eICU principal-CAD,Original temporal ensemble,Raw,0.736,0.142 (0.135-0.149),1.309,-2.121,0.286,1.000,0.000,0.063,nan
+eICU principal-CAD,Original temporal ensemble,Locally recalibrated,0.734,0.055 (0.043-0.067),0.982,-0.048,0.008,0.368,0.896,0.193,0.955
+eICU principal-CAD,Enhanced organ-dynamics XGBoost,Raw,0.683,0.140 (0.132-0.149),0.979,-2.198,0.275,1.000,0.000,0.063,nan
+eICU principal-CAD,Enhanced organ-dynamics XGBoost,Locally recalibrated,0.679,0.056 (0.044-0.068),0.975,-0.068,0.004,0.351,0.894,0.182,0.953
+eICU principal-CAD,Locked 75/25 enhanced fusion,Raw,0.716,0.140 (0.132-0.148),1.155,-2.146,0.279,1.000,0.000,0.063,nan
+eICU expanded CAD,Original temporal ensemble,Raw,0.664,0.176 (0.173-0.179),0.938,-1.786,0.279,1.000,0.000,0.109,nan
+eICU expanded CAD,Original temporal ensemble,Locally recalibrated,0.661,0.092 (0.087-0.098),0.983,-0.031,0.005,0.601,0.614,0.159,0.927
+eICU expanded CAD,Enhanced organ-dynamics XGBoost,Raw,0.656,0.171 (0.167-0.175),0.755,-1.802,0.263,1.000,0.001,0.109,1.000
+eICU expanded CAD,Enhanced organ-dynamics XGBoost,Locally recalibrated,0.650,0.093 (0.087-0.099),0.963,-0.073,0.004,0.567,0.646,0.163,0.924
+eICU expanded CAD,Locked 75/25 enhanced fusion,Raw,0.663,0.171 (0.168-0.175),0.859,-1.778,0.268,1.000,0.000,0.109,nan

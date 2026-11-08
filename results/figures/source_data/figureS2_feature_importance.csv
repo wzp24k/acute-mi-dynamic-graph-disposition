@@ -1,6 +1,0 @@
-panel,variable_group,variable_group_label,n_features,normalized_gain_pct,permutation_macro_auc_drop_mean,permutation_macro_auc_drop_ci95_low,permutation_macro_auc_drop_ci95_high,n_folds,n_repeats,cv_seed,permutation_seed
-A_group_gain_and_B_group_permutation,demographics,Demographics,14,9.34392460426497,0.03862332057314596,0.0022624213120527384,0.07498421983423917,5,5,42,1104
-A_group_gain_and_B_group_permutation,troponin_ck_mb,Troponin / CK-MB,11,5.278448046436708,0.03723563947905782,-0.0009197493904695778,0.07539102834858522,5,5,42,1104
-A_group_gain_and_B_group_permutation,other_labs,Other laboratories,80,45.76050922666447,0.03657746915052066,-0.0019823104444756726,0.075137248745517,5,5,42,1104
-A_group_gain_and_B_group_permutation,vital_sign_summaries,Vital-sign summaries,42,22.157647051443767,0.04383119844357368,0.0024067440955640937,0.08525565279158326,5,5,42,1104
-A_group_gain_and_B_group_permutation,gcs_neuro,GCS / neuro,7,17.459471071190098,0.03763406576977217,-0.0006053146379474683,0.07587344617749181,5,5,42,1104

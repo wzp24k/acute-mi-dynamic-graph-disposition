@@ -1,0 +1,5 @@
+Validation,Test set,XGB+TS AUROC,Temporal ensemble AUROC,Difference (95% CI),0.01 threshold met
+Locked temporal holdout,"2020-2022; n=2,456; events=1,072",0.734,0.745,0.011 (0.005 to 0.017),Yes
+Nested model selection,Five-fold outer CV with inner 3-fold XGB tuning,0.754,0.764,0.0098 (0.0071 to 0.0124),No
+Internal-era locked strong fusion,"Select on 2017-2019; test 2020-2022; n=2,456; events=1,072",0.734,0.746,0.0125 (0.0073 to 0.0172),Yes
+Joint nested XGB and Transformer,Five outer folds; inner 20% hyperparameter selection; 2 Transformer candidates,0.754,0.761,0.0073 (0.0043 to 0.0106),No

@@ -1,0 +1,35 @@
+{
+  "reviewer_1_references": {
+    "checks": {
+      "reference_count_40_to_50": true,
+      "all_doi_verified": true,
+      "citation_numbers_complete": true,
+      "citation_first_appearance_ascending": true,
+      "no_duplicate_doi": true
+    },
+    "status": "PASS"
+  },
+  "reviewer_2_logic_numbers_figures": {
+    "checks": {
+      "cohort_counts_consistent": true,
+      "main_auroc_values_consistent": true,
+      "two_decimal_metrics": true,
+      "all_charts_cited": true,
+      "tables_and_figures_sequential": true,
+      "p_value_rule_not_triggered": true
+    },
+    "status": "PASS"
+  },
+  "reviewer_3_language_format": {
+    "checks": {
+      "abstract_250_or_less": true,
+      "abstract_four_sections": true,
+      "keywords_five_or_less": true,
+      "sentence_length_30_or_less": true,
+      "format_requirements": true,
+      "declarations_complete": true
+    },
+    "status": "PASS"
+  },
+  "overall_status": "PASS"
+}

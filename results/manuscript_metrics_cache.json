@@ -1,0 +1,1189 @@
+{
+  "development": {
+    "logit_static": {
+      "label": "Logistic regression, static",
+      "auroc": 0.6323643495905575,
+      "auroc_low": 0.6231985249499986,
+      "auroc_high": 0.6429242610882181,
+      "auprc": 0.45875084885878814,
+      "brier": 0.21375785234694766,
+      "calibration_slope": 0.9658521150585967,
+      "ece": 0.007490919037433991
+    },
+    "xgb_static": {
+      "label": "XGBoost, static",
+      "auroc": 0.6413691023244766,
+      "auroc_low": 0.632234145471431,
+      "auroc_high": 0.6512111785578314,
+      "auprc": 0.46931207683191584,
+      "brier": 0.2121811550764561,
+      "calibration_slope": 0.9734143262063114,
+      "ece": 0.003955804872217153
+    },
+    "xgb_static_ts": {
+      "label": "XGBoost, static + temporal summaries",
+      "auroc": 0.753734639453113,
+      "auroc_low": 0.7445266472896762,
+      "auroc_high": 0.762862668478395,
+      "auprc": 0.6361678005343381,
+      "brier": 0.1812715121589203,
+      "calibration_slope": 1.1156569495752462,
+      "ece": 0.012782746428005845
+    },
+    "gru": {
+      "label": "GRU",
+      "auroc": 0.7488189804727434,
+      "auroc_low": 0.7396119798883647,
+      "auroc_high": 0.7578661799940972,
+      "auprc": 0.6295540952656802,
+      "brier": 0.18330847202101058,
+      "calibration_slope": 0.873899300668075,
+      "ece": 0.019899709824625588
+    },
+    "transformer": {
+      "label": "Transformer",
+      "auroc": 0.7592967451130226,
+      "auroc_low": 0.7506844188833804,
+      "auroc_high": 0.7679824748633853,
+      "auprc": 0.6469744909292258,
+      "brier": 0.1791996049875665,
+      "calibration_slope": 0.9772991931145183,
+      "ece": 0.009974961547546101
+    },
+    "tft": {
+      "label": "TFT-lite",
+      "auroc": 0.7486519893844421,
+      "auroc_low": 0.7395874305630187,
+      "auroc_high": 0.7579819147194751,
+      "auprc": 0.6313159519664855,
+      "brier": 0.18318058172865317,
+      "calibration_slope": 0.8507614600429219,
+      "ece": 0.022662233738732964
+    },
+    "ct_fixed": {
+      "label": "Continuous-time fixed organ graph",
+      "auroc": 0.7512584418467767,
+      "auroc_low": 0.7429264707313983,
+      "auroc_high": 0.7604105408679006,
+      "auprc": 0.6323703689805722,
+      "brier": 0.1824561573440273,
+      "calibration_slope": 0.8881533539411003,
+      "ece": 0.016136302375618018
+    },
+    "ct_graph": {
+      "label": "Continuous-time dynamic organ graph",
+      "auroc": 0.7561821683412674,
+      "auroc_low": 0.7476047389345188,
+      "auroc_high": 0.7648980843012798,
+      "auprc": 0.6390062975814625,
+      "brier": 0.1807027873537568,
+      "calibration_slope": 0.9880783964241651,
+      "ece": 0.010164143718001542
+    },
+    "organ_graph": {
+      "label": "Seven-organ token dynamic graph",
+      "auroc": 0.7503693888825783,
+      "auroc_low": 0.7418669957861264,
+      "auroc_high": 0.7590199958289341,
+      "auprc": 0.6313799691843246,
+      "brier": 0.18258095042332295,
+      "calibration_slope": 0.8956719529638656,
+      "ece": 0.016220751824839744
+    },
+    "temporal_ensemble": {
+      "label": "Temporal ensemble (XGB+TS + Transformer)",
+      "auroc": 0.7639513264284018,
+      "auroc_low": 0.75504559129276,
+      "auroc_high": 0.7727805133404981,
+      "auprc": 0.6543518234616982,
+      "brier": 0.1777322114650234,
+      "calibration_slope": 1.1316029606759594,
+      "ece": 0.017015823694394965
+    },
+    "ctogt": {
+      "label": "CT-OGT full model",
+      "auroc": 0.7561857051394583,
+      "auroc_low": 0.7475219848623232,
+      "auroc_high": 0.7649342146251882,
+      "auprc": 0.6401273252761741,
+      "brier": 0.18051034391941118,
+      "calibration_slope": 0.9652932558324056,
+      "ece": 0.01105772917125875
+    },
+    "ct_random": {
+      "label": "CT-OGT, random graph control",
+      "auroc": 0.750450606160741,
+      "auroc_low": 0.7421103319568445,
+      "auroc_high": 0.7594005777821073,
+      "auprc": 0.6308869525271733,
+      "brier": 0.1825652238537713,
+      "calibration_slope": 0.9225619413586136,
+      "ece": 0.01154596176259172
+    },
+    "ct_reverse": {
+      "label": "CT-OGT, reversed time control",
+      "auroc": 0.7496040076828552,
+      "auroc_low": 0.7409911433675966,
+      "auroc_high": 0.7583150090195019,
+      "auprc": 0.6267403194516394,
+      "brier": 0.18332905301791483,
+      "calibration_slope": 0.910482013126815,
+      "ece": 0.01600567416459103
+    },
+    "ct_permute": {
+      "label": "CT-OGT, permuted time control",
+      "auroc": 0.749305858176974,
+      "auroc_low": 0.7404107801430868,
+      "auroc_high": 0.7581549147282768,
+      "auprc": 0.6269381132411419,
+      "brier": 0.18334959084095565,
+      "calibration_slope": 0.8971539985837481,
+      "ece": 0.01672729962487598
+    },
+    "ct_no_time": {
+      "label": "CT-OGT, no continuous-time encoding",
+      "auroc": 0.746984440669565,
+      "auroc_low": 0.7379800363158177,
+      "auroc_high": 0.7557773820414394,
+      "auprc": 0.6220442399466032,
+      "brier": 0.1842465376628758,
+      "calibration_slope": 0.9285361495954735,
+      "ece": 0.012144231731467116
+    }
+  },
+  "external": {
+    "mimic3": {
+      "logit_static": {
+        "label": "Logistic regression, static",
+        "auroc_raw": 0.6024826091158665,
+        "auroc_recal": 0.601077200429091,
+        "auprc_raw": 0.16654035091255182,
+        "brier_raw": 0.1461018633055129,
+        "brier_recal": 0.10262757876210325,
+        "intercept_raw": -1.4233413856300565,
+        "slope_raw": 0.8084116733255118,
+        "ece_raw": 0.2012450635869678,
+        "ece_recal": 0.0035054902755644697
+      },
+      "xgb_static": {
+        "label": "XGBoost, static",
+        "auroc_raw": 0.5999022324391808,
+        "auroc_recal": 0.597050678581955,
+        "auprc_raw": 0.1602398590001535,
+        "brier_raw": 0.1454045313240661,
+        "brier_recal": 0.10286676571221982,
+        "intercept_raw": -1.4803776193232914,
+        "slope_raw": 0.7026482230525594,
+        "ece_raw": 0.19591326581512816,
+        "ece_recal": 0.007029241528523071
+      },
+      "xgb_static_ts": {
+        "label": "XGBoost, static + temporal summaries",
+        "auroc_raw": 0.6491726100663844,
+        "auroc_recal": 0.6482484510151771,
+        "auprc_raw": 0.21486374389117607,
+        "brier_raw": 0.11524165895077128,
+        "brier_recal": 0.1002785078208153,
+        "intercept_raw": -1.113643735666389,
+        "slope_raw": 0.7212050468144328,
+        "ece_raw": 0.10157882830273006,
+        "ece_recal": 0.003394688439343435
+      },
+      "gru": {
+        "label": "GRU",
+        "auroc_raw": 0.668945779740229,
+        "auroc_recal": 0.6685527924859558,
+        "auprc_raw": 0.21428003428550213,
+        "brier_raw": 0.10927482173650035,
+        "brier_recal": 0.1000250448731833,
+        "intercept_raw": -1.076925602212224,
+        "slope_raw": 0.5409057533425222,
+        "ece_raw": 0.048757475940376424,
+        "ece_recal": 0.010546105028122057
+      },
+      "transformer": {
+        "label": "Transformer",
+        "auroc_raw": 0.6552950639363105,
+        "auroc_recal": 0.6545530209297663,
+        "auprc_raw": 0.2024310469629404,
+        "brier_raw": 0.11652943031262471,
+        "brier_recal": 0.10077799779873374,
+        "intercept_raw": -1.255947405813846,
+        "slope_raw": 0.5311948240242558,
+        "ece_raw": 0.08146068010243027,
+        "ece_recal": 0.013977916070638542
+      },
+      "tft": {
+        "label": "TFT-lite",
+        "auroc_raw": 0.6577704043854822,
+        "auroc_recal": 0.6569053531733322,
+        "auprc_raw": 0.20090501159602708,
+        "brier_raw": 0.11807020328641263,
+        "brier_recal": 0.10073144060267386,
+        "intercept_raw": -1.2851285138743835,
+        "slope_raw": 0.46379864605957644,
+        "ece_raw": 0.07095847346468341,
+        "ece_recal": 0.013123959392008592
+      },
+      "ct_fixed": {
+        "label": "Continuous-time fixed organ graph",
+        "auroc_raw": 0.65828160731787,
+        "auroc_recal": 0.6573674326989358,
+        "auprc_raw": 0.21285734617171342,
+        "brier_raw": 0.11267208532205694,
+        "brier_recal": 0.10017895691976099,
+        "intercept_raw": -1.1917624114709109,
+        "slope_raw": 0.4938043352741857,
+        "ece_raw": 0.06208790940385559,
+        "ece_recal": 0.0064933542065558625
+      },
+      "ct_graph": {
+        "label": "Continuous-time dynamic organ graph",
+        "auroc_raw": 0.6578766387448691,
+        "auroc_recal": 0.6570914629909046,
+        "auprc_raw": 0.21282756476702724,
+        "brier_raw": 0.11292509111186123,
+        "brier_recal": 0.10020385886454737,
+        "intercept_raw": -1.1973528667397855,
+        "slope_raw": 0.5029433580899009,
+        "ece_raw": 0.06485050457290854,
+        "ece_recal": 0.008021060035963905
+      },
+      "temporal_ensemble": {
+        "label": "Temporal ensemble (XGB+TS + Transformer)",
+        "auroc_raw": 0.6585539826302829,
+        "auroc_recal": 0.6578311097337033,
+        "auprc_raw": 0.210146225284504,
+        "brier_raw": 0.11411215204960834,
+        "brier_recal": 0.10025864466625549,
+        "intercept_raw": -1.1254828788348663,
+        "slope_raw": 0.6727082941861908,
+        "ece_raw": 0.09151975420258017,
+        "ece_recal": 0.010972431773176104
+      },
+      "ctogt": {
+        "label": "CT-OGT full model",
+        "auroc_raw": 0.6508212395233351,
+        "auroc_recal": 0.6501934184219964,
+        "auprc_raw": 0.20129332397610344,
+        "brier_raw": 0.11814174165803283,
+        "brier_recal": 0.10078952162116137,
+        "intercept_raw": -1.2380114718856792,
+        "slope_raw": 0.6087382595446587,
+        "ece_raw": 0.10102243377513087,
+        "ece_recal": 0.011638756912276782
+      }
+    },
+    "eicu": {
+      "logit_static": {
+        "label": "Logistic regression, static",
+        "auroc_raw": 0.632595081083323,
+        "auroc_recal": 0.6274003566836714,
+        "auprc_raw": 0.13037356950317022,
+        "brier_raw": 0.16542546049866613,
+        "brier_recal": 0.05807320032405083,
+        "intercept_raw": -2.031260845561757,
+        "slope_raw": 1.7017794260933217,
+        "ece_raw": 0.32654200136629113,
+        "ece_recal": 0.004653112533830632
+      },
+      "xgb_static": {
+        "label": "XGBoost, static",
+        "auroc_raw": 0.5725602422130978,
+        "auroc_recal": 0.5606051179959354,
+        "auprc_raw": 0.11839464890884474,
+        "brier_raw": 0.18157590718075223,
+        "brier_recal": 0.05902596779525188,
+        "intercept_raw": -2.3792442480344587,
+        "slope_raw": 0.9922229857989956,
+        "ece_raw": 0.3457275442902828,
+        "ece_recal": 0.001790269493545142
+      },
+      "xgb_static_ts": {
+        "label": "XGBoost, static + temporal summaries",
+        "auroc_raw": 0.68535108456721,
+        "auroc_recal": 0.6827381693003193,
+        "auprc_raw": 0.19035631586403295,
+        "brier_raw": 0.14200348701758092,
+        "brier_recal": 0.056384479969690565,
+        "intercept_raw": -2.1667778996198592,
+        "slope_raw": 1.0724808349483683,
+        "ece_raw": 0.28084591839664663,
+        "ece_recal": 0.004615345637696655
+      },
+      "gru": {
+        "label": "GRU",
+        "auroc_raw": 0.7406785284724815,
+        "auroc_recal": 0.7392061714570112,
+        "auprc_raw": 0.2042253398443022,
+        "brier_raw": 0.1451310303179766,
+        "brier_recal": 0.05576618241904345,
+        "intercept_raw": -2.3004085401995,
+        "slope_raw": 0.8868801567473076,
+        "ece_raw": 0.26961382997870975,
+        "ece_recal": 0.005261888286637209
+      },
+      "transformer": {
+        "label": "Transformer",
+        "auroc_raw": 0.745365186014682,
+        "auroc_recal": 0.7406785284724814,
+        "auprc_raw": 0.20473014040986,
+        "brier_raw": 0.1481539415871363,
+        "brier_recal": 0.05542049117313419,
+        "intercept_raw": -2.2412857216130506,
+        "slope_raw": 1.1866261973678942,
+        "ece_raw": 0.29125927259128626,
+        "ece_recal": 0.007695517535470961
+      },
+      "tft": {
+        "label": "TFT-lite",
+        "auroc_raw": 0.7391854340342582,
+        "auroc_recal": 0.7314503753473518,
+        "auprc_raw": 0.20174145357608766,
+        "brier_raw": 0.13147991869461415,
+        "brier_recal": 0.05573933538112338,
+        "intercept_raw": -2.192094646287174,
+        "slope_raw": 0.8075450193076968,
+        "ece_raw": 0.23376268661629457,
+        "ece_recal": 0.015340036096346309
+      },
+      "ct_fixed": {
+        "label": "Continuous-time fixed organ graph",
+        "auroc_raw": 0.70461615030484,
+        "auroc_recal": 0.697752063373564,
+        "auprc_raw": 0.18290471077480924,
+        "brier_raw": 0.15779292814645934,
+        "brier_recal": 0.056271846139044755,
+        "intercept_raw": -2.3720932925978744,
+        "slope_raw": 0.897857813535582,
+        "ece_raw": 0.29670228816131555,
+        "ece_recal": 0.006863360805024425
+      },
+      "ct_graph": {
+        "label": "Continuous-time dynamic organ graph",
+        "auroc_raw": 0.7054041723694578,
+        "auroc_recal": 0.6989133590477374,
+        "auprc_raw": 0.1816387828187452,
+        "brier_raw": 0.15909687660290278,
+        "brier_recal": 0.05630918623686472,
+        "intercept_raw": -2.383864888013713,
+        "slope_raw": 0.8860803602569993,
+        "ece_raw": 0.29795156163498676,
+        "ece_recal": 0.004762275499247369
+      },
+      "temporal_ensemble": {
+        "label": "Temporal ensemble (XGB+TS + Transformer)",
+        "auroc_raw": 0.7361162954667994,
+        "auroc_recal": 0.7338973912322176,
+        "auprc_raw": 0.2249039975207321,
+        "brier_raw": 0.14200857538208592,
+        "brier_recal": 0.055231281726697695,
+        "intercept_raw": -2.1213937306070183,
+        "slope_raw": 1.3086338723620639,
+        "ece_raw": 0.2860525954939664,
+        "ece_recal": 0.007952567123528688
+      },
+      "ctogt": {
+        "label": "CT-OGT full model",
+        "auroc_raw": 0.6710422628675707,
+        "auroc_recal": 0.6651735722284433,
+        "auprc_raw": 0.18448422370073483,
+        "brier_raw": 0.15325714483293004,
+        "brier_recal": 0.05654453657376701,
+        "intercept_raw": -2.2423882044681824,
+        "slope_raw": 1.0673531793203952,
+        "ece_raw": 0.2976261687734198,
+        "ece_recal": 0.013165016692639185
+      }
+    },
+    "eicu_anycad": {
+      "xgb_static_ts": {
+        "label": "XGBoost, static + temporal summaries",
+        "auroc_raw": 0.6530794194531767,
+        "auroc_recal": 0.646576873044833,
+        "auprc_raw": 0.21509237374835236,
+        "brier_raw": 0.17577499748401307,
+        "brier_recal": 0.09294371062484869,
+        "intercept_raw": -1.8164809375881634,
+        "slope_raw": 0.8018731902262194,
+        "ece_raw": 0.2733215520713769,
+        "ece_recal": 0.0036974017578102385
+      },
+      "transformer": {
+        "label": "Transformer",
+        "auroc_raw": 0.6453890712184639,
+        "auroc_recal": 0.6442407199565482,
+        "auprc_raw": 0.1992333506544631,
+        "brier_raw": 0.18486171478866367,
+        "brier_recal": 0.09350655267563643,
+        "intercept_raw": -1.869703830783266,
+        "slope_raw": 0.7318782432599089,
+        "ece_raw": 0.284811250926571,
+        "ece_recal": 0.0043076951880150986
+      },
+      "temporal_ensemble": {
+        "label": "Temporal ensemble (XGB+TS + Transformer)",
+        "auroc_raw": 0.6637476204069643,
+        "auroc_recal": 0.6605702985417772,
+        "auprc_raw": 0.22163189381811177,
+        "brier_raw": 0.17580089932934617,
+        "brier_recal": 0.09233920557498747,
+        "intercept_raw": -1.7862605091800092,
+        "slope_raw": 0.9379306430673445,
+        "ece_raw": 0.2790517227690488,
+        "ece_recal": 0.005354455785109671
+      }
+    }
+  },
+  "sensitivity": {
+    "model": "xgb_static_ts",
+    "seed": 7,
+    "analyses": {
+      "primary_coded_macce": {
+        "auroc": 0.7534605246853024,
+        "auprc": 0.6334903395591234,
+        "brier": 0.1814768984470969,
+        "log_loss": 0.5436372737714181,
+        "calibration_slope": 1.105234880204609,
+        "calibration_intercept": 0.06499742372750354,
+        "ece": 0.013742527213450054,
+        "sensitivity_top10": 0.2294972067039106,
+        "specificity_top10": 0.9668438077634011,
+        "threshold_top10": 0.6556041836738586,
+        "prevalence": 0.34079658822633463,
+        "n": 13131,
+        "events": 4475,
+        "status": "ok"
+      },
+      "timestamped_macce": {
+        "auroc": 0.8702134470864111,
+        "auprc": 0.36802186229821354,
+        "brier": 0.053178307765865525,
+        "log_loss": 0.18572358253482182,
+        "calibration_slope": 1.0810576543886588,
+        "calibration_intercept": 0.20109773102160472,
+        "ece": 0.006959661825669222,
+        "sensitivity_top10": 0.499457111834962,
+        "specificity_top10": 0.93005733005733,
+        "threshold_top10": 0.19017207622528076,
+        "prevalence": 0.07013936486177748,
+        "n": 13131,
+        "events": 921,
+        "status": "ok"
+      },
+      "no_prior_mi_or_stroke": {
+        "auroc": 0.757732943856336,
+        "auprc": 0.6445866653038765,
+        "brier": 0.18093821088225293,
+        "log_loss": 0.5424350141066704,
+        "calibration_slope": 1.0709089988643903,
+        "calibration_intercept": 0.04545337212887834,
+        "ece": 0.012793325601403189,
+        "sensitivity_top10": 0.2324128862590401,
+        "specificity_top10": 0.9697864212536899,
+        "threshold_top10": 0.6719602346420288,
+        "prevalence": 0.345642540620384,
+        "n": 8801,
+        "events": 3042,
+        "status": "ok"
+      },
+      "acs_history": {
+        "auroc": 0.9275555373181028,
+        "auprc": 0.9853988413262488,
+        "brier": 0.07119641023456734,
+        "log_loss": 0.23404150683553565,
+        "calibration_slope": 1.165695951103592,
+        "calibration_intercept": -0.28871794268000256,
+        "ece": 0.016713358762583997,
+        "sensitivity_top10": 0.1175226586102719,
+        "specificity_top10": 0.99830220713073,
+        "threshold_top10": 0.9937661290168762,
+        "prevalence": 0.8489356245191074,
+        "n": 3899,
+        "events": 3310,
+        "status": "ok"
+      },
+      "prior_pci": {
+        "auroc": 0.7400095900263727,
+        "auprc": 0.618462175480809,
+        "brier": 0.183291947539253,
+        "log_loss": 0.5481670120424105,
+        "calibration_slope": 0.9483241168572196,
+        "calibration_intercept": -0.014627059524730361,
+        "ece": 0.018731096389474216,
+        "sensitivity_top10": 0.23195876288659795,
+        "specificity_top10": 0.9658914728682171,
+        "threshold_top10": 0.6510387539863586,
+        "prevalence": 0.33390705679862304,
+        "n": 2905,
+        "events": 970,
+        "status": "ok"
+      },
+      "prior_cabg": {
+        "auroc": 0.7107991554289584,
+        "auprc": 0.603977219905631,
+        "brier": 0.20328184283012485,
+        "log_loss": 0.5958992411757524,
+        "calibration_slope": 0.7954968593119286,
+        "calibration_intercept": -0.06261125036125957,
+        "ece": 0.03133343905494651,
+        "sensitivity_top10": 0.20081967213114754,
+        "specificity_top10": 0.9586877278250304,
+        "threshold_top10": 0.6861385703086853,
+        "prevalence": 0.37223493516399697,
+        "n": 1311,
+        "events": 488,
+        "status": "ok"
+      },
+      "age_ge_75": {
+        "auroc": 0.7470767955481671,
+        "auprc": 0.6571682025871493,
+        "brier": 0.19173497330395553,
+        "log_loss": 0.5668049429600844,
+        "calibration_slope": 1.063476667356452,
+        "calibration_intercept": 0.0317177559471809,
+        "ece": 0.011905597422790843,
+        "sensitivity_top10": 0.20755693581780538,
+        "specificity_top10": 0.9651710072168184,
+        "threshold_top10": 0.6834776997566223,
+        "prevalence": 0.3774174643485056,
+        "n": 5119,
+        "events": 1932,
+        "status": "ok"
+      }
+    }
+  },
+  "contrasts": {
+    "xgb_static_ts_minus_xgb_static": {
+      "estimate": 0.11236552422061374,
+      "ci": [
+        0.1024791038330653,
+        0.1240616432382134
+      ]
+    },
+    "transformer_minus_xgb_static_ts": {
+      "estimate": 0.005562105659909555,
+      "ci": [
+        0.0009507250864666695,
+        0.010099127588542568
+      ]
+    },
+    "temporal_ensemble_minus_xgb_static_ts": {
+      "estimate": 0.010216686975288658,
+      "ci": [
+        0.007498981158081869,
+        0.01271106458416619
+      ]
+    },
+    "temporal_ensemble_minus_transformer": {
+      "estimate": 0.004654581315379103,
+      "ci": [
+        0.0024062229414350683,
+        0.006909976483943606
+      ]
+    },
+    "ctogt_minus_xgb_static_ts": {
+      "estimate": 0.002451052778322804,
+      "ci": [
+        -0.002537452387726735,
+        0.007198026959071513
+      ]
+    },
+    "ctogt_minus_ct_graph": {
+      "estimate": 3.5238901683332102e-06,
+      "ci": [
+        -0.001364549414272967,
+        0.0014216128249370738
+      ]
+    },
+    "ct_graph_minus_ct_fixed": {
+      "estimate": 0.004923726494490799,
+      "ci": [
+        0.002656740297408816,
+        0.007323280188937138
+      ]
+    },
+    "ct_reverse_minus_ctogt": {
+      "estimate": -0.0065816845485806574,
+      "ci": [
+        -0.008899538417742964,
+        -0.004420380147623033
+      ]
+    },
+    "ct_permute_minus_ctogt": {
+      "estimate": -0.0068798340544617975,
+      "ci": [
+        -0.00889431736670756,
+        -0.004834586772149457
+      ]
+    },
+    "ct_random_minus_ctogt": {
+      "estimate": -0.005735086070694839,
+      "ci": [
+        -0.008062474343101839,
+        -0.0031022404544082177
+      ]
+    },
+    "ct_no_time_minus_ctogt": {
+      "estimate": -0.009201251561870794,
+      "ci": [
+        -0.011504043508325271,
+        -0.006746027588791065
+      ]
+    }
+  },
+  "aggregate": {
+    "dataset": "mimic4",
+    "n": 13131,
+    "events": 4475,
+    "prevalence": 0.34079658822633463,
+    "seeds": [
+      7
+    ],
+    "folds": 5,
+    "metrics": {
+      "ct_fixed": {
+        "auroc": 0.7512584418467767,
+        "auprc": 0.6323703689805722,
+        "brier": 0.1824561573440273,
+        "log_loss": 0.5456998982149536,
+        "calibration_slope": 0.8881533539411003,
+        "calibration_intercept": -0.030076025722391656,
+        "ece": 0.016136302375618018,
+        "sensitivity_top10": 0.22905027932960895,
+        "specificity_top10": 0.9666127541589649,
+        "threshold_top10": 0.6878570318222046,
+        "prevalence": 0.34079658822633463
+      },
+      "ct_graph": {
+        "auroc": 0.7561821683412674,
+        "auprc": 0.6390062975814625,
+        "brier": 0.1807027873537568,
+        "log_loss": 0.5405808737214861,
+        "calibration_slope": 0.9880783964241651,
+        "calibration_intercept": 0.04439444310678346,
+        "ece": 0.010164143718001542,
+        "sensitivity_top10": 0.2341899441340782,
+        "specificity_top10": 0.9692698706099815,
+        "threshold_top10": 0.6630905866622925,
+        "prevalence": 0.34079658822633463
+      },
+      "ct_no_time": {
+        "auroc": 0.746984440669565,
+        "auprc": 0.6220442399466032,
+        "brier": 0.1842465376628758,
+        "log_loss": 0.549447928826197,
+        "calibration_slope": 0.9285361495954735,
+        "calibration_intercept": -0.05297295122582254,
+        "ece": 0.012144231731467116,
+        "sensitivity_top10": 0.2252513966480447,
+        "specificity_top10": 0.964648798521257,
+        "threshold_top10": 0.6724236011505127,
+        "prevalence": 0.34079658822633463
+      },
+      "ct_permute": {
+        "auroc": 0.749305858176974,
+        "auprc": 0.6269381132411419,
+        "brier": 0.18334959084095565,
+        "log_loss": 0.5475452250655919,
+        "calibration_slope": 0.8971539985837481,
+        "calibration_intercept": -0.05640745494377881,
+        "ece": 0.01672729962487598,
+        "sensitivity_top10": 0.22837988826815642,
+        "specificity_top10": 0.9662661737523105,
+        "threshold_top10": 0.684114396572113,
+        "prevalence": 0.34079658822633463
+      },
+      "ct_random": {
+        "auroc": 0.750450606160741,
+        "auprc": 0.6308869525271733,
+        "brier": 0.1825652238537713,
+        "log_loss": 0.5457168361869257,
+        "calibration_slope": 0.9225619413586136,
+        "calibration_intercept": -0.020988894515822476,
+        "ece": 0.01154596176259172,
+        "sensitivity_top10": 0.23128491620111732,
+        "specificity_top10": 0.967768022181146,
+        "threshold_top10": 0.6765744090080261,
+        "prevalence": 0.34079658822633463
+      },
+      "ct_reverse": {
+        "auroc": 0.7496040076828552,
+        "auprc": 0.6267403194516394,
+        "brier": 0.18332905301791483,
+        "log_loss": 0.5471982750350407,
+        "calibration_slope": 0.910482013126815,
+        "calibration_intercept": -0.0741041620040695,
+        "ece": 0.01600567416459103,
+        "sensitivity_top10": 0.22860335195530726,
+        "specificity_top10": 0.9663817005545287,
+        "threshold_top10": 0.6879779100418091,
+        "prevalence": 0.34079658822633463
+      },
+      "ctogt": {
+        "auroc": 0.7561857051394583,
+        "auprc": 0.6401273252761741,
+        "brier": 0.18051034391941118,
+        "log_loss": 0.5402936934906994,
+        "calibration_slope": 0.9652932558324056,
+        "calibration_intercept": -0.0021183352781803224,
+        "ece": 0.01105772917125875,
+        "sensitivity_top10": 0.2324022346368715,
+        "specificity_top10": 0.9683456561922366,
+        "threshold_top10": 0.6767423947652181,
+        "prevalence": 0.34079658822633463
+      },
+      "gru": {
+        "auroc": 0.7488189804727434,
+        "auprc": 0.6295540952656802,
+        "brier": 0.18330847202101058,
+        "log_loss": 0.5479427310742989,
+        "calibration_slope": 0.873899300668075,
+        "calibration_intercept": -0.04208261004153693,
+        "ece": 0.019899709824625588,
+        "sensitivity_top10": 0.22681564245810057,
+        "specificity_top10": 0.9654574861367837,
+        "threshold_top10": 0.6882966756820679,
+        "prevalence": 0.34079658822633463
+      },
+      "logit_static": {
+        "auroc": 0.6323643495905575,
+        "auprc": 0.45875084885878814,
+        "brier": 0.21375785234694766,
+        "log_loss": 0.6173112249301046,
+        "calibration_slope": 0.9658521150585967,
+        "calibration_intercept": -0.02132902517850564,
+        "ece": 0.007490919037433991,
+        "sensitivity_top10": 0.15865921787709497,
+        "specificity_top10": 0.9302218114602587,
+        "threshold_top10": 0.49373465414602774,
+        "prevalence": 0.34079658822633463
+      },
+      "organ_graph": {
+        "auroc": 0.7503693888825783,
+        "auprc": 0.6313799691843246,
+        "brier": 0.18258095042332295,
+        "log_loss": 0.5459927587775447,
+        "calibration_slope": 0.8956719529638656,
+        "calibration_intercept": -0.0333490894153606,
+        "ece": 0.016220751824839744,
+        "sensitivity_top10": 0.23106145251396648,
+        "specificity_top10": 0.967652495378928,
+        "threshold_top10": 0.6849398612976074,
+        "prevalence": 0.34079658822633463
+      },
+      "temporal_ensemble": {
+        "auroc": 0.7639513264284018,
+        "auprc": 0.6543518234616982,
+        "brier": 0.1777322114650234,
+        "log_loss": 0.5341721123689186,
+        "calibration_slope": 1.1316029606759594,
+        "calibration_intercept": 0.08621249264191799,
+        "ece": 0.017015823694394965,
+        "sensitivity_top10": 0.23865921787709496,
+        "specificity_top10": 0.9715804066543438,
+        "threshold_top10": 0.6545993387699127,
+        "prevalence": 0.34079658822633463
+      },
+      "tft": {
+        "auroc": 0.7486519893844421,
+        "auprc": 0.6313159519664855,
+        "brier": 0.18318058172865317,
+        "log_loss": 0.5487218192251251,
+        "calibration_slope": 0.8507614600429219,
+        "calibration_intercept": -0.065792665276221,
+        "ece": 0.022662233738732964,
+        "sensitivity_top10": 0.23039106145251398,
+        "specificity_top10": 0.9673059149722736,
+        "threshold_top10": 0.6984835863113403,
+        "prevalence": 0.34079658822633463
+      },
+      "transformer": {
+        "auroc": 0.7592967451130226,
+        "auprc": 0.6469744909292258,
+        "brier": 0.1791996049875665,
+        "log_loss": 0.5371040535225872,
+        "calibration_slope": 0.9772991931145183,
+        "calibration_intercept": -0.0014523191803692262,
+        "ece": 0.009974961547546101,
+        "sensitivity_top10": 0.23620111731843577,
+        "specificity_top10": 0.9703096118299446,
+        "threshold_top10": 0.6761458913485209,
+        "prevalence": 0.34079658822633463
+      },
+      "xgb_static": {
+        "auroc": 0.6413691023244766,
+        "auprc": 0.46931207683191584,
+        "brier": 0.2121811550764561,
+        "log_loss": 0.6136036104456464,
+        "calibration_slope": 0.9734143262063114,
+        "calibration_intercept": -0.014529318361583428,
+        "ece": 0.003955804872217153,
+        "sensitivity_top10": 0.16268156424581007,
+        "specificity_top10": 0.9323012939001848,
+        "threshold_top10": 0.5014826158682505,
+        "prevalence": 0.34079658822633463
+      },
+      "xgb_static_ts": {
+        "auroc": 0.753734639453113,
+        "auprc": 0.6361678005343381,
+        "brier": 0.1812715121589203,
+        "log_loss": 0.5431186454578942,
+        "calibration_slope": 1.1156569495752462,
+        "calibration_intercept": 0.07264305301352819,
+        "ece": 0.012782746428005845,
+        "sensitivity_top10": 0.2299441340782123,
+        "specificity_top10": 0.9670748613678374,
+        "threshold_top10": 0.6546449263890585,
+        "prevalence": 0.34079658822633463
+      }
+    },
+    "bootstrap": {
+      "ct_fixed": {
+        "auroc_ci": [
+          0.7429264707313983,
+          0.7604105408679006
+        ],
+        "auprc_ci": [
+          0.6167535722483196,
+          0.6479538044465353
+        ]
+      },
+      "ct_graph": {
+        "auroc_ci": [
+          0.7476047389345188,
+          0.7648980843012798
+        ],
+        "auprc_ci": [
+          0.6234675942799353,
+          0.6549210070324281
+        ]
+      },
+      "ct_no_time": {
+        "auroc_ci": [
+          0.7379800363158177,
+          0.7557773820414394
+        ],
+        "auprc_ci": [
+          0.6062280627191592,
+          0.6376797198747495
+        ]
+      },
+      "ct_permute": {
+        "auroc_ci": [
+          0.7404107801430868,
+          0.7581549147282768
+        ],
+        "auprc_ci": [
+          0.6106707738556305,
+          0.6423554242827102
+        ]
+      },
+      "ct_random": {
+        "auroc_ci": [
+          0.7421103319568445,
+          0.7594005777821073
+        ],
+        "auprc_ci": [
+          0.6152164988286639,
+          0.647112974325138
+        ]
+      },
+      "ct_reverse": {
+        "auroc_ci": [
+          0.7409911433675966,
+          0.7583150090195019
+        ],
+        "auprc_ci": [
+          0.61073551277034,
+          0.6423668545614337
+        ]
+      },
+      "ctogt": {
+        "auroc_ci": [
+          0.7475219848623232,
+          0.7649342146251882
+        ],
+        "auprc_ci": [
+          0.6251095391462387,
+          0.6554171083913031
+        ]
+      },
+      "gru": {
+        "auroc_ci": [
+          0.7396119798883647,
+          0.7578661799940972
+        ],
+        "auprc_ci": [
+          0.6144607786962543,
+          0.6455042884737655
+        ]
+      },
+      "logit_static": {
+        "auroc_ci": [
+          0.6231985249499986,
+          0.6429242610882181
+        ],
+        "auprc_ci": [
+          0.444443259330175,
+          0.47397180207509015
+        ]
+      },
+      "organ_graph": {
+        "auroc_ci": [
+          0.7418669957861264,
+          0.7590199958289341
+        ],
+        "auprc_ci": [
+          0.6159220161952016,
+          0.6474261585293146
+        ]
+      },
+      "temporal_ensemble": {
+        "auroc_ci": [
+          0.75504559129276,
+          0.7727805133404981
+        ],
+        "auprc_ci": [
+          0.6385990031297113,
+          0.6693754711625486
+        ]
+      },
+      "tft": {
+        "auroc_ci": [
+          0.7395874305630187,
+          0.7579819147194751
+        ],
+        "auprc_ci": [
+          0.6156283494231458,
+          0.6469168276390791
+        ]
+      },
+      "transformer": {
+        "auroc_ci": [
+          0.7506844188833804,
+          0.7679824748633853
+        ],
+        "auprc_ci": [
+          0.6320317378607513,
+          0.661579242694161
+        ]
+      },
+      "xgb_static": {
+        "auroc_ci": [
+          0.632234145471431,
+          0.6512111785578314
+        ],
+        "auprc_ci": [
+          0.4558120350994134,
+          0.4844114543070874
+        ]
+      },
+      "xgb_static_ts": {
+        "auroc_ci": [
+          0.7445266472896762,
+          0.762862668478395
+        ],
+        "auprc_ci": [
+          0.6211366281738757,
+          0.6521395543252629
+        ]
+      }
+    },
+    "paired_contrasts": {
+      "ctogt_minus_xgb_static_ts": {
+        "difference": 0.002451052778322804,
+        "ci": [
+          -0.002484637822397137,
+          0.007120824059356376
+        ]
+      },
+      "ct_graph_minus_ct_fixed": {
+        "difference": 0.004923726494490799,
+        "ci": [
+          0.0024693607447627496,
+          0.007035029503653234
+        ]
+      },
+      "ctogt_minus_ct_graph": {
+        "difference": 3.5238901683332102e-06,
+        "ci": [
+          -0.0013525277731634728,
+          0.0014795042891056675
+        ]
+      },
+      "ct_reverse_minus_ctogt": {
+        "difference": -0.0065816845485806574,
+        "ci": [
+          -0.008824298558868298,
+          -0.0044109621179015185
+        ]
+      },
+      "ct_permute_minus_ctogt": {
+        "difference": -0.0068798340544617975,
+        "ci": [
+          -0.008875316635569572,
+          -0.004766029586605861
+        ]
+      }
+    }
+  },
+  "ensemble_validation": {
+    "top_weight_sensitivity": [
+      {
+        "name": "weighted_xgb_0.45",
+        "auroc": 0.7640408306570701,
+        "auprc": 0.6545426060752075,
+        "brier": 0.17765364958211854
+      },
+      {
+        "name": "weighted_xgb_0.40",
+        "auroc": 0.7640212750028399,
+        "auprc": 0.6545593788090445,
+        "brier": 0.17762515464118017
+      },
+      {
+        "name": "mean_xgb_transformer",
+        "auroc": 0.7639513264284018,
+        "auprc": 0.6543518234616982,
+        "brier": 0.1777322114650234
+      },
+      {
+        "name": "weighted_xgb_0.50",
+        "auroc": 0.7639513264284018,
+        "auprc": 0.6543518234616982,
+        "brier": 0.1777322114650234
+      },
+      {
+        "name": "weighted_xgb_0.35",
+        "auroc": 0.763868327843121,
+        "auprc": 0.6544056666103886,
+        "brier": 0.17764672664220826
+      },
+      {
+        "name": "weighted_xgb_0.55",
+        "auroc": 0.7636843110730182,
+        "auprc": 0.653769912760507,
+        "brier": 0.1778608402898947
+      },
+      {
+        "name": "weighted_xgb_0.30",
+        "auroc": 0.7635571928665104,
+        "auprc": 0.6539337250908323,
+        "brier": 0.17771836558520288
+      },
+      {
+        "name": "rank_xgb_transformer",
+        "auroc": 0.7635017529094683,
+        "auprc": 0.6535379728685967,
+        "brier": 0.21323408476751257
+      },
+      {
+        "name": "mean_xgb_transformer_graph",
+        "auroc": 0.7632919717262673,
+        "auprc": 0.6523587948700068,
+        "brier": 0.17801333825658888
+      },
+      {
+        "name": "weighted_xgb_0.60",
+        "auroc": 0.7632366092173608,
+        "auprc": 0.6529583564437011,
+        "brier": 0.17803953605673253
+      },
+      {
+        "name": "weighted_xgb_0.25",
+        "auroc": 0.7631160482863308,
+        "auprc": 0.6532308644360834,
+        "brier": 0.17784007147016387
+      },
+      {
+        "name": "mean_xgb_transformer_gru",
+        "auroc": 0.7627695324197896,
+        "auprc": 0.6516850746400097,
+        "brier": 0.17808602201918855
+      },
+      {
+        "name": "weighted_xgb_0.65",
+        "auroc": 0.7626383998182551,
+        "auprc": 0.6518469291333325,
+        "brier": 0.1782682987655368
+      },
+      {
+        "name": "weighted_xgb_0.20",
+        "auroc": 0.7625860965107034,
+        "auprc": 0.6523449076912053,
+        "brier": 0.17801184429709138
+      },
+      {
+        "name": "weighted_xgb_0.15",
+        "auroc": 0.7619274775658567,
+        "auprc": 0.6512922349627989,
+        "brier": 0.17823368406598536
+      }
+    ],
+    "ensemble_vs_xgb": {
+      "difference": 0.010216686975288769,
+      "ci": [
+        0.007730751196245567,
+        0.012687620065477374
+      ],
+      "p_two_sided_bootstrap": 0.0
+    },
+    "ensemble_vs_transformer": {
+      "difference": 0.004654581315379214,
+      "ci": [
+        0.0024058829160598263,
+        0.006868055896350847
+      ],
+      "p_two_sided_bootstrap": 0.0
+    },
+    "external": {
+      "mimic3": {
+        "xgb": 0.6491726100663844,
+        "transformer": 0.6552950639363105,
+        "gru": 0.668945779740229,
+        "mean_xgb_transformer": 0.6585539826302829,
+        "mean_xgb_transformer_vs_xgb": {
+          "difference": 0.009381372563898482,
+          "ci": [
+            -3.0387882276563784e-05,
+            0.01858921849373329
+          ],
+          "p_two_sided_bootstrap": 0.051
+        },
+        "mean_xgb_transformer_gru": 0.6659688214136519
+      },
+      "eicu": {
+        "xgb": 0.68535108456721,
+        "transformer": 0.745365186014682,
+        "gru": 0.7406785284724815,
+        "mean_xgb_transformer": 0.7361162954667994,
+        "mean_xgb_transformer_vs_xgb": {
+          "difference": 0.05076521089958941,
+          "ci": [
+            0.015196324372733955,
+            0.08751717892362756
+          ],
+          "p_two_sided_bootstrap": 0.0075
+        },
+        "mean_xgb_transformer_gru": 0.7559620090415162
+      },
+      "eicu_anycad": {
+        "xgb": 0.6530794194531767,
+        "transformer": 0.6453890712184639,
+        "gru": null,
+        "mean_xgb_transformer": 0.6637476204069643,
+        "mean_xgb_transformer_vs_xgb": {
+          "difference": 0.010668200953787621,
+          "ci": [
+            0.00012028461634185946,
+            0.021344007583831846
+          ],
+          "p_two_sided_bootstrap": 0.0485
+        },
+        "mean_xgb_transformer_gru": null,
+        "note": "GRU prediction unavailable; triple average skipped."
+      }
+    }
+  }
+}

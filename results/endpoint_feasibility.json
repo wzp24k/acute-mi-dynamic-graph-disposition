@@ -1,0 +1,109 @@
+{
+  "config": {
+    "study_name": "Invariant Continuous-Time Organ Graph Learning for 7-Day MACCE",
+    "primary_development": "mimic4",
+    "external_transport": [
+      "mimic3",
+      "eicu"
+    ],
+    "landmark_hours": 24,
+    "outcome_horizon_days": 7,
+    "outcome_horizon_hours": 168,
+    "primary_endpoint": "7-day MACCE",
+    "fallback_endpoint": "in-hospital MACCE",
+    "sequence_hours": 24,
+    "minimum_channels": 6,
+    "cv_folds": 5,
+    "cv_repeats": 2,
+    "model_seeds": [
+      7,
+      42,
+      2026
+    ],
+    "bootstrap_replicates": 1000,
+    "material_auc_threshold": 0.01,
+    "eicu_minimum_site_n": 30,
+    "hidden_size": 64,
+    "graph_edge_dim": 16,
+    "dropout": 0.2,
+    "epochs": 24,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 6,
+    "lambda_smooth": 0.02,
+    "lambda_drift": 0.05,
+    "lambda_environment": 0.05,
+    "lambda_graph_sparsity": 0.01,
+    "xgboost": {
+      "n_estimators": 360,
+      "max_depth": 3,
+      "learning_rate": 0.03,
+      "min_child_weight": 4,
+      "subsample": 0.85,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 2.5
+    }
+  },
+  "audits": [
+    {
+      "database": "mimic4",
+      "principal_cad_admissions": 56725,
+      "first_stay_patients": 13342,
+      "eligible_24h_n": 13131,
+      "age_range": [
+        23.0,
+        103.0
+      ],
+      "death_24h_to_7d_n": 524,
+      "timed_revascularization_24h_to_7d_n": 409,
+      "coded_ami_n": 3214,
+      "coded_stroke_n": 1079,
+      "timed_primary_macce_n": 921,
+      "timed_primary_macce_rate": 0.07013936486177748,
+      "broad_coded_macce_n": 4475,
+      "broad_coded_macce_rate": 0.34079658822633463,
+      "ami_before_landmark_principal_n": 1897,
+      "stroke_before_landmark_principal_n": 546,
+      "endpoint_time_quality": {
+        "death": "exact timestamp",
+        "revascularization": "procedure date, day-level",
+        "ami": "coded diagnosis only; onset not recoverable without note NLP",
+        "stroke": "coded diagnosis only; onset not recoverable without note NLP"
+      }
+    },
+    {
+      "database": "mimic3",
+      "principal_cad_admissions": 3576,
+      "first_stay_patients": 3531,
+      "eligible_24h_n": 3523,
+      "death_24h_to_7d_n": 13,
+      "timed_revascularization_24h_to_7d_n": 0,
+      "coded_ami_n": 224,
+      "coded_stroke_n": 201,
+      "timed_primary_macce_n": 13,
+      "timed_primary_macce_rate": 0.0036900369003690036,
+      "broad_coded_macce_n": 416,
+      "broad_coded_macce_rate": 0.11808118081180811
+    },
+    {
+      "database": "eicu",
+      "principal_cad_unit_stays": 1304,
+      "first_stay_patients": 1217,
+      "eligible_24h_n": 929,
+      "death_24h_to_7d_n": 4,
+      "timed_ami_n": 51,
+      "timed_stroke_n": 5,
+      "timed_revascularization_n": 0,
+      "timed_macce_n": 58,
+      "timed_macce_rate": 0.062432723358449946,
+      "sites_n": 89,
+      "sites_ge_30_n": 9,
+      "sites_ge_30_with_event_n": 4
+    }
+  ],
+  "go_no_go": {
+    "mimic4_event_threshold_150": true,
+    "eicu_event_threshold_75": false
+  }
+}

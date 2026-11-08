@@ -1,0 +1,503 @@
+{
+  "cohorts": {
+    "mimic4": {
+      "n": 13131,
+      "coded_events": 4475,
+      "confirmed_events": 45,
+      "possible_overlap_events": 1220,
+      "overlap_events": 1265,
+      "models": {
+        "xgb_static_ts": {
+          "macce7": {
+            "auroc": 0.753734639453113,
+            "auprc": 0.6361678005343381,
+            "brier": 0.18127151210222783,
+            "log_loss": 0.5431186453009463,
+            "calibration_slope": 1.1156569516289179,
+            "calibration_intercept": 0.0726430545089093,
+            "ece": 0.012782746508198932,
+            "sensitivity_top10": 0.2299441340782123,
+            "specificity_top10": 0.9670748613678374,
+            "threshold_top10": 0.6546449065208435,
+            "prevalence": 0.34079658822633463,
+            "events": 4475,
+            "auroc_ci": [
+              0.7445266472896762,
+              0.762862668478395
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "insufficient_events",
+            "events": 45
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.7708598453481532,
+            "auprc": 0.24556320063043666,
+            "brier": 0.14970900107543667,
+            "log_loss": 0.47019165679042324,
+            "calibration_slope": 0.9734651693699745,
+            "calibration_intercept": -1.8413397261612148,
+            "ece": 0.244055493171274,
+            "sensitivity_top10": 0.2948616600790514,
+            "specificity_top10": 0.9206977920107872,
+            "threshold_top10": 0.6546449065208435,
+            "prevalence": 0.09633691264945549,
+            "events": 1265,
+            "auroc_ci": [
+              0.7581671903674111,
+              0.7837295322456278
+            ]
+          }
+        },
+        "transformer": {
+          "macce7": {
+            "auroc": 0.7592967451130226,
+            "auprc": 0.6469744909292257,
+            "brier": 0.17919960502446614,
+            "log_loss": 0.5371040535557208,
+            "calibration_slope": 0.97729919182994,
+            "calibration_intercept": -0.0014523206248736376,
+            "ece": 0.009974961611142627,
+            "sensitivity_top10": 0.23620111731843577,
+            "specificity_top10": 0.9703096118299446,
+            "threshold_top10": 0.6761459112167358,
+            "prevalence": 0.34079658822633463,
+            "events": 4475,
+            "auroc_ci": [
+              0.7506844188833804,
+              0.7679824748633853
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "insufficient_events",
+            "events": 45
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.7533017576374923,
+            "auprc": 0.24136670350248238,
+            "brier": 0.15674537882771428,
+            "log_loss": 0.4849238235144841,
+            "calibration_slope": 0.7764328889970936,
+            "calibration_intercept": -1.9202461906964101,
+            "ece": 0.24229608952100345,
+            "sensitivity_top10": 0.2972332015810277,
+            "specificity_top10": 0.9209506152031013,
+            "threshold_top10": 0.6761459112167358,
+            "prevalence": 0.09633691264945549,
+            "events": 1265,
+            "auroc_ci": [
+              0.7400803561831464,
+              0.7663446870389619
+            ]
+          }
+        },
+        "temporal_ensemble": {
+          "macce7": {
+            "auroc": 0.7639513264284017,
+            "auprc": 0.6543518528055416,
+            "brier": 0.17773221140720033,
+            "log_loss": 0.5341721122081408,
+            "calibration_slope": 1.1316029612448166,
+            "calibration_intercept": 0.08621249352406195,
+            "ece": 0.017015823627866845,
+            "sensitivity_top10": 0.23865921787709496,
+            "specificity_top10": 0.9715804066543438,
+            "threshold_top10": 0.6545993089675903,
+            "prevalence": 0.34079658822633463,
+            "events": 4475,
+            "auroc_ci": [
+              0.75504559129276,
+              0.7727805133404981
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "insufficient_events",
+            "events": 45
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.7688171072363393,
+            "auprc": 0.2487812840422306,
+            "brier": 0.150723842853304,
+            "log_loss": 0.4711267225902584,
+            "calibration_slope": 0.9419441920493776,
+            "calibration_intercept": -1.8565999692652928,
+            "ece": 0.24317579125577962,
+            "sensitivity_top10": 0.3027667984189723,
+            "specificity_top10": 0.9215405359851677,
+            "threshold_top10": 0.6545993089675903,
+            "prevalence": 0.09633691264945549,
+            "events": 1265,
+            "auroc_ci": [
+              0.7563487621873408,
+              0.781331799995065
+            ]
+          }
+        }
+      },
+      "confirmed_minus_coded": {}
+    },
+    "mimic3": {
+      "n": 3470,
+      "coded_events": 409,
+      "confirmed_events": 12,
+      "possible_overlap_events": 64,
+      "overlap_events": 76,
+      "models": {
+        "xgb_static_ts": {
+          "macce7": {
+            "auroc": 0.6491726100663844,
+            "auprc": 0.21486374389117607,
+            "brier": 0.11524165895077128,
+            "log_loss": 0.3874662024157387,
+            "calibration_slope": 0.7212050468144328,
+            "calibration_intercept": -1.113643735666389,
+            "ece": 0.10157882830273006,
+            "sensitivity_top10": 0.22249388753056235,
+            "specificity_top10": 0.9163672002613525,
+            "threshold_top10": 0.40021871626377103,
+            "prevalence": 0.11786743515850144,
+            "events": 409,
+            "auroc_ci": [
+              0.6204071050306931,
+              0.6782513409273273
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "insufficient_events",
+            "events": 12
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.7269329777005862,
+            "auprc": 0.12012669840051556,
+            "brier": 0.07094617152457139,
+            "log_loss": 0.28090677475892145,
+            "calibration_slope": 1.0941467730752674,
+            "calibration_intercept": -2.6244254715513065,
+            "ece": 0.19754424617016525,
+            "sensitivity_top10": 0.3684210526315789,
+            "specificity_top10": 0.9060106069534473,
+            "threshold_top10": 0.40021871626377103,
+            "prevalence": 0.02190201729106628,
+            "events": 76,
+            "auroc_ci": [
+              0.6654978025056592,
+              0.7888073874204576
+            ]
+          }
+        },
+        "transformer": {
+          "macce7": {
+            "auroc": 0.6552950639363105,
+            "auprc": 0.2024310469629404,
+            "brier": 0.11652943031262471,
+            "log_loss": 0.3867944618021646,
+            "calibration_slope": 0.5311948240242558,
+            "calibration_intercept": -1.255947405813846,
+            "ece": 0.08146068010243027,
+            "sensitivity_top10": 0.22249388753056235,
+            "specificity_top10": 0.9163672002613525,
+            "threshold_top10": 0.404047742486,
+            "prevalence": 0.11786743515850144,
+            "events": 409,
+            "auroc_ci": [
+              0.6260158102003626,
+              0.6843537005938898
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "insufficient_events",
+            "events": 12
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.7227460223924572,
+            "auprc": 0.0705716476742864,
+            "brier": 0.07083310123625555,
+            "log_loss": 0.26935170749621884,
+            "calibration_slope": 0.7287922705415184,
+            "calibration_intercept": -2.8927480335947466,
+            "ece": 0.17742609796986542,
+            "sensitivity_top10": 0.3157894736842105,
+            "specificity_top10": 0.9048320565704184,
+            "threshold_top10": 0.404047742486,
+            "prevalence": 0.02190201729106628,
+            "events": 76,
+            "auroc_ci": [
+              0.6659563154729864,
+              0.776788816254934
+            ]
+          }
+        },
+        "temporal_ensemble": {
+          "macce7": {
+            "auroc": 0.6585539826302829,
+            "auprc": 0.210146225284504,
+            "brier": 0.11411215193597553,
+            "log_loss": 0.38238789864485656,
+            "calibration_slope": 0.6727082981611497,
+            "calibration_intercept": -1.125482873742822,
+            "ece": 0.09151975415239072,
+            "sensitivity_top10": 0.2273838630806846,
+            "specificity_top10": 0.9170205815093107,
+            "threshold_top10": 0.39725162386894225,
+            "prevalence": 0.11786743515850144,
+            "events": 409,
+            "auroc_ci": [
+              0.6292250948100133,
+              0.6874796062137584
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "insufficient_events",
+            "events": 12
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.7294296436435815,
+            "auprc": 0.08782912390600371,
+            "brier": 0.06911624373300171,
+            "log_loss": 0.2718255329999561,
+            "calibration_slope": 0.9635704024451129,
+            "calibration_intercept": -2.695573954392213,
+            "ece": 0.1874851720198259,
+            "sensitivity_top10": 0.35526315789473684,
+            "specificity_top10": 0.90571596935769,
+            "threshold_top10": 0.39725162386894225,
+            "prevalence": 0.02190201729106628,
+            "events": 76,
+            "auroc_ci": [
+              0.6698535332572154,
+              0.7881070220771547
+            ]
+          }
+        }
+      }
+    },
+    "eicu": {
+      "n": 903,
+      "coded_events": 57,
+      "confirmed_events": 0,
+      "possible_overlap_events": 9,
+      "overlap_events": 9,
+      "models": {
+        "xgb_static_ts": {
+          "macce7": {
+            "auroc": 0.68535108456721,
+            "auprc": 0.19035631586403295,
+            "brier": 0.14200348701758092,
+            "log_loss": 0.4630101749540742,
+            "calibration_slope": 1.0724808349483683,
+            "calibration_intercept": -2.1667778996198592,
+            "ece": 0.28084591839664663,
+            "sensitivity_top10": 0.3157894736842105,
+            "specificity_top10": 0.9137115839243499,
+            "threshold_top10": 0.5420890450477609,
+            "prevalence": 0.06312292358803986,
+            "events": 57,
+            "auroc_ci": [
+              0.6096135396844193,
+              0.7586020656146203
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "single_class",
+            "events": 0
+          },
+          "macce_interval_overlap": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        },
+        "transformer": {
+          "macce7": {
+            "auroc": 0.745365186014682,
+            "auprc": 0.20473014040986,
+            "brier": 0.1481539415871363,
+            "log_loss": 0.47378596033423753,
+            "calibration_slope": 1.1866261973678942,
+            "calibration_intercept": -2.2412857216130506,
+            "ece": 0.29125927259128626,
+            "sensitivity_top10": 0.3333333333333333,
+            "specificity_top10": 0.9148936170212766,
+            "threshold_top10": 0.551532244682312,
+            "prevalence": 0.06312292358803986,
+            "events": 57,
+            "auroc_ci": [
+              0.6787079147341452,
+              0.8060434152359199
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "single_class",
+            "events": 0
+          },
+          "macce_interval_overlap": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        },
+        "temporal_ensemble": {
+          "macce7": {
+            "auroc": 0.7361162954667994,
+            "auprc": 0.2249039975207321,
+            "brier": 0.1420085748463768,
+            "log_loss": 0.4629715237436555,
+            "calibration_slope": 1.3086338882834436,
+            "calibration_intercept": -2.121393723963653,
+            "ece": 0.2860525948957747,
+            "sensitivity_top10": 0.3157894736842105,
+            "specificity_top10": 0.9137115839243499,
+            "threshold_top10": 0.5202324271202088,
+            "prevalence": 0.06312292358803986,
+            "events": 57,
+            "auroc_ci": [
+              0.6678113177977618,
+              0.8019014963125022
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "single_class",
+            "events": 0
+          },
+          "macce_interval_overlap": {
+            "status": "insufficient_events",
+            "events": 9
+          }
+        }
+      }
+    },
+    "eicu_anycad": {
+      "n": 5913,
+      "coded_events": 642,
+      "confirmed_events": 0,
+      "possible_overlap_events": 119,
+      "overlap_events": 119,
+      "models": {
+        "xgb_static_ts": {
+          "macce7": {
+            "auroc": 0.6530794194531767,
+            "auprc": 0.21509237374835236,
+            "brier": 0.17577499748401307,
+            "log_loss": 0.5369133525635976,
+            "calibration_slope": 0.8018731902262194,
+            "calibration_intercept": -1.8164809375881634,
+            "ece": 0.2733215520713769,
+            "sensitivity_top10": 0.24610591900311526,
+            "specificity_top10": 0.9176626826029216,
+            "threshold_top10": 0.624356472492218,
+            "prevalence": 0.10857432775240994,
+            "events": 642,
+            "auroc_ci": [
+              0.6294777804385107,
+              0.6749670629064707
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "single_class",
+            "events": 0
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.6345886645994262,
+            "auprc": 0.037823873946951116,
+            "brier": 0.1701839800034206,
+            "log_loss": 0.5260122427336515,
+            "calibration_slope": 0.6440574037995556,
+            "calibration_intercept": -3.6591962502032485,
+            "ece": 0.36174137438490733,
+            "sensitivity_top10": 0.226890756302521,
+            "specificity_top10": 0.9024853296513635,
+            "threshold_top10": 0.624356472492218,
+            "prevalence": 0.020125147979029256,
+            "events": 119,
+            "auroc_ci": [
+              0.5867018992443545,
+              0.6803831484525189
+            ]
+          }
+        },
+        "transformer": {
+          "macce7": {
+            "auroc": 0.6453890712184639,
+            "auprc": 0.1992333506544631,
+            "brier": 0.18486171478866367,
+            "log_loss": 0.5555568387415791,
+            "calibration_slope": 0.7318782432599089,
+            "calibration_intercept": -1.869703830783266,
+            "ece": 0.284811250926571,
+            "sensitivity_top10": 0.21962616822429906,
+            "specificity_top10": 0.9144374881426675,
+            "threshold_top10": 0.6142654776573182,
+            "prevalence": 0.10857432775240994,
+            "events": 642,
+            "auroc_ci": [
+              0.6226048247986645,
+              0.6664076953808803
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "single_class",
+            "events": 0
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.6489196299852353,
+            "auprc": 0.03912642537547823,
+            "brier": 0.1794372473120474,
+            "log_loss": 0.5452071916914075,
+            "calibration_slope": 0.6659467989095209,
+            "calibration_intercept": -3.6912550686288053,
+            "ece": 0.37326043069995174,
+            "sensitivity_top10": 0.21008403361344538,
+            "specificity_top10": 0.902140144977563,
+            "threshold_top10": 0.6142654776573182,
+            "prevalence": 0.020125147979029256,
+            "events": 119,
+            "auroc_ci": [
+              0.5981517782441588,
+              0.699166875195932
+            ]
+          }
+        },
+        "temporal_ensemble": {
+          "macce7": {
+            "auroc": 0.6637476204069643,
+            "auprc": 0.22163189381811177,
+            "brier": 0.17580089947557292,
+            "log_loss": 0.5371610259340361,
+            "calibration_slope": 0.9379306343026597,
+            "calibration_intercept": -1.7862605117217538,
+            "ece": 0.27905172274794326,
+            "sensitivity_top10": 0.24766355140186916,
+            "specificity_top10": 0.917852399924113,
+            "threshold_top10": 0.5730220913887024,
+            "prevalence": 0.10857432775240994,
+            "events": 642,
+            "auroc_ci": [
+              0.6417721142538464,
+              0.6859362736677114
+            ]
+          },
+          "macce_interval_confirmed": {
+            "status": "single_class",
+            "events": 0
+          },
+          "macce_interval_overlap": {
+            "auroc": 0.653028487888079,
+            "auprc": 0.04127839038714229,
+            "brier": 0.17029315702720937,
+            "log_loss": 0.5264857159642582,
+            "calibration_slope": 0.7896246865351255,
+            "calibration_intercept": -3.6325880403859285,
+            "ece": 0.367500902521324,
+            "sensitivity_top10": 0.25210084033613445,
+            "specificity_top10": 0.9030031066620642,
+            "threshold_top10": 0.5730220913887024,
+            "prevalence": 0.020125147979029256,
+            "events": 119,
+            "auroc_ci": [
+              0.6009048276814142,
+              0.7005021917640485
+            ]
+          }
+        }
+      }
+    }
+  }
+}

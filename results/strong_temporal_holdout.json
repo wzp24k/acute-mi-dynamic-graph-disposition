@@ -1,0 +1,144 @@
+{
+  "selection_split": {
+    "development_groups": [
+      "2008 - 2010",
+      "2011 - 2013",
+      "2014 - 2016"
+    ],
+    "validation_groups": [
+      "2017 - 2019"
+    ],
+    "development_n": 7050,
+    "validation_n": 3625,
+    "validation_events": 1361
+  },
+  "candidates": [
+    {
+      "name": "base_features_base_params",
+      "features": "base",
+      "n_features": 158,
+      "xgboost": {
+        "n_estimators": 360,
+        "max_depth": 3,
+        "learning_rate": 0.03,
+        "min_child_weight": 4,
+        "subsample": 0.85,
+        "colsample_bytree": 0.8,
+        "reg_lambda": 2.5
+      },
+      "auroc": 0.7322844484023647,
+      "auprc": 0.6422249320722448,
+      "brier": 0.1974080122945519,
+      "log_loss": 0.5826393937811344,
+      "calibration_slope": 0.95912580142537,
+      "calibration_intercept": 0.22935160128169946,
+      "ece": 0.048561670410222,
+      "sensitivity_top10": 0.20867009551800147,
+      "specificity_top10": 0.9651060070671378,
+      "threshold_top10": 0.6450751781463623,
+      "prevalence": 0.37544827586206897
+    },
+    {
+      "name": "enhanced_features_base_params",
+      "features": "enhanced",
+      "n_features": 259,
+      "xgboost": {
+        "n_estimators": 360,
+        "max_depth": 3,
+        "learning_rate": 0.03,
+        "min_child_weight": 4,
+        "subsample": 0.85,
+        "colsample_bytree": 0.8,
+        "reg_lambda": 2.5
+      },
+      "auroc": 0.7353445164774395,
+      "auprc": 0.645395379342169,
+      "brier": 0.19663369827295185,
+      "log_loss": 0.5806710002271398,
+      "calibration_slope": 0.9776007782465627,
+      "calibration_intercept": 0.2464261334781571,
+      "ece": 0.04930682640137343,
+      "sensitivity_top10": 0.20793534166054373,
+      "specificity_top10": 0.9646643109540636,
+      "threshold_top10": 0.6452250719070435,
+      "prevalence": 0.37544827586206897
+    },
+    {
+      "name": "enhanced_features_deeper",
+      "features": "enhanced",
+      "n_features": 259,
+      "xgboost": {
+        "n_estimators": 620,
+        "max_depth": 4,
+        "learning_rate": 0.02,
+        "min_child_weight": 5,
+        "subsample": 0.9,
+        "colsample_bytree": 0.7,
+        "reg_lambda": 4.0
+      },
+      "auroc": 0.7380239015689462,
+      "auprc": 0.6477022949543191,
+      "brier": 0.19547375593672037,
+      "log_loss": 0.5785645198879418,
+      "calibration_slope": 0.9301260153771842,
+      "calibration_intercept": 0.21132864171693078,
+      "ece": 0.04840840797383209,
+      "sensitivity_top10": 0.213078618662748,
+      "specificity_top10": 0.967756183745583,
+      "threshold_top10": 0.663423204421997,
+      "prevalence": 0.37544827586206897
+    }
+  ],
+  "locked_selected_candidate": "enhanced_features_deeper",
+  "locked_enhanced_feature_count": 259,
+  "final_holdout": {
+    "n": 2456,
+    "events": 1072,
+    "baseline_xgb": {
+      "auroc": 0.7337474926667242,
+      "auprc": 0.7192411899390856,
+      "brier": 0.20452510674692706,
+      "log_loss": 0.5988698870900756,
+      "calibration_slope": 1.0319472017129725,
+      "calibration_intercept": 0.3360189897104456,
+      "ece": 0.06451738795041066,
+      "sensitivity_top10": 0.2080223880597015,
+      "specificity_top10": 0.9833815028901735,
+      "threshold_top10": 0.7003790438175201,
+      "prevalence": 0.4364820846905538
+    },
+    "selected_xgb": {
+      "auroc": 0.741036957553274,
+      "auprc": 0.7271816512272365,
+      "brier": 0.20198566758254552,
+      "log_loss": 0.5922675771347972,
+      "calibration_slope": 0.9904914200377887,
+      "calibration_intercept": 0.2948095805427475,
+      "ece": 0.05823833497957076,
+      "sensitivity_top10": 0.20708955223880596,
+      "specificity_top10": 0.9826589595375722,
+      "threshold_top10": 0.7265998721122742,
+      "prevalence": 0.4364820846905538
+    },
+    "selected_minus_baseline": {
+      "difference": 0.007289464886549801,
+      "ci": [
+        0.002358021387145551,
+        0.011680171178683954
+      ]
+    },
+    "transformer": {
+      "auroc": 0.7428156813475973,
+      "auprc": 0.7259562946231961,
+      "brier": 0.2008341726609269,
+      "log_loss": 0.5891891298417579,
+      "calibration_slope": 0.9215524949557063,
+      "calibration_intercept": 0.2204555152586558,
+      "ece": 0.04979216821752609,
+      "sensitivity_top10": 0.2042910447761194,
+      "specificity_top10": 0.9804913294797688,
+      "threshold_top10": 0.7587299644947052,
+      "prevalence": 0.4364820846905538
+    }
+  }
+}
