@@ -85,6 +85,28 @@ reference_entries = [
     value for value in texts[reference_start + 1:] if re.match(r"^\d+\.", value)
 ]
 reference_text = "\n".join(reference_entries)
+reference_bookmarks = {
+    element.get(qn("w:name"))
+    for element in document.element.body.iter(qn("w:bookmarkStart"))
+    if (element.get(qn("w:name")) or "").startswith("Ref")
+}
+citation_anchors = [
+    element.get(qn("w:anchor"))
+    for element in document.element.body.iter(qn("w:hyperlink"))
+    if element.get(qn("w:anchor"))
+]
+citation_groups = re.findall(r"\[([0-9,\-]+)\]", text)
+citation_groups_ascending = all(
+    [
+        int(token.split("-", 1)[0])
+        for token in group.split(",")
+    ]
+    == sorted(
+        int(token.split("-", 1)[0])
+        for token in group.split(",")
+    )
+    for group in citation_groups
+)
 figure_parts = [
     relation.target_part
     for relation in document.part.rels.values()
@@ -224,6 +246,14 @@ checks = {
             reference_text,
             re.IGNORECASE,
         )
+    ),
+    "all_citation_groups_ascending": citation_groups_ascending,
+    "all_citation_hyperlinks_resolve": (
+        reference_bookmarks == {f"Ref{index}" for index in range(1, 46)}
+        and bool(citation_anchors)
+        and set(citation_anchors).issubset(reference_bookmarks)
+        and set(citation_anchors)
+        == {f"Ref{index}" for index in range(1, 46)}
     ),
     "all_references_live_crossref_journals": (
         live_references["summary"]["verified"] == len(registry)

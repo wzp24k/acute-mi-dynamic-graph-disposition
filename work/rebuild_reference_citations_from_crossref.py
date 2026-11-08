@@ -59,8 +59,17 @@ def publication_year(metadata: dict) -> int:
 
 def citation_text(metadata: dict) -> tuple[str, str]:
     title_parts = [*metadata.get("title", []), *metadata.get("subtitle", [])]
-    title = ": ".join(value.strip().rstrip(".") for value in title_parts if value.strip())
-    journal = (metadata.get("container-title") or [""])[0].strip()
+    clean = lambda value: re.sub(r"<[^>]+>", "", value).strip()
+    title = ": ".join(
+        clean(value).rstrip(".") for value in title_parts if clean(value)
+    )
+    title = re.sub(
+        r":\s*K\.\s*VAN\s+HOORDE.*$",
+        "",
+        title,
+        flags=re.IGNORECASE,
+    )
+    journal = clean((metadata.get("container-title") or [""])[0])
     if not title or not journal:
         raise ValueError(f"Incomplete journal metadata for {metadata.get('DOI')}")
     year = publication_year(metadata)

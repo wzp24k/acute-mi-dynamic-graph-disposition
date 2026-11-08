@@ -20,6 +20,8 @@
     "forty_five_verified_references": true,
     "all_reference_entries_have_doi": true,
     "no_preprint_or_conference_references": true,
+    "all_citation_groups_ascending": true,
+    "all_citation_hyperlinks_resolve": true,
     "all_references_live_crossref_journals": true,
     "all_references_cited": true,
     "citation_first_appearance_order": true,
@@ -27,7 +29,7 @@
     "public_repository_url": true
   },
   "failures": [],
-  "abstract_words": 201,
+  "abstract_words": 200,
   "keywords": 5,
   "max_sentence_words": 30,
   "remaining_three_decimal_values": [],

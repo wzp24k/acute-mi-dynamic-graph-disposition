@@ -9,7 +9,10 @@ from pathlib import Path
 import pandas as pd
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
+from docx.text.run import Run
 
 from .make_manuscript import TITLE, build_references, manuscript_metrics, paragraph_texts
 from .make_manuscript_1format import (
@@ -155,7 +158,9 @@ def add_contextual_citations(sections: dict[str, list[str]]) -> None:
         methods,
         "Continuous-time encoding and dynamic graph",
         "Sparse clinical priors were used because dense graph learning can be "
-        "comparatively unstable {{skarding2021dynamicgraphs,lee2019attentiongraphs,daniels2010monotone}}. "
+        "comparatively unstable {{skarding2021dynamicgraphs,lee2019attentiongraphs}}. "
+        "Monotone network constraints informed clinically directional edges "
+        "{{daniels2010monotone}}. "
         "Irregular histories and selective sequence models informed the encoder design "
         "{{kidger2020ncde,gu2023mamba}}.",
     )
@@ -189,12 +194,13 @@ def two_decimal(value: str) -> str:
     number = float(value)
     if abs(number - 0.001) < 1e-9:
         return value
-    return f"{number:.2f}"
+    text = f"{number:.2f}"
+    return "0.00" if text == "-0.00" else text
 
 
 def normalize_decimals(text: str) -> str:
     text = re.sub(
-        r"(?<!\d)(\d+\.\d{3,})(?!\d)",
+        r"(?<!\d)(-?\d+\.\d{3,})(?!\d)",
         lambda match: two_decimal(match.group(1)),
         text,
     )
@@ -269,7 +275,6 @@ def polish(text: str) -> str:
         ("will improve", "may potentially improve"),
         ("strong evidence", "comparatively consistent evidence"),
         ("caused", "was potentially associated with"),
-        ("confirm", "tentatively support"),
         ("In addition, ", "Additionally, "),
         ("Therefore, ", "Accordingly, "),
     )
@@ -303,16 +308,7 @@ def render_citations(sections: dict[str, list[str]]) -> tuple[dict[str, list[str
         assigned = sorted(number[key] for key in keys if key in number)
         if not assigned:
             return ""
-        compact = []
-        start = previous = assigned[0]
-        for value in assigned[1:]:
-            if value == previous + 1:
-                previous = value
-                continue
-            compact.append(str(start) if start == previous else f"{start}-{previous}")
-            start = previous = value
-        compact.append(str(start) if start == previous else f"{start}-{previous}")
-        return "[" + ",".join(compact) + "]"
+        return "[" + ",".join(str(value) for value in assigned) + "]"
 
     rendered = {}
     for key, paragraphs in sections.items():
@@ -325,6 +321,102 @@ def render_citations(sections: dict[str, list[str]]) -> tuple[dict[str, list[str
         raise RuntimeError(f"Uncited references: {missing}")
     references = [registry[key] for key in order]
     return rendered, references
+
+
+CITATION_GROUP = re.compile(r"\[([0-9,\-]+)\]")
+
+
+def _citation_tokens(value: str) -> list[str]:
+    return [token.strip() for token in value.split(",") if token.strip()]
+
+
+def _citation_first_number(token: str) -> int:
+    return int(token.split("-", 1)[0])
+
+
+def _append_internal_reference(
+    paragraph,
+    text: str,
+    reference_number: int,
+) -> None:
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("w:anchor"), f"Ref{reference_number}")
+    hyperlink.set(qn("w:history"), "1")
+    hyperlink.set(qn("w:tooltip"), f"Reference {reference_number}")
+    run_element = OxmlElement("w:r")
+    text_element = OxmlElement("w:t")
+    text_element.set(qn("xml:space"), "preserve")
+    text_element.text = text
+    run_element.append(text_element)
+    hyperlink.append(run_element)
+    paragraph._p.append(hyperlink)
+    set_run_font(Run(run_element, paragraph), 12, False)
+
+
+def add_reference_bookmarks(document: Document) -> None:
+    entries = [
+        paragraph
+        for paragraph in document.paragraphs
+        if paragraph.style.name == "RefEntry"
+    ]
+    if len(entries) != 45:
+        raise RuntimeError(f"Expected 45 reference entries, got {len(entries)}")
+    existing_ids = [
+        int(element.get(qn("w:id")))
+        for element in document.element.body.iter(qn("w:bookmarkStart"))
+        if element.get(qn("w:id"), "").lstrip("-").isdigit()
+    ]
+    next_id = max(existing_ids, default=0) + 1
+    for number, paragraph in enumerate(entries, start=1):
+        start = OxmlElement("w:bookmarkStart")
+        start.set(qn("w:id"), str(next_id))
+        start.set(qn("w:name"), f"Ref{number}")
+        end = OxmlElement("w:bookmarkEnd")
+        end.set(qn("w:id"), str(next_id))
+        next_id += 1
+        if paragraph.runs:
+            paragraph.runs[0]._r.addprevious(start)
+        else:
+            paragraph._p.append(start)
+        paragraph._p.append(end)
+
+
+def link_citations_to_references(document: Document) -> None:
+    reference_heading = next(
+        paragraph
+        for paragraph in document.paragraphs
+        if paragraph.text.strip() == "7. References"
+    )
+    for paragraph in document.paragraphs:
+        if paragraph._p is reference_heading._p:
+            break
+        text = paragraph.text
+        if not CITATION_GROUP.search(text):
+            continue
+        paragraph.clear()
+        position = 0
+        for match in CITATION_GROUP.finditer(text):
+            if match.start() > position:
+                run = paragraph.add_run(text[position:match.start()])
+                set_run_font(run, 12, False)
+            tokens = sorted(
+                _citation_tokens(match.group(1)),
+                key=_citation_first_number,
+            )
+            paragraph.add_run("[")
+            for index, token in enumerate(tokens):
+                if index:
+                    paragraph.add_run(",")
+                _append_internal_reference(
+                    paragraph,
+                    token,
+                    _citation_first_number(token),
+                )
+            paragraph.add_run("]")
+            position = match.end()
+        if position < len(text):
+            run = paragraph.add_run(text[position:])
+            set_run_font(run, 12, False)
 
 
 def add_r_figure(
@@ -355,14 +447,15 @@ DISCUSSION = [
                 "representations improve diagnosis-coded MACCE prediction. Temporal "
                 "summaries improved discrimination over static severity in development. "
                 "A complementary ensemble was then constructed as an exploratory model. "
-                "Its development gain exceeded the material threshold."
+                "Its development gain just exceeded the material threshold."
             ),
             (
                 "The original ensemble narrowly missed the material threshold after "
-                "strict XGBoost tuning. A second-stage model was therefore selected "
-                "only on 2008-2016 versus 2017-2019. The frozen 75/25 enhanced-XGBoost/"
-                "Transformer model reached AUROC 0.75 in 2020-2022. The observed gain "
-                "over XGB+TS was 0.01, with a 95% CI of 0.01-0.02."
+                "strict XGBoost tuning. A second-stage model was trained on "
+                "2008-2016 and selected on 2017-2019. The frozen 75/25 "
+                "enhanced-XGBoost/Transformer model reached AUROC 0.75 in "
+                "2020-2022. The observed gain over XGB+TS was 0.01, with a "
+                "95% CI of 0.01-0.02."
             ),
         ],
     ),
@@ -493,7 +586,8 @@ LIMITATIONS = [
     ),
     (
         "Fifth, independent two-reader endpoint adjudication remains pending. Sixth, "
-        "deep models used a single seed in some nested analyses. Seventh, urine output "
+        "some exploratory deep-model analyses and negative controls used a single "
+        "seed. Seventh, urine output "
         "was unavailable in eICU. Eighth, the retrospective design cannot establish "
         "treatment benefit or causal organ interactions."
     ),
@@ -738,8 +832,8 @@ def build() -> Path:
             "figure9_attention.png",
             "Figure 9. Organ and temporal attention. (A) Organ-channel attention. "
             "(B) Hour-specific attention. (C) Top attention contrasts.",
-            "Attention concentrated in circulatory, neurologic, renal, and coagulation "
-            "channels. Hour-specific patterns were comparatively broad.",
+            "Attention contrasts involved circulatory, respiratory, neurologic, "
+            "metabolic, and renal channels. Hour-specific patterns were comparatively broad.",
         ),
     }
     for index, paragraph in enumerate(sections["results"], start=1):
@@ -869,6 +963,9 @@ def build() -> Path:
         paragraph = document.add_paragraph(style="RefEntry")
         run = paragraph.add_run(f"{index}. {record['citation']}")
         set_run_font(run)
+
+    add_reference_bookmarks(document)
+    link_citations_to_references(document)
 
     document.core_properties.title = TITLE
     document.core_properties.subject = (

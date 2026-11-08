@@ -169,6 +169,9 @@ def add_data_table(
     widths: list[float],
 ) -> None:
     def format_value(value) -> str:
+        if isinstance(value, float) and pd.notna(value):
+            text = f"{value:.2f}"
+            return "0.00" if text == "-0.00" else text
         text = "" if pd.isna(value) else str(value)
         text = re.sub(
             r"(?<!\d)(\d+\.\d{3,})(?!\d)",
@@ -184,6 +187,7 @@ def add_data_table(
             lambda match: f"{float(match.group(1)):.2f}%",
             text,
         )
+        text = re.sub(r"(?<!\d)-0\.00(?!\d)", "0.00", text)
         return text
 
     table = document.add_table(rows=1, cols=len(frame.columns))
@@ -228,7 +232,7 @@ def add_data_table(
 
 def select_columns(frame: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     available = [column for column in columns if column in frame.columns]
-    return frame.loc[:, available].fillna("")
+    return frame.loc[:, available].fillna("NA")
 
 
 def table1(document: Document) -> None:
@@ -250,7 +254,8 @@ def table1(document: Document) -> None:
     add_footnote(
         document,
         "Values are mean (standard deviation), median, or percentages. "
-        "NR, not recorded or not estimable in the source extract.",
+        "NR, not recorded or not estimable in the source extract. Component "
+        "event counts may overlap, so the MACCE composite is not their sum.",
     )
 
 
@@ -303,7 +308,8 @@ def table3(document: Document) -> None:
         document,
         "Raw estimates use the pipeline fitted in MIMIC-IV. Recalibrated "
         "estimates use cross-fitted Platt scaling within each external database. "
-        "Full results are provided in the result tables.",
+        "NA indicates that a recalibrated estimate was not generated for the "
+        "locked fusion.",
     )
 
 
@@ -354,7 +360,9 @@ def table5(document: Document) -> None:
         document,
         "Differences use patient-level paired bootstrap intervals. The "
         "2020-2022 era had been inspected in an earlier analysis snapshot; the "
-        "second-stage model was nevertheless selected only on earlier eras.",
+        "second-stage model was nevertheless selected only on earlier eras. "
+        "Threshold status uses unrounded estimates; a difference displayed as "
+        "0.01 may therefore remain below the exact 0.01 margin.",
     )
 
 
@@ -427,7 +435,8 @@ def table7(document: Document) -> None:
         document,
         "Brier intervals and threshold metrics are bootstrap estimates. "
         "PPV and NPV depend on cohort prevalence. Calibration-minus-raw net "
-        "benefit is reported in the main result files.",
+        "benefit is reported in the main result files. NA indicates a "
+        "non-estimable or non-generated value.",
     )
 
 

@@ -7,13 +7,15 @@
       "all_references_journal_articles": true,
       "citation_numbers_complete": true,
       "citation_first_appearance_ascending": true,
-      "no_duplicate_doi": true
+      "no_duplicate_doi": true,
+      "line_by_line_consistency_pass": true
     },
     "status": "PASS"
   },
   "reviewer_2_logic_numbers_figures": {
     "checks": {
       "cohort_counts_consistent": true,
+      "site_counts_consistent": true,
       "main_auroc_values_consistent": true,
       "two_decimal_metrics": true,
       "all_charts_cited": true,
