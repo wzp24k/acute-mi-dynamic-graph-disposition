@@ -18,8 +18,16 @@ mid <- "#666666"
 light <- "#E8E8E8"
 dark <- "#303030"
 accent <- "#2C6E9B"
-accent_light <- "#7FAFC8"
 accent_pale <- "#D6E6F0"
+blue_dark <- "#1F4E79"
+blue_light <- "#8CB8D3"
+pink <- "#D66BA0"
+pink_light <- "#F2B6CF"
+cohort_colors <- c(
+  "MIMIC-IV" = blue_dark,
+  "MIMIC-III" = blue_light,
+  "eICU expanded" = pink
+)
 
 theme_pub <- theme_classic(base_family = "serif", base_size = 10) +
   theme(
@@ -106,7 +114,11 @@ figure1 <- local({
   )
   p2 <- ggplot(components, aes(x = cohort, y = events, fill = component)) +
     geom_col(position = "dodge", colour = dark, linewidth = 0.3, width = 0.72) +
-    scale_fill_manual(values = c("#FFFFFF", "#BDBDBD", accent)) +
+    scale_fill_manual(values = c(
+      "Acute MI" = blue_dark,
+      "Stroke" = blue_light,
+      "Death" = pink
+    )) +
     labs(x = NULL, y = "Recorded events", fill = NULL,
          title = "B  Outcome components") +
     theme_pub + theme(legend.position = "top")
@@ -170,11 +182,12 @@ figure2 <- local({
   risk <- read_csv(file.path(data_dir, "cohort_risk_profiles.csv"),
                    show_col_types = FALSE)
   p1 <- ggplot(risk, aes(x = cohort, y = reorder(risk_factor, percent),
-                         fill = percent)) +
-    geom_tile(colour = "white", linewidth = 0.5) +
+                         fill = percent, colour = cohort)) +
+    geom_tile(linewidth = 1.0) +
     geom_text(aes(label = sprintf("%.1f", percent)),
               family = "serif", colour = ink, size = 3.0) +
     scale_fill_gradient(low = "#F2F2F2", high = accent, na.value = "white") +
+    scale_colour_manual(values = cohort_colors, guide = "none") +
     labs(x = NULL, y = NULL, fill = "Percent",
          title = "A  Cohort risk-factor profile") +
     theme_pub + theme(axis.text.x = element_text(angle = 20, hjust = 1))
@@ -191,8 +204,7 @@ figure2 <- local({
                                 colour = cohort, shape = cohort)) +
     geom_vline(xintercept = 0, colour = mid, linewidth = 0.4) +
     geom_point(size = 2.6, position = position_dodge(width = 0.35)) +
-    scale_colour_manual(values = c("MIMIC-III" = mid,
-                                   "eICU expanded" = accent)) +
+    scale_colour_manual(values = cohort_colors[c("MIMIC-III", "eICU expanded")]) +
     labs(x = "Percentage-point difference from MIMIC-IV", y = NULL,
          colour = NULL, shape = NULL,
          title = "B  Relative comorbidity profile") +
@@ -205,11 +217,12 @@ figure3 <- local({
   coverage <- read_csv(file.path(data_dir, "observation_coverage.csv"),
                        show_col_types = FALSE)
   p1 <- ggplot(coverage, aes(x = cohort, y = reorder(channel, coverage),
-                             fill = coverage)) +
-    geom_tile(colour = "white", linewidth = 0.45) +
+                             fill = coverage, colour = cohort)) +
+    geom_tile(linewidth = 1.0) +
     geom_text(aes(label = sprintf("%.0f", 100 * coverage)),
               family = "serif", colour = ink, size = 2.7) +
     scale_fill_gradient(low = "#F2F2F2", high = accent, na.value = "white") +
+    scale_colour_manual(values = cohort_colors, guide = "none") +
     labs(x = NULL, y = NULL, fill = "Coverage",
          title = "A  Channel observation coverage, percent") +
     theme_pub + theme(axis.text.x = element_text(angle = 20, hjust = 1))
@@ -220,9 +233,7 @@ figure3 <- local({
   p2 <- ggplot(organ_summary, aes(x = organ, y = mean_coverage,
                                   fill = cohort)) +
     geom_col(position = "dodge", colour = dark, linewidth = 0.3, width = 0.72) +
-    scale_fill_manual(values = c("MIMIC-IV" = light,
-                                 "MIMIC-III" = "#9E9E9E",
-                                 "eICU expanded" = accent)) +
+    scale_fill_manual(values = cohort_colors) +
     scale_y_continuous(labels = percent_format(accuracy = 1)) +
     coord_cartesian(ylim = c(0, 1)) +
     labs(x = NULL, y = "Mean coverage", fill = NULL,
@@ -249,11 +260,12 @@ figure4 <- local({
       ct_graph = "Dynamic organ graph",
       organ_graph = "Seven-organ token graph",
       temporal_ensemble = "Temporal ensemble"
-    ))
+    ), plot_color = if_else(model == "temporal_ensemble", pink, blue_dark))
   p1 <- ggplot(dev, aes(x = auroc, y = reorder(label, auroc))) +
     geom_segment(aes(x = 0.60, xend = auroc, yend = label),
                  colour = "#C9C9C9", linewidth = 0.8) +
-    geom_point(colour = accent, size = 2.8) +
+    geom_point(aes(colour = plot_color), size = 2.8) +
+    scale_colour_identity() +
     geom_text(aes(label = sprintf("%.2f", auroc)), hjust = -0.25,
               family = "serif", colour = ink, size = 2.9) +
     scale_x_continuous(limits = c(0.60, 0.80)) +
@@ -272,7 +284,10 @@ figure4 <- local({
   p2 <- ggplot(p2data, aes(x = reorder(model, auroc), y = auroc,
                            fill = set)) +
     geom_col(position = "dodge", colour = dark, linewidth = 0.3, width = 0.7) +
-    scale_fill_manual(values = c("#BDBDBD", accent)) +
+    scale_fill_manual(values = c(
+      "Fixed temporal holdout" = blue_light,
+      "Locked 2020-2022" = pink
+    )) +
     coord_cartesian(ylim = c(0.68, 0.78)) +
     labs(x = NULL, y = "AUROC", fill = NULL,
          title = "B  Temporal validation") +
@@ -298,8 +313,7 @@ figure4 <- local({
   p3 <- ggplot(transport, aes(x = model, y = auroc_raw,
                               colour = cohort, shape = cohort)) +
     geom_point(size = 2.8, position = position_dodge(width = 0.35)) +
-    scale_colour_manual(values = c("MIMIC-III" = mid,
-                                   "eICU expanded" = accent)) +
+    scale_colour_manual(values = cohort_colors[c("MIMIC-III", "eICU expanded")]) +
     coord_cartesian(ylim = c(0.62, 0.72)) +
     labs(x = NULL, y = "AUROC", colour = NULL, shape = NULL,
          title = "C  Transport discrimination") +
@@ -310,9 +324,11 @@ figure4 <- local({
   development <- read_csv(file.path(data_dir, "development_performance.csv"),
                           show_col_types = FALSE) %>%
     filter(model %in% c("xgb_static", "xgb_static_ts", "transformer",
-                        "ct_graph", "organ_graph", "temporal_ensemble"))
+                        "ct_graph", "organ_graph", "temporal_ensemble")) %>%
+    mutate(plot_color = if_else(model == "temporal_ensemble", pink, blue_dark))
   p4 <- ggplot(development, aes(x = brier, y = reorder(model, brier))) +
-    geom_point(colour = dark, size = 2.5) +
+    geom_point(aes(colour = plot_color), size = 2.5) +
+    scale_colour_identity() +
     geom_segment(aes(x = 0.17, xend = brier, yend = model),
                  colour = "#C9C9C9", linewidth = 0.7) +
     labs(x = "Brier score", y = NULL, title = "D  Probability error") +
@@ -327,13 +343,18 @@ figure6 <- local({
     mutate(cohort = recode(cohort, mimic3 = "MIMIC-III",
                            eicu_anycad = "eICU expanded"))
   reliability <- function(cohort_name, panel) {
+    colors <- if (cohort_name == "eICU expanded") {
+      c("Raw" = pink_light, "Recalibrated" = pink)
+    } else {
+      c("Raw" = blue_light, "Recalibrated" = blue_dark)
+    }
     ggplot(filter(calibration, cohort == cohort_name),
            aes(x = predicted, y = observed, colour = source,
                linetype = source)) +
       geom_abline(slope = 1, intercept = 0, colour = mid, linewidth = 0.4) +
       geom_line(linewidth = 0.8) +
       geom_point(size = 2.0) +
-      scale_colour_manual(values = c("Raw" = mid, "Recalibrated" = accent)) +
+      scale_colour_manual(values = colors) +
       coord_cartesian(xlim = c(0, 1), ylim = c(0, 1)) +
       labs(x = "Predicted risk", y = "Observed risk",
            colour = NULL, linetype = NULL,
@@ -351,8 +372,8 @@ figure6 <- local({
     geom_ribbon(aes(ymin = low, ymax = high), alpha = 0.13, colour = NA) +
     geom_line(linewidth = 0.9) +
     geom_hline(yintercept = 0, colour = ink, linewidth = 0.4) +
-    scale_colour_manual(values = c("Raw" = mid, "Recalibrated" = accent)) +
-    scale_fill_manual(values = c("Raw" = mid, "Recalibrated" = accent)) +
+    scale_colour_manual(values = c("Raw" = pink_light, "Recalibrated" = pink)) +
+    scale_fill_manual(values = c("Raw" = pink_light, "Recalibrated" = pink)) +
     labs(x = "Threshold probability", y = "Net benefit", colour = NULL,
          fill = NULL, title = "C  Decision curves") +
     theme_pub + theme(legend.position = "top")
@@ -362,7 +383,7 @@ figure6 <- local({
     filter(cohort == "eicu_anycad")
   p4 <- ggplot(thresholds, aes(x = metric, y = value, fill = source)) +
     geom_col(position = "dodge", colour = dark, linewidth = 0.3, width = 0.7) +
-    scale_fill_manual(values = c("Raw" = "#BDBDBD", "Calibrated" = accent)) +
+    scale_fill_manual(values = c("Raw" = pink_light, "Calibrated" = pink)) +
     coord_cartesian(ylim = c(0, 1)) +
     labs(x = NULL, y = "Metric value", fill = NULL,
          title = "D  10% threshold metrics") +
@@ -376,13 +397,19 @@ figure7 <- local({
                            show_col_types = FALSE)
   plot_distribution <- function(cohort_name, panel) {
     data <- filter(distribution, cohort == cohort_name)
+    colors <- if (cohort_name == "eICU expanded") {
+      c("Raw" = pink_light, "Recalibrated" = pink)
+    } else {
+      c("Raw" = blue_light, "Recalibrated" = blue_dark)
+    }
+    threshold_color <- if (cohort_name == "eICU expanded") pink else blue_dark
     ggplot(data, aes(x = left, y = proportion, fill = source,
                      colour = source)) +
       geom_col(position = "identity", width = 1 / 30, alpha = 0.45,
                colour = NA) +
-      geom_vline(xintercept = 0.10, colour = accent,
+      geom_vline(xintercept = 0.10, colour = threshold_color,
                  linetype = "dashed", linewidth = 0.55) +
-      scale_fill_manual(values = c("Raw" = mid, "Recalibrated" = accent)) +
+      scale_fill_manual(values = colors) +
       scale_x_continuous(limits = c(0, 1), labels = number_format(accuracy = 0.1)) +
       labs(x = "Predicted risk", y = "Patient proportion", fill = NULL,
            title = paste0(panel, "  ", cohort_name)) +
@@ -397,10 +424,10 @@ figure7 <- local({
     geom_col(position = "fill", colour = dark, linewidth = 0.25, width = 0.7) +
     facet_wrap(~cohort) +
     scale_fill_manual(values = c(
-      "True positive" = accent,
-      "False positive" = accent_light,
-      "True negative" = light,
-      "False negative" = "#777777"
+      "True positive" = blue_dark,
+      "False positive" = pink,
+      "True negative" = blue_light,
+      "False negative" = pink_light
     )) +
     scale_y_continuous(labels = percent_format(accuracy = 1)) +
     labs(x = NULL, y = "Patient proportion", fill = NULL,
@@ -409,11 +436,18 @@ figure7 <- local({
 
   thresholds <- read_csv(file.path(data_dir, "threshold_metrics.csv"),
                          show_col_types = FALSE)
+  thresholds <- thresholds %>%
+    mutate(series = interaction(cohort, source, sep = " | "))
   p4 <- ggplot(thresholds, aes(x = metric, y = value,
-                               colour = source, shape = source)) +
+                               colour = series, shape = source)) +
     geom_point(size = 2.6, position = position_dodge(width = 0.35)) +
     facet_wrap(~cohort) +
-    scale_colour_manual(values = c("Raw" = mid, "Calibrated" = accent)) +
+    scale_colour_manual(values = c(
+      "MIMIC-III | Raw" = blue_light,
+      "MIMIC-III | Calibrated" = blue_dark,
+      "eICU expanded | Raw" = pink_light,
+      "eICU expanded | Calibrated" = pink
+    )) +
     coord_cartesian(ylim = c(0, 1)) +
     labs(x = NULL, y = "Metric value", colour = NULL, shape = NULL,
          title = "D  Operating characteristics at 10%") +
@@ -432,12 +466,14 @@ figure8 <- local({
                       mimic3 = "MIMIC-III",
                       eicu_anycad = "eICU expanded")
     )
-  p1 <- ggplot(endpoint, aes(x = cohort, y = coded_macce_n)) +
-    geom_col(fill = light, colour = dark, linewidth = 0.5, width = 0.62) +
-    geom_point(aes(y = overlap_total_n), colour = accent, size = 2.7) +
+  p1 <- ggplot(endpoint, aes(x = cohort, y = coded_macce_n, fill = cohort)) +
+    geom_col(colour = dark, linewidth = 0.5, width = 0.62) +
+    geom_point(aes(y = overlap_total_n, colour = cohort), size = 2.7) +
     geom_segment(aes(xend = cohort, y = overlap_total_n, yend = coded_macce_n),
                  colour = mid, linewidth = 0.4) +
     scale_y_log10(labels = comma) +
+    scale_fill_manual(values = cohort_colors, guide = "none") +
+    scale_colour_manual(values = cohort_colors, guide = "none") +
     labs(x = NULL, y = "Events (log scale)",
          title = "A  Coded and anchor-overlap events") +
     theme_pub
@@ -449,8 +485,8 @@ figure8 <- local({
     mutate(value = as.numeric(Value),
            ensemble = as.numeric(`Temporal ensemble AUROC`))
   p2 <- ggplot(trop, aes(x = value, y = ensemble)) +
-    geom_line(colour = dark, linewidth = 0.8) +
-    geom_point(aes(size = `Anchor-overlap`), colour = accent) +
+    geom_line(colour = blue_dark, linewidth = 0.8) +
+    geom_point(aes(size = `Anchor-overlap`), colour = blue_dark) +
     scale_size_area(max_size = 5) +
     scale_x_continuous(breaks = sort(unique(trop$value))) +
     labs(x = "Troponin threshold multiplier",
@@ -481,7 +517,7 @@ figure8 <- local({
     geom_tile(colour = "white", linewidth = 0.6) +
     geom_text(aes(label = label), family = "serif",
               colour = ink, size = 3.0) +
-    scale_fill_gradient(low = accent_pale, high = accent) +
+    scale_fill_gradient(low = pink_light, high = pink) +
     labs(x = "eICU documentation lag, hours", y = NULL, fill = NULL,
          title = "C  Documentation-lag invariance") +
     theme_pub + theme(legend.position = "none")
@@ -499,12 +535,13 @@ figure8 <- local({
               middle = mean(range(auroc, na.rm = TRUE)),
               .groups = "drop")
   p4 <- ggplot(rule_ranges, aes(y = cohort, x = middle)) +
-    geom_segment(aes(x = low, xend = high, yend = cohort),
-                 colour = accent, linewidth = 1.0) +
-    geom_point(colour = dark, size = 2.3) +
+    geom_segment(aes(x = low, xend = high, yend = cohort, colour = cohort),
+                 linewidth = 1.0) +
+    geom_point(aes(colour = cohort), size = 2.3) +
     geom_text(aes(label = sprintf("%.2f-%.2f", low, high)),
               hjust = -0.12, family = "serif", colour = ink, size = 2.9) +
     coord_cartesian(xlim = c(0.62, 0.82)) +
+    scale_colour_manual(values = cohort_colors, guide = "none") +
     labs(x = "Temporal-ensemble AUROC range", y = NULL,
          title = "D  Rule-variant AUROC range") +
     theme_pub
@@ -514,9 +551,13 @@ save_plot(figure8, "figure8_endpoint_ascertainment", 10.5, 8.2)
 
 figure5 <- local({
   selection <- read_csv(file.path(data_dir, "model_selection.csv"),
-                        show_col_types = FALSE)
+                        show_col_types = FALSE) %>%
+    mutate(plot_color = if_else(
+      grepl("Joint nested", model), pink, blue_dark
+    ))
   p1 <- ggplot(selection, aes(x = auroc, y = reorder(model, auroc))) +
-    geom_point(colour = dark, size = 2.7) +
+    geom_point(aes(colour = plot_color), size = 2.7) +
+    scale_colour_identity() +
     geom_segment(aes(x = 0.75, xend = auroc, yend = model),
                  colour = "#C9C9C9", linewidth = 0.7) +
     geom_text(aes(label = sprintf("%.2f", auroc)), hjust = -0.2,
@@ -526,9 +567,14 @@ figure5 <- local({
     theme_pub
 
   organ <- read_csv(file.path(data_dir, "organ_graph_controls.csv"),
-                    show_col_types = FALSE)
+                    show_col_types = FALSE) %>%
+    mutate(plot_color = if_else(
+      grepl("Random|Reversed|Permuted|No continuous", model),
+      pink, blue_dark
+    ))
   p2 <- ggplot(organ, aes(x = auroc, y = reorder(model, auroc))) +
-    geom_point(colour = accent, size = 2.5) +
+    geom_point(aes(colour = plot_color), size = 2.5) +
+    scale_colour_identity() +
     geom_segment(aes(x = 0.73, xend = auroc, yend = model),
                  colour = "#C9C9C9", linewidth = 0.7) +
     scale_x_continuous(limits = c(0.73, 0.77)) +
@@ -546,7 +592,7 @@ figure5 <- local({
   )
   p3 <- ggplot(contrasts, aes(x = estimate, y = reorder(contrast, estimate))) +
     geom_vline(xintercept = 0, colour = mid, linewidth = 0.4) +
-    geom_vline(xintercept = 0.01, colour = accent,
+    geom_vline(xintercept = 0.01, colour = pink,
                linetype = "dashed", linewidth = 0.5) +
     geom_errorbarh(aes(xmin = low, xmax = high), height = 0.18,
                    colour = dark, linewidth = 0.7) +
@@ -558,13 +604,28 @@ figure5 <- local({
     model = c("Static XGBoost", "XGB + TS", "Transformer",
               "Dynamic graph", "Seven-organ token", "Temporal ensemble"),
     auroc = c(0.6414, 0.7537, 0.7593, 0.7562, 0.7504, 0.7640)
-  )
-  p4 <- ggplot(weights, aes(x = reorder(model, auroc), y = auroc)) +
-    geom_col(fill = light, colour = dark, linewidth = 0.4, width = 0.65) +
-    coord_cartesian(ylim = c(0.60, 0.78)) +
-    labs(x = NULL, y = "AUROC", title = "D  Model benchmark hierarchy") +
-    theme_pub +
-    theme(axis.text.x = element_text(angle = 20, hjust = 1))
+  ) %>%
+    mutate(
+      benchmark = 0.7537,
+      delta = auroc - benchmark,
+      direction = if_else(delta >= 0, "Above XGB+TS", "Below XGB+TS")
+    )
+  p4 <- ggplot(weights, aes(x = delta, y = reorder(model, delta),
+                            colour = direction)) +
+    geom_vline(xintercept = 0, colour = mid, linewidth = 0.45) +
+    geom_segment(aes(x = 0, xend = delta, yend = model),
+                 linewidth = 0.75) +
+    geom_point(size = 2.6) +
+    geom_text(aes(label = sprintf("%+.2f", delta)), hjust = -0.22,
+              family = "serif", colour = ink, size = 2.8) +
+    scale_colour_manual(values = c(
+      "Above XGB+TS" = blue_dark,
+      "Below XGB+TS" = pink
+    )) +
+    coord_cartesian(xlim = c(-0.13, 0.04)) +
+    labs(x = "AUROC difference from XGB+TS", y = NULL, colour = NULL,
+         title = "D  Incremental value versus XGB+TS") +
+    theme_pub + theme(legend.position = "top")
   (p1 | p2) / (p3 | p4)
 })
 save_plot(figure5, "figure5_model_selection", 10.5, 7.8)
@@ -575,9 +636,13 @@ figure9 <- local({
     pivot_longer(cols = c(MACCE, `Event-free`), names_to = "group",
                  values_to = "attention")
   p1 <- ggplot(organ, aes(x = group, y = reorder(channel, attention),
-                          fill = attention)) +
-    geom_tile(colour = "white", linewidth = 0.4) +
+                          fill = attention, colour = group)) +
+    geom_tile(linewidth = 0.9) +
     scale_fill_gradient(low = "#F2F2F2", high = accent) +
+    scale_colour_manual(values = c(
+      "MACCE" = blue_dark,
+      "Event-free" = pink
+    ), guide = "none") +
     labs(x = NULL, y = NULL, fill = "Attention",
          title = "A  Organ-channel attention") +
     theme_pub +
@@ -589,7 +654,7 @@ figure9 <- local({
                  values_to = "attention")
   p2 <- ggplot(temporal, aes(x = hour, y = attention, colour = group)) +
     geom_line(linewidth = 0.9) +
-    scale_colour_manual(values = c("Event-free" = mid, "MACCE" = accent)) +
+    scale_colour_manual(values = c("Event-free" = pink, "MACCE" = blue_dark)) +
     labs(x = "ICU hour", y = "Mean temporal attention", colour = NULL,
          title = "B  Hour-specific attention") +
     theme_pub + theme(legend.position = "top")
@@ -604,7 +669,7 @@ figure9 <- local({
     geom_vline(xintercept = 0, colour = mid, linewidth = 0.4) +
     geom_col(aes(fill = difference > 0), colour = dark, linewidth = 0.3,
              width = 0.65) +
-    scale_fill_manual(values = c("TRUE" = accent, "FALSE" = "#BDBDBD")) +
+    scale_fill_manual(values = c("TRUE" = blue_dark, "FALSE" = pink)) +
     labs(x = "MACCE minus event-free attention", y = NULL, fill = NULL,
          title = "C  Top attention contrasts") +
     theme_pub + theme(legend.position = "none")

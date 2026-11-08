@@ -663,7 +663,8 @@ def build() -> Path:
                 "figure5_model_selection.png",
                 "Figure 5. Nested model selection and organ-graph controls. "
                 "(A) Nested model performance. (B) Organ graph and negative controls. "
-                "(C) Paired AUROC contrasts. (D) Benchmark hierarchy.",
+                "(C) Paired AUROC contrasts. "
+                "(D) Incremental AUROC difference versus XGB+TS.",
                 "Joint nesting remained positive but below the material threshold. "
                 "Organ graph variants did not exceed the temporal benchmark.",
             ),
