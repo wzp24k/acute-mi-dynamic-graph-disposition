@@ -16,13 +16,13 @@ dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 ink <- "#000000"
 mid <- "#666666"
 light <- "#E8E8E8"
-dark <- "#303030"
+dark <- "#000000"
 accent <- "#2C6E9B"
 accent_pale <- "#D6E6F0"
 blue_dark <- "#1F4E79"
 blue_light <- "#8CB8D3"
-pink <- "#D66BA0"
-pink_light <- "#F2B6CF"
+pink <- "#E88AA3"
+pink_light <- "#F6C8D4"
 cohort_colors <- c(
   "MIMIC-IV" = blue_dark,
   "MIMIC-III" = blue_light,
@@ -42,7 +42,12 @@ theme_pub <- theme_classic(base_family = "serif", base_size = 10) +
     panel.grid.major = element_line(colour = "#DDDDDD", linewidth = 0.35),
     panel.grid.minor = element_blank(),
     plot.background = element_rect(fill = "white", colour = NA),
-    panel.background = element_rect(fill = "white", colour = NA)
+    panel.background = element_rect(fill = "white", colour = NA),
+    axis.line = element_line(colour = ink, linewidth = 0.55),
+    axis.ticks = element_line(colour = ink, linewidth = 0.45),
+    strip.background = element_rect(
+      fill = "white", colour = ink, linewidth = 0.55
+    )
   )
 
 save_plot <- function(plot, stem, width = 9.2, height = 7.2) {
@@ -191,12 +196,11 @@ figure2 <- local({
   risk <- read_csv(file.path(data_dir, "cohort_risk_profiles.csv"),
                    show_col_types = FALSE)
   p1 <- ggplot(risk, aes(x = cohort, y = reorder(risk_factor, percent),
-                         fill = percent, colour = cohort)) +
-    geom_tile(linewidth = 1.0) +
+                         fill = percent)) +
+    geom_tile(colour = ink, linewidth = 0.55) +
     geom_text(aes(label = sprintf("%.1f", percent)),
               family = "serif", colour = ink, size = 3.0) +
     scale_fill_gradient(low = "#F2F2F2", high = accent, na.value = "white") +
-    scale_colour_manual(values = cohort_colors, guide = "none") +
     labs(x = NULL, y = NULL, fill = "Percent",
          title = "A  Cohort risk-factor profile") +
     theme_pub + theme(axis.text.x = element_text(angle = 20, hjust = 1))
@@ -226,12 +230,11 @@ figure3 <- local({
   coverage <- read_csv(file.path(data_dir, "observation_coverage.csv"),
                        show_col_types = FALSE)
   p1 <- ggplot(coverage, aes(x = cohort, y = reorder(channel, coverage),
-                             fill = coverage, colour = cohort)) +
-    geom_tile(linewidth = 1.0) +
+                             fill = coverage)) +
+    geom_tile(colour = ink, linewidth = 0.55) +
     geom_text(aes(label = sprintf("%.0f", 100 * coverage)),
               family = "serif", colour = ink, size = 2.7) +
     scale_fill_gradient(low = "#F2F2F2", high = accent, na.value = "white") +
-    scale_colour_manual(values = cohort_colors, guide = "none") +
     labs(x = NULL, y = NULL, fill = "Coverage",
          title = "A  Channel observation coverage, percent") +
     theme_pub + theme(axis.text.x = element_text(angle = 20, hjust = 1))
@@ -650,13 +653,9 @@ figure9 <- local({
     pivot_longer(cols = c(MACCE, `Event-free`), names_to = "group",
                  values_to = "attention")
   p1 <- ggplot(organ, aes(x = group, y = reorder(channel, attention),
-                          fill = attention, colour = group)) +
-    geom_tile(linewidth = 0.9) +
+                          fill = attention)) +
+    geom_tile(colour = ink, linewidth = 0.55) +
     scale_fill_gradient(low = "#F2F2F2", high = accent) +
-    scale_colour_manual(values = c(
-      "MACCE" = blue_dark,
-      "Event-free" = pink
-    ), guide = "none") +
     labs(x = NULL, y = NULL, fill = "Attention",
          title = "A  Organ-channel attention") +
     theme_pub +

@@ -14,7 +14,7 @@ FIGURE_DIR = ROOT / "results" / "figures_r"
 PALETTE = {
     "MIMIC-IV deep blue": (31, 78, 121),
     "MIMIC-III light blue": (140, 184, 211),
-    "eICU pink": (214, 107, 160),
+    "eICU pink": (232, 138, 163),
 }
 
 images = {}
@@ -53,6 +53,10 @@ text = "\n".join(paragraph.text for paragraph in document.paragraphs)
 checks = {
     "no_legacy_orange_palette": not any(
         colour in script for colour in ("#B05A4A", "#E3B6AD")
+    ),
+    "pure_black_borders": (
+        "#303030" not in script
+        and script.count("geom_tile(colour = ink") >= 3
     ),
     "cohort_palette_used": all(
         any(record["palette_pixels"][name] > 0 for record in images.values())
