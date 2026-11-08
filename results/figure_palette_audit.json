@@ -3,14 +3,17 @@
     "no_legacy_orange_palette": true,
     "cohort_palette_used": true,
     "figure5d_incremental_value": true,
-    "figure8c_invariance": true
+    "figure8c_invariance": true,
+    "figure1a_database_colors": true,
+    "figure5d_diverging_colors": true,
+    "figure7d_database_colors": true
   },
   "images": {
     "figure1_overall_roadmap.png": {
       "palette_pixels": {
-        "MIMIC-IV deep blue": 135439,
-        "MIMIC-III light blue": 50468,
-        "eICU pink": 24688
+        "MIMIC-IV deep blue": 178655,
+        "MIMIC-III light blue": 93541,
+        "eICU pink": 67526
       }
     },
     "figure2_cohort_profiles.png": {
@@ -51,8 +54,8 @@
     "figure7_risk_and_decisions.png": {
       "palette_pixels": {
         "MIMIC-IV deep blue": 64547,
-        "MIMIC-III light blue": 202056,
-        "eICU pink": 402569
+        "MIMIC-III light blue": 207052,
+        "eICU pink": 407041
       }
     },
     "figure8_endpoint_ascertainment.png": {

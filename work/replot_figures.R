@@ -53,6 +53,12 @@ save_plot <- function(plot, stem, width = 9.2, height = 7.2) {
 }
 
 flow_panel <- function(nodes, edges, xlim, ylim, panel = NULL) {
+  if (!"fill_colour" %in% names(nodes)) {
+    nodes$fill_colour <- light
+  }
+  if (!"text_colour" %in% names(nodes)) {
+    nodes$text_colour <- ink
+  }
   plot <- ggplot() +
     geom_segment(
       data = edges,
@@ -65,12 +71,13 @@ flow_panel <- function(nodes, edges, xlim, ylim, panel = NULL) {
       data = nodes,
       aes(xmin = x - width / 2, xmax = x + width / 2,
           ymin = y - height / 2, ymax = y + height / 2),
-      fill = light, colour = dark, linewidth = 0.5
+      fill = nodes$fill_colour, colour = dark, linewidth = 0.5
     ) +
     geom_text(
       data = nodes,
       aes(x = x, y = y, label = label),
-      family = "serif", colour = ink, size = 2.8, lineheight = 0.92
+      family = "serif", colour = nodes$text_colour,
+      size = 2.8, lineheight = 0.92
     ) +
     coord_cartesian(xlim = xlim, ylim = ylim, clip = "off") +
     theme_void(base_family = "serif") +
@@ -97,7 +104,9 @@ figure1 <- local({
       "eICU expanded\n5,913 / 642",
       "24-hour landmark\nAlive and >=6 observed channels",
       "Analytic cohorts\n13,131 | 3,470 | 5,913"
-    )
+    ),
+    fill_colour = c(blue_dark, blue_light, pink, light, "#F4F7FA"),
+    text_colour = c("white", ink, ink, ink, ink)
   )
   a_edges <- data.frame(
     x = c(2.0, 5.5, 9.0, 5.5),
@@ -437,17 +446,22 @@ figure7 <- local({
   thresholds <- read_csv(file.path(data_dir, "threshold_metrics.csv"),
                          show_col_types = FALSE)
   thresholds <- thresholds %>%
-    mutate(series = interaction(cohort, source, sep = " | "))
+    mutate(
+      cohort = recode(cohort,
+                      mimic3 = "MIMIC-III",
+                      eicu_anycad = "eICU expanded"),
+      metric = factor(
+        metric,
+        levels = c("SENSITIVITY", "SPECIFICITY", "PPV", "NPV"),
+        labels = c("Sensitivity", "Specificity", "PPV", "NPV")
+      )
+    )
   p4 <- ggplot(thresholds, aes(x = metric, y = value,
-                               colour = series, shape = source)) +
+                               colour = cohort, shape = source)) +
     geom_point(size = 2.6, position = position_dodge(width = 0.35)) +
     facet_wrap(~cohort) +
-    scale_colour_manual(values = c(
-      "MIMIC-III | Raw" = blue_light,
-      "MIMIC-III | Calibrated" = blue_dark,
-      "eICU expanded | Raw" = pink_light,
-      "eICU expanded | Calibrated" = pink
-    )) +
+    scale_colour_manual(values = cohort_colors) +
+    scale_shape_manual(values = c("Raw" = 17, "Calibrated" = 16)) +
     coord_cartesian(ylim = c(0, 1)) +
     labs(x = NULL, y = "Metric value", colour = NULL, shape = NULL,
          title = "D  Operating characteristics at 10%") +
