@@ -221,30 +221,7 @@ figure1 <- local({
     theme_void(base_family = "serif") +
     theme(plot.background = element_rect(fill = "white", colour = NA))
 
-  components <- data.frame(
-    cohort = rep(c("MIMIC-IV", "MIMIC-III", "eICU expanded"), each = 3),
-    component = rep(c("Acute MI", "Stroke", "Death"), times = 3),
-    events = c(3214, 1079, 524, 219, 199, 13, 459, 119, 90)
-  ) %>%
-    mutate(cohort = factor(
-      cohort,
-      levels = c("eICU expanded", "MIMIC-III", "MIMIC-IV")
-    ))
-  p2 <- ggplot(components, aes(x = events, y = cohort, fill = component)) +
-    geom_col(position = position_dodge(width = 0.72),
-             colour = dark, linewidth = 0.3, width = 0.62) +
-    scale_fill_manual(values = c(
-      "Acute MI" = blue_dark,
-      "Stroke" = blue_light,
-      "Death" = pink
-    )) +
-    scale_x_continuous(labels = comma) +
-    labs(x = "Recorded events", y = NULL, fill = NULL,
-         title = "B  Outcome components") +
-    theme_pub + theme(legend.position = "top")
-
-  (p1 / p2) +
-    plot_layout(heights = c(4.8, 1.0)) +
+  p1 +
     plot_annotation(
       title = "Overall study roadmap",
       theme = theme(
@@ -255,7 +232,7 @@ figure1 <- local({
       )
     )
 })
-save_plot(figure1, "figure1_overall_roadmap", 10.5, 9.0, svg = TRUE)
+save_plot(figure1, "figure1_overall_roadmap", 10.5, 8.0, svg = TRUE)
 
 figure2 <- local({
   risk <- read_csv(file.path(data_dir, "cohort_risk_profiles.csv"),

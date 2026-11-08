@@ -598,14 +598,14 @@ def build() -> Path:
     add_body(
         document,
         "Figure 1 integrates cohort assembly, continuous-time modeling, "
-        "validation, and clinical-utility analysis with recorded outcome components.",
+        "validation, and clinical-utility analysis.",
     )
     add_r_figure(
         document,
         "figure1_overall_roadmap.png",
         "Figure 1. Overall study roadmap. (A) Integrated cohort construction, "
         "continuous-time organ-graph model, and pre-specified validation and "
-        "clinical-utility workflow. (B) Recorded outcome components.",
+        "clinical-utility workflow.",
         "The integrated roadmap links cohort eligibility at the 24-hour landmark "
         "to model development, late-era testing, external transport, calibration, "
         "clinical utility, and endpoint sensitivity analysis.",

@@ -72,17 +72,18 @@ checks = {
         and "<image" not in figure1_svg
         and "viewBox=" in figure1_svg
     ),
-    "figure1_merged_layout": (
-        "(A) Integrated cohort construction" in text
-        and "(B) Recorded outcome components" in text
-        and "(C) Model architecture" not in text
-        and "(D) Temporal selection" not in text
+    "figure1_single_panel_layout": (
+        "Figure 1. Overall study roadmap. (A) Integrated cohort construction" in text
+        and "Recorded outcome components" not in text
     ),
     "figure1_editable_drawio": (
         drawio_root.tag == "mxfile"
-        and len(drawio_cells) >= 50
+        and len(drawio_cells) >= 20
         and any(cell.attrib.get("vertex") == "1" for cell in drawio_cells)
         and any(cell.attrib.get("edge") == "1" for cell in drawio_cells)
+        and "Outcome components" not in (
+            FIGURE_DIR / "figure1_overall_roadmap.drawio"
+        ).read_text(encoding="utf-8")
         and all(
             source is None or source in {cell.attrib.get("id") for cell in drawio_cells}
             for cell in drawio_cells
