@@ -1,0 +1,277 @@
+{
+  "source": "Crossref REST API",
+  "record_count": 45,
+  "journal_article_count": 45,
+  "records": [
+    {
+      "key": "johnson2023mimiciv",
+      "doi": "10.1038/s41597-022-01899-x",
+      "publication_type": "journal-article",
+      "citation": "Johnson AEW, Bulgarelli L, Shen L, et al. MIMIC-IV, a freely accessible electronic health record dataset. Scientific Data. 2023;10(1):1. doi:10.1038/s41597-022-01899-x"
+    },
+    {
+      "key": "johnson2016mimiciii",
+      "doi": "10.1038/sdata.2016.35",
+      "publication_type": "journal-article",
+      "citation": "Johnson AEW, Pollard TJ, Shen L, et al. MIMIC-III, a freely accessible critical care database. Scientific Data. 2016;3(1):160035. doi:10.1038/sdata.2016.35"
+    },
+    {
+      "key": "pollard2018eicu",
+      "doi": "10.1038/sdata.2018.178",
+      "publication_type": "journal-article",
+      "citation": "Pollard TJ, Johnson AEW, Raffa JD, et al. The eICU Collaborative Research Database, a freely available multi-center database for critical care research. Scientific Data. 2018;5(1):180178. doi:10.1038/sdata.2018.178"
+    },
+    {
+      "key": "collins2024tripodai",
+      "doi": "10.1136/bmj-2023-078378",
+      "publication_type": "journal-article",
+      "citation": "Collins GS, Moons KGM, Dhiman P, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ. 2024;385:e078378. doi:10.1136/bmj-2023-078378"
+    },
+    {
+      "key": "vincent1996sofa",
+      "doi": "10.1007/bf01709751",
+      "publication_type": "journal-article",
+      "citation": "Vincent JL, Moreno R, Takala J, et al. The SOFA (Sepsis-related Organ Failure Assessment) score to describe organ dysfunction/failure: On behalf of the Working Group on Sepsis-Related Problems of the European Society of Intensive Care Medicine (see contributors to the project in the appendix). Intensive Care Medicine. 1996;22(7):707-710. doi:10.1007/bf01709751"
+    },
+    {
+      "key": "shickel2018deepehr",
+      "doi": "10.1109/jbhi.2017.2767063",
+      "publication_type": "journal-article",
+      "citation": "Shickel B, Tighe PJ, Bihorac A, et al. Deep EHR: A Survey of Recent Advances in Deep Learning Techniques for Electronic Health Record (EHR) Analysis. IEEE Journal of Biomedical and Health Informatics. 2018;22(5):1589-1604. doi:10.1109/jbhi.2017.2767063"
+    },
+    {
+      "key": "rajkomar2018scalable",
+      "doi": "10.1038/s41746-018-0029-1",
+      "publication_type": "journal-article",
+      "citation": "Rajkomar A, Oren E, Chen K, et al. Scalable and accurate deep learning with electronic health records. npj Digital Medicine. 2018;1(1):18. doi:10.1038/s41746-018-0029-1"
+    },
+    {
+      "key": "che2018grud",
+      "doi": "10.1038/s41598-018-24271-9",
+      "publication_type": "journal-article",
+      "citation": "Che Z, Purushotham S, Cho K, et al. Recurrent Neural Networks for Multivariate Time Series with Missing Values. Scientific Reports. 2018;8(1):6085. doi:10.1038/s41598-018-24271-9"
+    },
+    {
+      "key": "vaswani2017attention",
+      "doi": "10.3390/computers14040148",
+      "publication_type": "journal-article",
+      "citation": "Mohamed A, AlAleeli R, Shaalan K. Advancing Predictive Healthcare: A Systematic Review of Transformer Models in Electronic Health Records. Computers. 2025;14(4):148. doi:10.3390/computers14040148"
+    },
+    {
+      "key": "lim2021tft",
+      "doi": "10.1016/j.ijforecast.2021.03.012",
+      "publication_type": "journal-article",
+      "citation": "Lim B, Arık S, Loeff N, et al. Temporal Fusion Transformers for interpretable multi-horizon time series forecasting. International Journal of Forecasting. 2021;37(4):1748-1764. doi:10.1016/j.ijforecast.2021.03.012"
+    },
+    {
+      "key": "arjovsky2019irm",
+      "doi": "10.1007/s10994-022-06256-y",
+      "publication_type": "journal-article",
+      "citation": "Jia C, Zhang Y. Meta-learning the invariant representation for domain generalization. Machine Learning. 2024;113(4):1661-1681. doi:10.1007/s10994-022-06256-y"
+    },
+    {
+      "key": "sagawa2020groupdro",
+      "doi": "10.1214/20-aos2004",
+      "publication_type": "journal-article",
+      "citation": "Duchi JC, Namkoong H. Learning models with uniform performance via distributionally robust optimization. The Annals of Statistics. 2021;49(3):1378-1406. doi:10.1214/20-aos2004"
+    },
+    {
+      "key": "kidger2020ncde",
+      "doi": "10.1098/rsos.221475",
+      "publication_type": "journal-article",
+      "citation": "Goyal P, Benner P. Neural ordinary differential equations with irregular and noisy data. Royal Society Open Science. 2023;10(7):221475. doi:10.1098/rsos.221475"
+    },
+    {
+      "key": "gu2023mamba",
+      "doi": "10.1016/j.engappai.2025.111279",
+      "publication_type": "journal-article",
+      "citation": "Patro BN, Agneeswaran VS. Mamba-360: Survey of state space models as transformer alternative for long sequence modelling: Methods, Applications, and Challenges. Engineering Applications of Artificial Intelligence. 2025;159:111279. doi:10.1016/j.engappai.2025.111279"
+    },
+    {
+      "key": "vancalster2019calibration",
+      "doi": "10.1186/s12916-019-1466-7",
+      "publication_type": "journal-article",
+      "citation": "Van Calster B, McLernon DJ, van Smeden M, et al. Calibration: the Achilles heel of predictive analytics. BMC Medicine. 2019;17(1):230. doi:10.1186/s12916-019-1466-7"
+    },
+    {
+      "key": "vickers2006dca",
+      "doi": "10.1177/0272989x06295361",
+      "publication_type": "journal-article",
+      "citation": "Vickers AJ, Elkin EB. Decision Curve Analysis: A Novel Method for Evaluating Prediction Models. Medical Decision Making. 2006;26(6):565-574. doi:10.1177/0272989x06295361"
+    },
+    {
+      "key": "thygesen2019mi",
+      "doi": "10.1093/eurheartj/ehy462",
+      "publication_type": "journal-article",
+      "citation": "Thygesen K, Alpert JS, Jaffe AS, et al. Fourth universal definition of myocardial infarction (2018). European Heart Journal. 2019;40(3):237-269. doi:10.1093/eurheartj/ehy462"
+    },
+    {
+      "key": "sacco2013stroke",
+      "doi": "10.1161/str.0b013e318296aeca",
+      "publication_type": "journal-article",
+      "citation": "Sacco RL, Kasner SE, Broderick JP, et al. An Updated Definition of Stroke for the 21st Century: A Statement for Healthcare Professionals From the American Heart Association/American Stroke Association. Stroke. 2013;44(7):2064-2089. doi:10.1161/str.0b013e318296aeca"
+    },
+    {
+      "key": "mccullagh1980ordinal",
+      "doi": "10.1111/j.2517-6161.1980.tb01109.x",
+      "publication_type": "journal-article",
+      "citation": "McCullagh P. Regression Models for Ordinal Data. Journal of the Royal Statistical Society Series B: Statistical Methodology. 1980;42(2):109-127. doi:10.1111/j.2517-6161.1980.tb01109.x"
+    },
+    {
+      "key": "edlinger2022ordinal",
+      "doi": "10.1002/sim.9281",
+      "publication_type": "journal-article",
+      "citation": "Edlinger M, van Smeden M, Alber HF, et al. Risk prediction models for discrete ordinal outcomes: Calibration and the impact of the proportional odds assumption. Statistics in Medicine. 2022;41(8):1334-1360. doi:10.1002/sim.9281"
+    },
+    {
+      "key": "vanhoorde2014multinomial",
+      "doi": "10.1002/sim.6114",
+      "publication_type": "journal-article",
+      "citation": "Van Hoorde K, Vergouwe Y, Timmerman D, et al. Assessing calibration of multinomial risk prediction models: K. VAN HOORDE<i>ET AL.</i>. Statistics in Medicine. 2014;33(15):2585-2596. doi:10.1002/sim.6114"
+    },
+    {
+      "key": "skarding2021dynamicgraphs",
+      "doi": "10.1109/access.2021.3082932",
+      "publication_type": "journal-article",
+      "citation": "Skarding J, Gabrys B, Musial K. Foundations and Modeling of Dynamic Networks Using Dynamic Graph Neural Networks: A Survey. IEEE Access. 2021;9:79143-79168. doi:10.1109/access.2021.3082932"
+    },
+    {
+      "key": "ma2023patientgraph",
+      "doi": "10.3934/mbe.2023685",
+      "publication_type": "journal-article",
+      "citation": "Ma M, Sun P, Li Y, et al. Predicting the risk of mortality in ICU patients based on dynamic graph attention network of patient similarity. Mathematical Biosciences and Engineering. 2023;20(8):15326-15344. doi:10.3934/mbe.2023685"
+    },
+    {
+      "key": "feng2024multiorgan",
+      "doi": "10.1016/j.artmed.2023.102746",
+      "publication_type": "journal-article",
+      "citation": "Feng X, Zhu S, Shen Y, et al. Multi-organ spatiotemporal information aware model for sepsis mortality prediction. Artificial Intelligence in Medicine. 2024;147:102746. doi:10.1016/j.artmed.2023.102746"
+    },
+    {
+      "key": "xu2024icuinterventions",
+      "doi": "10.1109/jbhi.2024.3379998",
+      "publication_type": "journal-article",
+      "citation": "Xu Z, Guo J, Qin L, et al. Predicting ICU Interventions: A Transparent Decision Support Model Based on Multivariate Time Series Graph Convolutional Neural Network. IEEE Journal of Biomedical and Health Informatics. 2024;28(6):3709-3720. doi:10.1109/jbhi.2024.3379998"
+    },
+    {
+      "key": "daniels2010monotone",
+      "doi": "10.1109/tnn.2010.2044803",
+      "publication_type": "journal-article",
+      "citation": "Daniels H, Velikova M. Monotone and Partially Monotone Neural Networks. IEEE Transactions on Neural Networks. 2010;21(6):906-917. doi:10.1109/tnn.2010.2044803"
+    },
+    {
+      "key": "collins2024evaluation1",
+      "doi": "10.1136/bmj-2023-074819",
+      "publication_type": "journal-article",
+      "citation": "Collins GS, Dhiman P, Ma J, et al. Evaluation of clinical prediction models (part 1): from development to external validation. BMJ. 2024;384:e074819. doi:10.1136/bmj-2023-074819"
+    },
+    {
+      "key": "riley2024evaluation2",
+      "doi": "10.1136/bmj-2023-074820",
+      "publication_type": "journal-article",
+      "citation": "Riley RD, Archer L, Snell KIE, et al. Evaluation of clinical prediction models (part 2): how to undertake an external validation study. BMJ. 2024;384:e074820. doi:10.1136/bmj-2023-074820"
+    },
+    {
+      "key": "lee2019attentiongraphs",
+      "doi": "10.1145/3363574",
+      "publication_type": "journal-article",
+      "citation": "Lee JB, Rossi RA, Kim S, et al. Attention Models in Graphs: A Survey. ACM Transactions on Knowledge Discovery from Data. 2019;13(6):1-25. doi:10.1145/3363574"
+    },
+    {
+      "key": "cho2014rnn",
+      "doi": "10.1162/neco_a_01199",
+      "publication_type": "journal-article",
+      "citation": "Yu Y, Si X, Hu C, et al. A Review of Recurrent Neural Networks: LSTM Cells and Network Architectures. Neural Computation. 2019;31(7):1235-1270. doi:10.1162/neco_a_01199"
+    },
+    {
+      "key": "chen2016xgboost",
+      "doi": "10.1007/s10462-020-09896-5",
+      "publication_type": "journal-article",
+      "citation": "Bentéjac C, Csörgő A, Martínez-Muñoz G. A comparative analysis of gradient boosting algorithms. Artificial Intelligence Review. 2021;54(3):1937-1967. doi:10.1007/s10462-020-09896-5"
+    },
+    {
+      "key": "lin2022transformers",
+      "doi": "10.1016/j.aiopen.2022.10.001",
+      "publication_type": "journal-article",
+      "citation": "Lin T, Wang Y, Liu X, et al. A survey of transformers. AI Open. 2022;3:111-132. doi:10.1016/j.aiopen.2022.10.001"
+    },
+    {
+      "key": "varma2006cvbias",
+      "doi": "10.1186/1471-2105-7-91",
+      "publication_type": "journal-article",
+      "citation": "Varma S, Simon R. Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics. 2006;7(1):91. doi:10.1186/1471-2105-7-91"
+    },
+    {
+      "key": "abdar2021uncertainty",
+      "doi": "10.1016/j.inffus.2021.05.008",
+      "publication_type": "journal-article",
+      "citation": "Abdar M, Pourpanah F, Hussain S, et al. A review of uncertainty quantification in deep learning: Techniques, applications and challenges. Information Fusion. 2021;76:243-297. doi:10.1016/j.inffus.2021.05.008"
+    },
+    {
+      "key": "steyerberg2010performance",
+      "doi": "10.1097/ede.0b013e3181c30fb2",
+      "publication_type": "journal-article",
+      "citation": "Steyerberg EW, Vickers AJ, Cook NR, et al. Assessing the Performance of Prediction Models: A Framework for Traditional and Novel Measures. Epidemiology. 2010;21(1):128-138. doi:10.1097/ede.0b013e3181c30fb2"
+    },
+    {
+      "key": "efron1979bootstrap",
+      "doi": "10.1214/aos/1176344552",
+      "publication_type": "journal-article",
+      "citation": "Efron B. Bootstrap Methods: Another Look at the Jackknife. The Annals of Statistics. 1979;7(1):1-26. doi:10.1214/aos/1176344552"
+    },
+    {
+      "key": "vancalster2023validated",
+      "doi": "10.1186/s12916-023-02779-w",
+      "publication_type": "journal-article",
+      "citation": "Van Calster B, Steyerberg EW, Wynants L, et al. There is no such thing as a validated prediction model. BMC Medicine. 2023;21(1):70. doi:10.1186/s12916-023-02779-w"
+    },
+    {
+      "key": "byrne2023escacs",
+      "doi": "10.1093/eurheartj/ehad191",
+      "publication_type": "journal-article",
+      "citation": "Byrne RA, Rossello X, Coughlan JJ, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. European Heart Journal. 2023;44(38):3720-3826. doi:10.1093/eurheartj/ehad191"
+    },
+    {
+      "key": "virani2023chroniccad",
+      "doi": "10.1161/cir.0000000000001168",
+      "publication_type": "journal-article",
+      "citation": "Virani SS, Newby LK, Arnold SV, et al. 2023 AHA/ACC/ACCP/ASPC/NLA/PCNA Guideline for the Management of Patients With Chronic Coronary Disease: A Report of the American Heart Association/American College of Cardiology Joint Committee on Clinical Practice Guidelines. Circulation. 2023;148(9). doi:10.1161/cir.0000000000001168"
+    },
+    {
+      "key": "lawton2021revasc",
+      "doi": "10.1161/cir.0000000000001038",
+      "publication_type": "journal-article",
+      "citation": "Lawton JS, Tamis-Holland JE, Bangalore S, et al. 2021 ACC/AHA/SCAI Guideline for Coronary Artery Revascularization: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. Circulation. 2022;145(3). doi:10.1161/cir.0000000000001038"
+    },
+    {
+      "key": "powers2019stroke",
+      "doi": "10.1161/str.0000000000000211",
+      "publication_type": "journal-article",
+      "citation": "Powers WJ, Rabinstein AA, Ackerson T, et al. Guidelines for the Early Management of Patients With Acute Ischemic Stroke: 2019 Update to the 2018 Guidelines for the Early Management of Acute Ischemic Stroke: A Guideline for Healthcare Professionals From the American Heart Association/American Stroke Association. Stroke. 2019;50(12). doi:10.1161/str.0000000000000211"
+    },
+    {
+      "key": "antman2000timi",
+      "doi": "10.1001/jama.284.7.835",
+      "publication_type": "journal-article",
+      "citation": "Antman EM, Cohen M, Bernink PJLM, et al. The TIMI Risk Score for Unstable Angina/Non–ST Elevation MI: A Method for Prognostication and Therapeutic Decision Making. JAMA. 2000;284(7):835. doi:10.1001/jama.284.7.835"
+    },
+    {
+      "key": "fox2006grace",
+      "doi": "10.1136/bmj.38985.646481.55",
+      "publication_type": "journal-article",
+      "citation": "Fox KAA, Dabbous OH, Goldberg RJ, et al. Prediction of risk of death and myocardial infarction in the six months after presentation with acute coronary syndrome: prospective multinational observational study (GRACE). BMJ. 2006;333(7578):1091. doi:10.1136/bmj.38985.646481.55"
+    },
+    {
+      "key": "lipp2010chads",
+      "doi": "10.1378/chest.09-1584",
+      "publication_type": "journal-article",
+      "citation": "Lip GYH, Nieuwlaat R, Pisters R, et al. Refining Clinical Risk Stratification for Predicting Stroke and Thromboembolism in Atrial Fibrillation Using a Novel Risk Factor-Based Approach. Chest. 2010;137(2):263-272. doi:10.1378/chest.09-1584"
+    },
+    {
+      "key": "wolff2019probast",
+      "doi": "10.7326/m18-1376",
+      "publication_type": "journal-article",
+      "citation": "Wolff RF, Moons KGM, Riley RD, et al. PROBAST: A Tool to Assess the Risk of Bias and Applicability of Prediction Model Studies. Annals of Internal Medicine. 2019;170(1):51-58. doi:10.7326/m18-1376"
+    }
+  ]
+}

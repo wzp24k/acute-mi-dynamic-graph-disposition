@@ -19,10 +19,28 @@ registry = json.loads(
         encoding="utf-8"
     )
 )
+live = json.loads(
+    (ROOT / "results" / "reference_doi_live_validation.json").read_text(
+        encoding="utf-8"
+    )
+)
 
 reviewer1_checks = {
     "reference_count_40_to_50": 40 <= len(registry) <= 50,
     "all_doi_verified": all(record["verified"] for record in registry),
+    "all_doi_live_crossref_verified": (
+        live["summary"]["verified"] == len(registry)
+        and live["summary"]["not_found"] == 0
+        and live["summary"]["errors"] == 0
+    ),
+    "all_references_journal_articles": (
+        live["summary"]["journal_articles"] == len(registry)
+        and not live["summary"]["non_journal"]
+        and all(
+            record.get("publication_type") == "journal-article"
+            for record in registry
+        )
+    ),
     "citation_numbers_complete": requirements["checks"]["all_references_cited"],
     "citation_first_appearance_ascending": requirements["checks"][
         "citation_first_appearance_order"

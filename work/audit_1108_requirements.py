@@ -13,6 +13,7 @@ from docx.oxml.ns import qn
 ROOT = Path(r"D:\TT paper\1107Invariant Continuous-Time")
 MANUSCRIPT = ROOT / "1108manuscript.docx"
 REGISTRY = ROOT / "results" / "reference_registry_verified.json"
+LIVE_REFERENCE_AUDIT = ROOT / "results" / "reference_doi_live_validation.json"
 R_FIGURES = ROOT / "results" / "figures_r"
 
 document = Document(MANUSCRIPT)
@@ -78,6 +79,12 @@ for match_index, token in enumerate(citation_tokens):
             first_position.setdefault(value, match_index)
 
 registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
+live_references = json.loads(LIVE_REFERENCE_AUDIT.read_text(encoding="utf-8"))
+reference_start = texts.index("7. References")
+reference_entries = [
+    value for value in texts[reference_start + 1:] if re.match(r"^\d+\.", value)
+]
+reference_text = "\n".join(reference_entries)
 figure_parts = [
     relation.target_part
     for relation in document.part.rels.values()
@@ -204,6 +211,29 @@ checks = {
     ) >= 17,
     "forty_five_verified_references": len(registry) == 45
     and all(record["verified"] for record in registry),
+    "all_reference_entries_have_doi": (
+        len(reference_entries) == 45
+        and sum(
+            bool(re.search(r"doi:10\.\S+", value, re.IGNORECASE))
+            for value in reference_entries
+        ) == 45
+    ),
+    "no_preprint_or_conference_references": not bool(
+        re.search(
+            r"\b(arxiv|medrxiv|biorxiv|proceedings|conference|symposium)\b",
+            reference_text,
+            re.IGNORECASE,
+        )
+    ),
+    "all_references_live_crossref_journals": (
+        live_references["summary"]["verified"] == len(registry)
+        and live_references["summary"]["journal_articles"] == len(registry)
+        and not live_references["summary"]["non_journal"]
+        and all(
+            record.get("publication_type") == "journal-article"
+            for record in registry
+        )
+    ),
     "all_references_cited": set(citation_numbers) == set(range(1, 46)),
     "citation_first_appearance_order": sorted(
         first_position,

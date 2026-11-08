@@ -3,6 +3,8 @@
     "checks": {
       "reference_count_40_to_50": true,
       "all_doi_verified": true,
+      "all_doi_live_crossref_verified": true,
+      "all_references_journal_articles": true,
       "citation_numbers_complete": true,
       "citation_first_appearance_ascending": true,
       "no_duplicate_doi": true

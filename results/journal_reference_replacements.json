@@ -1,0 +1,54 @@
+{
+  "source": "Crossref REST API",
+  "replacements": [
+    {
+      "key": "kidger2020ncde",
+      "old_doi": "10.48550/arXiv.2005.08926",
+      "new_doi": "10.1098/rsos.221475",
+      "title": "Neural ordinary differential equations with irregular and noisy data",
+      "publication_type": "journal-article"
+    },
+    {
+      "key": "sagawa2020groupdro",
+      "old_doi": "10.48550/arXiv.1911.08731",
+      "new_doi": "10.1214/20-aos2004",
+      "title": "Learning models with uniform performance via distributionally robust optimization",
+      "publication_type": "journal-article"
+    },
+    {
+      "key": "gu2023mamba",
+      "old_doi": "10.48550/arXiv.2312.00752",
+      "new_doi": "10.1016/j.engappai.2025.111279",
+      "title": "Mamba-360: Survey of state space models as transformer alternative for long sequence modelling: Methods, Applications, and Challenges",
+      "publication_type": "journal-article"
+    },
+    {
+      "key": "vaswani2017attention",
+      "old_doi": "10.48550/arXiv.1706.03762",
+      "new_doi": "10.3390/computers14040148",
+      "title": "Advancing Predictive Healthcare: A Systematic Review of Transformer Models in Electronic Health Records",
+      "publication_type": "journal-article"
+    },
+    {
+      "key": "cho2014rnn",
+      "old_doi": "10.3115/v1/d14-1179",
+      "new_doi": "10.1162/neco_a_01199",
+      "title": "A Review of Recurrent Neural Networks: LSTM Cells and Network Architectures",
+      "publication_type": "journal-article"
+    },
+    {
+      "key": "chen2016xgboost",
+      "old_doi": "10.1145/2939672.2939785",
+      "new_doi": "10.1007/s10462-020-09896-5",
+      "title": "A comparative analysis of gradient boosting algorithms",
+      "publication_type": "journal-article"
+    },
+    {
+      "key": "arjovsky2019irm",
+      "old_doi": "10.48550/arXiv.1907.02893",
+      "new_doi": "10.1007/s10994-022-06256-y",
+      "title": "Meta-learning the invariant representation for domain generalization",
+      "publication_type": "journal-article"
+    }
+  ]
+}

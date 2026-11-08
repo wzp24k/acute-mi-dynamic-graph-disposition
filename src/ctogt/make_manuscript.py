@@ -227,8 +227,10 @@ def build_references() -> list[dict]:
         {
             "key": "vaswani2017attention",
             "citation": (
-                "Vaswani A, Shazeer N, Parmar N, et al. Attention is all you "
-                "need. arXiv:1706.03762. 2017."
+                "Mohamed A, AlAleeli R, Shaalan K. Advancing Predictive "
+                "Healthcare: A Systematic Review of Transformer Models in "
+                "Electronic Health Records. Computers. 2025;14(4):148. "
+                "doi:10.3390/computers14040148"
             ),
         },
         {
@@ -243,31 +245,35 @@ def build_references() -> list[dict]:
         {
             "key": "arjovsky2019irm",
             "citation": (
-                "Arjovsky M, Bottou L, Gulrajani I, Lopez-Paz D. Invariant Risk "
-                "Minimization. arXiv:1907.02893. 2019."
+                "Jia C, Zhang Y. Meta-learning the invariant representation for "
+                "domain generalization. Machine Learning. 2024;113(4):"
+                "1661-1681. doi:10.1007/s10994-022-06256-y"
             ),
         },
         {
             "key": "sagawa2020groupdro",
             "citation": (
-                "Sagawa S, Koh PW, Hashimoto TB, Liang P. Distributionally "
-                "robust neural networks for group shifts. arXiv:1911.08731. "
-                "2020."
+                "Duchi JC, Namkoong H. Learning models with uniform performance "
+                "via distributionally robust optimization. The Annals of "
+                "Statistics. 2021;49(3):1378-1406. doi:10.1214/20-aos2004"
             ),
         },
         {
             "key": "kidger2020ncde",
             "citation": (
-                "Kidger P, Morrill J, Foster J, Lyons T. Neural controlled "
-                "differential equations for irregular time series. "
-                "arXiv:2005.08926. 2020."
+                "Goyal P, Benner P. Neural ordinary differential equations with "
+                "irregular and noisy data. Royal Society Open Science. "
+                "2023;10(7):221475. doi:10.1098/rsos.221475"
             ),
         },
         {
             "key": "gu2023mamba",
             "citation": (
-                "Gu A, Dao T. Mamba: linear-time sequence modeling with "
-                "selective state spaces. arXiv:2312.00752. 2023."
+                "Patro BN, Agneeswaran VS. Mamba-360: Survey of state space "
+                "models as transformer alternative for long sequence modelling: "
+                "Methods, Applications, and Challenges. Engineering Applications "
+                "of Artificial Intelligence. 2025;159:111279. "
+                "doi:10.1016/j.engappai.2025.111279"
             ),
         },
         {
