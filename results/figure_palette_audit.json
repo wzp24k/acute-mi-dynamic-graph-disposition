@@ -2,6 +2,7 @@
   "checks": {
     "no_legacy_orange_palette": true,
     "pure_black_borders": true,
+    "figure1_editable_svg": true,
     "cohort_palette_used": true,
     "figure5d_incremental_value": true,
     "figure8c_invariance": true,

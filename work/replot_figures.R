@@ -50,11 +50,21 @@ theme_pub <- theme_classic(base_family = "serif", base_size = 10) +
     )
   )
 
-save_plot <- function(plot, stem, width = 9.2, height = 7.2) {
+save_plot <- function(plot, stem, width = 9.2, height = 7.2, svg = FALSE) {
   ggsave(file.path(out_dir, paste0(stem, ".png")), plot,
          width = width, height = height, dpi = 320, bg = "white")
   ggsave(file.path(out_dir, paste0(stem, ".pdf")), plot,
          width = width, height = height, bg = "white")
+  if (svg) {
+    ggsave(
+      file.path(out_dir, paste0(stem, ".svg")),
+      plot,
+      width = width,
+      height = height,
+      bg = "white",
+      device = svglite::svglite
+    )
+  }
 }
 
 flow_panel <- function(nodes, edges, xlim, ylim, panel = NULL) {
@@ -190,7 +200,7 @@ figure1 <- local({
       )
     )
 })
-save_plot(figure1, "figure1_overall_roadmap", 10.5, 8.0)
+save_plot(figure1, "figure1_overall_roadmap", 10.5, 8.0, svg = TRUE)
 
 figure2 <- local({
   risk <- read_csv(file.path(data_dir, "cohort_risk_profiles.csv"),

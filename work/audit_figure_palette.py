@@ -48,6 +48,9 @@ def exact_colour_count(image: np.ndarray, colour: tuple[int, int, int]) -> int:
     return int(np.all(image == colour, axis=2).sum())
 
 script = (ROOT / "work" / "replot_figures.R").read_text(encoding="utf-8")
+figure1_svg = (FIGURE_DIR / "figure1_overall_roadmap.svg").read_text(
+    encoding="utf-8"
+)
 document = Document(ROOT / "1108manuscript.docx")
 text = "\n".join(paragraph.text for paragraph in document.paragraphs)
 checks = {
@@ -57,6 +60,12 @@ checks = {
     "pure_black_borders": (
         "#303030" not in script
         and script.count("geom_tile(colour = ink") >= 3
+    ),
+    "figure1_editable_svg": (
+        "<text" in figure1_svg
+        and "<rect" in figure1_svg
+        and "<image" not in figure1_svg
+        and "viewBox=" in figure1_svg
     ),
     "cohort_palette_used": all(
         any(record["palette_pixels"][name] > 0 for record in images.values())
