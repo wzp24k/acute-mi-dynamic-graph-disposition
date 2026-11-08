@@ -32,7 +32,8 @@
       "keywords_five_or_less": true,
       "sentence_length_30_or_less": true,
       "format_requirements": true,
-      "declarations_complete": true
+      "declarations_complete": true,
+      "perspective_audit_pass": true
     },
     "status": "PASS"
   },

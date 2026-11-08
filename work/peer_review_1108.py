@@ -34,6 +34,11 @@ reviewer2_logic = json.loads(
         encoding="utf-8"
     )
 )
+reviewer3_perspective = json.loads(
+    (ROOT / "results" / "reviewer3_perspective_audit.json").read_text(
+        encoding="utf-8"
+    )
+)
 
 reviewer1_checks = {
     "reference_count_40_to_50": 40 <= len(registry) <= 50,
@@ -109,6 +114,7 @@ reviewer3_checks = {
         )
     ),
     "declarations_complete": requirements["checks"]["declarations_complete"],
+    "perspective_audit_pass": reviewer3_perspective["status"] == "PASS",
 }
 
 report = {

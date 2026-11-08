@@ -75,7 +75,7 @@ ABSTRACT = [
     ),
     (
         "Methods: We conducted a retrospective three-database study using MIMIC-IV "
-        "for development, MIMIC-III for temporal transport, and expanded eICU for "
+        "for development, MIMIC-III for same-institution historical transport, and expanded eICU for "
         "multi-hospital transport. Adults alive at ICU hour 24 with at least six "
         "observed organ channels were included. We compared static models, XGBoost "
         "with temporal summaries, Transformers, organ graphs, and an exploratory "
@@ -586,7 +586,12 @@ LIMITATIONS = [
         "some exploratory deep-model analyses and negative controls used a single "
         "seed. Seventh, urine output "
         "was unavailable in eICU. Eighth, the retrospective design cannot establish "
-        "treatment benefit or causal organ interactions."
+        "treatment benefit or causal organ interactions. Secondary and sensitivity "
+        "confidence intervals were not adjusted for multiplicity, so those estimates "
+        "are exploratory. Race indicators contributed to MIMIC-trained models but "
+        "were unavailable in eICU. Fairness across race and ethnicity was not evaluated. "
+        "Site-level performance heterogeneity was not modeled, so average transport "
+        "estimates may mask hospital-specific variation."
     ),
     (
         "Finally, routine-care coding and documentation differ across databases. The "

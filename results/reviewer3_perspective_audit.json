@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "no_direct_deployment_claim": true,
+    "thresholds_are_descriptive": true,
+    "decision_curve_prevalence_scope": true,
+    "attention_not_causal": true,
+    "negative_graph_finding_retained": true,
+    "external_calibration_limitation_retained": true,
+    "holdout_case_mix_disclosed": true,
+    "multiplicity_limitation_disclosed": true,
+    "historical_transport_naming_clear": true,
+    "race_predictor_disclosed": true,
+    "fairness_limitation_disclosed": true,
+    "site_heterogeneity_limitation_disclosed": true,
+    "all_figures_cited_in_order": true,
+    "all_tables_cited_in_order": true,
+    "sentences_30_words_or_less": true,
+    "all_references_have_internal_links": true
+  },
+  "status": "PASS",
+  "max_sentence_words": 30,
+  "figure_first_positions": {
+    "Figure 1": 17193,
+    "Figure 2": 18385,
+    "Figure 3": 18399,
+    "Figure 4": 20003,
+    "Figure 5": 22798,
+    "Figure 6": 25723,
+    "Figure 7": 27190,
+    "Figure 8": 32216,
+    "Figure 9": 33459
+  },
+  "table_first_positions": {
+    "Table 1": 18338,
+    "Table 2": 19991,
+    "Table 3": 22786,
+    "Table 4": 25711,
+    "Table 5A": 27156,
+    "Table 5B": 27166,
+    "Table 6": 29705,
+    "Table 7": 30843,
+    "Table 8": 32204
+  },
+  "bookmark_count": 45,
+  "hyperlink_target_count": 45
+}

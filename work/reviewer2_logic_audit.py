@@ -46,6 +46,10 @@ site_consistency = (
     "166 sites" not in text
     and "covering 160 sites" in text
 )
+historical_transport_naming = (
+    "MIMIC-III for same-institution historical transport" in text
+    and "MIMIC-III temporal transport" not in text
+)
 interval_logic = all(
     value in text
     for value in (
@@ -99,6 +103,17 @@ cautious_interpretation = all(
         "cannot establish treatment benefit or causal organ interactions",
     )
 )
+threshold_scope = all(
+    value in text
+    for value in (
+        "10% and 15% thresholds were descriptive sensitivity values",
+        "not recommended clinical cutoffs",
+        "Decision-curve results are prevalence-dependent",
+    )
+)
+multiplicity_disclosed = (
+    "confidence intervals were not adjusted for multiplicity" in text
+)
 
 figure_positions = {
     f"Figure {index}": text.find(f"Figure {index}") for index in range(1, 10)
@@ -129,6 +144,7 @@ anchors = {
 checks = {
     "cohort_counts_correct": cohort_claim,
     "site_counts_correct": site_consistency,
+    "historical_transport_naming_clear": historical_transport_naming,
     "interval_analysis_defined_clearly": interval_logic,
     "interval_values_consistent": interval_values,
     "figure6_scope_explicit": figure6_scope,
@@ -139,6 +155,8 @@ checks = {
     "component_overlap_explained": overlap_explanation,
     "table_na_values_explained": table_na_explanation,
     "interpretation_remains_cautious": cautious_interpretation,
+    "threshold_scope_explicit": threshold_scope,
+    "multiplicity_limitation_disclosed": multiplicity_disclosed,
     "all_figures_cited_in_order": all(
         position >= 0 for position in figure_positions.values()
     )

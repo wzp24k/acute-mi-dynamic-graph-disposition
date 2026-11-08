@@ -43,7 +43,7 @@ def table_one() -> pd.DataFrame:
     rows = []
     specifications = {
         "mimic4": "MIMIC-IV development",
-        "mimic3": "MIMIC-III temporal transport",
+        "mimic3": "MIMIC-III historical transport",
         "eicu": "eICU principal-CAD sensitivity",
         "eicu_anycad": "eICU expanded CAD transport",
     }
@@ -185,8 +185,8 @@ def table_two(metrics: pd.DataFrame) -> pd.DataFrame:
     table = metrics.copy()
     table["AUROC (95% CI)"] = table.apply(
         lambda row: (
-            f"{row['auroc']:.3f} "
-            f"({row['auroc_low']:.3f}-{row['auroc_high']:.3f})"
+            f"{row['auroc']:.2f} "
+            f"({row['auroc_low']:.2f}-{row['auroc_high']:.2f})"
         ),
         axis=1,
     )
@@ -209,7 +209,7 @@ def table_two(metrics: pd.DataFrame) -> pd.DataFrame:
         }
     )
     for column in ("AUPRC", "Brier", "Calibration slope", "ECE"):
-        output[column] = output[column].map(lambda value: f"{value:.3f}")
+        output[column] = output[column].map(lambda value: f"{value:.2f}")
     output.to_csv(TABLES / "table2_development_performance.csv", index=False)
     (TABLES / "table2_development_performance.md").write_text(
         output.to_markdown(index=False), encoding="utf-8"
@@ -281,15 +281,15 @@ def table_three(external: dict[str, pd.DataFrame]) -> pd.DataFrame:
                 {
                     "Cohort": cohort_labels.get(cohort, cohort),
                     "Model": record["label"],
-                    "AUROC raw": f"{record['auroc_raw']:.3f}",
-                    "AUROC recalibrated": f"{record['auroc_recal']:.3f}",
-                    "AUPRC raw": f"{record['auprc_raw']:.3f}",
-                    "Brier raw": f"{record['brier_raw']:.3f}",
-                    "Brier recalibrated": f"{record['brier_recal']:.3f}",
-                    "Calibration intercept": f"{record['intercept_raw']:.3f}",
-                    "Calibration slope": f"{record['slope_raw']:.3f}",
-                    "ECE raw": f"{record['ece_raw']:.3f}",
-                    "ECE recalibrated": f"{record['ece_recal']:.3f}",
+                    "AUROC raw": f"{record['auroc_raw']:.2f}",
+                    "AUROC recalibrated": f"{record['auroc_recal']:.2f}",
+                    "AUPRC raw": f"{record['auprc_raw']:.2f}",
+                    "Brier raw": f"{record['brier_raw']:.2f}",
+                    "Brier recalibrated": f"{record['brier_recal']:.2f}",
+                    "Calibration intercept": f"{record['intercept_raw']:.2f}",
+                    "Calibration slope": f"{record['slope_raw']:.2f}",
+                    "ECE raw": f"{record['ece_raw']:.2f}",
+                    "ECE recalibrated": f"{record['ece_recal']:.2f}",
                 }
             )
     strong_path = RESULTS / "strong_external_transport.json"
@@ -308,15 +308,15 @@ def table_three(external: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     {
                         "Cohort": label,
                         "Model": "Enhanced organ-dynamics XGBoost",
-                        "AUROC raw": f"{raw['auroc']:.3f}",
-                        "AUROC recalibrated": f"{recal['auroc']:.3f}",
-                        "AUPRC raw": f"{raw['auprc']:.3f}",
-                        "Brier raw": f"{raw['brier']:.3f}",
-                        "Brier recalibrated": f"{recal['brier']:.3f}",
-                        "Calibration intercept": f"{raw['calibration_intercept']:.3f}",
-                        "Calibration slope": f"{raw['calibration_slope']:.3f}",
-                        "ECE raw": f"{raw['ece']:.3f}",
-                        "ECE recalibrated": f"{recal['ece']:.3f}",
+                        "AUROC raw": f"{raw['auroc']:.2f}",
+                        "AUROC recalibrated": f"{recal['auroc']:.2f}",
+                        "AUPRC raw": f"{raw['auprc']:.2f}",
+                        "Brier raw": f"{raw['brier']:.2f}",
+                        "Brier recalibrated": f"{recal['brier']:.2f}",
+                        "Calibration intercept": f"{raw['calibration_intercept']:.2f}",
+                        "Calibration slope": f"{raw['calibration_slope']:.2f}",
+                        "ECE raw": f"{raw['ece']:.2f}",
+                        "ECE recalibrated": f"{recal['ece']:.2f}",
                     }
                 )
             fusion = record.get("locked_75_25_fusion", {})
@@ -325,14 +325,14 @@ def table_three(external: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     {
                         "Cohort": label,
                         "Model": "Locked 75/25 enhanced fusion",
-                        "AUROC raw": f"{fusion['auroc']:.3f}",
+                        "AUROC raw": f"{fusion['auroc']:.2f}",
                         "AUROC recalibrated": "NA",
-                        "AUPRC raw": f"{fusion['auprc']:.3f}",
-                        "Brier raw": f"{fusion['brier']:.3f}",
+                        "AUPRC raw": f"{fusion['auprc']:.2f}",
+                        "Brier raw": f"{fusion['brier']:.2f}",
                         "Brier recalibrated": "NA",
-                        "Calibration intercept": f"{fusion['calibration_intercept']:.3f}",
-                        "Calibration slope": f"{fusion['calibration_slope']:.3f}",
-                        "ECE raw": f"{fusion['ece']:.3f}",
+                        "Calibration intercept": f"{fusion['calibration_intercept']:.2f}",
+                        "Calibration slope": f"{fusion['calibration_slope']:.2f}",
+                        "ECE raw": f"{fusion['ece']:.2f}",
                         "ECE recalibrated": "NA",
                     }
                 )
@@ -381,12 +381,12 @@ def table_four_interval() -> pd.DataFrame:
                     "Interval endpoint": outcome_label,
                     "Events": retrained.get("events", ""),
                     "Retrained XGB+TS AUROC": (
-                        f"{retrained['auroc']:.3f}"
+                        f"{retrained['auroc']:.2f}"
                         if "auroc" in retrained
                         else "NA"
                     ),
                     "Existing temporal ensemble AUROC": (
-                        f"{fixed_result['auroc']:.3f}"
+                        f"{fixed_result['auroc']:.2f}"
                         if "auroc" in fixed_result
                         else "NA"
                     ),
@@ -412,12 +412,12 @@ def table_five_validation() -> pd.DataFrame:
                     f"2020-2022; n={holdout['split']['test_n']:,}; "
                     f"events={holdout['split']['test_events']:,}"
                 ),
-                "XGB+TS AUROC": f"{holdout['models']['xgb_static_ts']['metrics']['auroc']:.3f}",
-                "Temporal ensemble AUROC": f"{holdout['models']['temporal_ensemble']['metrics']['auroc']:.3f}",
+                "XGB+TS AUROC": f"{holdout['models']['xgb_static_ts']['metrics']['auroc']:.2f}",
+                "Temporal ensemble AUROC": f"{holdout['models']['temporal_ensemble']['metrics']['auroc']:.2f}",
                 "Difference (95% CI)": (
-                    f"{holdout['ensemble_minus_xgb_static_ts']['estimate']:.3f} "
-                    f"({holdout['ensemble_minus_xgb_static_ts']['ci'][0]:.3f} to "
-                    f"{holdout['ensemble_minus_xgb_static_ts']['ci'][1]:.3f})"
+                    f"{holdout['ensemble_minus_xgb_static_ts']['estimate']:.2f} "
+                    f"({holdout['ensemble_minus_xgb_static_ts']['ci'][0]:.2f} to "
+                    f"{holdout['ensemble_minus_xgb_static_ts']['ci'][1]:.2f})"
                 ),
                 "0.01 threshold met": (
                     "Yes"
@@ -435,11 +435,11 @@ def table_five_validation() -> pd.DataFrame:
             {
                 "Validation": "Nested model selection",
                 "Test set": "Five-fold outer CV with inner 3-fold XGB tuning",
-                "XGB+TS AUROC": f"{nested['development']['standard_xgb_ts']['metrics']['auroc']:.3f}",
-                "Temporal ensemble AUROC": f"{nested['development']['nested_temporal_ensemble']['metrics']['auroc']:.3f}",
+                "XGB+TS AUROC": f"{nested['development']['standard_xgb_ts']['metrics']['auroc']:.2f}",
+                "Temporal ensemble AUROC": f"{nested['development']['nested_temporal_ensemble']['metrics']['auroc']:.2f}",
                 "Difference (95% CI)": (
-                    f"{contrast['estimate']:.4f} "
-                    f"({contrast['ci'][0]:.4f} to {contrast['ci'][1]:.4f})"
+                    f"{contrast['estimate']:.2f} "
+                    f"({contrast['ci'][0]:.2f} to {contrast['ci'][1]:.2f})"
                 ),
                 "0.01 threshold met": (
                     "Yes"
@@ -460,11 +460,11 @@ def table_five_validation() -> pd.DataFrame:
                     "Select on 2017-2019; test 2020-2022; "
                     f"n={final['n']:,}; events={final['events']:,}"
                 ),
-                "XGB+TS AUROC": f"{final['baseline_xgb']['auroc']:.3f}",
-                "Temporal ensemble AUROC": f"{final['locked_fusion']['auroc']:.3f}",
+                "XGB+TS AUROC": f"{final['baseline_xgb']['auroc']:.2f}",
+                "Temporal ensemble AUROC": f"{final['locked_fusion']['auroc']:.2f}",
                 "Difference (95% CI)": (
-                    f"{contrast['difference']:.4f} "
-                    f"({contrast['ci'][0]:.4f} to {contrast['ci'][1]:.4f})"
+                    f"{contrast['difference']:.2f} "
+                    f"({contrast['ci'][0]:.2f} to {contrast['ci'][1]:.2f})"
                 ),
                 "0.01 threshold met": (
                     "Yes"
@@ -490,14 +490,14 @@ def table_five_validation() -> pd.DataFrame:
                     "2 Transformer candidates"
                 ),
                 "XGB+TS AUROC": (
-                    f"{nested['development']['standard_xgb_ts']['metrics']['auroc']:.3f}"
+                    f"{nested['development']['standard_xgb_ts']['metrics']['auroc']:.2f}"
                 ),
                 "Temporal ensemble AUROC": (
-                    f"{nested_transformer['development']['joint_nested_temporal_ensemble']['metrics']['auroc']:.3f}"
+                    f"{nested_transformer['development']['joint_nested_temporal_ensemble']['metrics']['auroc']:.2f}"
                 ),
                 "Difference (95% CI)": (
-                    f"{contrast['estimate']:.4f} "
-                    f"({contrast['ci'][0]:.4f} to {contrast['ci'][1]:.4f})"
+                    f"{contrast['estimate']:.2f} "
+                    f"({contrast['ci'][0]:.2f} to {contrast['ci'][1]:.2f})"
                 ),
                 "0.01 threshold met": (
                     "Yes"
@@ -590,18 +590,18 @@ def table_seven_clinical_utility() -> pd.DataFrame:
                         "Cohort": cohort_labels[cohort],
                         "Model": model_label,
                         "Probability": state,
-                        "AUROC": f"{point['auroc']:.3f}",
+                        "AUROC": f"{point['auroc']:.2f}",
                         "Brier (95% CI)": (
-                            f"{point['brier']:.3f} "
-                            f"({brier_ci[0]:.3f}-{brier_ci[1]:.3f})"
+                            f"{point['brier']:.2f} "
+                            f"({brier_ci[0]:.2f}-{brier_ci[1]:.2f})"
                         ),
-                        "Calibration slope": f"{point['calibration_slope']:.3f}",
-                        "Calibration intercept": f"{point['calibration_intercept']:.3f}",
-                        "ECE": f"{point['ece']:.3f}",
-                        "Sensitivity @10%": f"{operating['sensitivity']:.3f}",
-                        "Specificity @10%": f"{operating['specificity']:.3f}",
-                        "PPV @10%": f"{operating['ppv']:.3f}",
-                        "NPV @10%": f"{operating['npv']:.3f}",
+                        "Calibration slope": f"{point['calibration_slope']:.2f}",
+                        "Calibration intercept": f"{point['calibration_intercept']:.2f}",
+                        "ECE": f"{point['ece']:.2f}",
+                        "Sensitivity @10%": f"{operating['sensitivity']:.2f}",
+                        "Specificity @10%": f"{operating['specificity']:.2f}",
+                        "PPV @10%": f"{operating['ppv']:.2f}",
+                        "NPV @10%": f"{operating['npv']:.2f}",
                     }
                 )
     table = pd.DataFrame(rows)
@@ -637,10 +637,10 @@ def table_eight_interval_sensitivity() -> pd.DataFrame:
                         "Fully confirmed": record["confirmed_events"],
                         "Anchor-overlap": record["anchor_overlap_events"],
                         "XGB+TS AUROC": (
-                            f"{xgb['auroc']:.3f}" if "auroc" in xgb else "NA"
+                            f"{xgb['auroc']:.2f}" if "auroc" in xgb else "NA"
                         ),
                         "Temporal ensemble AUROC": (
-                            f"{ensemble['auroc']:.3f}"
+                            f"{ensemble['auroc']:.2f}"
                             if "auroc" in ensemble
                             else "NA"
                         ),
@@ -712,7 +712,7 @@ def figure_one() -> None:
         2.3,
         1.45,
         "MIMIC-III",
-        "Same-institution\ntemporal transport\nn = 3,470",
+        "Same-institution\nhistorical transport\nn = 3,470",
         COLORS["teal"],
     )
     box(

@@ -241,7 +241,7 @@ def table1(document: Document) -> None:
         [
             "Characteristic",
             "MIMIC-IV development",
-            "MIMIC-III temporal transport",
+            "MIMIC-III historical transport",
             "eICU expanded CAD transport",
         ],
     )

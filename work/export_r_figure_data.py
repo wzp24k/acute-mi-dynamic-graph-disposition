@@ -349,7 +349,7 @@ def main() -> None:
     }
     cohort_columns = {
         "MIMIC-IV": "MIMIC-IV development",
-        "MIMIC-III": "MIMIC-III temporal transport",
+        "MIMIC-III": "MIMIC-III historical transport",
         "eICU expanded": "eICU expanded CAD transport",
     }
     for source_label, label in risk_variables.items():

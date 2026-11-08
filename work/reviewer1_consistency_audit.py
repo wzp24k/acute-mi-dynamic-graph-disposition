@@ -44,6 +44,7 @@ stale_phrases = [
     "10.90%",
     "166 sites",
     "0.0098",
+    "MIMIC-III temporal transport",
     "AUROC 0.80 for the MIMIC-IV anchor-overlap endpoint",
     "contained 76 events and yielded AUROC 0.76",
     "strongly tentatively supported",
