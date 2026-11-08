@@ -9,6 +9,7 @@
     "abstract_four_labels": true,
     "keywords_at_most_five": true,
     "sentence_length_under_31": true,
+    "all_nonreference_sentences_30_or_less": true,
     "two_decimal_body_values": true,
     "no_collapse_triangles": true,
     "nine_r_figures": true,
@@ -32,6 +33,7 @@
   "abstract_words": 200,
   "keywords": 5,
   "max_sentence_words": 30,
+  "max_nonreference_sentence_words": 30,
   "remaining_three_decimal_values": [],
   "embedded_figures": [
     "figure1_overall_roadmap.png",

@@ -81,6 +81,17 @@ for match_index, token in enumerate(citation_tokens):
 registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
 live_references = json.loads(LIVE_REFERENCE_AUDIT.read_text(encoding="utf-8"))
 reference_start = texts.index("7. References")
+nonreference_sentences = []
+for value in texts[:reference_start]:
+    nonreference_sentences.extend(
+        item.strip()
+        for item in re.split(r"(?<=[.!?])\s+(?=[A-Z0-9])", value)
+        if item.strip()
+    )
+max_nonreference_sentence_words = max(
+    (len(sentence.split()) for sentence in nonreference_sentences),
+    default=0,
+)
 reference_entries = [
     value for value in texts[reference_start + 1:] if re.match(r"^\d+\.", value)
 ]
@@ -212,6 +223,9 @@ checks = {
         (len(sentence.split()) for sentence in sentences),
         default=0,
     ) <= 30,
+    "all_nonreference_sentences_30_or_less": (
+        max_nonreference_sentence_words <= 30
+    ),
     "two_decimal_body_values": len(decimal_values) == 0,
     "no_collapse_triangles": not any(
         symbol in text for symbol in ("▶", "▼", "▷", "►", "◆")
@@ -286,6 +300,7 @@ report = {
         (len(sentence.split()) for sentence in sentences),
         default=0,
     ),
+    "max_nonreference_sentence_words": max_nonreference_sentence_words,
     "remaining_three_decimal_values": decimal_values,
     "embedded_figures": embedded_names,
     "table_count": len(document.tables),
